@@ -1,0 +1,392 @@
+﻿
+@model TRIZMA.Models.agentsDb
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UHS: SYSADM: Users</title>
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/build/css/custom.min.css" rel="stylesheet">
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @Html.Action("_upperLeftHeader", "formsCRUD")
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        @Html.Action("_upperProfile", "formsCRUD")
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                @Html.Action("_sidebarDropDownMenu", "formsCRUD")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @Html.Action("_sidebarFooter", "formsCRUD")
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    @Html.Action("_upperBaseMenu", "formsCRUD")
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
+
+                            @*<div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>TRIZMA: SYSADM: Clients</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>*@
+
+
+                            @*<div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.Action("_tableIndexPieGraph1CocaCola2", "formsCRUD")
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.Action("_tableIndexPieArea1CocaCola2", "formsCRUD")
+                                </div>*@
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>UHS: SYSADM: Create New User</h2>
+
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ID, "DB ID:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.docID101, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.userType, "User Type:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.userType, ViewBag.userTypeDb101 as IEnumerable<SelectListItem>, new { style = "padding-left:10px; padding-right:10px; height: 40px; min-width: 240px; max-width: 36px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                        @*@Html.ValidationMessageFor(model => model.userType, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.agentID, "User ID:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.agentID, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.agentID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.agentDescription, "User Description:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.agentDescription, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.agentDescription, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.agentName, "User Name:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.agentName, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.agentName, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.UserName, "Email:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.passwordstring, "Password:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.passwordstring, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.orgStrL1ID, "Company (Level 1):", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.orgStrL1ID, ViewBag.stL1200 as IEnumerable<SelectListItem>, new { id = "level1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl2()" })
+                                                        @*@Html.ValidationMessageFor(model => model.orgStrL1ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.orgStrL2ID, "Department (Level 2):", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.orgStrL2ID, ViewBag.stL2200 as IEnumerable<SelectListItem>, new { id = "level2", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl3()" })
+                                                        @*@Html.ValidationMessageFor(model => model.orgStrL2ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.orgStrL3ID, "Job Class (Level 3):", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.orgStrL3ID, ViewBag.stL3200 as IEnumerable<SelectListItem>, new { id = "level3", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                        @*@Html.ValidationMessageFor(model => model.orgStrL3ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.orgStrSubGrID, "Sub Group:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.orgStrSubGrID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "orgStrSubGr"), new { id = "subGr1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                        @*@Html.ValidationMessageFor(model => model.orgStrL1ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.regid, "Region:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.regid, ViewBag.region1 as IEnumerable<SelectListItem>, new { id = "region1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "filldiv()" })
+                                                        @*@Html.ValidationMessageFor(model => model.regid, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function filldiv() {
+                                                        var It0 = $('#region1').val();
+                                                        $.ajax({
+                                                            url: '/agents/getdddiv',
+                                                            type: "GET",
+                                                            dataType: "JSON",
+                                                            data: { ID: It0 },
+                                                            success: function (populate) {
+                                                                $("#division1").html(""); // clear before appending new list
+                                                                $("#district1").html(""); // clear before appending new list
+                                                                $("#account1").html(""); // clear before appending new list
+                                                                $.each(populate, function (ID, datatable) {
+                                                                    $("#division1").append(
+                                                                        $('<option></option>').val(datatable.ID).html(datatable.DivisionName));
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+                                                <div class="form-group">
+                                                    @Html.Label("Division:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("Division", ViewBag.division1 as IEnumerable<SelectListItem>, new { id = "division1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "filldist()" })
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function filldist() {
+                                                        var It1 = $('#division1').val();
+                                                        $.ajax({
+                                                            url: '/agents/getdddist',
+                                                            type: "GET",
+                                                            dataType: "JSON",
+                                                            data: { ID: It1 },
+                                                            success: function (populate) {
+                                                                $("#district1").html(""); // clear before appending new list
+                                                                $("#account1").html(""); // clear before appending new list
+                                                                $.each(populate, function (ID, datatable) {
+                                                                    $("#district1").append(
+                                                                        $('<option></option>').val(datatable.ID).html(datatable.district));
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+
+                                                <div class="form-group">
+                                                    @Html.Label("District:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("District", ViewBag.district1 as IEnumerable<SelectListItem>, new { id = "district1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "fillacct()" })
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function fillacct() {
+                                                        var It0 = $('#district1').val();
+                                                        $.ajax({
+                                                            url: '/agents/getddacct',
+                                                            type: "GET",
+                                                            dataType: "JSON",
+                                                            data: { ID: It0 },
+                                                            success: function (populate) {
+                                                                $("#account1").html(""); // clear before appending new list
+                                                                $.each(populate, function (ID, datatable) {
+                                                                    //console.log(datatable);
+                                                                    $("#account1").append(
+                                                                        $('<option></option>').val(datatable.ID).html(datatable.CSTNM));
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+                                                <div class="form-group">
+                                                    @Html.Label("Account:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("Account", ViewBag.account1 as IEnumerable<SelectListItem>, new { id = "account1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.Label("A360:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(model => model.a360, false)
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.Label("B360:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(model => model.b360, false)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.titlid, "Title:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.titlid, ViewBag.titule1 as IEnumerable<SelectListItem>, new { style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 320px; max-width: 320px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                        @*@Html.ValidationMessageFor(model => model.titlid, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.createdDT, "Date created:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.createdDT, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.currentTimeDate101, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.createdDT, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.editedDT, "Date modified:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.editedDT, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.currentTimeDate101, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.editedDT, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+
+                                                @Html.HiddenFor(model => model.userID)
+                                                @Html.HiddenFor(model => model.taskOrderID, new { Value = 1 })
+                                                @Html.HiddenFor(model => model.createdByUserID, new { Value = ViewBag.currentUserLoginID101 })
+
+                                                <br />
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <button type="submit" class="btn btn-default" style="min-width:100px; min-height:36px">Create</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                        <br />
+                                        <br />
+                                        <div>
+                                            | @Html.ActionLink("Back to List", "Index", new { projectID = 6, taskOrderID = 33, Int1 = 1 })
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /page content -->
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Powered by <a href="https://www.trizma.com"><img src="~/images/logoSmall.png"></a>
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- ECharts -->
+    <script src="~/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="~/vendors/echarts/map/js/world.js"></script>
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/build/js/custom.min.js"></script>
+
+</body>
+</html>

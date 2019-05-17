@@ -1,0 +1,202 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="col-md-10 col-sm-10 col-xs-12" style="float:left">
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>CCH Order Details</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal form-label-left input_mask" style="width:100%">
+
+
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model => model.ID, new { Value = ViewBag.docID })
+                    @Html.HiddenFor(model => model.projectID, new { Value = ViewBag.Item401 })
+                    @Html.HiddenFor(model => model.taskOrderID, new { Value = ViewBag.Item402 })
+                    @Html.HiddenFor(model => model.orderDate, new { Value = ViewBag.currDate })
+                    @Html.HiddenFor(model => model.orderTime, new { Value = ViewBag.currTime })
+                    @Html.HiddenFor(model => model.agentID, new { Value = ViewBag.agid201 })
+                    @Html.HiddenFor(model => model.editedDT, new { Value = ViewBag.currDT })
+                    @Html.HiddenFor(model => model.createdByUserID, new { Value = @ViewBag.CurrentLogin })
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.callDirID, "Direction:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.callDirID, ViewBag.cldr200 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int02, @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @*@Html.ValidationMessageFor(model => model.callDirID, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.callClassID, "Call Class:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.callClassID, ViewBag.clcs200 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int03, @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @*@Html.ValidationMessageFor(model => model.callDirID, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+
+                    @Html.HiddenFor(model => model.cchCodeID, new { Value = ViewBag.Item400 })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.distribID, "Distributor:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.distribID, ViewBag.dist200 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int04, @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @*@Html.ValidationMessageFor(model => model.distribID, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.dlYear, "D.Date:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.dlYear, ViewBag.dtyear210 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int05, @style = "padding-left:10px; padding-right:10px; height: 40px; max-width: 280px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @Html.DropDownListFor(model => model.dlMonth, ViewBag.dtmonth210 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int06, @style = "padding-left:10px; padding-right:10px; height: 40px; max-width: 280px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @Html.DropDownListFor(model => model.dlDay, ViewBag.dtday210 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int07, @style = "padding-left:10px; padding-right:10px; height: 40px; max-width: 280px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.dlHour, "D.Time:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.dlHour, ViewBag.dthour210 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int08, @style = "padding-left:10px; padding-right:10px; height: 40px; max-width: 280px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                            @Html.DropDownListFor(model => model.dlMin, ViewBag.dtmin210 as IEnumerable<SelectListItem>, new { @value = ViewBag.Int09, @style = "padding-left:10px; padding-right:10px; height: 40px; max-width: 280px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.Label("Type:", new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("ID", ViewBag.prpt200 as IEnumerable<SelectListItem>, new { @id = "prodType", @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl11()" })
+                        </div>
+                    </div>
+
+                    <script>
+                        function FillDdl11() {
+                            var ItemID = $('#prodType').val();
+                            $.ajax({
+                                url: '/ddlPopulate/FillDdl11',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { ID: ItemID },
+                                success: function (populate) {
+                                    $("#prodBrand").html(""); // clear before appending new list
+                                    $("#product").html(""); // clear before appending new list
+                                    $.each(populate, function (ID, datatable) {
+                                        $("#prodBrand").append(
+                                            $('<option></option>').val(datatable.ID).html(datatable.Value));
+                                    });
+                                }
+                            });
+                        }
+                    </script>
+
+                    <div class="form-group">
+                        @Html.Label("Brand:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Brand", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Value"), new { @id = "prodBrand", @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl12()" })
+                        </div>
+                    </div>
+
+                    <script>
+                        function FillDdl12() {
+                            var ItemID = $('#prodBrand').val();
+                            $.ajax({
+                                url: '/ddlPopulate/FillDdl12',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { ID: ItemID },
+                                success: function (populate) {
+                                    $("#product").html(""); // clear before appending new list
+                                    $.each(populate, function (ID, datatable) {
+                                        $("#product").append(
+                                            $('<option></option>').val(datatable.ID).html(datatable.Value));
+                                    });
+                                }
+                            });
+                        }
+                    </script>
+
+                    <div class="form-group">
+                        @Html.Label("Product:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Product", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Value"), new { @id = "product", @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 440px; max-width: 440px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.productCode, "(Manual):", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.productCode, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin; background-color: ghostwhite;" } })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.productQty, "Quantity:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.productQty, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.comment, "Comment:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.comment, 6, 33, null)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.createdDT, "Created:", htmlAttributes: new { @class = "control-label col-md-2", @style = "font-size:smaller" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.createdDT, new { htmlAttributes = new { @class = "form-control", @value = @ViewBag.currDT, @style = "padding-left:10px; padding-right:10px; height: 34px; min-width: 220px; max-width: 220px; border-color: lightgray; border-style:solid; border-width:thin;", @readonly = "readonly" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            <input type="button" value="Insert" class="btn btn-primary" style="min-width:100px" @*onclick="location.href='@Url.Action("CreateCocaCola2Post","formsCRUD", new { projectID = ViewBag.projectID, taskOrderID = ViewBag.taskOrderID, Int1 = Model.cchCodeID, Int2 = Model.callDirID, Int3 = Model.callClassID, Int4 = Model.distribID, Int5 = Model.dlYear, Int6 = Model.dlMonth, Int7 = Model.dlDay, Int8 = Model.dlHour, Int9 = Model.dlMin, Str1 = Model.createdDT, Str2 = Model.orderDate, Str3 = Model.orderTime, Str4 = Model.comment })'"*@ />
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            @Html.Action("_createCocaColaAgentInfo", "formsCRUD", new { Int1 = ViewBag.Item400, projectID = ViewBag.Item401, taskOrderID = ViewBag.Item402 })
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            @Html.Action("_createCocaColaCustInfo", "formsCRUD", new { Int1 = ViewBag.Item400 })
+        </div>
+    </div>
+</div>

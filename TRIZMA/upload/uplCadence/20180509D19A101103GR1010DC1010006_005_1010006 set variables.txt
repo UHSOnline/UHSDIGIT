@@ -1,0 +1,99 @@
+
+1010006/1
+
+      var smid111 = sm1010006111
+      var cmdt111 = cm1010006111
+      var verf111 = vr1010006111
+      var smid112 = sm1010006112
+      var cmdt112 = cm1010006112
+      var verf112 = vr1010006112
+      var smid113 = sm1010006113
+      var cmdt113 = cm1010006113
+      var verf113 = vr1010006113
+      var smid114 = sm1010006114
+      var cmdt114 = cm1010006114
+      var verf114 = vr1010006114
+      var smid115 = sm1010006115
+      var cmdt115 = cm1010006115
+      var verf115 = vr1010006115
+      var smid116 = sm1010006116
+      var cmdt116 = cm1010006116
+      var verf116 = vr1010006116
+      var smid117 = sm1010006117
+      var cmdt117 = cm1010006117
+      var verf117 = vr1010006117
+      var smid118 = sm1010006118
+      var cmdt118 = cm1010006118
+      var verf118 = vr1010006118
+      var smid119 = sm1010006119
+      var cmdt119 = cm1010006119
+      var verf119 = vr1010006119
+      var smid120 = 0
+      var cmdt120 = null
+      var verf120 = 0
+      var smid121 = 0
+      var cmdt121 = null
+      var verf121 = 0
+      var smid122 = 0
+      var cmdt122 = null
+      var verf122 = 0
+      var smid123 = 0
+      var cmdt123 = null
+      var verf123 = 0
+      var smid124 = 0
+      var cmdt124 = null
+      var verf124 = 0
+      var smid125 = 0
+      var cmdt125 = null
+      var verf125 = 0
+      var note01 = txt1010006111
+      var note02 = txt1010006112
+      var note03 = txt1010006113
+      var note04 = txt1010006114
+      var note05 = txt1010006115
+      var note06 = txt1010006116
+      var note07 = txt1010006117
+      var note08 = txt1010006118
+      var note09 = txt1010006119
+      var note10 = txt1010006120
+      var note11 = txt1010006121
+      var note12 = null
+      var note13 = null
+      var note14 = null
+      var note15 = null
+      var task01 = ts1010006117
+      var task02 = ts1010006118
+      var task03 = ts1010006119
+      var task04 = null
+      var task05 = null
+      var acit01 = ac1010006117
+      var acit02 = ac1010006118
+      var acit03 = ac1010006119
+      var acit04 = null
+      var acit05 = null
+      var tool01 = tl1010006117
+      var tool02 = tl1010006118
+      var tool03 = tl1010006119
+      var tool04 = null
+      var tool05 = null
+      var docn01 = dc1010006117
+      var docn02 = dc1010006118
+      var docn03 = dc1010006119
+      var docn04 = null
+      var docn05 = null
+      var prfx01 = 0
+      var prfx02 = 0
+      var prfx03 = 0
+      var prfx04 = 0
+      var prfx05 = 0
+      var rate01 = 0
+      var rate02 = 0
+      var rate03 = 0
+      var rate04 = 0
+      var rate05 = 0
+
+
+
+
+
+     

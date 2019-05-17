@@ -1,0 +1,108 @@
+﻿<header id="header">
+    <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div>
+                    <a class="navbar-brand" href="http://www.agilitihealth.com" target="_blank"><img src="~/images/logo-header60.png" alt="logo"></a>
+                </div>
+                
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right">
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul class="nav navbar-nav">
+                        @Html.Partial("_mainDetailNavBar")
+                    </ul>
+                }
+            </div>
+        </div><!--/.container-->
+    </nav><!--/nav-->
+</header><!--/header-->
+<section id="main-slider">
+    <div class="owl-carousel">
+
+        <div class="item" style="background-image: url(/images/slider/slider7.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span class="itcae">DISTRICT</span><span class="itcam"> Assessment Control System</span></h2>
+                                <p>Access and modify data with District Assessment Tool.<br>Schedule and control your assessment procedures to reach standards defined.<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+    
+        <div class="item" style="background-image: url(/images/slider/slider9.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span class="itcaf">CUSTOMER</span><span class="itcam"> Experience Representative </span><span class="itcak"> CER </span><span class="itcam"> System</span></h2>
+                                <p class="itcar">Ultimate set of procedures for customer assessment and relationship.<br> Bring your CER to the front line when handling a customer.<br>Live visual data in structured display form available to CER.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+
+        <div class="item" style="background-image: url(/images/slider/slider8.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span class="itcae">Equipment</span><span class="itcam"> Inventory Information System</span></h2>
+                                <p class="itcar"> Quick access to Inventory data.<br>Info tool with complete knowledge of inventory figures.<br>Organize and assist equipment requests, alert & reservation tool.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+
+        <div class="item" style="background-image: url(/images/slider/slider10.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2><span class="itcaf">Visual </span><span class="itcac"> Work Place</span><span class="itcak"> STANDARDS </span><span class="itcaf"> VWP</span></h2>
+                                <p class="itcar">Visual work place standards that need to be followed to organize a district. District leadership is expected to continually improve the work place to reach the standards specified on this document. These standards apply to all UHS districts. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+
+        <div class="item" style="background-image: url(/images/slider/slider11.jpg);">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2 class="itcam">Access Live Visual Data <span class="itcak">REPORTING</span> Services</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.item-->
+
+    </div><!--/.owl-carousel-->
+</section><!--/#main-slider-->

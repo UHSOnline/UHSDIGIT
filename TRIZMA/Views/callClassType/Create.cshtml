@@ -1,0 +1,261 @@
+﻿
+@model TRIZMA.Models.callClassTypeDb
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TRIZMA: SYSADM: Call Class</title>
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/build/css/custom.min.css" rel="stylesheet">
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @Html.Action("_upperLeftHeader", "formsCRUD")
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        @Html.Action("_upperProfile", "formsCRUD")
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                @Html.Action("_sidebarDropDownMenu", "formsCRUD")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @Html.Action("_sidebarFooter", "formsCRUD")
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    @Html.Action("_upperBaseMenu", "formsCRUD")
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
+                            @*<div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>TRIZMA: SYSADM: Clients</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*<div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.Action("_tableIndexPieGraph1CocaCola2", "formsCRUD")
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    @Html.Action("_tableIndexPieArea1CocaCola2", "formsCRUD")
+                                </div>*@
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>TRIZMA: SYSADM: Create Call Class</h2>
+
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        @using (Html.BeginForm())
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <div class="form-horizontal">                               
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.ID, "ID:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.docID, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.clientID, "Client:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.clientID, ViewBag.clientsDb as IEnumerable<SelectListItem>, new { style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl5()" })
+                                                        @*@Html.ValidationMessageFor(model => model.clientID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <script>
+            function FillDdl5() {
+                var clientID = $('#clientID').val();
+                $.ajax({
+                    url: '/ddlPopulate/FillDdl5',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: clientID },
+                    success: function (populate) {
+                        $("#projectID").html(""); // clear before appending new list
+                        $("#taskOrderID").html(""); // clear before appending new list
+                        $.each(populate, function (ID, datatable) {
+                            $("#projectID").append(
+                                $('<option></option>').val(datatable.ID).html(datatable.Value));
+                        });
+                    }
+                });
+            }
+                                                </script>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.projectID, "Project:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.projectID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Value"), new { style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl6()" })
+                                                        @*@Html.ValidationMessageFor(model => model.projectID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <script>
+            function FillDdl6() {
+                var projectID = $('#projectID').val();
+                $.ajax({
+                    url: '/ddlPopulate/FillDdl6',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: projectID },
+                    success: function (populate) {
+                        $("#taskOrderID").html(""); // clear before appending new list
+                        $.each(populate, function (ID, datatable) {
+                            $("#taskOrderID").append(
+                                $('<option></option>').val(datatable.ID).html(datatable.Value));
+                        });
+                    }
+                });
+            }
+                                                </script>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.taskOrderID, "Task Order:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.taskOrderID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Value"), new { style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                        @*@Html.ValidationMessageFor(model => model.taskOrderID, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.callClassDesc, "Class Description:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.callClassDesc, new { htmlAttributes = new { @class = "form-control", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.callClassDesc, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.createdDT, "Date created:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.createdDT, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.currentTimeDate, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.createdDT, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.editedDT, "Date modified:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.editedDT, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.currentTimeDate, @readonly = "readonly", @style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 240px; max-width: 240px; border-color: lightgray; border-style:solid; border-width:thin;" } })
+                                                        @*@Html.ValidationMessageFor(model => model.editedDT, "", new { @class = "text-danger" })*@
+                                                    </div>
+                                                </div>
+                                                @Html.HiddenFor(model => model.createdByUserID, new { Value = ViewBag.currentUserLoginID })
+                                                <br />
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <button type="submit" class="btn btn-default" style="min-width:100px; min-height:36px">Create</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <br />
+                                        <br />
+                                        <div>
+                                            | @Html.ActionLink("Back to List", "Index", new { projectID = 6, taskOrderID = 30, Int1 = 1 })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /page content -->
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Data Operations by <a href="https://www.trizma.com"><img src="~/images/logoSmall.png"></a>
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- ECharts -->
+    <script src="~/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="~/vendors/echarts/map/js/world.js"></script>
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/build/js/custom.min.js"></script>
+
+</body>
+</html>

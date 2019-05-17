@@ -1,0 +1,9 @@
+﻿@model List<TRIZMA.Models.UHSWEBUSRCONDb>
+@foreach (var item in Model)
+{
+    <a data-toggle="collapse" href="#@item.division"><span style="padding-left:1em"> @item.division</span></a>
+    <div id="@item.division" class="panel-collapse collapse" style="padding-left:4em">
+        @Html.Action("_getdistA360", "uhsusercontrol", new { ID = item.divid })
+        <br />
+    </div>
+}

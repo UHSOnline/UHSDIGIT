@@ -1,0 +1,1141 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BioMed360 Cadence</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            /*padding-top: 10px;*/ /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%;
+        }
+
+        .modalb {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 110px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modalb-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        /* The Close Button */
+        .closeb {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .closeb:hover,
+            .closeb:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .closec {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .closec:hover,
+            .closec:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .closed {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .closed:hover,
+            .closed:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .close05d {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close05d:hover,
+            .close05d:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .close05w {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close05w:hover,
+            .close05w:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .docidstore {
+            display: none;
+        }
+
+        .thStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: white;
+            min-width: 30px;
+        }
+
+        .thStyle2 {
+            font-size: x-small;
+            color: white;
+        }
+
+        .thStyle3 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .thStyle4 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: lightblue;
+        }
+
+
+
+        .tdStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: dodgerblue;
+            background-color: #F5F5F5;
+            min-width: 30px;
+        }
+
+        .tdStyle2 {
+            font-size: smaller;
+        }
+
+        .tdStyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle4 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .tdStyle5 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle6 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+
+
+        .tfstyle1 {
+            font-size: smaller;
+            text-align: center;
+            /*background-color:darkgray;*/
+            color: white;
+            min-width: 30px;
+        }
+
+        .tfstyle2 {
+            font-size: x-small;
+            text-align: right;
+            color: dodgerblue;
+        }
+
+        .tfstyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle4 {
+            color: white;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle5 {
+            background-color: yellow;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+        .tab {
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: lightcoral;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: lightblue;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            border-top: none;
+        }
+
+        .itcad {
+            background-color: lightblue !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: lightblue !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
+
+        .ithae {
+            font-size: smaller;
+            text-align: center;
+            color: #367EAD;
+            border-bottom: solid;
+            border-bottom-width: thin;
+            border-bottom-color: lightgray;
+        }
+
+        .itmapdiv {
+            background-color: white !important;
+        }
+
+        input[type='checkbox'] {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 2px;
+            border: 1px solid #555;
+        }
+
+            input[type='checkbox']:checked {
+                background: #29a329;
+            }
+
+        .dropdowna {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdowna-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdowna:hover .dropdowna-content {
+            display: block;
+        }
+
+        footer {
+            display: none;
+        }
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+    
+    <div id="lckbck1" class="lckbckscr">
+        <div id="wrapper">
+            <!-- Navigation -->
+            <!-- Navigation -->
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <div style="padding-top:4px; padding-left:32px">
+                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <br />
+                            <h4 class="page-header"><span class="itcac">BioMed360 </span><span class="itcak"> Cadence </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef1 </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef2</span></h4>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <a href="/uhsb360/b360?projectID=13&taskOrderID=56&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-blue.png" /></a>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div id="cnuptot" style="color:#0076A8; font-size:22px">@ViewBag.countTotalb</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <span class="pull-left" id="cntAll" style="color:#0076A8">Total BioMed360 Accounts</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <a href="/uhsb360/b360?projectID=13&taskOrderID=56&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-green.png" /></a>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div id="cnupgod" style="color:forestgreen; font-size:22px">@ViewBag.countGoodb</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<a href="#">*@
+                                <div class="panel-footer">
+                                    <span class="pull-left" style="color:forestgreen" id="cntGood">BioMed360 Accounts Completed!</span>
+                                    <span id="pcngod" class="pull-right">@ViewBag.cntperc%</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                @*</a>*@
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <a href="/uhsb360/b360?projectID=13&taskOrderID=56&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-red.png" /></a>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div id="cnupbad" style="color:red; font-size:22px">@ViewBag.countBadb</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<a href="#">*@
+                                <div class="panel-footer">
+                                    <span class="pull-left" style="color:red" id="cntBad">BioMed360 Accounts Due!</span>
+                                    <span id="pcnbad" class="pull-right">@ViewBag.cntperc2%</span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span class="itcak">BioMed360 </span><span class="itcac"> Accounts Map</span>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div id="mapid3" style="width:100%; height: 560px; position: relative"></div>
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-8 -->
+
+                        <div class="col-lg-3">
+                            @foreach (var item in ViewBag.pageData3)
+                            {
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span class="itcak">BioMed360 </span><span class="itcac"> Daily Numbers</span>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-tasks fa-2x" style="color:forestgreen"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div style="color:forestgreen; font-size:24px">@ViewBag.countGood</div>
+                                            </div>
+
+                                            <div class="col-xs-12">
+                                                <table class="table table-responsive table-hover" style="font-size:12px">
+                                                    <thead>
+                                                        <tr style="background-color:#F5F5F5">
+                                                            <th>Task:</th>
+                                                            <th>D:</th>
+                                                            <th>W:</th>
+                                                            <th>M:</th>
+                                                            <th>Q:</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BioMed360 Cadence</td>
+                                                            <td>@item.modInt01</td>
+                                                            <td>@item.modInt02</td>
+                                                            <td>@item.modInt03</td>
+                                                            <td>@item.modInt04</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <i class="fa fa-tasks fa-2x" style="color:red"></i>
+                                            </div>
+                                            <div class="col-xs-9 text-right">
+                                                <div style="color:red; font-size:24px">@ViewBag.countBad</div>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <table class="table table-responsive table-hover" style="font-size:12px">
+                                                    <thead>
+                                                        <tr style="background-color:#F5F5F5">
+                                                            <th>Task:</th>
+                                                            <th>D:</th>
+                                                            <th>W:</th>
+                                                            <th>M:</th>
+                                                            <th>Q:</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BioMed360 Cadence</td>
+                                                            <td>@item.modInt06</td>
+                                                            <td>@item.modInt07</td>
+                                                            <td>@item.modInt08</td>
+                                                            <td>@item.modInt09</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+                                <!-- /.panel -->
+                            }
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-archive fa-fw" style="color:#0076A8"></i><span style="color:#F69240"> Documents </span><span style="color:#0076A8"> Panel</span>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="list-group">
+
+                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> BioMed360 Monthly Report</span>
+                                            <span class="pull-right text-muted small">
+                                                <em>06/28/2018</em>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> BioMed360 Monthly Report</span>
+                                            <span class="pull-right text-muted small">
+                                                <em>06/28/2018</em>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> BioMed360 Monthly Report</span>
+                                            <span class="pull-right text-muted small">
+                                                <em>06/28/2018</em>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> BioMed360 Monthly Report</span>
+                                            <span class="pull-right text-muted small">
+                                                <em>06/28/2018</em>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> BioMed360 Monthly Report</span>
+                                            <span class="pull-right text-muted small">
+                                                <em>06/28/2018</em>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab01" data-toggle="tab">Historical Data</a>
+                                </li>
+                                <li>
+                                    <a href="#tab02" data-toggle="tab">Score Cards</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="tab01" style="padding-bottom:440px">
+                                    <br />
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="itcak">BioMed360 </span><span class="itcac"> Access Historical Data</span>
+                                        </div>
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <table id="" class="multidatatables table table-hover table-striped" style="font-size:12px; font-family:sans-serif">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date:</th>
+                                                        <th>District:</th>
+                                                        <th>Account:</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @Html.Action("_bck10100076", "uhsb360")
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.panel-body -->
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab02" style="padding-bottom:620px">
+                                    <br />
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            @if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
+                                            {
+                                                <div></div>
+                                            }
+                                            else
+                                            {
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <span class="itcak">BioMed360 </span><span class="itcac"> Account Location</span>
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class="panel-body">
+                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
+                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                            </div>
+                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop31", @class = "form-control", @onchange = "Filldd31()" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
+                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                            </div>
+                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop32", @class = "form-control", @onchange = "Filldd32()" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
+                                                                <span style="font-size:smaller; color:#0076A8">Account:</span>
+                                                            </div>
+                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                @Html.DropDownList("CSTNM", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "CSTNM"), new { id = "drop33", @class = "form-control", @onchange = "Filldd33()" })
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+
+
+                                        <!-- /.panel -->
+                                    </div>
+                                    <!-- /.col-lg-8 -->
+                                    <div class="row">
+                                        @Html.Action("_getb360data", "uhsb360", new { IDa = 0, IDb = 0 })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+        </div>
+        <!-- Tab content -->
+    </div>
+    <!-- Page Container -->
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/lib/highlightjs/highlight.pack.js"></script>
+    <script src="~/lib/chart.js/Chart.js"></script>
+    <script type="text/javascript">
+        var accts1 = @Html.Raw(Json.Encode(@ViewBag.accts1));
+        $.each(accts1, function (ID, accts1)
+        {
+            var it1 = accts1.acctid.toString() + " MD";
+            var ctx = document.getElementById(it1).getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [accts1.pr01, accts1.pr02, accts1.pr03, accts1.pr04, accts1.pr05, accts1.pr06, accts1.pr07, accts1.pr08, accts1.pr09, accts1.pr10, accts1.pr11, accts1.pr12],
+                    datasets: [{
+                        label: '%',
+                        data: [accts1.pc01, accts1.pc02, accts1.pc03, accts1.pc04, accts1.pc05, accts1.pc06, accts1.pc07, accts1.pc08, accts1.pc09, accts1.pc10, accts1.pc11, accts1.pc12]
+                        , borderColor: '#0076A8'
+                        , borderWidth: '1'
+                        //, backgroundColor: '#27AAC8'
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                fontSize: 8,
+                                max: 100
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                fontSize: 8
+                            }
+                        }]
+                    }
+                }
+            });
+
+        });
+    </script>
+    <!-- DataTables JavaScript -->
+    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.showdistb').hide();
+        });
+    </script>
+    <script>
+        function Filldd31() {
+            var It0 = $('#drop31').val();
+            if (It0 == 0) {
+                $("#drop32").html(""); // clear
+                $("#drop33").html(""); // clear
+                $('.showdistb').show();
+            }
+            else {
+                $.ajax({
+                    url: '/uhsb360/getb360dist',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: It0 },
+                    success: function (datatable) {
+                        $("#drop32").html(""); // clear before appending new list
+                        $("#drop33").html(""); // clear before appending new list
+                        $('.showdistb').hide();
+                        $.each(datatable, function (ID, datatable) {
+                            //console.log(datatable);
+                            $("#drop32").append(
+                                $('<option></option>').val(datatable.ID).html(datatable.district));
+                        });
+                        $.ajax({
+                            url: '/uhsb360/getb360acdv',
+                            type: "GET",
+                            dataType: "JSON",
+                            data: { ID: It0 },
+                            success: function (datatable) {
+                                $.each(datatable, function (ID, datatable) {
+                                    $("#drop33").append(
+                                        $('<option></option>').val(datatable.IDc).html(datatable.CSTNM));
+                                    var item1 = "#" + datatable.IDc;
+                                    $(item1).show();
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        };
+        function Filldd32() {
+            var It2 = $('#drop32').val();
+            if (It2 == 0 || It2 == null) {
+                Filldd31();
+            } else {
+                $.ajax({
+                    url: '/uhsb360/getb360acct',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: It2 },
+                    success: function (datatable) {
+                        $("#drop33").html(""); // clear before appending new list
+                        $('.showdistb').hide();
+                        $.each(datatable, function (ID, datatable) {
+                            $("#drop33").append(
+                                $('<option></option>').val(datatable.IDc).html(datatable.CSTNM));
+                            var item1 = "#" + datatable.IDc;
+                            $(item1).show();
+                        });
+                    }
+                });
+            }
+        };
+        function Filldd33() {
+            var It2 = $('#drop33').val();
+            if (It2 == 0 || It2 == null) {
+                Filldd32();
+            } else {
+                $('.showdistb').hide();
+                var item1 = "#" + It2;
+                $(item1).show();
+            }
+        };
+    </script>
+    <script src="~/js/leaflet.js"></script>
+    <script type="text/javascript">
+        var mymap = L.map('mapid3').setView([39.707, -460.54], 4);
+        var sw = new L.latLng(5.499550, -167.276413); //Southwest
+        var ne = new L.latLng(83.162102, -52.233040);  //Northeast
+        var bounds = new L.latLngBounds(sw, ne);
+        var redIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-red.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var orangeIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-orange.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var greenIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-green.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var blueIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-blue.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicnVtdW5rbyIsImEiOiJjamIzcDVsd2gycDhyMnFxa3ZuOGcwcXZqIn0.LivgKgnmM6_E734yDYqzBw', {
+            maxZoom: 18,
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+        $(window).load(function (e) {
+            e.preventDefault();
+            getA360loc();
+            function getA360loc() {
+                var markeri = [];
+                var chkInt = @ViewBag.chkInt;
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var da = (new Date(Date.now() - tzoffset));
+                var dak = parseInt(da.getHours());
+                var daa = da.getDate();
+                if (daa < 10) {
+                    var dal = "0" + daa.toString();
+                } else {
+                    var dal = daa.toString();
+                }
+                    var dalc = dal;
+                var dar = da.getMonth() + 1;
+
+                if (dar < 10) {
+                    var dab = "0" + dar.toString();
+                } else {
+                    var dab = dar.toString();
+                }
+                var dabc = dab;
+
+                var dac = da.getFullYear();
+                var daat = dac.toString() + dabc.toString() + dalc.toString();
+                var daatb = parseInt(daat);
+                var dbr = @ViewBag.curdtymd; var db = parseInt(dbr);
+                var dateh = @ViewBag.dateh;
+                    if (db <= daatb) {
+                        var da1 = dateh;
+                    } else
+                        {
+                            var da1 = 24 + dateh;
+                        }
+                $.ajax({
+                    url: '/uhsb360/getb360map',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: 1 },
+                    success: function (populate) {
+                        var green9px = "<i class='fa fa-check' style='color:lightseagreen; padding-left:9px'></i>";
+                        var green5px = "<i class='fa fa-check' style='color:lightseagreen; padding-left:5px'></i>";
+                        var green = "<i class='fa fa-check' style='color:lightseagreen'></i>";
+                        var pink10px = "<i class='fa fa-close' style='color:lightpink; padding-left:10px'></i>";
+                        var pink6px = "<i class='fa fa-close' style='color:lightpink; padding-left:6px'></i>";
+                        var pink = "<i class='fa fa-close' style='color:lightpink'></i>";
+                        $.each(populate, function (IDc, datatable) {
+                            var daynbr = @ViewBag.daynbr;
+                            var wchk = @ViewBag.wchk;
+                            var prchk = @ViewBag.prchk;
+                            var prchkb = @ViewBag.prchkb;
+                            var qtchk = @ViewBag.qtchk;
+                            var acctid = datatable.IDc;
+                            var acct = datatable.CUST;
+                            var distid = datatable.DISTID;
+                            var dist = datatable.DIST;
+                            var divID = 0;
+                            var divNm = datatable.DIV;
+                            var regID = 0;
+                            var region = datatable.REG;
+                            var disPh = datatable.PHON;
+                            var city = datatable.CITY;
+                            var aclng = datatable.LNG;
+                            var aclat = datatable.LAT;
+                            var OMD = datatable.OMD;
+                            var DOD = datatable.DOD;
+                            var type = datatable.typedesc;
+                            var a360dyc = datatable.a360dyc;
+                            var a360dyd = datatable.a360dyd;
+                            var a360wkc = datatable.a360wkc;
+                            var a360wkd = datatable.a360wkd;
+                            var a360prc = datatable.a360prc;
+                            var a360prd = datatable.a360prd;
+                            var a360qtc = datatable.a360qtc;
+                            var a360qtd = datatable.a360qtd;
+                            var utco = datatable.utco;
+                            var link1 = "<a href='/uhsb360/getEditPar10100076?dctp=1010007&id1=" + acctid + "&id2=1&id3=null'>BioMed360 Cadence</a>";
+                            var popsec1 = "<span style='color:#F69240; font-size:12px'>Division:</span><span style='color:#0076A8; font-size:12px'> " + divNm + "</span><br><span style='color:#F69240; font-size:12px'>Account Number:</span><span style='color:#0076A8; font-size:12px'> " + acctid + "</span><br><span style='color:#F69240; font-size:12px'>Customer:</span><span style='color:#0076A8; font-size:12px'>" + acct + "</span><br><span style='color:#F69240; font-size:12px'>District: </span><span style='color:#0076A8; font-size:12px'>" + dist + "</span><br><span style='color:#F69240; font-size:12px'>DOD:</span><span style='color:#0076A8; font-size:12px'> " + DOD + "</span><br><span style='color:#F69240; font-size:12px'>OMH:</span><span style='color:#0076A8; font-size:12px'> " + OMD + "</a>";
+                            var popnot1 = "<b>Send e-mail notification:</b><br><input type='text' id='mailnote' style='padding-left:2px; min-width:206px; min-height:23px' placeholder='write short note' /><span style='padding-left:4px'><a class='btn btn-info' href='#' onClick='btna(" + distid + ")' style='font-size:smaller; max-height:24px'>Send</a></span>";
+                            var icon1 = green5px; var icon2 = pink6px;
+                            if (a360dyc == 0) {
+                                sign1 = icon2; mess1 = "<span style='color:red; padding-left:5px'>Due: " + a360dyd + "</span>";
+                            } else if (a360dyc == 1) { sign1 = icon1; mess1 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
+                            if (a360wkc == 0) {
+                                sign2 = icon2; mess2 = "<span style='color:red; padding-left:5px'>Due: " + a360wkd + "</span>";
+                            } else if (a360wkc == 1) { sign2 = icon1; mess2 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
+                            if (a360prc == 0) {
+                                sign3 = icon2; mess3 = "<span style='color:red; padding-left:5px'>Due: " + a360prd + "</span>";
+                            } else if (a360prc == 1) { sign3 = icon1; mess3 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
+                            if (a360qtc == 0) {
+                                sign4 = icon2; mess4 = "<span style='color:red; padding-left:5px'>Due: " + a360qtd + "</span>";
+                            } else if (a360qtc == 1) { sign4 = icon1; mess4 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
+                            //var infotablb = "<button onclick=location.href='/uhsb360/getEditPar10100076?dctp=1010007&id1=" + acctid + "&id2=1&id3=null' class='w3-button w3-white w3-border col-lg-12 col-md-12 col-sm-12'><span style='color:#F69240'>BioMed360 </span><span style='color:#0076A8'> Cadence Checklist</span></button><br><table class='data table table-hover table-responsive' style='font-size:11px'><thead></thead><tbody><tr><td>Daily:</td><td>" + sign1 + "</td><td>" + mess1 + "</td></tr><tr><td>Weekly:</td><td>" + sign2 + "</td><td>" + mess2 + "</td></tr><tr><td>Monthly:</td><td>" + sign3 + "</td><td>" + mess3 + "</td></tr><tr><td>Quarterly:</td><td>" + sign4 + "</td><td>" + mess4 + "</td></tr></tbody></table>";
+                            var infotable = "<div class='row' style='padding-top:6px; padding-bottom:6px'><div class='col-lg-7'><table class='table-hover table-striped' style='font-size:12px'><thead></thead><tbody><tr><td>D:</td><td style='padding-right:2px'>" + sign1 + "</td><td>" + mess1 + "</td></tr><tr><td>W:</td><td style='padding-right:2px'>" + sign2 + "</td><td>" + mess2 + "</td></tr><tr><td>M:</td><td style='padding-right:2px'>" + sign3 + "</td><td>" + mess3 + "</td></tr><tr><td>Q:</td><td style='padding-right:2px'>" + sign4 + "</td><td>" + mess4 + "</td></tr></tbody></table></div><div class='col-lg-5'><button onclick=location.href='/uhsb360/getEditPar10100076?dctp=1010007&id1=" + acctid + "&id2=1&id3=null' class='w3-button w3-white w3-border'><span style='color:#F69240'>BioMed360 </span><br><span style='color:#0076A8'>Cadence</span><div style='color:cadetblue; padding-top:6px'><i class='fa fa-arrow-circle-right' style='transform:scale(1.6)'></i></div></button></div></div>";
+                            if (chkInt == 3) {
+                                if ((qtchk == 1 && (a360dyc == 0 || a360wkc == 0 || a360prc == 0 || a360qtc == 0))
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 0 && (a360dyc == 0 || a360prc == 0))
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 1 && (a360dyc == 0 || a360wkc == 0 || a360prc == 0))
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 1 && (a360dyc == 0 || a360wkc == 0 || a360prc == 0))
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 1 && (a360dyc == 0 || a360wkc == 0))
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 0 && a360dyc == 0)) {
+                                    markeri.push(L.marker([aclat, aclng], { icon: redIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
+                                }
+                            }
+                            else if (chkInt == 2) {
+                                if ((qtchk == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1 && a360qtc == 1)
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 0 && a360dyc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 1 && a360dyc == 1 && a360wkc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 0 && a360dyc == 1)) {
+                                    markeri.push(L.marker([aclat, aclng], { icon: greenIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
+                                }
+                            }
+                            else if (chkInt == 1) {
+                                if ((qtchk == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1 && a360qtc == 1)
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 0 && a360dyc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 1 && prchkb == 1 && a360dyc == 1 && a360wkc == 1 && a360prc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 1 && a360dyc == 1 && a360wkc == 1)
+                                    || (qtchk == 0 && prchk == 0 && prchkb == 0 && wchk == 0 && a360dyc == 1)) {
+                                    markeri.push(L.marker([aclat, aclng], { icon: greenIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
+                                }
+                                else
+                                    if (da1 + utco < 15) {
+                                        markeri.push(L.marker([aclat, aclng], { icon: blueIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
+                                    }
+                                    else {
+                                        markeri.push(L.marker([aclat, aclng], { icon: redIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
+                                    }
+                            }
+                        });
+                        var fgroup = new L.featureGroup(markeri);
+                        fgroup.addTo(mymap).bringToFront();
+                        mymap.setView([38.284385, -98.60], [4]);
+                        mymap.on('click', function (e) {
+                            $('.showdist').show();
+                        });
+                        fgroup.on('click', function (e) {
+                            var clickedMarker = e.layer;
+                            var item0 = clickedMarker['options']['id'];
+                            $('.showdist').hide();
+                            var item1 = "#" + item0;
+                            $(item1).show();
+                        });
+                    }
+                });
+            };
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multidatatables').DataTable({
+                "order": [[0, "desc"], [2, "asc"], [3, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".datepick1").datepicker();
+            //$(".datepick1").datepicker("setDate", new Date());
+        });
+    </script>
+    <script type="text/javascript">
+        function enlargea(a) {
+            if (a == 1) { $("#cntAll").css({ 'font-weight': 'bold' }); $("#cnuptot").css({ 'font-weight': 'bold' }); }
+            else if (a == 2) { $("#cntGood").css({ 'font-weight': 'bold' }); $("#cnupgod").css({ 'font-weight': 'bold' }); $("#pcngod").css({ 'font-weight': 'bold' }); }
+            else if (a == 3) { $("#cntBad").css({ 'font-weight': 'bold' }); $("#cnupbad").css({ 'font-weight': 'bold' }); $("#pcnbad").css({ 'font-weight': 'bold' }); }
+        };
+        function enlargeb() {
+            $("#cntAll").css({ 'font-weight': 'normal' }); $("#cnuptot").css({ 'font-weight': 'normal' });
+            $("#cntGood").css({ 'font-weight': 'normal' }); $("#cnupgod").css({ 'font-weight': 'normal' }); $("#pcngod").css({ 'font-weight': 'normal' });
+            $("#cntBad").css({ 'font-weight': 'normal' }); $("#cnupbad").css({ 'font-weight': 'normal' }); $("#pcnbad").css({ 'font-weight': 'normal' });
+        };
+    </script>
+    <script type="text/javascript">
+        function PopupCenterDual(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+</body>
+</html>
+
+

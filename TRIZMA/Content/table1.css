@@ -1,0 +1,29 @@
+﻿
+.tdCus {
+}
+
+
+.tdCus1 { 
+    text-align:center;
+    min-height:80px;
+    min-width:30px;
+}
+
+.tdCus2 {
+    text-align:center; 
+    color:white; 
+    background-color:green;
+}
+
+.thCust1 {
+    text-align:center; 
+    color:dodgerblue;
+    min-height:16px;
+    min-width:30px;
+    border-bottom:solid;
+    border-bottom-style:solid;
+    border-bottom-color:lightgray;
+    border-bottom-width:thin;
+}
+
+

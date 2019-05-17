@@ -1,0 +1,3643 @@
+﻿@model List<TRIZMA.Models.uhsA360pagemodelDb>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>COE Operations Cadence</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/css/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .docidstore {
+            display: none;
+        }
+
+        .thStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: white;
+            min-width: 30px;
+        }
+
+        .thStyle2 {
+            font-size: x-small;
+            color: white;
+        }
+
+        .thStyle3 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .thStyle4 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: #85CDDB;
+        }
+
+        .thStyle5 {
+            text-align: center;
+            font-size: small;
+            background-color: #85CDDB;
+            color: white;
+        }
+
+
+        .tdStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: #6399AE;
+            background-color: #F5F5F5;
+            min-width: 30px;
+        }
+
+        .tdStyle2 {
+            font-size: smaller;
+        }
+
+        .tdStyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle4 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .tdStyle5 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle6 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+
+
+        .tfstyle1 {
+            font-size: smaller;
+            text-align: center;
+            /*background-color:darkgray;*/
+            color: white;
+            min-width: 30px;
+        }
+
+        .tfstyle2 {
+            font-size: x-small;
+            text-align: right;
+            color: #6399AE;
+        }
+
+        .tfstyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle4 {
+            color: white;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle5 {
+            background-color: yellow;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+        .tab {
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: lightcoral;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: #85CDDB;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            border-top: none;
+        }
+
+        .itcad {
+            background-color: #85CDDB !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: #85CDDB !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
+
+        .ithae {
+            font-size: smaller;
+            text-align: center;
+            color: #367EAD;
+            border-bottom: solid;
+            border-bottom-width: thin;
+            border-bottom-color: lightgray;
+        }
+
+        .dropdowna {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdowna-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdowna:hover .dropdowna-content {
+            display: block;
+        }
+
+        .omdinf {
+            display: none;
+        }
+
+        input[type='checkbox'] {
+            transform: scale(1.5);
+        }
+
+
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6000;
+            text-align: center;
+        }
+
+        #myBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 30px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: lightgray; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+            #myBtn:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+
+        #cont002 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 130px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: lightgray; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+            #cont002:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+
+        #cont003 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 180px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: lightgray; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+            #cont003:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+
+        #cont004 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 230px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: lightgray; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+            #cont004:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+
+        #cont005 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed/sticky position */
+            bottom: 20px; /* Place the button at the bottom of the page */
+            right: 280px; /* Place the button 30px from the right */
+            z-index: 99; /* Make sure it does not overlap */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: lightgray; /* Set a background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 18px; /* Increase font size */
+        }
+
+            #cont005:hover {
+                background-color: #555; /* Add a dark-grey background on hover */
+            }
+    </style>
+</head><!--/head-->
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+    <!-- HIDDEN DOCUMENT 1010005 - 1010006 - 1010007 DATA -->
+    @Html.Hidden("doc1010010actype")
+    @Html.Hidden("doc1010010id")
+    @Html.Hidden("doc1010010projid")
+    @Html.Hidden("doc1010010tskoid")
+    @Html.Hidden("doc1010010dcgrid")
+    @Html.Hidden("doc1010010dctpid")
+    @Html.Hidden("doc1010010tspdid")
+    @Html.Hidden("doc1010010distid")
+    @Html.Hidden("doc1010010acctid")
+    @Html.Hidden("doc1010010userid")
+    @Html.Hidden("doc1010010dimgid")
+    @Html.Hidden("doc1010010crusid")
+    @Html.Hidden("doc1010010edusid")
+    @Html.Hidden("doc1010010crdate")
+    @Html.Hidden("doc1010010crdt")
+    @Html.Hidden("doc1010010eddt")
+    @Html.Hidden("doc1010010chckid")
+    @Html.Hidden("doc1010010chckdt")
+    @Html.Hidden("doc1012010actype")
+    @Html.Hidden("doc1012010id")
+    @Html.Hidden("doc1012010projid")
+    @Html.Hidden("doc1012010tskoid")
+    @Html.Hidden("doc1012010dcgrid")
+    @Html.Hidden("doc1012010dctpid")
+    @Html.Hidden("doc1012010tspdid")
+    @Html.Hidden("doc10120106distid")
+    @Html.Hidden("doc1012010acctid")
+    @Html.Hidden("doc1012010userid")
+    @Html.Hidden("doc1012010dimgid")
+    @Html.Hidden("doc1012010crusid")
+    @Html.Hidden("doc1012010edusid")
+    @Html.Hidden("doc1012010crdate")
+    @Html.Hidden("doc1012010crdt")
+    @Html.Hidden("doc1012010eddt")
+    @Html.Hidden("doc1012010chckid")
+    @Html.Hidden("doc1012010chckdt")
+    @Html.Hidden("doc1013010actype")
+    @Html.Hidden("doc1013010id")
+    @Html.Hidden("doc1013010projid")
+    @Html.Hidden("doc1013010tskoid")
+    @Html.Hidden("doc1013010dcgrid")
+    @Html.Hidden("doc1013010dctpid")
+    @Html.Hidden("doc1013010tspdid")
+    @Html.Hidden("doc10130106distid")
+    @Html.Hidden("doc1013010acctid")
+    @Html.Hidden("doc1013010userid")
+    @Html.Hidden("doc1013010dimgid")
+    @Html.Hidden("doc1013010crusid")
+    @Html.Hidden("doc1013010edusid")
+    @Html.Hidden("doc1013010crdate")
+    @Html.Hidden("doc1013010crdt")
+    @Html.Hidden("doc1013010eddt")
+    @Html.Hidden("doc1013010chckid")
+    @Html.Hidden("doc1013010chckdt")
+    @Html.Hidden("doc1014010actype")
+    @Html.Hidden("doc1014010id")
+    @Html.Hidden("doc1014010projid")
+    @Html.Hidden("doc1014010tskoid")
+    @Html.Hidden("doc1014010dcgrid")
+    @Html.Hidden("doc1014010dctpid")
+    @Html.Hidden("doc1014010tspdid")
+    @Html.Hidden("doc10140106distid")
+    @Html.Hidden("doc1014010acctid")
+    @Html.Hidden("doc1014010userid")
+    @Html.Hidden("doc1014010dimgid")
+    @Html.Hidden("doc1014010crusid")
+    @Html.Hidden("doc1014010edusid")
+    @Html.Hidden("doc1014010crdate")
+    @Html.Hidden("doc1014010crdt")
+    @Html.Hidden("doc1014010eddt")
+    @Html.Hidden("doc1014010chckid")
+    @Html.Hidden("doc1014010chckdt")
+    @Html.Hidden("doc1016010actype")
+    @Html.Hidden("doc1016010id")
+    @Html.Hidden("doc1016010projid")
+    @Html.Hidden("doc1016010tskoid")
+    @Html.Hidden("doc1016010dcgrid")
+    @Html.Hidden("doc1016010dctpid")
+    @Html.Hidden("doc1016010tspdid")
+    @Html.Hidden("doc10160106distid")
+    @Html.Hidden("doc1016010acctid")
+    @Html.Hidden("doc1016010userid")
+    @Html.Hidden("doc1016010dimgid")
+    @Html.Hidden("doc1016010crusid")
+    @Html.Hidden("doc1016010edusid")
+    @Html.Hidden("doc1016010crdate")
+    @Html.Hidden("doc1016010crdt")
+    @Html.Hidden("doc1016010eddt")
+    @Html.Hidden("doc1016010chckid")
+    @Html.Hidden("doc1016010chckdt")
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <!-- Navigation -->
+        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+            <div class="navbar-header">
+                <div style="padding-top:4px; padding-left:15px">
+                    <a class="w3-button w3-white w3-border btnSave03" title="Save&Reload"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:#0076A8; transform:scale(1.3)"></i></a>
+                    <a class="w3-button w3-white w3-border btnSave02" title="Save&Close"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:forestgreen; transform:scale(1.3)"></i></a>
+                    <a class="w3-button w3-white w3-border" onclick="location.href='/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=1'" title="Quit"><i class="fa fa-close" style="padding-left:16px; padding-right:15px; color:red; transform:scale(1.3)"></i></a>
+                    <a target="_blank" href="https://www.agilitihealth.com" style="padding-left:40px"><img src="~/images/logo-header4.png" /></a>
+                </div>
+            </div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Action("_navbartop", "uhsCH")
+            }
+
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li>
+                        @Html.Action("SBagPr", "uhsCH")
+                        @if (ViewBag.userTypeID == 2)
+                        {
+                            <li style="padding-left:3px">
+                                <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:#6399AE !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br />
+                        <h4 class="page-header"><span class="itcac">COE Operations</span><span class="itcak"> Cadence</span><span class="pull-right"><button class="btn-sm btn-info" id="refreshDoc"><i class="fa fa-refresh"></i> Refresh</button></span></h4>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <span style="font-size:small" class="itcak">District: </span><span id="spn10100101" style="color:#6399AE; font-size:small"></span>
+                        <span style="color:white">.</span>
+                        <span style="font-size:small" class="itcak"> Division: </span><span id="spn10100102" style="color:#6399AE; font-size:small"></span>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <h4><span class="itcac">Daily Tasks</span></h4>
+                        <span id="duedtday"></span>
+                        <table class="data table table-hover table-bordered table-responsive">
+                            <thead>
+                                <tr class="thStyle5">
+                                    <th>Task</th>
+                                    <th>Task Owner</th>
+                                    <th>Action Item</th>
+                                    <th>Tools Needed</th>
+                                    <th>Metric</th>
+                                    <th>Resources</th>
+                                    <th>Additional Comments</th>
+                                    <th>A3 Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>COE Repair Log Review</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subday" id="vr1010010111">
+                                        <div class="omdinf" id="dv1010010111" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010010111" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010010111" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Review COE Repair Log.</td>
+                                    <td>
+                                        · PC
+                                        <br> · COE Repair Log link
+                                        <br> · inCommand™
+                                    </td>
+                                    <td>Update working status within 24 hours.</td>
+                                    <td>Please see COE Playbook for your COE Repair Log Links.</td>
+                                    <td><textarea id="txt1010010111" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB611101">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.dayID',611101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Gemba Walk</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subday" id="vr1010010112">
+                                        <div class="omdinf" id="dv1010010112" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010010112" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010010112" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Walk the facility and make sure everything is in order and organized.<br>· Facility Condition<br>· District needs<br>· Staffing Needs</td>
+                                    <td>
+                                        · COE VWP Gemba Walk Checklist
+                                        <br>· Workday
+                                    </td>
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1010010112" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB611201">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.dayID',611201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Depot & Field Services Activity Management</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subday" id="vr1010010113">
+                                        <div class="omdinf" id="dv1010010113" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010010113" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010010113" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        · Supplemental PMs/Repairs
+                                        <br>· Specialty Services
+                                        <br>· Manufacturer Services
+                                        <br>· On The Road Support
+                                        <br>· Fleet Equipment Support
+                                    </td>
+                                    <td>
+                                        · inService™
+                                        <br>· inCommand™
+                                        <br>· Outlook Email
+                                        <br>· High Priority List
+                                        <br>· COE Repair Log
+                                        <br>· Reporting Central
+                                    </td>
+                                    <td>Customer owned Life support PM=100%</td>
+                                    <td>
+                                        · Equipment Overdue PM and Battery Report
+                                        <br>· Open Work Order by Service Provider Report
+                                    </td>
+                                    <td><textarea id="txt1010010113" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB611301">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.dayID',611301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>PR Approvals</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subday" id="vr1010010114">
+                                        <div class="omdinf" id="dv1010010114" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010010114" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010010114" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Timely review and approve purchase requisitions.</td>
+                                    <td>· inCommand™</td>
+                                    <td>All approvals completed within 24 hours.</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1010010114" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB611401">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.dayID',611401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Vehicle Maintenance</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subday" id="vr1010010115">
+                                        <div class="omdinf" id="dv1010010115" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010010115" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010010115" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform Daily Vehicle Maintenance.</td>
+                                    <td>· inForm™</td>
+                                    <td>N/A</td>
+                                    <td><a onclick="PopupCenterDuala('https://uhservices.csod.com/clientimg/uhservices/MaterialSource/4aeab63c-d7c3-4caf-9c2f-f91dfc0d17f4_F_VF%20007%20Vehicle%20Maintenance%20Schedule_10-02-17.pdf','','1200','736');" href="javascript:void(0);">F_VF007 Vehicle Maintenance Schedule</a></td>
+                                    <td><textarea id="txt1010010115" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB611501">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.dayID',611501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <h4><span class="itcac">Weekly Tasks</span></h4>
+                        <span id="duedtweek"></span>
+                        <table class="data table table-hover table-bordered table-responsive">
+                            <thead>
+                                <tr class="thStyle5">
+                                    <th>Task</th>
+                                    <th>Task Owner</th>
+                                    <th>Action Item</th>
+                                    <th>Tools Needed</th>
+                                    <th>Metric</th>
+                                    <th>Resources</th>
+                                    <th>Additional Comments</th>
+                                    <th>A3 Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8; border-bottom:solid; border-bottom-color:white; border-bottom-width:thin"><b>Weekly QMS Tasks</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwek" id="vr1012010111">
+                                        <div class="omdinf" id="dv1012010111" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012010111" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012010111" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform weekly ESD wrist strap assembly test.</td>
+                                    <td style="min-width:160px; border-bottom:solid; border-bottom-color:white; border-bottom-width:thin">· Grand Avenue</td>
+                                    <td style="min-width:140px; border-bottom:solid; border-bottom-color:white; border-bottom-width:thin">ISO QMS Audits</td>
+                                    <td>F60006 ESD Wrist Strap Assembly Test Form</td>
+                                    <td><textarea id="txt1012010111" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB621101">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.wID',621101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:white; border-top:solid; border-top-color:white; border-top-width:thin">.</td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwek" id="vr1012010112">
+                                        <div class="omdinf" id="dv1012010112" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012010112" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012010112" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform weekly repair parts inventory cycle count, resolve discrepencies and post on OneDrive.</td>
+                                    <td style="border-top:solid; border-top-color:white; border-top-width:thin">· OneDrive</td>
+                                    <td style="color:white; border-top:solid; border-top-color:white; border-top-width:thin">.</td>
+                                    <td>F20001 Cycle Count Form</td>
+                                    <td><textarea id="txt1012010112" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Workday Inbox Management</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwek" id="vr1012010113">
+                                        <div class="omdinf" id="dv1012010113" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012010113" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012010113" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Address Inbox Actions. Approve Timecards by Noon Monday CST.</td>
+                                    <td>
+                                        · Workday
+                                        <br>· Outlook Email
+                                    </td>
+                                    <td>No timecards un-submitted or unapproved. Actions completed by due date.</td>
+                                    <td><a onclick="PopupCenterDuala('https://wd5.myworkday.com/uhs/fx/home.flex','','1200','736');" href="javascript:void(0);">Workday</a></td>
+                                    <td><textarea id="txt1012010113" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB621201">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.wID',621201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Vehicle Maintenance</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwek" id="vr1012010114">
+                                        <div class="omdinf" id="dv1012010114" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012010114" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012010114" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform Weekly Vehicle Maintenance.</td>
+                                    <td>· inForm™</td>
+                                    <td>N/A</td>
+                                    <td><a onclick="PopupCenterDuala('https://uhservices.csod.com/clientimg/uhservices/MaterialSource/4aeab63c-d7c3-4caf-9c2f-f91dfc0d17f4_F_VF%20007%20Vehicle%20Maintenance%20Schedule_10-02-17.pdf','','1200','736');" href="javascript:void(0);">F_VF007 Vehicle Maintenance Schedule</a></td>
+                                    <td><textarea id="txt1012010114" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB621301">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.wID',621301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <h4><span class="itcac">Bi-Weekly Tasks</span></h4>
+                        <span id="duedtweekb"></span>
+                        <table class="data table table-hover table-bordered table-responsive">
+                            <thead>
+                                <tr class="thStyle5">
+                                    <th>Task</th>
+                                    <th>Task Owner</th>
+                                    <th>Action Item</th>
+                                    <th>Tools Needed</th>
+                                    <th>Metric</th>
+                                    <th>Resources</th>
+                                    <th>Additional Comments</th>
+                                    <th>A3 Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Employee Training and Competency Documentation</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwekb" id="vr1016010111">
+                                        <div class="omdinf" id="dv1016010111" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1016010111" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1016010111" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Submit completed F30001 Competency Training Forms to Quality Dept. via Service Now.</td>
+                                    <td style="min-width:140px">
+                                        · Grand Avenue
+                                        <br>· Service Now
+                                    </td>
+                                    <td style="min-width:140px">Submit upon completion.</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1016010111" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB661101">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.bwID',661101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Purchase Orders - No Receipts Report</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwekb" id="vr1016010112">
+                                        <div class="omdinf" id="dv1016010112" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1016010112" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1016010112" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Run Purchase orders - No Receipts report and follow up on open PO's over 30 days.</td>
+                                    <td>· inCommand™</td>
+                                    <td>< 30 days</td>
+                                    <td>File report with notes for all PO's over 30 days.</td>
+                                    <td><textarea id="txt1016010112" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB661201">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.bwID',661201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Internal Requisition Exception Report</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwekb" id="vr1016010113">
+                                        <div class="omdinf" id="dv1016010113" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1016010113" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1016010113" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Run Internal Requisition Exception Report and follow up on any open IR's over 15 days.</td>
+                                    <td>· inCommand™</td>
+                                    <td>< 1 IR open over 30 days</td>
+                                    <td>File report with notes for all IR's over 30 days.</td>
+                                    <td><textarea id="txt1016010113" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB661301">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.bwID',661301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Grand Avenue Compliance</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subwekb" id="vr1016010114">
+                                        <div class="omdinf" id="dv1016010114" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1016010114" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1016010114" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Ensure Staff Training completed by due date.</td>
+                                    <td>· Grand Avenue</td>
+                                    <td>No Traning Past Due</td>
+                                    <td><a onclick="PopupCenterDuala('https://uhs.grandavenue.com/GrandAvenue/Core/Admin/SignIn.aspx?ReturnUrl=%2fGrandAvenue','','1200','736');" href="javascript:void(0);">Grand Avenue</a></td>
+                                    <td><textarea id="txt1016010114" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB661401">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.bwID',661401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <h4><span class="itcac">Monthly Tasks</span></h4>
+                        <span id="duedtmonth"></span>
+                        <table class="data table table-hover table-bordered table-responsive">
+                            <thead>
+                                <tr class="thStyle5">
+                                    <th>Task</th>
+                                    <th>Task Owner</th>
+                                    <th>Action Item</th>
+                                    <th>Tools Needed</th>
+                                    <th>Metric</th>
+                                    <th>Resources</th>
+                                    <th>Additional Comments</th>
+                                    <th>A3 Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Test Equipment Calibration Status Review</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010111">
+                                        <div class="omdinf" id="dv1013010111" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010111" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010111" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Review EQUIP OVERDUE FOR PM AND BATTERY report and send test equipment that is coming due for annual calibration to vendor.</td>
+                                    <td>
+                                        ·  inCommand™
+                                        <br>·  Grand Avenue
+                                    </td>
+                                    <td>ISO QMS Audits</td>
+                                    <td><a onclick="PopupCenterDuala('https://quickrserv.int.uhs.com/LotusQuickr/qacentral/PageLibrary86256FB7007AA693.nsf/0/236EA74685ED942A862576950076D41E/$file/Onsite%20Service%20Request%20Form%2012%2009.pdf','','1200','736');" href="javascript:void(0);">Onsite Service Request Form</a></td>
+                                    <td><textarea id="txt1013010111" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631101">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Technician's Productivity</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010112">
+                                        <div class="omdinf" id="dv1013010112" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010112" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010112" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Review TSA reporting for all technicians.</td>
+                                    <td>PC</td>
+                                    <td>> 75% Billable</td>
+                                    <td>BMET Productivity Report</td>
+                                    <td><textarea id="txt1013010112" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631201">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Expense Reports</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010113">
+                                        <div class="omdinf" id="dv1013010113" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010113" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010113" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Submit and approve expense reports via Concur per schedule.</td>
+                                    <td>· Concur™</td>
+                                    <td>Submit and approve on time</td>
+                                    <td>Purchase receipts</td>
+                                    <td><textarea id="txt1013010113" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631301">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Rental Equipment Cycle Count</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010114">
+                                        <div class="omdinf" id="dv1013010114" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010114" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010114" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform equipment inventory per corporate schedule.</td>
+                                    <td>
+                                        · inCommand™
+                                        <br>· District Inventory Program
+                                        <br>· Handheld Scanners
+                                    </td>
+                                    <td>< 0.75% unable to locate</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1013010114" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631401">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>inForm Compliance</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010115">
+                                        <div class="omdinf" id="dv1013010115" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010115" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010115" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Ensure Staff Training completed by due date.</td>
+                                    <td>· inForm™</td>
+                                    <td>No Training Past Due</td>
+                                    <td><a onclick="PopupCenterDuala('https://uhservices.csod.com/LMS/catalog/Welcome.aspx?tab_page_id=-67&tab_id=-1','','1200','736');" href="javascript:void(0);">inForm</a></td>
+                                    <td><textarea id="txt1013010115" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631501">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Staff Meeting</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subper" id="vr1013010116">
+                                        <div class="omdinf" id="dv1013010116" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013010116" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013010116" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Schedule Monthly staff meeting with COE team to cascade ELT meeting communication.</td>
+                                    <td>N/A</td>
+                                    <td>Minimum 1 per month</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1013010116" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB631601">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.mID',631601)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <h4><span class="itcac">Quarterly Tasks</span></h4>
+                        <span id="duedtquarter"></span>
+                        <table class="data table table-hover table-bordered table-responsive">
+                            <thead>
+                                <tr class="thStyle5">
+                                    <th>Task</th>
+                                    <th>Task Owner</th>
+                                    <th>Action Item</th>
+                                    <th>Tools Needed</th>
+                                    <th>Metric</th>
+                                    <th>Resources</th>
+                                    <th>Additional Comments</th>
+                                    <th>A3 Form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8; border-bottom:solid; border-bottom-color:white; border-bottom-width:thin"><b>Quarterly QMS Tasks</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subqtr" id="vr1014010111">
+                                        <div class="omdinf" id="dv1014010111" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1014010111" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1014010111" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Perform ESD Workstation Calibration.</td>
+                                    <td>· 3M 701 Test Kit for Static Control Surface</td>
+                                    <td>ISO QMS Audits</td>
+                                    <td>F60007 ESD Workstation Calibration Form</td>
+                                    <td><textarea id="txt1014010111" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB641101">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.qID',641101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:white; border-top:solid; border-top-color:white; border-top-width:thin"><b>.</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subqtr" id="vr1014010112">
+                                        <div class="omdinf" id="dv1014010112" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1014010112" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1014010112" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Verify if Pest Control service is done and review Pest Control Results. File the pest control report.</td>
+                                    <td>· Grand Avenue</td>
+                                    <td style="border-top:solid; border-top-color:white; border-top-width:thin; color:white">.</td>
+                                    <td>F60010 	Pest Control Services Form</td>
+                                    <td><textarea id="txt1014010112" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <tr style="font-size:13px">
+                                    <td style="color:#0076A8"><b>Engagement Discussions</b></td>
+                                    <td style="min-width:160px">
+                                        <input type="checkbox" class="omdvrf subqtr" id="vr1014010113">
+                                        <div class="omdinf" id="dv1014010113" style="padding-top:6px">
+                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1014010113" style="color:black !important; font-size:smaller"></a>
+                                            <br>
+                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1014010113" style="color:black !important; font-size:smaller"></a>
+                                        </div>
+                                    </td>
+                                    <td>Engage with each individual direct report to help them be more successful.</td>
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td><textarea id="txt1014010113" rows="2" style="font-size:small"></textarea></td>
+                                    <td style="max-width:100%; white-space:nowrap;">
+                                        <table class="table-responsive table-striped" id="TB641201">
+                                            <thead></thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <button class="btn-xs btn-default" onclick="newProject(58,'@ViewBag.qID',641201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br />
+                        <div class="loadimage">
+                            <div class="loadmeRect">
+                                <div class="loadmeRectChild loadmeRect1"></div>
+                                <div class="loadmeRectChild loadmeRect2"></div>
+                                <div class="loadmeRectChild loadmeRect3"></div>
+                                <div class="loadmeRectChild loadmeRect4"></div>
+                                <div class="loadmeRectChild loadmeRect5"></div>
+                            </div>
+                            @*<div class="loadme-mask"></div>*@
+                        </div>
+                        <script src="~/js/jquery.min.js"></script>
+                        <!-- Bootstrap Core JavaScript -->
+                        <script src="~/js/bootstrap.min.js"></script>
+                        <!-- DataTables JavaScript -->
+                        <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
+                        <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
+                        <script src="~/js/jquery-confirm.min.js"></script>
+                        @foreach (var item in Model)
+    {
+                    <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('.loadimage').hide();
+                                    $("#spn10100101").html('@item.zacc');
+                                    $("#spn10100102").html('@item.zdiv');
+                                    $("#doc1010010id").val('@item.AYID');
+                                    $("#doc1010010projid").val(@item.AYprojid);
+                                    $("#doc1010010tskoid").val(@item.AYtskoid);
+                                    $("#doc1010010dcgrid").val(@item.AYdcgrid);
+                                    $("#doc1010010dctpid").val(@item.AYdctpid);
+                                    $("#doc1010010tspdid").val(@item.AYtspdid);
+                                    $("#doc1010010distid").val(@item.AYdistid);
+                                    $("#doc1010010acctid").val(@item.AYacctid);
+                                    $("#doc1010010userid").val(@item.AYuserid);
+                                    $("#doc1010010dimgid").val(@item.AYdimgid);
+                                    $("#doc1010010crusid").val(@item.AYcrusid);
+                                    $("#doc1010010edusid").val(@item.AYedusid);
+                                    $("#doc1010010actype").val(3);
+                                    $("#doc1010010crdt").val('@item.AYcrdate');
+                                    $("#doc1010010crdt").val('@item.AYcrdt');
+                                    $("#doc1010010eddt").val('@item.AYeddt');
+                                    $("#doc1010010chck").prop("checked", false);
+                                    $("#doc1010010chckid").val(0);
+                                    $("#doc1010010chckdt").val(null);
+                                    $("#doc1012010id").val('@item.BYID');
+                                    $("#doc1012010projid").val(@item.BYprojid);
+                                    $("#doc1012010tskoid").val(@item.BYtskoid);
+                                    $("#doc1012010dcgrid").val(@item.BYdcgrid);
+                                    $("#doc1012010dctpid").val(@item.BYdctpid);
+                                    $("#doc1012010tspdid").val(@item.BYtspdid);
+                                    $("#doc1012010distid").val(@item.BYdistid);
+                                    $("#doc1012010acctid").val(@item.BYacctid);
+                                    $("#doc1012010userid").val(@item.BYcrusid);
+                                    $("#doc1012010dimgid").val(@item.BYdimgid);
+                                    $("#doc1012010crusid").val(@item.BYcrusid);
+                                    $("#doc1012010edusid").val(@item.BYedusid);
+                                    $("#doc1012010actype").val(3);
+                                    $("#doc1012010crdt").val('@item.BYcrdate');
+                                    $("#doc1012010crdt").val('@item.BYcrdt');
+                                    $("#doc1012010eddt").val('@item.BYeddt');
+                                    $("#doc1012010chck").prop("checked", false);
+                                    $("#doc1012010chckid").val(0);
+                                    $("#doc1012010chckdt").val(null);
+                                    $("#doc1013010id").val('@item.CYID');
+                                    $("#doc1013010projid").val(@item.CYprojid);
+                                    $("#doc1013010tskoid").val(@item.CYtskoid);
+                                    $("#doc1013010dcgrid").val(@item.CYdcgrid);
+                                    $("#doc1013010dctpid").val(@item.CYdctpid);
+                                    $("#doc1013010tspdid").val(@item.CYtspdid);
+                                    $("#doc1013010distid").val(@item.CYdistid);
+                                    $("#doc1013010acctid").val(@item.CYacctid);
+                                    $("#doc1013010userid").val(@item.CYcrusid);
+                                    $("#doc1013010dimgid").val(@item.CYdimgid);
+                                    $("#doc1013010crusid").val(@item.CYcrusid);
+                                    $("#doc1013010edusid").val(@item.CYedusid);
+                                    $("#doc1013010actype").val(3);
+                                    $("#doc1013010crdt").val('@item.CYcrdate');
+                                    $("#doc1013010crdt").val('@item.CYcrdt');
+                                    $("#doc1013010eddt").val('@item.CYeddt');
+                                    $("#doc1013010chck").prop("checked", false);
+                                    $("#doc1013010chckid").val(0);
+                                    $("#doc1013010chckdt").val(null);
+                                    $("#doc1014010id").val('@item.DYID');
+                                    $("#doc1014010projid").val(@item.DYprojid);
+                                    $("#doc1014010tskoid").val(@item.DYtskoid);
+                                    $("#doc1014010dcgrid").val(@item.DYdcgrid);
+                                    $("#doc1014010dctpid").val(@item.DYdctpid);
+                                    $("#doc1014010tspdid").val(@item.DYtspdid);
+                                    $("#doc1014010distid").val(@item.DYdistid);
+                                    $("#doc1014010acctid").val(@item.DYacctid);
+                                    $("#doc1014010userid").val(@item.DYcrusid);
+                                    $("#doc1014010dimgid").val(@item.DYdimgid);
+                                    $("#doc1014010crusid").val(@item.DYcrusid);
+                                    $("#doc1014010edusid").val(@item.DYedusid);
+                                    $("#doc1014010actype").val(3);
+                                    $("#doc1014010crdt").val('@item.DYcrdate');
+                                    $("#doc1014010crdt").val('@item.DYcrdt');
+                                    $("#doc1014010eddt").val('@item.DYeddt');
+                                    $("#doc1014010chck").prop("checked", false);
+                                    $("#doc1014010chckid").val(0);
+                                    $("#doc1014010chckdt").val(null);
+                                    $("#doc1016010id").val('@item.EYID');
+                                    $("#doc1016010projid").val(@item.EYprojid);
+                                    $("#doc1016010tskoid").val(@item.EYtskoid);
+                                    $("#doc1016010dcgrid").val(@item.EYdcgrid);
+                                    $("#doc1016010dctpid").val(@item.EYdctpid);
+                                    $("#doc1016010tspdid").val(@item.EYtspdid);
+                                    $("#doc1016010distid").val(@item.EYdistid);
+                                    $("#doc1016010acctid").val(@item.EYacctid);
+                                    $("#doc1016010userid").val(@item.EYcrusid);
+                                    $("#doc1016010dimgid").val(@item.EYdimgid);
+                                    $("#doc1016010crusid").val(@item.EYcrusid);
+                                    $("#doc1016010edusid").val(@item.EYedusid);
+                                    $("#doc1016010actype").val(3);
+                                    $("#doc1016010crdt").val('@item.EYcrdate');
+                                    $("#doc1016010crdt").val('@item.EYcrdt');
+                                    $("#doc1016010eddt").val('@item.EYeddt');
+                                    $("#doc1016010chck").prop("checked", false);
+                                    $("#doc1016010chckid").val(0);
+                                    $("#doc1016010chckdt").val(null);
+                                    $("#sm1010010111").val(@item.AYsmid111).html('@item.AZsmid111');
+                                    $("#cm1010010111").val('@item.AZcmdt111').html('@item.AYcmdt111');
+                                    $("#vr1010010111").prop("checked", JSON.parse('@item.AYverf111'.toLowerCase()));
+                                    $("#sm1010010112").val(@item.AYsmid112).html('@item.AZsmid112');
+                                    $("#cm1010010112").val('@item.AZcmdt112').html('@item.AYcmdt112');
+                                    $("#vr1010010112").prop("checked", JSON.parse('@item.AYverf112'.toLowerCase()));
+                                    $("#sm1010010113").val(@item.AYsmid113).html('@item.AZsmid113');
+                                    $("#cm1010010113").val('@item.AZcmdt113').html('@item.AYcmdt113');
+                                    $("#vr1010010113").prop("checked", JSON.parse('@item.AYverf113'.toLowerCase()));
+                                    $("#sm1010010114").val(@item.AYsmid114).html('@item.AZsmid114');
+                                    $("#cm1010010114").val('@item.AZcmdt114').html('@item.AYcmdt114');
+                                    $("#vr1010010114").prop("checked", JSON.parse('@item.AYverf114'.toLowerCase()));
+                                    $("#sm1010010115").val(@item.AYsmid115).html('@item.AZsmid115');
+                                    $("#cm1010010115").val('@item.AZcmdt115').html('@item.AYcmdt115');
+                                    $("#vr1010010115").prop("checked", JSON.parse('@item.AYverf115'.toLowerCase()));
+                                    $("#txt1010010111").val('@item.AYnote01');
+                                    $("#txt1010010112").val('@item.AYnote02');
+                                    $("#txt1010010113").val('@item.AYnote03');
+                                    $("#txt1010010114").val('@item.AYnote04');
+                                    $("#txt1010010115").val('@item.AYnote05');
+                                    $("#sm1012010111").val(@item.BYsmid111).html('@item.BZsmid111');
+                                    $("#cm1012010111").val('@item.BZcmdt111').html('@item.BYcmdt111');
+                                    $("#vr1012010111").prop("checked", JSON.parse('@item.BYverf111'.toLowerCase()));
+                                    $("#sm1012010112").val(@item.BYsmid112).html('@item.BZsmid112');
+                                    $("#cm1012010112").val('@item.BZcmdt112').html('@item.BYcmdt112');
+                                    $("#vr1012010112").prop("checked", JSON.parse('@item.BYverf112'.toLowerCase()));
+                                    $("#sm1012010113").val(@item.BYsmid113).html('@item.BZsmid113');
+                                    $("#cm1012010113").val('@item.BZcmdt113').html('@item.BYcmdt113');
+                                    $("#vr1012010113").prop("checked", JSON.parse('@item.BYverf113'.toLowerCase()));
+                                    $("#sm1012010114").val(@item.BYsmid114).html('@item.BZsmid114');
+                                    $("#cm1012010114").val('@item.BZcmdt114').html('@item.BYcmdt114');
+                                    $("#vr1012010114").prop("checked", JSON.parse('@item.BYverf114'.toLowerCase()));
+                                    $("#txt1012010111").val('@item.BYnote01');
+                                    $("#txt1012010112").val('@item.BYnote02');
+                                    $("#txt1012010113").val('@item.BYnote03');
+                                    $("#txt1012010114").val('@item.BYnote04');
+                                    $("#sm1013010111").val(@item.CYsmid111).html('@item.CZsmid111');
+                                    $("#cm1013010111").val('@item.CZcmdt111').html('@item.CYcmdt111');
+                                    $("#vr1013010111").prop("checked", JSON.parse('@item.CYverf111'.toLowerCase()));
+                                    $("#sm1013010112").val(@item.CYsmid112).html('@item.CZsmid112');
+                                    $("#cm1013010112").val('@item.CZcmdt112').html('@item.CYcmdt112');
+                                    $("#vr1013010112").prop("checked", JSON.parse('@item.CYverf112'.toLowerCase()));
+                                    $("#sm1013010113").val(@item.CYsmid113).html('@item.CZsmid113');
+                                    $("#cm1013010113").val('@item.CZcmdt113').html('@item.CYcmdt113');
+                                    $("#vr1013010113").prop("checked", JSON.parse('@item.CYverf113'.toLowerCase()));
+                                    $("#sm1013010114").val(@item.CYsmid114).html('@item.CZsmid114');
+                                    $("#cm1013010114").val('@item.CZcmdt114').html('@item.CYcmdt114');
+                                    $("#vr1013010114").prop("checked", JSON.parse('@item.CYverf114'.toLowerCase()));
+                                    $("#sm1013010115").val(@item.CYsmid115).html('@item.CZsmid115');
+                                    $("#cm1013010115").val('@item.CZcmdt115').html('@item.CYcmdt115');
+                                    $("#vr1013010115").prop("checked", JSON.parse('@item.CYverf115'.toLowerCase()));
+                                    $("#sm1013010116").val(@item.CYsmid116).html('@item.CZsmid116');
+                                    $("#cm1013010116").val('@item.CZcmdt116').html('@item.CYcmdt116');
+                                    $("#vr1013010116").prop("checked", JSON.parse('@item.CYverf116'.toLowerCase()));
+                                    $("#txt1013010111").val('@item.CYnote01');
+                                    $("#txt1013010112").val('@item.CYnote02');
+                                    $("#txt1013010113").val('@item.CYnote03');
+                                    $("#txt1013010114").val('@item.CYnote04');
+                                    $("#txt1013010115").val('@item.CYnote05');
+                                    $("#txt1013010116").val('@item.CYnote06');
+                                    $("#sm1014010111").val(@item.DYsmid111).html('@item.DZsmid111');
+                                    $("#cm1014010111").val('@item.DZcmdt111').html('@item.DYcmdt111');
+                                    $("#vr1014010111").prop("checked", JSON.parse('@item.DYverf111'.toLowerCase()));
+                                    $("#sm1014010112").val(@item.DYsmid112).html('@item.DZsmid112');
+                                    $("#cm1014010112").val('@item.DZcmdt112').html('@item.DYcmdt112');
+                                    $("#vr1014010112").prop("checked", JSON.parse('@item.DYverf112'.toLowerCase()));
+                                    $("#sm1014010113").val(@item.DYsmid113).html('@item.DZsmid113');
+                                    $("#cm1014010113").val('@item.DZcmdt113').html('@item.DYcmdt113');
+                                    $("#vr1014010113").prop("checked", JSON.parse('@item.DYverf113'.toLowerCase()));
+                                    $("#txt1014010111").val('@item.DYnote01');
+                                    $("#txt1014010112").val('@item.DYnote02');
+                                    $("#txt1014010113").val('@item.DYnote03');
+                                    $("#sm1016010111").val(@item.EYsmid111).html('@item.EZsmid111');
+                                    $("#cm1016010111").val('@item.EZcmdt111').html('@item.EYcmdt111');
+                                    $("#vr1016010111").prop("checked", JSON.parse('@item.EYverf111'.toLowerCase()));
+                                    $("#sm1016010112").val(@item.EYsmid112).html('@item.EZsmid112');
+                                    $("#cm1016010112").val('@item.EZcmdt112').html('@item.EYcmdt112');
+                                    $("#vr1016010112").prop("checked", JSON.parse('@item.EYverf112'.toLowerCase()));
+                                    $("#sm1016010113").val(@item.EYsmid113).html('@item.EZsmid113');
+                                    $("#cm1016010113").val('@item.EZcmdt113').html('@item.EYcmdt113');
+                                    $("#vr1016010113").prop("checked", JSON.parse('@item.EYverf113'.toLowerCase()));
+                                    $("#sm1016010114").val(@item.EYsmid114).html('@item.EZsmid114');
+                                    $("#cm1016010114").val('@item.EZcmdt114').html('@item.EYcmdt114');
+                                    $("#vr1016010114").prop("checked", JSON.parse('@item.EYverf114'.toLowerCase()));
+                                    $("#txt1016010111").val('@item.EYnote01');
+                                    $("#txt1016010112").val('@item.EYnote02');
+                                    $("#txt1016010113").val('@item.EYnote03');
+                                    $("#txt1016010114").val('@item.EYnote04');
+                                    $("#duedtday").html('@item.dtDue1');
+                                    $("#duedtweek").html("Due: "+'@item.dtDue2');
+                                    $("#duedtmonth").html("Due: "+'@item.dtDue3');
+                                    $("#duedtquarter").html("Due: "+'@item.dtDue4');
+                                    $("#duedtweekb").html("Due: "+'@item.dtDue5');
+                                    if (@item.AYverf111 == 1) { $("#dv1010010111").show(); }
+                                    if (@item.AYverf112 == 1) { $("#dv1010010112").show(); }
+                                    if (@item.AYverf113 == 1) { $("#dv1010010113").show(); }
+                                    if (@item.AYverf114 == 1) { $("#dv1010010114").show(); }
+                                    if (@item.AYverf115 == 1) { $("#dv1010010115").show(); }
+                                    if (@item.BYverf111 == 1) { $("#dv1012010111").show(); }
+                                    if (@item.BYverf112 == 1) { $("#dv1012010112").show(); }
+                                    if (@item.BYverf113 == 1) { $("#dv1012010113").show(); }
+                                    if (@item.BYverf114 == 1) { $("#dv1012010114").show(); }
+                                    if (@item.CYverf111 == 1) { $("#dv1013010111").show(); }
+                                    if (@item.CYverf112 == 1) { $("#dv1013010112").show(); }
+                                    if (@item.CYverf113 == 1) { $("#dv1013010113").show(); }
+                                    if (@item.CYverf114 == 1) { $("#dv1013010114").show(); }
+                                    if (@item.CYverf115 == 1) { $("#dv1013010115").show(); }
+                                    if (@item.CYverf116 == 1) { $("#dv1013010116").show(); }
+                                    if (@item.DYverf111 == 1) { $("#dv1014010111").show(); }
+                                    if (@item.DYverf112 == 1) { $("#dv1014010112").show(); }
+                                    if (@item.DYverf113 == 1) { $("#dv1014010113").show(); }
+                                    if (@item.DYverf114 == 1) { $("#dv1014010114").show(); }
+                                    if (@item.EYverf111 == 1) { $("#dv1016010111").show(); }
+                                    if (@item.EYverf112 == 1) { $("#dv1016010112").show(); }
+                                    if (@item.EYverf113 == 1) { $("#dv1016010113").show(); }
+                                    if (@item.EYverf114 == 1) { $("#dv1016010114").show(); }
+                                });
+                    </script>
+}
+
+                        <br />
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+            </div>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        @*<button id="cont001" class="contBtns" title="Annually">A</button>*@
+        <button id="cont002" class="contBtns" title="Quarterly">Q</button>
+        <button id="cont003" class="contBtns" title="Monthly">M</button>
+        <button id="cont004" class="contBtns" title="Weekly">W</button>
+        <button id="cont005" class="contBtns" title="Daily">D</button>
+    </div>
+    <script>
+        $(document).on('click', '.omdvrf', function () {
+            var usrId = '@ViewBag.userIds';
+            var userId = usrId.toString();
+            var userNm = '@ViewBag.userNm';
+            var id = $(this).attr('id').toString();
+            var objid1 = id.slice(2, 12);
+            var smid = "#sm" + objid1;
+            var cmid = "#cm" + objid1;
+            var dvid = "#dv" + objid1;
+            var dvic = "#dvb" + objid1;
+            var vrf = "#vr" + objid1;
+            var vrid = "#vr" + id;
+            var vrf1 = $(vrf).is(":checked");
+            if (vrf1 == true) {
+                $(smid).val(userId).html(userNm);
+                $(vrf).prop("checked", true);
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var yr1 = eddt.slice(0, 4);
+                var mn1 = eddt.slice(5, 7);
+                var dy1 = eddt.slice(8, 10);
+                var tm1 = eddt.slice(11, 16);
+                var eddf = mn1 + "/" + dy1 + "/" + yr1 + " " + tm1;
+                $(cmid).val(eddt).html(eddf);
+                $(dvid).show();
+                //$(dvic).show();
+            } else if (vrf1 == false) {
+                $(dvid).hide();
+                //$(dvic).hide();
+                $(smid).val(0);
+                $(vrf).prop("checked", false);
+                $(cmid).val(null);
+            }
+            //console.log(objid1);
+            setTopics();
+        });
+
+    </script>
+    <script type="text/javascript">
+        function setTopics() {
+            var AYverf111 = $("#vr1010010111").is(":checked");
+            var AYverf112 = $("#vr1010010112").is(":checked");
+            var AYverf113 = $("#vr1010010113").is(":checked");
+            var AYverf114 = $("#vr1010010114").is(":checked");
+            var AYverf115 = $("#vr1010010115").is(":checked");
+            var BYverf111 = $("#vr1012010111").is(":checked");
+            var BYverf112 = $("#vr1012010112").is(":checked");
+            var BYverf113 = $("#vr1012010113").is(":checked");
+            var BYverf114 = $("#vr1012010114").is(":checked");
+            var CYverf111 = $("#vr1013010111").is(":checked");
+            var CYverf112 = $("#vr1013010112").is(":checked");
+            var CYverf113 = $("#vr1013010113").is(":checked");
+            var CYverf114 = $("#vr1013010114").is(":checked");
+            var CYverf115 = $("#vr1013010115").is(":checked");
+            var CYverf116 = $("#vr1013010116").is(":checked");
+            var DYverf111 = $("#vr1014010111").is(":checked");
+            var DYverf112 = $("#vr1014010112").is(":checked");
+            var DYverf113 = $("#vr1014010113").is(":checked");
+            var EYverf111 = $("#vr1016010111").is(":checked");
+            var EYverf112 = $("#vr1016010112").is(":checked");
+            var EYverf113 = $("#vr1016010113").is(":checked");
+            var EYverf114 = $("#vr1016010114").is(":checked");
+            var model = @Html.Raw(Json.Encode(Model));
+            $.each(model, function (ID, model) {
+                if (AYverf111 == true && AYverf112 == true && AYverf113 == true && AYverf114 == true && AYverf115 == true) {
+                    $("#duedtday").html("");
+                    $("#duedtdayk").html("");
+                    $("#duedtday").html("<span style='padding-right:6px'>Completed</span><i class='fa fa-check' style='transform:scale(1.4)'></i>").css("color", "forestgreen");
+                } else {
+                    $("#duedtday").html("");
+                    $("#duedtdayk").html("");
+                    $("#duedtday").html("Due: " + model.dtDue1).css("color", "red");
+                }
+                if (BYverf111 == true && BYverf112 == true && BYverf113 == true && BYverf114 == true) {
+                $("#duedtweek").html("");
+                    $("#duedtweek").html("<span style='padding-right:6px'>Completed</span><i class='fa fa-check' style='transform:scale(1.4)'></i>").css("color", "forestgreen");
+            } else {
+                $("#duedtweek").html("");
+                $("#duedtweek").html("Due: " + model.dtDue2).css("color", "red");
+                }
+                if (CYverf111 == true && CYverf112 == true && CYverf113 == true && CYverf114 == true && CYverf115 == true && CYverf116 == true) {
+                $("#duedtmonth").html("");
+                    $("#duedtmonth").html("<span style='padding-right:6px'>Completed</span><i class='fa fa-check' style='transform:scale(1.4)'></i>").css("color", "forestgreen");
+            } else {
+                $("#duedtmonth").html("");
+                $("#duedtmonth").html("Due: " + model.dtDue3).css("color", "red");
+                }
+                if (DYverf111 == true && DYverf112 == true && DYverf113 == true) {
+                $("#duedtquarter").html("");
+                    $("#duedtquarter").html("<span style='padding-right:6px'>Completed</span><i class='fa fa-check' style='transform:scale(1.4)'></i>").css("color", "forestgreen");
+            } else {
+                $("#duedtquarter").html("");
+                $("#duedtquarter").html("Due: " + model.dtDue4).css("color", "red");
+                }
+                if (EYverf111 == true && EYverf112 == true && EYverf113 == true && EYverf114 == true) {
+                $("#duedtweekb").html("");
+                    $("#duedtweekb").html("<span style='padding-right:6px'>Completed</span><i class='fa fa-check' style='transform:scale(1.4)'></i>").css("color", "forestgreen");
+            } else {
+                $("#duedtweekb").html("");
+                $("#duedtweekb").html("Due: " + model.dtDue5).css("color", "red");
+            }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            var qday = '@ViewBag.qday';
+            var qwek = '@ViewBag.qwek';
+            var qper = '@ViewBag.qper';
+            var qqtr = '@ViewBag.qqtr';
+            var qwekb = '@ViewBag.qwekb';
+            if(qday == 0){
+                $(".subday").attr("disabled", true);
+            }
+            if(qwek == 0){
+                $(".subwek").attr("disabled", true);
+            }
+            if(qper == 0){
+                $(".subper").attr("disabled", true);
+            }
+            if(qqtr == 0){
+                $(".subqtr").attr("disabled", true);
+            }
+            if(qwekb == 0){
+                $(".subwekb").attr("disabled", true);
+            }
+            setTopics();
+        });
+    </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var projList = @Html.Raw(Json.Encode(ViewBag.projList));
+            $.each(projList, function (ID, projList) {
+                var tb1 = "TB" + projList.L3ID;                
+                var it1b = document.getElementById(tb1);
+                if (it1b == null) {
+                    return;
+                }
+                var docid = projList.ID;
+                var item4 = "#" + tb1 + " tbody";
+                if (projList.compld == true) {
+                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=58&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='padding-right:4px'><i class='fa fa-check' style='color:forestgreen' title='completed'></i></td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");              
+                } else {
+                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=58&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='color:white'>.</td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");              
+                }
+            });
+        });
+            $(".btnSave02").on('click', function () {
+                var btn = 2;
+                postDoc(btn);
+            });
+            $(".btnSave03").on('click', function () {
+                var btn = 3;
+                postDoc(btn);
+        });
+        $("#refreshDoc").on('click', function () {
+            location.reload();
+        });
+            function newProject(a, b, c) {
+                postDoc(4);
+                var constrID = @Html.Raw(Json.Encode(ViewBag.constrID));
+                $.each(constrID, function (ID, constrID) {
+                    if (constrID.modStr1 != b) {
+                        return;
+                    }
+                    var url = '/uhsworktask/insertDoc?tskoid=' + a + '&L3IDc=' + c + '&dat=' + constrID.modInt01 + '&wek=' + constrID.modInt02 + '&per=' + constrID.modInt03 + '&dis=' + constrID.modInt04 + '&act=' + constrID.modInt05 + '&dcg=' + constrID.modInt06 + '&dct=' + constrID.modInt07 + '&IDR=' + b;
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        dataType: "JSON",
+                        success: function (response) {
+                            var urlb = '/uhsworktask/workTask?ID=' + response + '&IDK=' + a + '&IDF=2';
+                            window.open(urlb, '_blank');
+                        }
+                    });
+            });
+        };
+        function delDoc(a) {
+            $.confirm({
+                title: 'Delete!',
+                content: 'Are you sure?',
+                buttons: {
+                    confirm: function () {
+                        $.ajax({
+                            url: '/uhsCH/delDoc3010001',
+                            type: "GET",
+                            dataType: "JSON",
+                            data: { id: a },
+                            success: function (response) {
+                                if (response == 1) {
+                                    location.reload();
+                                }
+                                else {
+                                    alert("Error: Failed to delete document!");
+                                }
+                            }
+                        });
+                    },
+                    cancel: function () {
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        };
+            function postDoc(btn){
+                $("head").addClass("loadDiv");
+                $('.loadimage').show();
+                var AYID = $("#doc1010010id").val();
+                var AYprojid = 13;
+                var AYtskoid = 58;
+                var AYdcgrid = 1010;
+                var AYdctpid = 1010010;
+                var AYtspdid = 1;
+                var AYdistid = $("#doc1010010distid").val();
+                var AYacctid = $("#doc1010010acctid").val();
+                var AYuserid = $("#doc1010010userid").val();
+                var AYdimgid = $("#doc1010010dimgid").val();
+                var AYcrusid = $("#doc1010010crusid").val();
+                var AYedusid = @ViewBag.userIds;
+                var AYactype = 3;
+                var AYcrdt = $("#doc1010010crdt").val();
+                var AYcrdate = $("#doc1010010crdate").val();
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var AYeddt = eddt;
+                var AYchck = false;
+                var AYchckid = 0;
+                var AYchckdt = null;
+                var AYsmid111 = $("#sm1010010111").val();
+                var AYcmdt111 = $("#cm1010010111").val();
+                var AYverf111 = $("#vr1010010111").is(":checked");
+                var AYsmid112 = $("#sm1010010112").val();
+                var AYcmdt112 = $("#cm1010010112").val();
+                var AYverf112 = $("#vr1010010112").is(":checked");
+                var AYsmid113 = $("#sm1010010113").val();
+                var AYcmdt113 = $("#cm1010010113").val();
+                var AYverf113 = $("#vr1010010113").is(":checked");
+                var AYsmid114 = $("#sm1010010114").val();
+                var AYcmdt114 = $("#cm1010010114").val();
+                var AYverf114 = $("#vr1010010114").is(":checked");
+                var AYsmid115 = $("#sm1010010115").val();
+                var AYcmdt115 = $("#cm1010010115").val();
+                var AYverf115 = $("#vr1010010115").is(":checked");
+                var AYsmid116 = 0;
+                var AYcmdt116 = null;
+                var AYverf116 = false;
+                var AYsmid117 = 0;
+                var AYcmdt117 = null;
+                var AYverf117 = false;
+                var AYsmid118 = 0;
+                var AYcmdt118 = null;
+                var AYverf118 = false;
+                var AYsmid119 = 0;
+                var AYcmdt119 = null;
+                var AYverf119 = false;
+                var AYsmid120 = 0;
+                var AYcmdt120 = null;
+                var AYverf120 = false;
+                var AYsmid121 = 0;
+                var AYcmdt121 = null;
+                var AYverf121 = false;
+                var AYsmid122 = 0;
+                var AYcmdt122 = null;
+                var AYverf122 = false;
+                var AYsmid123 = 0;
+                var AYcmdt123 = null;
+                var AYverf123 = false;
+                var AYsmid124 = 0;
+                var AYcmdt124 = null;
+                var AYverf124 = false;
+                var AYsmid125 = 0;
+                var AYcmdt125 = null;
+                var AYverf125 = false;
+                var AYnote01 = $("#txt1010010111").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var AYnote02 = $("#txt1010010112").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var AYnote03 = $("#txt1010010113").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var AYnote04 = $("#txt1010010114").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var AYnote05 = $("#txt1010010115").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var AYnote06 = null;
+                var AYnote07 = null;
+                var AYnote08 = null;
+                var AYnote09 = null;
+                var AYnote10 = null;
+                var AYnote11 = null;
+                var AYnote12 = null;
+                var AYnote13 = null;
+                var AYnote14 = null;
+                var AYnote15 = null;
+                var AYtask01 = null;
+                var AYtask02 = null;
+                var AYtask03 = null;
+                var AYtask04 = null;
+                var AYtask05 = null;
+                var AYacit01 = null;
+                var AYacit02 = null;
+                var AYacit03 = null;
+                var AYacit04 = null;
+                var AYacit05 = null;
+                var AYtool01 = null;
+                var AYtool02 = null;
+                var AYtool03 = null;
+                var AYtool04 = null;
+                var AYtool05 = null;
+                var AYdocn01 = null;
+                var AYdocn02 = null;
+                var AYdocn03 = null;
+                var AYdocn04 = null;
+                var AYdocn05 = null;
+                var AYprfx01 = 0;
+                var AYprfx02 = 0;
+                var AYprfx03 = 0;
+                var AYprfx04 = 0;
+                var AYprfx05 = 0;
+                var AYrate01 = 0;
+                var AYrate02 = 0;
+                var AYrate03 = 0;
+                var AYrate04 = 0;
+                var AYrate05 = 0;
+                var BYID = $("#doc1012010id").val();
+                var BYprojid = 13;
+                var BYtskoid = 58;
+                var BYdcgrid = 1010;
+                var BYdctpid = 1010010;
+                var BYtspdid = 2;
+                var BYdistid = AYdistid;
+                var BYacctid = AYacctid;
+                var BYuserid = $("#doc1012010userid").val();
+                var BYdimgid = $("#doc1012010dimgid").val();
+                var BYcrusid = $("#doc1012010crusid").val();
+                var BYedusid = AYedusid;
+                var BYcrdate = $("#doc1012010crdate").val();
+                var BYcrdt = $("#doc1012010crdt").val();
+                var BYeddt = eddt;
+                var BYchck = false;
+                var BYchckid = 0;
+                var BYchckdt = null;
+                var BYsmid111 = $("#sm1012010111").val();
+                var BYcmdt111 = $("#cm1012010111").val();
+                var BYverf111 = $("#vr1012010111").is(":checked");
+                var BYsmid112 = $("#sm1012010112").val();
+                var BYcmdt112 = $("#cm1012010112").val();
+                var BYverf112 = $("#vr1012010112").is(":checked");
+                var BYsmid113 = $("#sm1012010113").val();
+                var BYcmdt113 = $("#cm1012010113").val();
+                var BYverf113 = $("#vr1012010113").is(":checked");
+                var BYsmid114 = $("#sm1012010114").val();
+                var BYcmdt114 = $("#cm1012010114").val();
+                var BYverf114 = $("#vr1012010114").is(":checked");
+                var BYsmid115 = 0;
+                var BYcmdt115 = null;
+                var BYverf115 = false;
+                var BYsmid116 = 0;
+                var BYcmdt116 = null;
+                var BYverf116 = false;
+                var BYsmid117 = 0;
+                var BYcmdt117 = null;
+                var BYverf117 = false;
+                var BYsmid118 = 0;
+                var BYcmdt118 = null;
+                var BYverf118 = false;
+                var BYsmid119 = 0;
+                var BYcmdt119 = null;
+                var BYverf119 = false;
+                var BYsmid120 = 0;
+                var BYcmdt120 = null;
+                var BYverf120 = false;
+                var BYsmid121 = 0;
+                var BYcmdt121 = null;
+                var BYverf121 = false;
+                var BYsmid122 = 0;
+                var BYcmdt122 = null;
+                var BYverf122 = false;
+                var BYsmid123 = 0;
+                var BYcmdt123 = null;
+                var BYverf123 = false;
+                var BYsmid124 = 0;
+                var BYcmdt124 = null;
+                var BYverf124 = false;
+                var BYsmid125 = 0;
+                var BYcmdt125 = null;
+                var BYverf125 = false;
+                var BYnote01 = $("#txt1012010111").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var BYnote02 = $("#txt1012010112").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var BYnote03 = $("#txt1012010113").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var BYnote04 = $("#txt1012010114").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var BYnote05 = null;
+                var BYnote06 = null;
+                var BYnote07 = null;
+                var BYnote08 = null;
+                var BYnote09 = null;
+                var BYnote10 = null;
+                var BYnote11 = null;
+                var BYnote12 = null;
+                var BYnote13 = null;
+                var BYnote14 = null;
+                var BYnote15 = null;
+                var BYtask01 = null;
+                var BYtask02 = null;
+                var BYtask03 = null;
+                var BYtask04 = null;
+                var BYtask05 = null;
+                var BYacit01 = null;
+                var BYacit02 = null;
+                var BYacit03 = null;
+                var BYacit04 = null;
+                var BYacit05 = null;
+                var BYtool01 = null;
+                var BYtool02 = null;
+                var BYtool03 = null;
+                var BYtool04 = null;
+                var BYtool05 = null;
+                var BYdocn01 = null;
+                var BYdocn02 = null;
+                var BYdocn03 = null;
+                var BYdocn04 = null;
+                var BYdocn05 = null;
+                var BYprfx01 = 0;
+                var BYprfx02 = 0;
+                var BYprfx03 = 0;
+                var BYprfx04 = 0;
+                var BYprfx05 = 0;
+                var BYrate01 = 0;
+                var BYrate02 = 0;
+                var BYrate03 = 0;
+                var BYrate04 = 0;
+                var BYrate05 = 0;
+                var CYID = $("#doc1013010id").val();
+                var CYprojid = 13;
+                var CYtskoid = 58;
+                var CYdcgrid = 1010;
+                var CYdctpid = 1010010;
+                var CYtspdid = 3;
+                var CYdistid = AYdistid;
+                var CYacctid = AYacctid;
+                var CYuserid = $("#doc1013010userid").val();
+                var CYdimgid = $("#doc1013010dimgid").val();
+                var CYcrusid = $("#doc1013010crusid").val();
+                var CYedusid = AYedusid;
+                var CYcrdate = $("#doc1013010crdate").val();
+                var CYcrdt = $("#doc1013010crdt").val();
+                var CYeddt = eddt;
+                var CYchck = false;
+                var CYchckid = 0;
+                var CYchckdt = null;
+                var CYsmid111 = $("#sm1013010111").val();
+                var CYcmdt111 = $("#cm1013010111").val();
+                var CYverf111 = $("#vr1013010111").is(":checked");
+                var CYsmid112 = $("#sm1013010112").val();
+                var CYcmdt112 = $("#cm1013010112").val();
+                var CYverf112 = $("#vr1013010112").is(":checked");
+                var CYsmid113 = $("#sm1013010113").val();
+                var CYcmdt113 = $("#cm1013010113").val();
+                var CYverf113 = $("#vr1013010113").is(":checked");
+                var CYsmid114 = $("#sm1013010114").val();
+                var CYcmdt114 = $("#cm1013010114").val();
+                var CYverf114 = $("#vr1013010114").is(":checked");
+                var CYsmid115 = $("#sm1013010115").val();
+                var CYcmdt115 = $("#cm1013010115").val();
+                var CYverf115 = $("#vr1013010115").is(":checked");
+                var CYsmid116 = $("#sm1013010116").val();
+                var CYcmdt116 = $("#cm1013010116").val();
+                var CYverf116 = $("#vr1013010116").is(":checked");
+                var CYsmid117 = 0;
+                var CYcmdt117 = null;
+                var CYverf117 = false;
+                var CYsmid118 = 0;
+                var CYcmdt118 = null;
+                var CYverf118 = false;
+                var CYsmid119 = 0;
+                var CYcmdt119 = null;
+                var CYverf119 = false;
+                var CYsmid120 = 0;
+                var CYcmdt120 = null;
+                var CYverf120 = false;
+                var CYsmid121 = 0;
+                var CYcmdt121 = null;
+                var CYverf121 = false;
+                var CYsmid122 = 0;
+                var CYcmdt122 = null;
+                var CYverf122 = false;
+                var CYsmid123 = 0;
+                var CYcmdt123 = null;
+                var CYverf123 = false;
+                var CYsmid124 = 0;
+                var CYcmdt124 = null;
+                var CYverf124 = false;
+                var CYsmid125 = 0;
+                var CYcmdt125 = null;
+                var CYverf125 = false;
+                var CYnote01 = $("#txt1013010111").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote02 = $("#txt1013010112").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote03 = $("#txt1013010113").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote04 = $("#txt1013010114").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote05 = $("#txt1013010115").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote06 = $("#txt1013010116").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var CYnote07 = null;
+                var CYnote08 = null;
+                var CYnote09 = null;
+                var CYnote10 = null;
+                var CYnote11 = null;
+                var CYnote12 = null;
+                var CYnote13 = null;
+                var CYnote14 = null;
+                var CYnote15 = null;
+                var CYtask01 = null;
+                var CYtask02 = null;
+                var CYtask03 = null;
+                var CYtask04 = null;
+                var CYtask05 = null;
+                var CYacit01 = null;
+                var CYacit02 = null;
+                var CYacit03 = null;
+                var CYacit04 = null;
+                var CYacit05 = null;
+                var CYtool01 = null;
+                var CYtool02 = null;
+                var CYtool03 = null;
+                var CYtool04 = null;
+                var CYtool05 = null;
+                var CYdocn01 = null;
+                var CYdocn02 = null;
+                var CYdocn03 = null;
+                var CYdocn04 = null;
+                var CYdocn05 = null;
+                var CYprfx01 = 0;
+                var CYprfx02 = 0;
+                var CYprfx03 = 0;
+                var CYprfx04 = 0;
+                var CYprfx05 = 0;
+                var CYrate01 = 0;
+                var CYrate02 = 0;
+                var CYrate03 = 0;
+                var CYrate04 = 0;
+                var CYrate05 = 0;
+                var CYsmid126 = 0;
+                var CYcmdt126 = null;
+                var CYverf126 = false;
+                var CYsmid127 = 0;
+                var CYcmdt127 = null;
+                var CYverf127 = false;
+                var CYsmid128 = 0;
+                var CYcmdt128 = null;
+                var CYverf128 = false;
+                var CYsmid129 = 0;
+                var CYcmdt129 = null;
+                var CYverf129 = false;
+                var CYsmid130 = 0;
+                var CYcmdt130 = null;
+                var CYverf130 = false;
+                var CYsmid131 = 0;
+                var CYcmdt131 = null;
+                var CYverf131 = false;
+                var CYsmid132 = 0;
+                var CYcmdt132 = null;
+                var CYverf132 = false;
+                var CYsmid133 = 0;
+                var CYcmdt133 = null;
+                var CYverf133 = false;
+                var CYsmid134 = 0;
+                var CYcmdt134 = null;
+                var CYverf134 = false;
+                var CYsmid135 = 0;
+                var CYcmdt135 = null;
+                var CYverf135 = false;
+                var CYnote26 = null;
+                var CYnote27 = null;
+                var CYnote28 = null;
+                var CYnote29 = null;
+                var CYnote30 = null;
+                var CYnote31 = null;
+                var CYnote32 = null;
+                var CYnote33 = null;
+                var CYnote34 = null;
+                var CYnote35 = null;
+                var DYID = $("#doc1014010id").val();
+                var DYprojid = 13;
+                var DYtskoid = 58;
+                var DYdcgrid = 1010;
+                var DYdctpid = 1010010;
+                var DYtspdid = 4;
+                var DYdistid = AYdistid;
+                var DYacctid = AYacctid;
+                var DYuserid = $("#doc1014010userid").val();
+                var DYdimgid = $("#doc1014010dimgid").val();
+                var DYcrusid = $("#doc1014010crusid").val();
+                var DYedusid = AYedusid;
+                var DYcrdate = $("#doc1014010crdate").val();
+                var DYcrdt = $("#doc1014010crdt").val();
+                var DYeddt = eddt;
+                var DYchck = false;
+                var DYchckid = 0;
+                var DYchckdt = null;
+                var DYsmid111 = $("#sm1014010111").val();
+                var DYcmdt111 = $("#cm1014010111").val();
+                var DYverf111 = $("#vr1014010111").is(":checked");
+                var DYsmid112 = $("#sm1014010112").val();
+                var DYcmdt112 = $("#cm1014010112").val();
+                var DYverf112 = $("#vr1014010112").is(":checked");
+                var DYsmid113 = $("#sm1014010113").val();
+                var DYcmdt113 = $("#cm1014010113").val();
+                var DYverf113 = $("#vr1014010113").is(":checked");
+                var DYsmid114 = 0;
+                var DYcmdt114 = null;
+                var DYverf114 = false;
+                var DYsmid115 = 0;
+                var DYcmdt115 = null;
+                var DYverf115 = false;
+                var DYsmid116 = 0;
+                var DYcmdt116 = null;
+                var DYverf116 = false;
+                var DYsmid117 = 0;
+                var DYcmdt117 = null;
+                var DYverf117 = false;
+                var DYsmid118 = 0;
+                var DYcmdt118 = null;
+                var DYverf118 = false;
+                var DYsmid119 = 0;
+                var DYcmdt119 = null;
+                var DYverf119 = false;
+                var DYsmid120 = 0;
+                var DYcmdt120 = null;
+                var DYverf120 = false;
+                var DYsmid121 = 0;
+                var DYcmdt121 = null;
+                var DYverf121 = false;
+                var DYsmid122 = 0;
+                var DYcmdt122 = null;
+                var DYverf122 = false;
+                var DYsmid123 = 0;
+                var DYcmdt123 = null;
+                var DYverf123 = false;
+                var DYsmid124 = 0;
+                var DYcmdt124 = null;
+                var DYverf124 = false;
+                var DYsmid125 = 0;
+                var DYcmdt125 = null;
+                var DYverf125 = false;
+                var DYnote01 = $("#txt1014010111").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var DYnote02 = $("#txt1014010112").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var DYnote03 = $("#txt1014010113").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var DYnote04 = null;
+                var DYnote05 = null;
+                var DYnote06 = null;
+                var DYnote07 = null;
+                var DYnote08 = null;
+                var DYnote09 = null;
+                var DYnote10 = null;
+                var DYnote11 = null;
+                var DYnote12 = null;
+                var DYnote13 = null;
+                var DYnote14 = null;
+                var DYnote15 = null;
+                var DYtask01 = null;
+                var DYtask02 = null;
+                var DYtask03 = null;
+                var DYtask04 = null;
+                var DYtask05 = null;
+                var DYacit01 = null;
+                var DYacit02 = null;
+                var DYacit03 = null;
+                var DYacit04 = null;
+                var DYacit05 = null;
+                var DYtool01 = null;
+                var DYtool02 = null;
+                var DYtool03 = null;
+                var DYtool04 = null;
+                var DYtool05 = null;
+                var DYdocn01 = null;
+                var DYdocn02 = null;
+                var DYdocn03 = null;
+                var DYdocn04 = null;
+                var DYdocn05 = null;
+                var DYprfx01 = 0;
+                var DYprfx02 = 0;
+                var DYprfx03 = 0;
+                var DYprfx04 = 0;
+                var DYprfx05 = 0;
+                var DYrate01 = 0;
+                var DYrate02 = 0;
+                var DYrate03 = 0;
+                var DYrate04 = 0;
+                var DYrate05 = 0;
+                var EYID = $("#doc1016010id").val();
+                var EYprojid = 13;
+                var EYtskoid = 58;
+                var EYdcgrid = 1010;
+                var EYdctpid = 1010010;
+                var EYtspdid = 6;
+                var EYdistid = AYdistid;
+                var EYacctid = AYacctid;
+                var EYuserid = $("#doc1016010userid").val();
+                var EYdimgid = $("#doc1016010dimgid").val();
+                var EYcrusid = $("#doc1016010crusid").val();
+                var EYedusid = AYedusid;
+                var EYcrdate = $("#doc1016010crdate").val();
+                var EYcrdt = $("#doc1016010crdt").val();
+                var EYeddt = eddt;
+                var EYchck = false;
+                var EYchckid = 0;
+                var EYchckdt = null;
+                var EYsmid111 = $("#sm1016010111").val();
+                var EYcmdt111 = $("#cm1016010111").val();
+                var EYverf111 = $("#vr1016010111").is(":checked");
+                var EYsmid112 = $("#sm1016010112").val();
+                var EYcmdt112 = $("#cm1016010112").val();
+                var EYverf112 = $("#vr1016010112").is(":checked");
+                var EYsmid113 = $("#sm1016010113").val();
+                var EYcmdt113 = $("#cm1016010113").val();
+                var EYverf113 = $("#vr1016010113").is(":checked");
+                var EYsmid114 = $("#sm1016010114").val();
+                var EYcmdt114 = $("#cm1016010114").val();
+                var EYverf114 = $("#vr1016010114").is(":checked");
+                var EYsmid115 = 0;
+                var EYcmdt115 = null;
+                var EYverf115 = false;
+                var EYsmid116 = 0;
+                var EYcmdt116 = null;
+                var EYverf116 = false;
+                var EYsmid117 = 0;
+                var EYcmdt117 = null;
+                var EYverf117 = false;
+                var EYsmid118 = 0;
+                var EYcmdt118 = null;
+                var EYverf118 = false;
+                var EYsmid119 = 0;
+                var EYcmdt119 = null;
+                var EYverf119 = false;
+                var EYsmid120 = 0;
+                var EYcmdt120 = null;
+                var EYverf120 = false;
+                var EYsmid121 = 0;
+                var EYcmdt121 = null;
+                var EYverf121 = false;
+                var EYsmid122 = 0;
+                var EYcmdt122 = null;
+                var EYverf122 = false;
+                var EYsmid123 = 0;
+                var EYcmdt123 = null;
+                var EYverf123 = false;
+                var EYsmid124 = 0;
+                var EYcmdt124 = null;
+                var EYverf124 = false;
+                var EYsmid125 = 0;
+                var EYcmdt125 = null;
+                var EYverf125 = false;
+                var EYnote01 = $("#txt1016010111").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var EYnote02 = $("#txt1016010112").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var EYnote03 = $("#txt1016010113").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var EYnote04 = $("#txt1016010114").val().replace(/(\r\n\t|\n|\r\t)/gm," ");
+                var EYnote05 = null;
+                var EYnote06 = null;
+                var EYnote07 = null;
+                var EYnote08 = null;
+                var EYnote09 = null;
+                var EYnote10 = null;
+                var EYnote11 = null;
+                var EYnote12 = null;
+                var EYnote13 = null;
+                var EYnote14 = null;
+                var EYnote15 = null;
+                var EYtask01 = null;
+                var EYtask02 = null;
+                var EYtask03 = null;
+                var EYtask04 = null;
+                var EYtask05 = null;
+                var EYacit01 = null;
+                var EYacit02 = null;
+                var EYacit03 = null;
+                var EYacit04 = null;
+                var EYacit05 = null;
+                var EYtool01 = null;
+                var EYtool02 = null;
+                var EYtool03 = null;
+                var EYtool04 = null;
+                var EYtool05 = null;
+                var EYdocn01 = null;
+                var EYdocn02 = null;
+                var EYdocn03 = null;
+                var EYdocn04 = null;
+                var EYdocn05 = null;
+                var EYprfx01 = 0;
+                var EYprfx02 = 0;
+                var EYprfx03 = 0;
+                var EYprfx04 = 0;
+                var EYprfx05 = 0;
+                var EYrate01 = 0;
+                var EYrate02 = 0;
+                var EYrate03 = 0;
+                var EYrate04 = 0;
+                var EYrate05 = 0;
+                var yr1 = eddt.slice(0, 4);
+                var mn1 = eddt.slice(5, 7);
+                var dy1 = eddt.slice(8, 10);
+                var tm1 = eddt.slice(11, 13);
+                var tm2 = eddt.slice(14, 16);
+                var tm3 = eddt.slice(17, 19);
+                var tm4 = eddt.slice(20, 23);
+                var data1 = {
+                    ID: AYID,
+                    projid: AYprojid,
+                    tskoid: AYtskoid,
+                    dcgrid: AYdcgrid,
+                    dctpid: AYdctpid,
+                    tspdid: AYtspdid,
+                    distid: AYdistid,
+                    acctid: AYacctid,
+                    userid: AYuserid,
+                    dimgid: AYdimgid,
+                    smid111: AYsmid111,
+                    cmdt111: AYcmdt111,
+                    verf111: AYverf111,
+                    smid112: AYsmid112,
+                    cmdt112: AYcmdt112,
+                    verf112: AYverf112,
+                    smid113: AYsmid113,
+                    cmdt113: AYcmdt113,
+                    verf113: AYverf113,
+                    smid114: AYsmid114,
+                    cmdt114: AYcmdt114,
+                    verf114: AYverf114,
+                    smid115: AYsmid115,
+                    cmdt115: AYcmdt115,
+                    verf115: AYverf115,
+                    smid116: AYsmid116,
+                    cmdt116: AYcmdt116,
+                    verf116: AYverf116,
+                    smid117: AYsmid117,
+                    cmdt117: AYcmdt117,
+                    verf117: AYverf117,
+                    smid118: AYsmid118,
+                    cmdt118: AYcmdt118,
+                    verf118: AYverf118,
+                    smid119: AYsmid119,
+                    cmdt119: AYcmdt119,
+                    verf119: AYverf119,
+                    smid120: AYsmid120,
+                    cmdt120: AYcmdt120,
+                    verf120: AYverf120,
+                    smid121: AYsmid121,
+                    cmdt121: AYcmdt121,
+                    verf121: AYverf121,
+                    smid122: AYsmid122,
+                    cmdt122: AYcmdt122,
+                    verf122: AYverf122,
+                    smid123: AYsmid123,
+                    cmdt123: AYcmdt123,
+                    verf123: AYverf123,
+                    smid124: AYsmid124,
+                    cmdt124: AYcmdt124,
+                    verf124: AYverf124,
+                    smid125: AYsmid125,
+                    cmdt125: AYcmdt125,
+                    verf125: AYverf125,
+                    note01: AYnote01,
+                    note02: AYnote02,
+                    note03: AYnote03,
+                    note04: AYnote04,
+                    note05: AYnote05,
+                    note06: AYnote06,
+                    note07: AYnote07,
+                    note08: AYnote08,
+                    note09: AYnote09,
+                    note10: AYnote10,
+                    note11: AYnote11,
+                    note12: AYnote12,
+                    note13: AYnote13,
+                    note14: AYnote14,
+                    note15: AYnote15,
+                    task01: AYtask01,
+                    task02: AYtask02,
+                    task03: AYtask03,
+                    task04: AYtask04,
+                    task05: AYtask05,
+                    acit01: AYacit01,
+                    acit02: AYacit02,
+                    acit03: AYacit03,
+                    acit04: AYacit04,
+                    acit05: AYacit05,
+                    tool01: AYtool01,
+                    tool02: AYtool02,
+                    tool03: AYtool03,
+                    tool04: AYtool04,
+                    tool05: AYtool05,
+                    docn01: AYdocn01,
+                    docn02: AYdocn02,
+                    docn03: AYdocn03,
+                    docn04: AYdocn04,
+                    docn05: AYdocn05,
+                    prfx01: AYprfx01,
+                    prfx02: AYprfx02,
+                    prfx03: AYprfx03,
+                    prfx04: AYprfx04,
+                    prfx05: AYprfx05,
+                    rate01: AYrate01,
+                    rate02: AYrate02,
+                    rate03: AYrate03,
+                    rate04: AYrate04,
+                    rate05: AYrate05,
+                    chck: AYchck,
+                    chckid: AYchckid,
+                    chckdt: AYchckdt,
+                    crdate: AYcrdate,
+                    crdt: AYcrdt,
+                    eddt: AYeddt,
+                    crusid: AYcrusid,
+                    edusid: AYedusid
+                };
+                var data2 = {
+                    ID: BYID,
+                    projid: BYprojid,
+                    tskoid: BYtskoid,
+                    dcgrid: BYdcgrid,
+                    dctpid: BYdctpid,
+                    tspdid: BYtspdid,
+                    distid: BYdistid,
+                    acctid: BYacctid,
+                    userid: BYuserid,
+                    dimgid: BYdimgid,
+                    smid111: BYsmid111,
+                    cmdt111: BYcmdt111,
+                    verf111: BYverf111,
+                    smid112: BYsmid112,
+                    cmdt112: BYcmdt112,
+                    verf112: BYverf112,
+                    smid113: BYsmid113,
+                    cmdt113: BYcmdt113,
+                    verf113: BYverf113,
+                    smid114: BYsmid114,
+                    cmdt114: BYcmdt114,
+                    verf114: BYverf114,
+                    smid115: BYsmid115,
+                    cmdt115: BYcmdt115,
+                    verf115: BYverf115,
+                    smid116: BYsmid116,
+                    cmdt116: BYcmdt116,
+                    verf116: BYverf116,
+                    smid117: BYsmid117,
+                    cmdt117: BYcmdt117,
+                    verf117: BYverf117,
+                    smid118: BYsmid118,
+                    cmdt118: BYcmdt118,
+                    verf118: BYverf118,
+                    smid119: BYsmid119,
+                    cmdt119: BYcmdt119,
+                    verf119: BYverf119,
+                    smid120: BYsmid120,
+                    cmdt120: BYcmdt120,
+                    verf120: BYverf120,
+                    smid121: BYsmid121,
+                    cmdt121: BYcmdt121,
+                    verf121: BYverf121,
+                    smid122: BYsmid122,
+                    cmdt122: BYcmdt122,
+                    verf122: BYverf122,
+                    smid123: BYsmid123,
+                    cmdt123: BYcmdt123,
+                    verf123: BYverf123,
+                    smid124: BYsmid124,
+                    cmdt124: BYcmdt124,
+                    verf124: BYverf124,
+                    smid125: BYsmid125,
+                    cmdt125: BYcmdt125,
+                    verf125: BYverf125,
+                    note01: BYnote01,
+                    note02: BYnote02,
+                    note03: BYnote03,
+                    note04: BYnote04,
+                    note05: BYnote05,
+                    note06: BYnote06,
+                    note07: BYnote07,
+                    note08: BYnote08,
+                    note09: BYnote09,
+                    note10: BYnote10,
+                    note11: BYnote11,
+                    note12: BYnote12,
+                    note13: BYnote13,
+                    note14: BYnote14,
+                    note15: BYnote15,
+                    task01: BYtask01,
+                    task02: BYtask02,
+                    task03: BYtask03,
+                    task04: BYtask04,
+                    task05: BYtask05,
+                    acit01: BYacit01,
+                    acit02: BYacit02,
+                    acit03: BYacit03,
+                    acit04: BYacit04,
+                    acit05: BYacit05,
+                    tool01: BYtool01,
+                    tool02: BYtool02,
+                    tool03: BYtool03,
+                    tool04: BYtool04,
+                    tool05: BYtool05,
+                    docn01: BYdocn01,
+                    docn02: BYdocn02,
+                    docn03: BYdocn03,
+                    docn04: BYdocn04,
+                    docn05: BYdocn05,
+                    prfx01: BYprfx01,
+                    prfx02: BYprfx02,
+                    prfx03: BYprfx03,
+                    prfx04: BYprfx04,
+                    prfx05: BYprfx05,
+                    rate01: BYrate01,
+                    rate02: BYrate02,
+                    rate03: BYrate03,
+                    rate04: BYrate04,
+                    rate05: BYrate05,
+                    chck: BYchck,
+                    chckid: BYchckid,
+                    chckdt: BYchckdt,
+                    crdate: BYcrdt,
+                    crdt: BYcrdt,
+                    eddt: BYeddt,
+                    crusid: BYcrusid,
+                    edusid: BYedusid
+                };
+                var data3 = {
+                    ID: CYID,
+                    projid: CYprojid,
+                    tskoid: CYtskoid,
+                    dcgrid: CYdcgrid,
+                    dctpid: CYdctpid,
+                    tspdid: CYtspdid,
+                    distid: CYdistid,
+                    acctid: CYacctid,
+                    userid: CYuserid,
+                    dimgid: CYdimgid,
+                    smid111: CYsmid111,
+                    cmdt111: CYcmdt111,
+                    verf111: CYverf111,
+                    smid112: CYsmid112,
+                    cmdt112: CYcmdt112,
+                    verf112: CYverf112,
+                    smid113: CYsmid113,
+                    cmdt113: CYcmdt113,
+                    verf113: CYverf113,
+                    smid114: CYsmid114,
+                    cmdt114: CYcmdt114,
+                    verf114: CYverf114,
+                    smid115: CYsmid115,
+                    cmdt115: CYcmdt115,
+                    verf115: CYverf115,
+                    smid116: CYsmid116,
+                    cmdt116: CYcmdt116,
+                    verf116: CYverf116,
+                    smid117: CYsmid117,
+                    cmdt117: CYcmdt117,
+                    verf117: CYverf117,
+                    smid118: CYsmid118,
+                    cmdt118: CYcmdt118,
+                    verf118: CYverf118,
+                    smid119: CYsmid119,
+                    cmdt119: CYcmdt119,
+                    verf119: CYverf119,
+                    smid120: CYsmid120,
+                    cmdt120: CYcmdt120,
+                    verf120: CYverf120,
+                    smid121: CYsmid121,
+                    cmdt121: CYcmdt121,
+                    verf121: CYverf121,
+                    smid122: CYsmid122,
+                    cmdt122: CYcmdt122,
+                    verf122: CYverf122,
+                    smid123: CYsmid123,
+                    cmdt123: CYcmdt123,
+                    verf123: CYverf123,
+                    smid124: CYsmid124,
+                    cmdt124: CYcmdt124,
+                    verf124: CYverf124,
+                    smid125: CYsmid125,
+                    cmdt125: CYcmdt125,
+                    verf125: CYverf125,
+                    note01: CYnote01,
+                    note02: CYnote02,
+                    note03: CYnote03,
+                    note04: CYnote04,
+                    note05: CYnote05,
+                    note06: CYnote06,
+                    note07: CYnote07,
+                    note08: CYnote08,
+                    note09: CYnote09,
+                    note10: CYnote10,
+                    note11: CYnote11,
+                    note12: CYnote12,
+                    note13: CYnote13,
+                    note14: CYnote14,
+                    note15: CYnote15,
+                    task01: CYtask01,
+                    task02: CYtask02,
+                    task03: CYtask03,
+                    task04: CYtask04,
+                    task05: CYtask05,
+                    acit01: CYacit01,
+                    acit02: CYacit02,
+                    acit03: CYacit03,
+                    acit04: CYacit04,
+                    acit05: CYacit05,
+                    tool01: CYtool01,
+                    tool02: CYtool02,
+                    tool03: CYtool03,
+                    tool04: CYtool04,
+                    tool05: CYtool05,
+                    docn01: CYdocn01,
+                    docn02: CYdocn02,
+                    docn03: CYdocn03,
+                    docn04: CYdocn04,
+                    docn05: CYdocn05,
+                    prfx01: CYprfx01,
+                    prfx02: CYprfx02,
+                    prfx03: CYprfx03,
+                    prfx04: CYprfx04,
+                    prfx05: CYprfx05,
+                    rate01: CYrate01,
+                    rate02: CYrate02,
+                    rate03: CYrate03,
+                    rate04: CYrate04,
+                    rate05: CYrate05,
+                    chck: CYchck,
+                    chckid: CYchckid,
+                    chckdt: CYchckdt,
+                    crdate: CYcrdt,
+                    crdt: CYcrdt,
+                    eddt: CYeddt,
+                    crusid: CYcrusid,
+                    edusid: CYedusid,
+                    smid126: CYsmid126,
+                    cmdt126: CYcmdt126,
+                    verf126: CYverf126,
+                    smid127: CYsmid127,
+                    cmdt127: CYcmdt127,
+                    verf127: CYverf127,
+                    smid128: CYsmid128,
+                    cmdt128: CYcmdt128,
+                    verf128: CYverf128,
+                    smid129: CYsmid129,
+                    cmdt129: CYcmdt129,
+                    verf129: CYverf129,
+                    smid130: CYsmid130,
+                    cmdt130: CYcmdt130,
+                    verf130: CYverf130,
+                    smid131: CYsmid131,
+                    cmdt131: CYcmdt131,
+                    verf131: CYverf131,
+                    smid132: CYsmid132,
+                    cmdt132: CYcmdt132,
+                    verf132: CYverf132,
+                    smid133: CYsmid133,
+                    cmdt133: CYcmdt133,
+                    verf133: CYverf133,
+                    smid134: CYsmid134,
+                    cmdt134: CYcmdt134,
+                    verf134: CYverf134,
+                    smid135: CYsmid135,
+                    cmdt135: CYcmdt135,
+                    verf135: CYverf135,
+                    note26: CYnote26,
+                    note27: CYnote27,
+                    note28: CYnote28,
+                    note29: CYnote29,
+                    note30: CYnote30,
+                    note31: CYnote31,
+                    note32: CYnote32,
+                    note33: CYnote33,
+                    note34: CYnote34,
+                    note35: CYnote35
+                };
+                var data4 = {
+                    ID: DYID,
+                    projid: DYprojid,
+                    tskoid: DYtskoid,
+                    dcgrid: DYdcgrid,
+                    dctpid: DYdctpid,
+                    tspdid: DYtspdid,
+                    distid: DYdistid,
+                    acctid: DYacctid,
+                    userid: DYuserid,
+                    dimgid: DYdimgid,
+                    smid111: DYsmid111,
+                    cmdt111: DYcmdt111,
+                    verf111: DYverf111,
+                    smid112: DYsmid112,
+                    cmdt112: DYcmdt112,
+                    verf112: DYverf112,
+                    smid113: DYsmid113,
+                    cmdt113: DYcmdt113,
+                    verf113: DYverf113,
+                    smid114: DYsmid114,
+                    cmdt114: DYcmdt114,
+                    verf114: DYverf114,
+                    smid115: DYsmid115,
+                    cmdt115: DYcmdt115,
+                    verf115: DYverf115,
+                    smid116: DYsmid116,
+                    cmdt116: DYcmdt116,
+                    verf116: DYverf116,
+                    smid117: DYsmid117,
+                    cmdt117: DYcmdt117,
+                    verf117: DYverf117,
+                    smid118: DYsmid118,
+                    cmdt118: DYcmdt118,
+                    verf118: DYverf118,
+                    smid119: DYsmid119,
+                    cmdt119: DYcmdt119,
+                    verf119: DYverf119,
+                    smid120: DYsmid120,
+                    cmdt120: DYcmdt120,
+                    verf120: DYverf120,
+                    smid121: DYsmid121,
+                    cmdt121: DYcmdt121,
+                    verf121: DYverf121,
+                    smid122: DYsmid122,
+                    cmdt122: DYcmdt122,
+                    verf122: DYverf122,
+                    smid123: DYsmid123,
+                    cmdt123: DYcmdt123,
+                    verf123: DYverf123,
+                    smid124: DYsmid124,
+                    cmdt124: DYcmdt124,
+                    verf124: DYverf124,
+                    smid125: DYsmid125,
+                    cmdt125: DYcmdt125,
+                    verf125: DYverf125,
+                    note01: DYnote01,
+                    note02: DYnote02,
+                    note03: DYnote03,
+                    note04: DYnote04,
+                    note05: DYnote05,
+                    note06: DYnote06,
+                    note07: DYnote07,
+                    note08: DYnote08,
+                    note09: DYnote09,
+                    note10: DYnote10,
+                    note11: DYnote11,
+                    note12: DYnote12,
+                    note13: DYnote13,
+                    note14: DYnote14,
+                    note15: DYnote15,
+                    task01: DYtask01,
+                    task02: DYtask02,
+                    task03: DYtask03,
+                    task04: DYtask04,
+                    task05: DYtask05,
+                    acit01: DYacit01,
+                    acit02: DYacit02,
+                    acit03: DYacit03,
+                    acit04: DYacit04,
+                    acit05: DYacit05,
+                    tool01: DYtool01,
+                    tool02: DYtool02,
+                    tool03: DYtool03,
+                    tool04: DYtool04,
+                    tool05: DYtool05,
+                    docn01: DYdocn01,
+                    docn02: DYdocn02,
+                    docn03: DYdocn03,
+                    docn04: DYdocn04,
+                    docn05: DYdocn05,
+                    prfx01: DYprfx01,
+                    prfx02: DYprfx02,
+                    prfx03: DYprfx03,
+                    prfx04: DYprfx04,
+                    prfx05: DYprfx05,
+                    rate01: DYrate01,
+                    rate02: DYrate02,
+                    rate03: DYrate03,
+                    rate04: DYrate04,
+                    rate05: DYrate05,
+                    chck: DYchck,
+                    chckid: DYchckid,
+                    chckdt: DYchckdt,
+                    crdate: DYcrdt,
+                    crdt: DYcrdt,
+                    eddt: DYeddt,
+                    crusid: DYcrusid,
+                    edusid: DYedusid
+                };
+                var data5 = {
+                    ID: EYID,
+                    projid: EYprojid,
+                    tskoid: EYtskoid,
+                    dcgrid: EYdcgrid,
+                    dctpid: EYdctpid,
+                    tspdid: EYtspdid,
+                    distid: EYdistid,
+                    acctid: EYacctid,
+                    userid: EYuserid,
+                    dimgid: EYdimgid,
+                    smid111: EYsmid111,
+                    cmdt111: EYcmdt111,
+                    verf111: EYverf111,
+                    smid112: EYsmid112,
+                    cmdt112: EYcmdt112,
+                    verf112: EYverf112,
+                    smid113: EYsmid113,
+                    cmdt113: EYcmdt113,
+                    verf113: EYverf113,
+                    smid114: EYsmid114,
+                    cmdt114: EYcmdt114,
+                    verf114: EYverf114,
+                    smid115: EYsmid115,
+                    cmdt115: EYcmdt115,
+                    verf115: EYverf115,
+                    smid116: EYsmid116,
+                    cmdt116: EYcmdt116,
+                    verf116: EYverf116,
+                    smid117: EYsmid117,
+                    cmdt117: EYcmdt117,
+                    verf117: EYverf117,
+                    smid118: EYsmid118,
+                    cmdt118: EYcmdt118,
+                    verf118: EYverf118,
+                    smid119: EYsmid119,
+                    cmdt119: EYcmdt119,
+                    verf119: EYverf119,
+                    smid120: EYsmid120,
+                    cmdt120: EYcmdt120,
+                    verf120: EYverf120,
+                    smid121: EYsmid121,
+                    cmdt121: EYcmdt121,
+                    verf121: EYverf121,
+                    smid122: EYsmid122,
+                    cmdt122: EYcmdt122,
+                    verf122: EYverf122,
+                    smid123: EYsmid123,
+                    cmdt123: EYcmdt123,
+                    verf123: EYverf123,
+                    smid124: EYsmid124,
+                    cmdt124: EYcmdt124,
+                    verf124: EYverf124,
+                    smid125: EYsmid125,
+                    cmdt125: EYcmdt125,
+                    verf125: EYverf125,
+                    note01: EYnote01,
+                    note02: EYnote02,
+                    note03: EYnote03,
+                    note04: EYnote04,
+                    note05: EYnote05,
+                    note06: EYnote06,
+                    note07: EYnote07,
+                    note08: EYnote08,
+                    note09: EYnote09,
+                    note10: EYnote10,
+                    note11: EYnote11,
+                    note12: EYnote12,
+                    note13: EYnote13,
+                    note14: EYnote14,
+                    note15: EYnote15,
+                    task01: EYtask01,
+                    task02: EYtask02,
+                    task03: EYtask03,
+                    task04: EYtask04,
+                    task05: EYtask05,
+                    acit01: EYacit01,
+                    acit02: EYacit02,
+                    acit03: EYacit03,
+                    acit04: EYacit04,
+                    acit05: EYacit05,
+                    tool01: EYtool01,
+                    tool02: EYtool02,
+                    tool03: EYtool03,
+                    tool04: EYtool04,
+                    tool05: EYtool05,
+                    docn01: EYdocn01,
+                    docn02: EYdocn02,
+                    docn03: EYdocn03,
+                    docn04: EYdocn04,
+                    docn05: EYdocn05,
+                    prfx01: EYprfx01,
+                    prfx02: EYprfx02,
+                    prfx03: EYprfx03,
+                    prfx04: EYprfx04,
+                    prfx05: EYprfx05,
+                    rate01: EYrate01,
+                    rate02: EYrate02,
+                    rate03: EYrate03,
+                    rate04: EYrate04,
+                    rate05: EYrate05,
+                    chck: EYchck,
+                    chckid: EYchckid,
+                    chckdt: EYchckdt,
+                    crdate: EYcrdt,
+                    crdt: EYcrdt,
+                    eddt: EYeddt,
+                    crusid: EYcrusid,
+                    edusid: EYedusid
+                };
+                //var data2b = {
+                //    ID: ID,
+                //    AYID: AYID,
+                //    AYprojid: AYprojid,
+                //    AYtskoid: AYtskoid,
+                //    AYdcgrid: AYdcgrid,
+                //    AYdctpid: AYdctpid,
+                //    AYtspdid: AYtspdid,
+                //    AYdistid: AYdistid,
+                //    AYacctid: AYacctid,
+                //    AYuserid: AYuserid,
+                //    AYdimgid: AYdimgid,
+                //    AYsmid111: AYsmid111,
+                //    AYcmdt111: AYcmdt111,
+                //    AYverf111: AYverf111,
+                //    AYsmid112: AYsmid112,
+                //    AYcmdt112: AYcmdt112,
+                //    AYverf112: AYverf112,
+                //    AYsmid113: AYsmid113,
+                //    AYcmdt113: AYcmdt113,
+                //    AYverf113: AYverf113,
+                //    AYsmid114: AYsmid114,
+                //    AYcmdt114: AYcmdt114,
+                //    AYverf114: AYverf114,
+                //    AYsmid115: AYsmid115,
+                //    AYcmdt115: AYcmdt115,
+                //    AYverf115: AYverf115,
+                //    AYsmid116: AYsmid116,
+                //    AYcmdt116: AYcmdt116,
+                //    AYverf116: AYverf116,
+                //    AYsmid117: AYsmid117,
+                //    AYcmdt117: AYcmdt117,
+                //    AYverf117: AYverf117,
+                //    AYsmid118: AYsmid118,
+                //    AYcmdt118: AYcmdt118,
+                //    AYverf118: AYverf118,
+                //    AYsmid119: AYsmid119,
+                //    AYcmdt119: AYcmdt119,
+                //    AYverf119: AYverf119,
+                //    AYsmid120: AYsmid120,
+                //    AYcmdt120: AYcmdt120,
+                //    AYverf120: AYverf120,
+                //    AYsmid121: AYsmid121,
+                //    AYcmdt121: AYcmdt121,
+                //    AYverf121: AYverf121,
+                //    AYsmid122: AYsmid122,
+                //    AYcmdt122: AYcmdt122,
+                //    AYverf122: AYverf122,
+                //    AYsmid123: AYsmid123,
+                //    AYcmdt123: AYcmdt123,
+                //    AYverf123: AYverf123,
+                //    AYsmid124: AYsmid124,
+                //    AYcmdt124: AYcmdt124,
+                //    AYverf124: AYverf124,
+                //    AYsmid125: AYsmid125,
+                //    AYcmdt125: AYcmdt125,
+                //    AYverf125: AYverf125,
+                //    AYnote01: AYnote01,
+                //    AYnote02: AYnote02,
+                //    AYnote03: AYnote03,
+                //    AYnote04: AYnote04,
+                //    AYnote05: AYnote05,
+                //    AYnote06: AYnote06,
+                //    AYnote07: AYnote07,
+                //    AYnote08: AYnote08,
+                //    AYnote09: AYnote09,
+                //    AYnote10: AYnote10,
+                //    AYnote11: AYnote11,
+                //    AYnote12: AYnote12,
+                //    AYnote13: AYnote13,
+                //    AYnote14: AYnote14,
+                //    AYnote15: AYnote15,
+                //    AYtask01: AYtask01,
+                //    AYtask02: AYtask02,
+                //    AYtask03: AYtask03,
+                //    AYtask04: AYtask04,
+                //    AYtask05: AYtask05,
+                //    AYacit01: AYacit01,
+                //    AYacit02: AYacit02,
+                //    AYacit03: AYacit03,
+                //    AYacit04: AYacit04,
+                //    AYacit05: AYacit05,
+                //    AYtool01: AYtool01,
+                //    AYtool02: AYtool02,
+                //    AYtool03: AYtool03,
+                //    AYtool04: AYtool04,
+                //    AYtool05: AYtool05,
+                //    AYdocn01: AYdocn01,
+                //    AYdocn02: AYdocn02,
+                //    AYdocn03: AYdocn03,
+                //    AYdocn04: AYdocn04,
+                //    AYdocn05: AYdocn05,
+                //    AYprfx01: AYprfx01,
+                //    AYprfx02: AYprfx02,
+                //    AYprfx03: AYprfx03,
+                //    AYprfx04: AYprfx04,
+                //    AYprfx05: AYprfx05,
+                //    AYrate01: AYrate01,
+                //    AYrate02: AYrate02,
+                //    AYrate03: AYrate03,
+                //    AYrate04: AYrate04,
+                //    AYrate05: AYrate05,
+                //    AYchck: AYchck,
+                //    AYchckid: AYchckid,
+                //    AYchckdt: AYchckdt,
+                //    AYcrdate: AYcrdate,
+                //    AYcrdt: AYcrdt,
+                //    AYeddt: AYeddt,
+                //    AYcrusid: AYcrusid,
+                //    AYedusid: AYedusid,
+                //    BYID: BYID,
+                //    BYprojid: BYprojid,
+                //    BYtskoid: BYtskoid,
+                //    BYdcgrid: BYdcgrid,
+                //    BYdctpid: BYdctpid,
+                //    BYtspdid: BYtspdid,
+                //    BYdistid: BYdistid,
+                //    BYacctid: BYacctid,
+                //    BYuserid: BYuserid,
+                //    BYdimgid: BYdimgid,
+                //    BYsmid111: BYsmid111,
+                //    BYcmdt111: BYcmdt111,
+                //    BYverf111: BYverf111,
+                //    BYsmid112: BYsmid112,
+                //    BYcmdt112: BYcmdt112,
+                //    BYverf112: BYverf112,
+                //    BYsmid113: BYsmid113,
+                //    BYcmdt113: BYcmdt113,
+                //    BYverf113: BYverf113,
+                //    BYsmid114: BYsmid114,
+                //    BYcmdt114: BYcmdt114,
+                //    BYverf114: BYverf114,
+                //    BYsmid115: BYsmid115,
+                //    BYcmdt115: BYcmdt115,
+                //    BYverf115: BYverf115,
+                //    BYsmid116: BYsmid116,
+                //    BYcmdt116: BYcmdt116,
+                //    BYverf116: BYverf116,
+                //    BYsmid117: BYsmid117,
+                //    BYcmdt117: BYcmdt117,
+                //    BYverf117: BYverf117,
+                //    BYsmid118: BYsmid118,
+                //    BYcmdt118: BYcmdt118,
+                //    BYverf118: BYverf118,
+                //    BYsmid119: BYsmid119,
+                //    BYcmdt119: BYcmdt119,
+                //    BYverf119: BYverf119,
+                //    BYsmid120: BYsmid120,
+                //    BYcmdt120: BYcmdt120,
+                //    BYverf120: BYverf120,
+                //    BYsmid121: BYsmid121,
+                //    BYcmdt121: BYcmdt121,
+                //    BYverf121: BYverf121,
+                //    BYsmid122: BYsmid122,
+                //    BYcmdt122: BYcmdt122,
+                //    BYverf122: BYverf122,
+                //    BYsmid123: BYsmid123,
+                //    BYcmdt123: BYcmdt123,
+                //    BYverf123: BYverf123,
+                //    BYsmid124: BYsmid124,
+                //    BYcmdt124: BYcmdt124,
+                //    BYverf124: BYverf124,
+                //    BYsmid125: BYsmid125,
+                //    BYcmdt125: BYcmdt125,
+                //    BYverf125: BYverf125,
+                //    BYnote01: BYnote01,
+                //    BYnote02: BYnote02,
+                //    BYnote03: BYnote03,
+                //    BYnote04: BYnote04,
+                //    BYnote05: BYnote05,
+                //    BYnote06: BYnote06,
+                //    BYnote07: BYnote07,
+                //    BYnote08: BYnote08,
+                //    BYnote09: BYnote09,
+                //    BYnote10: BYnote10,
+                //    BYnote11: BYnote11,
+                //    BYnote12: BYnote12,
+                //    BYnote13: BYnote13,
+                //    BYnote14: BYnote14,
+                //    BYnote15: BYnote15,
+                //    BYtask01: BYtask01,
+                //    BYtask02: BYtask02,
+                //    BYtask03: BYtask03,
+                //    BYtask04: BYtask04,
+                //    BYtask05: BYtask05,
+                //    BYacit01: BYacit01,
+                //    BYacit02: BYacit02,
+                //    BYacit03: BYacit03,
+                //    BYacit04: BYacit04,
+                //    BYacit05: BYacit05,
+                //    BYtool01: BYtool01,
+                //    BYtool02: BYtool02,
+                //    BYtool03: BYtool03,
+                //    BYtool04: BYtool04,
+                //    BYtool05: BYtool05,
+                //    BYdocn01: BYdocn01,
+                //    BYdocn02: BYdocn02,
+                //    BYdocn03: BYdocn03,
+                //    BYdocn04: BYdocn04,
+                //    BYdocn05: BYdocn05,
+                //    BYprfx01: BYprfx01,
+                //    BYprfx02: BYprfx02,
+                //    BYprfx03: BYprfx03,
+                //    BYprfx04: BYprfx04,
+                //    BYprfx05: BYprfx05,
+                //    BYrate01: BYrate01,
+                //    BYrate02: BYrate02,
+                //    BYrate03: BYrate03,
+                //    BYrate04: BYrate04,
+                //    BYrate05: BYrate05,
+                //    BYchck: BYchck,
+                //    BYchckid: BYchckid,
+                //    BYchckdt: BYchckdt,
+                //    BYcrdate: BYcrdt,
+                //    BYcrdt: BYcrdt,
+                //    BYeddt: BYeddt,
+                //    BYcrusid: BYcrusid,
+                //    BYedusid: BYedusid,
+                //    CYID: CYID,
+                //    CYprojid: CYprojid,
+                //    CYtskoid: CYtskoid,
+                //    CYdcgrid: CYdcgrid,
+                //    CYdctpid: CYdctpid,
+                //    CYtspdid: CYtspdid,
+                //    CYdistid: CYdistid,
+                //    CYacctid: CYacctid,
+                //    CYuserid: CYuserid,
+                //    CYdimgid: CYdimgid,
+                //    CYsmid111: CYsmid111,
+                //    CYcmdt111: CYcmdt111,
+                //    CYverf111: CYverf111,
+                //    CYsmid112: CYsmid112,
+                //    CYcmdt112: CYcmdt112,
+                //    CYverf112: CYverf112,
+                //    CYsmid113: CYsmid113,
+                //    CYcmdt113: CYcmdt113,
+                //    CYverf113: CYverf113,
+                //    CYsmid114: CYsmid114,
+                //    CYcmdt114: CYcmdt114,
+                //    CYverf114: CYverf114,
+                //    CYsmid115: CYsmid115,
+                //    CYcmdt115: CYcmdt115,
+                //    CYverf115: CYverf115,
+                //    CYsmid116: CYsmid116,
+                //    CYcmdt116: CYcmdt116,
+                //    CYverf116: CYverf116,
+                //    CYsmid117: CYsmid117,
+                //    CYcmdt117: CYcmdt117,
+                //    CYverf117: CYverf117,
+                //    CYsmid118: CYsmid118,
+                //    CYcmdt118: CYcmdt118,
+                //    CYverf118: CYverf118,
+                //    CYsmid119: CYsmid119,
+                //    CYcmdt119: CYcmdt119,
+                //    CYverf119: CYverf119,
+                //    CYsmid120: CYsmid120,
+                //    CYcmdt120: CYcmdt120,
+                //    CYverf120: CYverf120,
+                //    CYsmid121: CYsmid121,
+                //    CYcmdt121: CYcmdt121,
+                //    CYverf121: CYverf121,
+                //    CYsmid122: CYsmid122,
+                //    CYcmdt122: CYcmdt122,
+                //    CYverf122: CYverf122,
+                //    CYsmid123: CYsmid123,
+                //    CYcmdt123: CYcmdt123,
+                //    CYverf123: CYverf123,
+                //    CYsmid124: CYsmid124,
+                //    CYcmdt124: CYcmdt124,
+                //    CYverf124: CYverf124,
+                //    CYsmid125: CYsmid125,
+                //    CYcmdt125: CYcmdt125,
+                //    CYverf125: CYverf125,
+                //    CYnote01: CYnote01,
+                //    CYnote02: CYnote02,
+                //    CYnote03: CYnote03,
+                //    CYnote04: CYnote04,
+                //    CYnote05: CYnote05,
+                //    CYnote06: CYnote06,
+                //    CYnote07: CYnote07,
+                //    CYnote08: CYnote08,
+                //    CYnote09: CYnote09,
+                //    CYnote10: CYnote10,
+                //    CYnote11: CYnote11,
+                //    CYnote12: CYnote12,
+                //    CYnote13: CYnote13,
+                //    CYnote14: CYnote14,
+                //    CYnote15: CYnote15,
+                //    CYtask01: CYtask01,
+                //    CYtask02: CYtask02,
+                //    CYtask03: CYtask03,
+                //    CYtask04: CYtask04,
+                //    CYtask05: CYtask05,
+                //    CYacit01: CYacit01,
+                //    CYacit02: CYacit02,
+                //    CYacit03: CYacit03,
+                //    CYacit04: CYacit04,
+                //    CYacit05: CYacit05,
+                //    CYtool01: CYtool01,
+                //    CYtool02: CYtool02,
+                //    CYtool03: CYtool03,
+                //    CYtool04: CYtool04,
+                //    CYtool05: CYtool05,
+                //    CYdocn01: CYdocn01,
+                //    CYdocn02: CYdocn02,
+                //    CYdocn03: CYdocn03,
+                //    CYdocn04: CYdocn04,
+                //    CYdocn05: CYdocn05,
+                //    CYprfx01: CYprfx01,
+                //    CYprfx02: CYprfx02,
+                //    CYprfx03: CYprfx03,
+                //    CYprfx04: CYprfx04,
+                //    CYprfx05: CYprfx05,
+                //    CYrate01: CYrate01,
+                //    CYrate02: CYrate02,
+                //    CYrate03: CYrate03,
+                //    CYrate04: CYrate04,
+                //    CYrate05: CYrate05,
+                //    CYchck: CYchck,
+                //    CYchckid: CYchckid,
+                //    CYchckdt: CYchckdt,
+                //    CYcrdate: CYcrdt,
+                //    CYcrdt: CYcrdt,
+                //    CYeddt: CYeddt,
+                //    CYcrusid: CYcrusid,
+                //    CYedusid: CYedusid,
+                //    CYsmid126: CYsmid126,
+                //    CYcmdt126: CYcmdt126,
+                //    CYverf126: CYverf126,
+                //    CYsmid127: CYsmid127,
+                //    CYcmdt127: CYcmdt127,
+                //    CYverf127: CYverf127,
+                //    CYsmid128: CYsmid128,
+                //    CYcmdt128: CYcmdt128,
+                //    CYverf128: CYverf128,
+                //    CYsmid129: CYsmid129,
+                //    CYcmdt129: CYcmdt129,
+                //    CYverf129: CYverf129,
+                //    CYsmid130: CYsmid130,
+                //    CYcmdt130: CYcmdt130,
+                //    CYverf130: CYverf130,
+                //    CYsmid131: CYsmid131,
+                //    CYcmdt131: CYcmdt131,
+                //    CYverf131: CYverf131,
+                //    CYsmid132: CYsmid132,
+                //    CYcmdt132: CYcmdt132,
+                //    CYverf132: CYverf132,
+                //    CYsmid133: CYsmid133,
+                //    CYcmdt133: CYcmdt133,
+                //    CYverf133: CYverf133,
+                //    CYsmid134: CYsmid134,
+                //    CYcmdt134: CYcmdt134,
+                //    CYverf134: CYverf134,
+                //    CYsmid135: CYsmid135,
+                //    CYcmdt135: CYcmdt135,
+                //    CYverf135: CYverf135,
+                //    CYnote26: CYnote26,
+                //    CYnote27: CYnote27,
+                //    CYnote28: CYnote28,
+                //    CYnote29: CYnote29,
+                //    CYnote30: CYnote30,
+                //    CYnote31: CYnote31,
+                //    CYnote32: CYnote32,
+                //    CYnote33: CYnote33,
+                //    CYnote34: CYnote34,
+                //    CYnote35: CYnote35,
+                //    DYID: DYID,
+                //    DYprojid: DYprojid,
+                //    DYtskoid: DYtskoid,
+                //    DYdcgrid: DYdcgrid,
+                //    DYdctpid: DYdctpid,
+                //    DYtspdid: DYtspdid,
+                //    DYdistid: DYdistid,
+                //    DYacctid: DYacctid,
+                //    DYuserid: DYuserid,
+                //    DYdimgid: DYdimgid,
+                //    DYsmid111: DYsmid111,
+                //    DYcmdt111: DYcmdt111,
+                //    DYverf111: DYverf111,
+                //    DYsmid112: DYsmid112,
+                //    DYcmdt112: DYcmdt112,
+                //    DYverf112: DYverf112,
+                //    DYsmid113: DYsmid113,
+                //    DYcmdt113: DYcmdt113,
+                //    DYverf113: DYverf113,
+                //    DYsmid114: DYsmid114,
+                //    DYcmdt114: DYcmdt114,
+                //    DYverf114: DYverf114,
+                //    DYsmid115: DYsmid115,
+                //    DYcmdt115: DYcmdt115,
+                //    DYverf115: DYverf115,
+                //    DYsmid116: DYsmid116,
+                //    DYcmdt116: DYcmdt116,
+                //    DYverf116: DYverf116,
+                //    DYsmid117: DYsmid117,
+                //    DYcmdt117: DYcmdt117,
+                //    DYverf117: DYverf117,
+                //    DYsmid118: DYsmid118,
+                //    DYcmdt118: DYcmdt118,
+                //    DYverf118: DYverf118,
+                //    DYsmid119: DYsmid119,
+                //    DYcmdt119: DYcmdt119,
+                //    DYverf119: DYverf119,
+                //    DYsmid120: DYsmid120,
+                //    DYcmdt120: DYcmdt120,
+                //    DYverf120: DYverf120,
+                //    DYsmid121: DYsmid121,
+                //    DYcmdt121: DYcmdt121,
+                //    DYverf121: DYverf121,
+                //    DYsmid122: DYsmid122,
+                //    DYcmdt122: DYcmdt122,
+                //    DYverf122: DYverf122,
+                //    DYsmid123: DYsmid123,
+                //    DYcmdt123: DYcmdt123,
+                //    DYverf123: DYverf123,
+                //    DYsmid124: DYsmid124,
+                //    DYcmdt124: DYcmdt124,
+                //    DYverf124: DYverf124,
+                //    DYsmid125: DYsmid125,
+                //    DYcmdt125: DYcmdt125,
+                //    DYverf125: DYverf125,
+                //    DYnote01: DYnote01,
+                //    DYnote02: DYnote02,
+                //    DYnote03: DYnote03,
+                //    DYnote04: DYnote04,
+                //    DYnote05: DYnote05,
+                //    DYnote06: DYnote06,
+                //    DYnote07: DYnote07,
+                //    DYnote08: DYnote08,
+                //    DYnote09: DYnote09,
+                //    DYnote10: DYnote10,
+                //    DYnote11: DYnote11,
+                //    DYnote12: DYnote12,
+                //    DYnote13: DYnote13,
+                //    DYnote14: DYnote14,
+                //    DYnote15: DYnote15,
+                //    DYtask01: DYtask01,
+                //    DYtask02: DYtask02,
+                //    DYtask03: DYtask03,
+                //    DYtask04: DYtask04,
+                //    DYtask05: DYtask05,
+                //    DYacit01: DYacit01,
+                //    DYacit02: DYacit02,
+                //    DYacit03: DYacit03,
+                //    DYacit04: DYacit04,
+                //    DYacit05: DYacit05,
+                //    DYtool01: DYtool01,
+                //    DYtool02: DYtool02,
+                //    DYtool03: DYtool03,
+                //    DYtool04: DYtool04,
+                //    DYtool05: DYtool05,
+                //    DYdocn01: DYdocn01,
+                //    DYdocn02: DYdocn02,
+                //    DYdocn03: DYdocn03,
+                //    DYdocn04: DYdocn04,
+                //    DYdocn05: DYdocn05,
+                //    DYprfx01: DYprfx01,
+                //    DYprfx02: DYprfx02,
+                //    DYprfx03: DYprfx03,
+                //    DYprfx04: DYprfx04,
+                //    DYprfx05: DYprfx05,
+                //    DYrate01: DYrate01,
+                //    DYrate02: DYrate02,
+                //    DYrate03: DYrate03,
+                //    DYrate04: DYrate04,
+                //    DYrate05: DYrate05,
+                //    DYchck: DYchck,
+                //    DYchckid: DYchckid,
+                //    DYchckdt: DYchckdt,
+                //    DYcrdate: DYcrdt,
+                //    DYcrdt: DYcrdt,
+                //    DYeddt: DYeddt,
+                //    DYcrusid: DYcrusid,
+                //    DYedusid: DYedusid,
+                //    EYID: EYID,
+                //    EYprojid: EYprojid,
+                //    EYtskoid: EYtskoid,
+                //    EYdcgrid: EYdcgrid,
+                //    EYdctpid: EYdctpid,
+                //    EYtspdid: EYtspdid,
+                //    EYdistid: EYdistid,
+                //    EYacctid: EYacctid,
+                //    EYuserid: EYuserid,
+                //    EYdimgid: EYdimgid,
+                //    EYsmid111: EYsmid111,
+                //    EYcmdt111: EYcmdt111,
+                //    EYverf111: EYverf111,
+                //    EYsmid112: EYsmid112,
+                //    EYcmdt112: EYcmdt112,
+                //    EYverf112: EYverf112,
+                //    EYsmid113: EYsmid113,
+                //    EYcmdt113: EYcmdt113,
+                //    EYverf113: EYverf113,
+                //    EYsmid114: EYsmid114,
+                //    EYcmdt114: EYcmdt114,
+                //    EYverf114: EYverf114,
+                //    EYsmid115: EYsmid115,
+                //    EYcmdt115: EYcmdt115,
+                //    EYverf115: EYverf115,
+                //    EYsmid116: EYsmid116,
+                //    EYcmdt116: EYcmdt116,
+                //    EYverf116: EYverf116,
+                //    EYsmid117: EYsmid117,
+                //    EYcmdt117: EYcmdt117,
+                //    EYverf117: EYverf117,
+                //    EYsmid118: EYsmid118,
+                //    EYcmdt118: EYcmdt118,
+                //    EYverf118: EYverf118,
+                //    EYsmid119: EYsmid119,
+                //    EYcmdt119: EYcmdt119,
+                //    EYverf119: EYverf119,
+                //    EYsmid120: EYsmid120,
+                //    EYcmdt120: EYcmdt120,
+                //    EYverf120: EYverf120,
+                //    EYsmid121: EYsmid121,
+                //    EYcmdt121: EYcmdt121,
+                //    EYverf121: EYverf121,
+                //    EYsmid122: EYsmid122,
+                //    EYcmdt122: EYcmdt122,
+                //    EYverf122: EYverf122,
+                //    EYsmid123: EYsmid123,
+                //    EYcmdt123: EYcmdt123,
+                //    EYverf123: EYverf123,
+                //    EYsmid124: EYsmid124,
+                //    EYcmdt124: EYcmdt124,
+                //    EYverf124: EYverf124,
+                //    EYsmid125: EYsmid125,
+                //    EYcmdt125: EYcmdt125,
+                //    EYverf125: EYverf125,
+                //    EYnote01: EYnote01,
+                //    EYnote02: EYnote02,
+                //    EYnote03: EYnote03,
+                //    EYnote04: EYnote04,
+                //    EYnote05: EYnote05,
+                //    EYnote06: EYnote06,
+                //    EYnote07: EYnote07,
+                //    EYnote08: EYnote08,
+                //    EYnote09: EYnote09,
+                //    EYnote10: EYnote10,
+                //    EYnote11: EYnote11,
+                //    EYnote12: EYnote12,
+                //    EYnote13: EYnote13,
+                //    EYnote14: EYnote14,
+                //    EYnote15: EYnote15,
+                //    EYtask01: EYtask01,
+                //    EYtask02: EYtask02,
+                //    EYtask03: EYtask03,
+                //    EYtask04: EYtask04,
+                //    EYtask05: EYtask05,
+                //    EYacit01: EYacit01,
+                //    EYacit02: EYacit02,
+                //    EYacit03: EYacit03,
+                //    EYacit04: EYacit04,
+                //    EYacit05: EYacit05,
+                //    EYtool01: EYtool01,
+                //    EYtool02: EYtool02,
+                //    EYtool03: EYtool03,
+                //    EYtool04: EYtool04,
+                //    EYtool05: EYtool05,
+                //    EYdocn01: EYdocn01,
+                //    EYdocn02: EYdocn02,
+                //    EYdocn03: EYdocn03,
+                //    EYdocn04: EYdocn04,
+                //    EYdocn05: EYdocn05,
+                //    EYprfx01: EYprfx01,
+                //    EYprfx02: EYprfx02,
+                //    EYprfx03: EYprfx03,
+                //    EYprfx04: EYprfx04,
+                //    EYprfx05: EYprfx05,
+                //    EYrate01: EYrate01,
+                //    EYrate02: EYrate02,
+                //    EYrate03: EYrate03,
+                //    EYrate04: EYrate04,
+                //    EYrate05: EYrate05,
+                //    EYchck: EYchck,
+                //    EYchckid: EYchckid,
+                //    EYchckdt: EYchckdt,
+                //    EYcrdate: EYcrdt,
+                //    EYcrdt: EYcrdt,
+                //    EYeddt: EYeddt,
+                //    EYcrusid: EYcrusid,
+                //    EYedusid: EYedusid
+                //};
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data1),
+                        url: '/uhsCH/edit10100061',
+                        dataType: "JSON",
+                        success: function (respond) {
+                            if (respond == 1) {
+                                $.ajax({
+                                    type: "POST",
+                                    contentType: "application/json; charset=utf-8",
+                                    data: JSON.stringify(data2),
+                                    url: '/uhsCH/edit10100062',
+                                    dataType: "JSON",
+                                    success: function (respond) {
+                                        if (respond == 1) {
+                                            $.ajax({
+                                                type: "POST",
+                                                contentType: "application/json; charset=utf-8",
+                                                data: JSON.stringify(data3),
+                                                url: '/uhsCH/edit10100063',
+                                                dataType: "JSON",
+                                                success: function (respond) {
+                                                    if (respond == 1) {
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            contentType: "application/json; charset=utf-8",
+                                                            data: JSON.stringify(data4),
+                                                            url: '/uhsCH/edit10100064',
+                                                            dataType: "JSON",
+                                                            success: function (respond) {
+                                                                if (respond == 1) {
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        contentType: "application/json; charset=utf-8",
+                                                                        data: JSON.stringify(data5),
+                                                                        url: '/uhsCH/edit10100062',
+                                                                        dataType: "JSON",
+                                                                        success: function (respond) {
+                                                                            if (respond == 1) {
+                                                                                $.ajax({
+                                                                                    url: '/uhsCH/updtwebavg02',
+                                                                                    type: "GET",
+                                                                                    dataType: "JSON",
+                                                                                    data: { distid: AYdistid, dctpid: 1010010},
+                                                                                    success: function (respond) {
+                                                                                        if (respond == 1) {
+                                                                                            if(btn == 2){
+                                                                                                window.location = "/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=1";
+                                                                                            } else if(btn == 3){
+                                                                                                location.reload();
+                                                                                            } else if (btn == 4) {
+                                                                                                $('.loadimage').hide();
+                                                                                                $("head").removeClass("loadDiv");
+
+                                                                                            }
+
+                                                                                        }
+                                                                                        else {
+                                                                                            alert("Failed.");
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                            }
+                                                                            else if (respond == 2) {
+                                                                                alert("Failed.");
+                                                                            }
+                                                                            else if (respond == 4) {
+                                                                                alert("The system exited with code: 3." + "\n" + "User has NOT been authorized.");
+                                                                            }
+                                                                            else if (respond == 3) {
+                                                                                alert("The system exited with code: 2." + "\n" + "User has been authorized but data model state is not valid.");
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                }
+                                                                else if (respond == 2) {
+                                                                    alert("Failed.");
+                                                                }
+                                                                else if (respond == 4) {
+                                                                    alert("The system exited with code: 3." + "\n" + "User has NOT been authorized.");
+                                                                }
+                                                                else if (respond == 3) {
+                                                                    alert("The system exited with code: 2." + "\n" + "User has been authorized but data model state is not valid.");
+                                                                }
+                                                            }
+                                                        })
+                                                    }
+                                                    else if (respond == 2) {
+                                                        alert("Failed.");
+                                                    }
+                                                    else if (respond == 4) {
+                                                        alert("The system exited with code: 3." + "\n" + "User has NOT been authorized.");
+                                                    }
+                                                    else if (respond == 3) {
+                                                        alert("The system exited with code: 2." + "\n" + "User has been authorized but data model state is not valid.");
+                                                    }
+                                                }
+                                            })
+                                        }
+                                        else if (respond == 2) {
+                                            alert("Failed.");
+                                        }
+                                        else if (respond == 4) {
+                                            alert("The system exited with code: 3." + "\n" + "User has NOT been authorized.");
+                                        }
+                                        else if (respond == 3) {
+                                            alert("The system exited with code: 2." + "\n" + "User has been authorized but data model state is not valid.");
+                                        }
+                                    }
+                                })
+                            }
+                            else if (respond == 2) {
+                                alert("Failed.");
+                            }
+                            else if (respond == 4) {
+                                alert("The system exited with code: 3." + "\n" + "User has NOT been authorized.");
+                            }
+                            else if (respond == 3) {
+                                alert("The system exited with code: 2." + "\n" + "User has been authorized but data model state is not valid.");
+                            }
+                        }
+                    })
+                };
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".datepick1").datepicker();
+            //$(".datepick1").datepicker("setDate", new Date());
+        });
+    </script>
+
+    
+    <script type="text/javascript">
+        function PopupCenterDuala(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function PopupCenterDualb(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'toolbar=yes, menubar=yes, scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script>
+        function downloadURL(url) {
+            var hiddenIFrameID = 'hiddenDownloader',
+                iframe = document.getElementById(hiddenIFrameID);
+            if (iframe === null) {
+                iframe = document.createElement('iframe');
+                iframe.id = hiddenIFrameID;
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+            iframe.src = url;
+        };
+    </script>
+    <script type="text/javascript">
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+                //document.getElementById("cont001").style.display = "block";
+                document.getElementById("cont002").style.display = "block";
+                document.getElementById("cont003").style.display = "block";
+                document.getElementById("cont004").style.display = "block";
+                document.getElementById("cont005").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+                //document.getElementById("cont001").style.display = "none";
+                document.getElementById("cont002").style.display = "none";
+                document.getElementById("cont003").style.display = "none";
+                document.getElementById("cont004").style.display = "none";
+                document.getElementById("cont005").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+        function topFunctionb() {
+            $('html, body').animate({
+                scrollTop: $("#contentdiv").offset().top
+            }, 700);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.contBtns', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('id').toString();
+            if (id == "cont005") { var idc = "duedtday"; }
+            else if (id == "cont004") { var idc = "duedtweek"; }
+            else if (id == "cont003") { var idc = "duedtmonth"; }
+            else if (id == "cont002") { var idc = "duedtquarter"; }
+            //else if (id == "cont001") { var idc = "duedtyear"; }
+            var idt = "#" + idc;
+            $('html, body').animate({
+                scrollTop: $(idt).offset().top - 100
+            }, 700);
+        });
+
+    </script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+
+</body>
+</html>

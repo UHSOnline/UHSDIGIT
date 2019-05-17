@@ -1,0 +1,36 @@
+﻿
+
+@model List<TRIZMA.Models.DISTRICTSDb>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @*<a href="#" class="editClick" data-id="@item.ID" style="color:forestgreen; padding-left:5px"><i class="fa fa-edit"></i></a>*@
+        <a href="#" class="delClick" data-id="@item.ID" style="color:red; padding-left:8px"><i class="fa fa-trash-o" style="transform:scale(1.2)"></i></a>
+    </td>
+    <td>@Html.DisplayFor(modelItem => item.DISTID)</td>
+    <td>@Html.DisplayFor(modelItem => item.district)</td>
+    <td>@Html.DisplayFor(modelItem => item.region)</td>
+    <td>@Html.DisplayFor(modelItem => item.divisionName)</td>
+    @if (item.compid == 1)
+    {
+        <td>UHS</td>
+    }
+    else
+if (item.compid == 2)
+    {
+        <td>Surgical Services</td>
+    }
+    else
+if (item.compid == 3)
+    {
+        <td>COE</td>
+    }
+
+
+
+
+</tr>
+}
+

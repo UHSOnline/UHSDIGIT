@@ -1,0 +1,15 @@
+﻿
+
+<nav>
+    <div class="nav toggle">
+        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+    </div>
+    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            @Html.Action("_upperRightMenu", "formsCRUD")
+            @Html.Action("_upperMessages", "formsCRUD")
+        </ul>
+    }
+</nav>

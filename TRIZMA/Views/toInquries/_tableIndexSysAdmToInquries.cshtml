@@ -1,0 +1,18 @@
+﻿@model List<TRIZMA.Models.toInquriesViewDb>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+        <td>
+            <a href="@Url.Action("Edit", "toInquries", new { id = item.ID })" style="color:forestgreen; padding-left:5px"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Delete", "toInquries", new { id = item.ID })" style="color:red; padding-left:8px"><i class="fa fa-power-off"></i></a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.clientID)</td>
+        <td>@Html.DisplayFor(modelItem => item.projectID)</td>
+        <td>@Html.DisplayFor(modelItem => item.taskOrderID)</td>
+        <td>@Html.DisplayFor(modelItem => item.inqury)</td>
+        <td>@Html.DisplayFor(modelItem => item.createdDT)</td>
+    </tr>
+}

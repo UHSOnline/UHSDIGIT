@@ -1,0 +1,16 @@
+﻿@model List<TRIZMA.Models.agentsProjDistDb>
+
+
+@foreach (var item in Model)
+{
+    
+        ViewBag.agentProjID = @item.projectID;
+    
+        <li>
+            <a>@item.projectName<span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">               
+                    @Html.Action("SBagTo", "formsCRUD", new { id = item.projectID } )
+            </ul>
+        </li>
+        }
+

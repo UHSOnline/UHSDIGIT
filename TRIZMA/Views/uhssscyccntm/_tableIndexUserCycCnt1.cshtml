@@ -1,0 +1,51 @@
+﻿
+@model List<TRIZMA.Models.SSCYCCNTM1vDb>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td style="padding-top:11px">
+            @*<a href="#" class="editClick" data-id="@item.ID" style="color:forestgreen; padding-left:5px"><i class="fa fa-edit"></i></a>*@
+            @if (item.lckdc == true)
+            {
+                <a style="color:lightgray; padding-left:9px" title="locked"><i class="fa fa-lock" style="transform:scale(1.4)"></i></a>
+            }
+            else
+            {
+                <a href="#" style="color:red; padding-left:8px" onclick="delFunct('@item.IDc')"><i class="fa fa-trash-o" style="transform:scale(1.2)"></i></a>
+            }
+        </td>
+
+        <td style="padding-top:11px">@Html.DisplayFor(modelItem => item.crdate)</td>
+        <td style="padding-top:11px">
+
+            <a onclick="PopupCenterDual('@item.IDc','', '1540', '736');" href="javascript:void(0);" style="font-size:12px">
+                @item.IDc
+            </a>
+            @*<a href="@Url.Action("Edit", "uhssscyccntm", new { IDc = item.IDc })" style="color:steelblue">@item.IDc</a>*@
+
+        </td>
+        <td style="padding-top:11px">@Html.DisplayFor(modelItem => item.comboDistrict)</td>
+        <td style="padding-top:11px">@Html.DisplayFor(modelItem => item.comboName)</td>
+        <td>
+            @if (item.lckdc == false)
+            {
+                <input type="checkbox" onclick="lockDoc('@item.IDc')" id="@item.IDc" style="transform:scale(1.2)">
+            }
+            else
+            if (item.lckdc == true && ViewBag.userType == 2)
+            {
+                <input type="checkbox" onclick="lockDoc('@item.IDc')" id="@item.IDc" data-id="@item.IDc" style="transform:scale(1.2)" checked>
+            }
+            else
+            {
+                <input type="checkbox" style="transform:scale(1.2)" checked disabled>
+            }
+        </td>
+        <td style="padding-top:11px">
+            <a href="#" onclick="exportDoc('@item.IDc')" style="color:cadetblue"><i class="fa fa-arrow-circle-o-right" style="transform:scale(1.6)"></i></a>
+                       
+        </td>
+    </tr>
+}
+

@@ -1,0 +1,2017 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>COE Operations Cadence</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/css/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .docidstore {
+            display: none;
+        }
+
+        .thStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: white;
+            min-width: 30px;
+        }
+
+        .thStyle2 {
+            font-size: x-small;
+            color: white;
+        }
+
+        .thStyle3 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .thStyle4 {
+            text-align: center;
+            font-size: x-small;
+            min-width: 25px;
+            max-width: 25px;
+            color: lightblue;
+        }
+
+
+
+        .tdStyle1 {
+            font-size: smaller;
+            text-align: center;
+            color: dodgerblue;
+            background-color: #F5F5F5;
+            min-width: 30px;
+        }
+
+        .tdStyle2 {
+            font-size: smaller;
+        }
+
+        .tdStyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle4 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+            color: white;
+        }
+
+        .tdStyle5 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tdStyle6 {
+            text-align: center;
+            font-size: small;
+            background-color: #F8F8F8;
+            color: #F8F8F8;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+
+
+        .tfstyle1 {
+            font-size: smaller;
+            text-align: center;
+            /*background-color:darkgray;*/
+            color: white;
+            min-width: 30px;
+        }
+
+        .tfstyle2 {
+            font-size: x-small;
+            text-align: right;
+            color: dodgerblue;
+        }
+
+        .tfstyle3 {
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle4 {
+            color: white;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+        .tfstyle5 {
+            background-color: yellow;
+            text-align: center;
+            font-size: small;
+            min-width: 25px;
+            max-width: 25px;
+        }
+
+
+        .tab {
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: lightcoral;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: lightblue;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            border-top: none;
+        }
+
+        .itcad {
+            background-color: lightblue !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: lightblue !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: darkorange !important;
+        }
+
+        .ithae {
+            font-size: smaller;
+            text-align: center;
+            color: #367EAD;
+            border-bottom: solid;
+            border-bottom-width: thin;
+            border-bottom-color: lightgray;
+        }
+
+        .itmapdiv {
+            background-color: white !important;
+        }
+
+        input[type='checkbox'] {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 2px;
+            border: 1px solid #555;
+        }
+
+            input[type='checkbox']:checked {
+                background: #29a329;
+            }
+
+        footer {
+            display: none;
+        }
+    </style>
+</head><!--/head-->
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+
+    <div class="lckbckscr">
+        <div id="wrapper">
+            <!-- Navigation -->
+            <!-- Navigation -->
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <div style="padding-top:4px; padding-left:32px">
+                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <br />
+                            <h3 class="page-header"><span class="itcak">VWP </span><span class="itcac"> Visual Work Place Standards</span></h3>
+                        </div>
+                        <div class="col-lg-12">
+                            <br />
+                            <h4 class="media-heading"><span class="itcak">VWP </span><span class="itcac">Bi-Annual Assessment Input Form</span></h4>
+                            <p>
+                                <span style="font-size:small">District: </span><span id="spn10100031" style="color:dodgerblue; font-size:small"></span>
+                                <span style="color:white">.</span>
+                                <span style="font-size:small"> OMD: </span><span id="spn10100032" style="color:dodgerblue; font-size:small"></span>
+                                <span style="color:white">.</span>
+                                <span style="font-size:small"> Date: </span><span id="spn10100033" style="color:dodgerblue; font-size:small"></span>
+                                <span style="color:white">.</span>
+                                <span style="font-size:small"> Done by: </span><span id="spn10100034" style="color:dodgerblue; font-size:small"></span>
+                            </p>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5">
+                                <h5 class="media-heading"><span class="itcac">Score</span><span class="itcak">Card</span></h5>
+                                <table class="table-striped table-hover">
+                                    <thead style="font-size:12px">
+                                        <tr style="border-bottom:solid; border-bottom-width:thin; border-bottom-color:lightblue; background-color:lightblue">
+                                            <td style="padding-left:8px; color:white">Area:</td>
+                                            <td style="text-align:right; padding-left:4px; padding-right:4px; color:white">Score:</td>
+                                            <td style="text-align:right; padding-left:6px; padding-right:4px; color:white">Max:</td>
+                                            <td style="color:lightblue; padding-left:42px">.</td>
+                                            <td style="color:lightblue">.</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size:12px">
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse1" style="color:dodgerblue !important">Patient Ready Area</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS01"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">40</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS91"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse2" style="color:dodgerblue !important">Inspection / Testing Station</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS02"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">26</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS92"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse3" style="color:dodgerblue !important">Cleaning Station</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS03"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">48</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS93"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse4" style="color:dodgerblue !important">Shipping / Receiving</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS04"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">20</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS94"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse5" style="color:dodgerblue !important">Biomed Department BERD</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS05"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">36</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS95"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse6" style="color:dodgerblue !important">Surgical Services</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS06"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">24</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS96"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse7" style="color:dodgerblue !important">Overall Building</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS07"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">58</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS97"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:8px; padding-right:8px"><a data-toggle="collapse" href="#collapse8" style="color:dodgerblue !important">Other</a></td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS08"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">20</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AAS98"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                        <tr style="border-top:solid; border-top-width:thin; border-top-color:lightblue">
+                                            <td style="text-align:right; padding-right:2px; color:#367EAD">Total:</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AASTO"></span></td>
+                                            <td style="text-align:right; padding-right:4px; color:#367EAD">272</td>
+                                            <td style="text-align:right; padding-right:4px"><span id="AASPC"></span></td>
+                                            <td style="padding-left:1px">%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-7 col-md-7">
+                                <h5 class="media-heading"><span class="itcac">Scoring </span><span class="itcak"> Guideline</span></h5>
+                                <span>Follow this guideline when performing an assessment</span>
+                                <table class="table-striped table-hover">
+                                    <thead style="font-size:12px">
+                                        <tr style="border-bottom:solid; border-bottom-width:thin; border-bottom-color:lightblue; background-color:lightblue">
+                                            <td style="color:white; padding-left:6px">Score:</td>
+                                            <td style="text-align:left; padding-left:8px; color:white">Description:</td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody style="font-size:12px">
+                                        <tr>
+                                            <td style="text-align:center">0</td>
+                                            <td style="text-align:left; padding-left:8px; padding-right:8px">The standard is not implemented.</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">1</td>
+                                            <td style="text-align:left; padding-left:8px; padding-right:8px">There is evidence that the standard is implemented but is not fully implemented or is not sustained.</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">2</td>
+                                            <td style="text-align:left; padding-left:8px; padding-right:8px">The standard is fully implemented and sustained.</td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <div class="panel-group">
+
+                                <!-- Panel single start-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse1"><h4 class="media-heading"><span class="itcac">Patient Ready </span><span class="itcak"> Area</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover" style="border:solid !important; border-color:white !important; border-width:thin !important">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Beds</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Beds stored so that each bed can be accessed from an aisle.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003001", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+
+                                                            <textarea id="txt1010003001" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each bed area labeled with what type of bed is stored.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003002", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003002" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>The Min & Max quantity of each type of bed shown.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003003", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003003" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Vents, Bill-lights, Isolettes & Monitors</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All castered equipment stored in FIFO lanes.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003004", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003004" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All lanes labeled with type of the equipment stored.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003005", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003005" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Direction of FIFO is shown with arrows at front and back of lanes.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003006", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003006" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Overhead electric outlets are used in FIFO lanes.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003007", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003007" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Min & Max quantity of each type of equipment is shown.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003008", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003008" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Infusion Pumps & Other MME</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Similar equipment kept together.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003009", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003009" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each metro cart labeled with an A4 size paper (8.5" x 11") indicating what is on each shelf.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003010", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003010" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each shelf on metro cart labeled with equipment stored.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003011", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003011" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Min & Max quantity of each type of equipment is shown.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003012", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003012" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Mattresses & Blowers</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Adequate space provided to store mattresses & blowers.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003013", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003013" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each type of mattress and blower has a designated and labeled storage space.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003014", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003014" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Heavy mattresses stored where they can be easily and safely handled.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003015", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003015" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Mattress blowers stored in a close proximity to mattresses.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003016", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003016" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Min & Max quantity of each type of equipment is shown.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003017", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003017" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Specialty Equipment</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span> Designated area for specialty equipment.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003018", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003018" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>FIFO where applicable.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003019", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003019" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Specialty equipment is stored neatly and in an organized manner.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003020", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003020" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse2"><h4 class="media-heading"><span class="itcac">Inspection / Testing </span><span class="itcak"> Station</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Inspection Station</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated inspection area has overhead signage for inspection Station & DI Waiting to be Tested.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003021", style = "padding-left:10px; max-min-width:42px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003021" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Inspection benches are standardized so that any employee can work at any bench (benches not assigned to an individual).</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003022", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003022" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Inspection benches labeled to indicate type of equipment tested.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003023", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003023" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Inspection bench cleaned and organized at end of every shift.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003024", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003024" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All tools, bins, equipment and supplies are organized, stored neatly and labeled with corresponding location on peg board, shelves and drawer for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003025", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003025" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Testing Equipment & Supplies</h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All inspection benches have a mounted Safety Analyzer, tools and other standard supplies.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003026", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003026" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Test equipment and supplies are stored based on frequency of use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003027", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003027" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Shared test equipment, tools and supplies are centrally located and labeled, organized and stored neatly for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003028", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003028" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Gas cylinders are secured, labeled and marked with caution floor tape.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003029", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003029" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Equipment Waiting to be Inspected</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Vents and other castered equipment waiting to be tested have a designated and labeled storage space.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003030", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003030" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated and labeled metro carts for MME waiting to be tested.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003031", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003031" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Access to power outlets for equipment that needs to maintain charge while waiting to be tested.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003032", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003032" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Customer damaged equipment is blue tagged and tag stays with equipment.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003033", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003033" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse3"><h4 class="media-heading"><span class="itcac">Cleaning </span><span class="itcak"> Station</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse3" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Sink</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Ecolab or DEMA proportioner is installed with approved disinfectant.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003034", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003034" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Sinks cleaned daily - no gloves or other materials left on/in sink.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003035", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003035" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Mattress Cleaning Station</h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Stainless steel tables used for mattress cleaning.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003036", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003036" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Laundry bin clearly labeled for dirty coverlets with designated storage space.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003037", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003037" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Separate labeled laundry bin for clean coverlets with designated storage space.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003038", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003038" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Bags stored in close proximity to cleaning tables in clear containers labeled with bag type, size and part number.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003039", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003039" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Supplies</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Approved cleaning chemicals and supplies stored properly with all containers, bins and shelves labeled.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003040", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003040" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Primary and secondary containers are labeled with appropriate SDS #, secondary containers have "secondary container label" affixed including product name.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003041", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003041" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>No cardboard or wooden shelving in cleaning area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003042", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003042" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Cleaning supplies stored centrally with approximately a week's worth of supplies at cleaning stations.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003043", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003043" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All cleaning supply storage locations are labeled, organized and stored neatly for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003044", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003044" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Tools & PPE</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All tools labeled, organized and stored neatly for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003045", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003045" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Cleaning brushes hung and labeled.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003046", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003046" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Cleaning rags stored in a labeled plastic bin.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003047", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003047" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Used rags are placed in a properly labeled container and laundered daily / weekly.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003048", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003048" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>PPE labeled, organized and stored neatly in a designated area for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003049", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003049" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Equipment Awaiting Cleaning</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated and labeled metro carts for MME waiting to be cleaned.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003050", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003050" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Beds waiting to be cleaned are stored in designated area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003051", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003051" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Vents and other castered equipment waiting to be cleaned are stored in designated area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003052", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003052" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Mattresses waiting to be cleaned are stored on designated pallet rack(s) in proximity to mattress cleaning station.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003053", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003053" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Area for equipment waiting to be cleaned designated with "DI Waiting to be Cleaned" overhead signage.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003054", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003054" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Customer damaged equipment is blue tagged and tag stays with equipment.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003055", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003055" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Mobile Testing Cart</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated Mobile Testing Cart in cleaning area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003056", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003056" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Testing Cart includes Safety Analyzer, laptop, tools, weights and other supplies.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003057", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003057" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse4"><h4 class="media-heading"><span class="itcac">Shipping / Receiving </span><span class="itcak"> Area</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse4" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Work Station</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Shipping and receiving area well defined with signage and floor tape.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003058", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003058" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Shipping bench free of debris with enough room for processing.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003059", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003059" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Shipping work station equipped with computer station, label printer, scale, tools and supplies.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003060", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003060" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All tool and supply locations labeled, organized and stored neatly for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003061", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003061" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Packing Supplies</h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Boxes organized and divided with each section labeled with part # & size of the box.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003062", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003062" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Reusable boxes stored, labeled and neatly organized in a designated area - do not reuse boxes unless requested by recipient.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003063", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003063" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Bubble wrap roll mounted on dispenser (wall, pallet rack) for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003064", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003064" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Used card board boxes disposed in a recycle bin.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003065", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003065" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Incoming / Outgoing Space</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Incoming and outgoing shipment areas designated with signage.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003066", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003066" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Enough room allocated for incoming and outgoing shipments.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003067", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003067" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse5"><h4 class="media-heading"><span class="itcac">Biomed Equipment Repair Department </span><span class="itcak"> BERD</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse5" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Tech Benches</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All items in a designated and labeled location on the tech bench.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003068", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003068" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Static mat and/or wrist strap available and utilized at all Tech benches.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003069", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003069" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>No files and post-it notes on workstation - all paper work stored in designated location.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003070", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003070" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All hand tools organized and stored neatly for ease of access and use, in labeled toolbox(s).</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003071", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003071" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Parts Inventory</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Repair parts stored in appropriately colored bins (product code 2 = blue, code 3 = yellow, code 7 = red, Mfg.Services = green).</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003072", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003072" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated and labeled metro cart / pallet rack for Manufacturing Services.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003073", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003073" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each metro cart / pallet rack has signage indicating type of part inventory.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003074", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003074" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Non-inventory / harvested parts are labeled, organized and stored neatly in black bins.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003075", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003075" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each bin labeled with part name, vendor part #, UHS stock # and product code with corresponding shelf label.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003076", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003076" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Equipment Flow</h4>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Metro carts labeled for Pending Evaluation, Evaluation Complete, AWP, Parts on Hand Awaiting Repair.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003077", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003077" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Customer damaged equipment is blue tagged and tag stays with equipment.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003078", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003078" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All equipment in repair has work order attached.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003079", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003079" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated area for beds and specialty equipment in repair status.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003080", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003080" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Designated area for vents and other castered equipment in repair status.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003081", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003081" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Test Devices & Shared Tools</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Test circuits stored in labeled and uniform see-through bins.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003082", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003082" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Shared test devices organized and stored neatly on metro carts for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003083", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003083" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each test device should have a clearly labeled and dedicated area on metro cart.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003084", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003084" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Other shared tools organized and stored neatly in a central location for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003085", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003085" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse6"><h4 class="media-heading"><span class="itcac">Surgical </span><span class="itcak"> Services</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse6" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Testing Area</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Dedicated 220V 30amp and 110V 20amp Volt outlets available.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003086", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003086" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Black laser curtains available if no dedicated testing room.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003087", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003087" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Appropriate laser safety signs are posted.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003088", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003088" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Work bench in the testing room.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003089", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003089" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Laser Tech Station / Bench</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All items in a designated and labeled location on the tech bench.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003090", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003090" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>PPE needed is accessible from the work station.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003091", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003091" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>No files and post-it notes on the tech bench, all paper work stored in a file cabinet.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003092", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003092" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All hand tools stored in neatly organized toolboxes with drawers labeled according to contents.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003093", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003093" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Laser Inventory Storage</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Fibers stored in a secured cabinet with identified sections for reusable and sterile fibers.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003094", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003094" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Staging area for equipment to be shipped.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003095", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003095" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Test Devices & Shared Tools</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each test device should have a clearly labeled and dedicated area on metro cart.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003096", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003096" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Other shared tools organized and stored neatly in a central location for ease of access and use.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003097", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003097" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse7"><h4 class="media-heading"><span class="itcac">Overall Building </span><span class="itcak"> Area</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse7" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Facilities</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Security doors locked from outside at all times, alarm set when building vacated.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003098", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003098" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has a posted cleaning schedule with janitorial service and / or district team.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003099", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003099" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All burnt out lights and ballasts replaced at least once a quarter.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003100", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003100" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Temperature maintained between 70-76 in summer and 66-70 in winter.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003101", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003101" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>HVAC maintenance contract in place.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003102", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003102" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Pest control contract is in place either directly or through landlord.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003103", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003103" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Floor sealed, maintained and kept clean.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003104", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003104" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>UHS logos at front door and back doors.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003105", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003105" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District Welcome Sign at main entrance.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003106", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003106" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Front Office</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All office cubes neat and well organized.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003107", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003107" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>At least one designated work space for visiting UHS employees.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003108", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003108" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Conference room equipped with conference table, white board, phone and monitor / projector.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003109", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003109" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Office supplies neatly organized and stored properly with all containers, bins & shelves labeled.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003110", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003110" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Break Room kept clean and orderly.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003111", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003111" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Knowledge board(s) updated and visible to all employees.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003112", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003112" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Processing / Back Office</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Processing center (Back Office) organized to create smooth flow of equipment.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003113", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003113" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Equipment stored separately in designated locations according to status (DI, DS, DB).</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003114", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003114" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each area floor taped per color code and identified with an overhead signage.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003115", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003115" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All aisles and walk ways kept clear.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003116", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003116" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Safety</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All PPE requirements posted in each area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003117", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003117" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All PPE accessible to employees.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003118", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003118" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Evacuation plan and tornado shelter communicated, posted and visible to all employees.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003119", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003119" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Fire extinguishers, electric panels, eye wash stations, first aid kits and SDS holders are clearly marked and free from obstacles.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003120", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003120" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Exit signs and emergency lighting are present and functioning.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003121", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003121" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All gas cylinder storage locations are secured, labeled and marked with caution floor tape.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003122", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003122" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Waste Removal & Recycling</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has garbage and recycling service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003123", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003123" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Office has paper shredder or service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003124", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003124" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Electronic waste (circuit boards, batteries, etc.) disposed of through and authorized service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003125", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003125" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Excess pallets and used cardboard boxes disposed of timely to avoid excessive accumulation.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003126", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003126" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <!-- Panel single start-->
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" style="padding-top:10px">
+                                            <a data-toggle="collapse" href="#collapse8"><h4 class="media-heading"><span class="itcac">Other </span><span class="itcak"> Area</span></h4></a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse8" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="data table table-responsive table-hover">
+                                                <thead>
+                                                </thead>
+                                                <tbody>
+
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">NCMR</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has dedicated NCMR area that is contained, controlled and labeled.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003127", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003127" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>All items in NCMR have documentation attached indicating NCMR status.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003128", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003128" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Red Tag Area</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has allocated Red Tag area.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003129", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003129" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has Red Tags and Red Tag log.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003130", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003130" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">White Board / Huddle Area</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has white board and/or monitor located in a huddle area for both dept. 56 and dept. 74 (can be separate or shared).</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003131", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003131" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Dept. 74 white board / monitor includes routing, DI to DS/DB performance, pending orders / pickups and general communication.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003132", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003132" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Dept. 56 white board / monitor includes pending evaluation, AWP, high priority, technician workload / schedule, days in DB.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003133", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003133" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Sustainment Tools</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has equipment work flow diagrams illustrating how each equipment type flows through process.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003134", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003134" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has Gemba Walk check list.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003135", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003135" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Each area has a cleaning / 6S check list.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003136", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003136" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                    <!-- Part In Table start-->
+                                                    <tr>
+                                                        <td style="padding-top:12px">
+                                                            <h4 style="color:steelblue">Waste Removal & Recycling</h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>District has garbage and recycling service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003123", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003123" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Office has paper shredder or service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003124", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003124" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Electronic waste (circuit boards, batteries, etc.) disposed of through and authorized service.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003125", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003125" rows="2" style="font-size:small"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-right:10px; padding-top:12px"><span>Excess pallets and used cardboard boxes disposed of timely to avoid excessive accumulation.</span></td>
+                                                        <td style="padding-right:10px"><span>@Html.DropDownList("List", ViewBag.satGrade as IEnumerable<SelectListItem>, new { id = "gr1010003126", style = "padding-left:10px; min-width:100%; min-height:32px; color:#367EAD", @onchange = "changeVal()" })</span></td>
+                                                        <td>
+                                                            <textarea id="txt1010003126" rows="2" style="font-size:small"></textarea>
+                                                            <br />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- Part In Table end-->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Panel single end-->
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <!-- Panel single end-->
+                                <!-- Panel single start-->
+                                <!-- Panel single end-->
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- DataTables JavaScript -->
+    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/js/raphael.min.js"></script>
+    <script src="~/js/morris.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multidatatables').DataTable({
+                "order": [[0, "desc"],[2, "asc"],[3, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <!-- iCheck -->
+    <script type="text/javascript">
+function PopupCenterDual(url, title, w, h) {
+    // Fixes dual-screen position Most browsers Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+    newWindow.focus();
+    }
+}
+    </script>
+
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+
+
+</body>
+</html>

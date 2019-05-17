@@ -1,0 +1,239 @@
+/****** Bootstrap modalb *****/
+.modalb-area-button .mg-b-10{
+	margin-top:10px;
+}
+.edu-modalb-pos{
+	position:relative;
+}
+.modalb-close-area{
+	position: absolute;
+    right: -30px;
+    top: -20px;
+}
+.modalb-close-area.modalb-close-df{
+    right: -22px;
+}
+.modalb-dialog {
+    margin: 50px auto;
+}
+.modalb-close-area .close{
+	opacity:1;
+}
+.modalb-close-area a{
+	    color: #fff;
+    font-size: 16px;
+    background: #006DF0;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 28px;
+    display: block;
+    border-radius: 50%;
+}
+.modalb-close-area a:hover{
+	    color: #303030;
+}
+.modalb-clickable{
+	text-align:center;
+}
+.modalb-clickable p{
+	background:#fff;
+	font-size:14px;
+	padding:15px 20px;
+}
+.modalb-clickable a{
+	text-decoration:underline;
+	color:#03a9f4;
+}
+.modalb-edu-general .modalb-content{
+	border-radius:0px;
+}
+.modalb-edu-general .modalb-footer{
+	border-top:0px solid #fff;
+}
+.modalb-edu-general .modalb-body{
+	text-align:center;
+	padding:50px 70px;
+}
+.modalb-edu-general .modalb-body p{
+	line-height:24px;
+	font-size:14px;
+	font-weight:400;
+	margin:0px;
+}
+.modalb-edu-general .modalb-body h2{
+	font-size:30px;
+}
+.modalb-edu-general .modalb-body .modalb-check-pro{
+	font-size:40px;
+	color:#006DF0;
+	margin-bottom:15px;
+	display:block;
+}
+.modalb-edu-general .modalb-body .modalb-check-pro.information-icon-pro{
+	font-size:40px;
+}
+.modalb-bootstrap{
+	background:#fff;
+	padding:20px;
+}
+.modalb-bootstrap h2{
+	font-size:20px;
+	font-weight:700;
+}
+.modalb-bootstrap p{
+	font-size:14px;
+	line-height:24px;
+	font-weight:400;
+}
+.modalb-footer a{
+	margin-left:20px;
+}
+.modalb-area-button a{
+	margin:0px 5px;
+}
+.modalb-area-button a:hover{
+	color:#fff;
+}
+.modalb-area-button a, .modalb-footer a{
+	padding: 13px 28px;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    z-index: 11;
+    font-size: 14px;
+	display:inline-block;
+}
+#fullwidth .modalb-dialog{
+	width:1170px;
+}
+#Customwidth .modalb-dialog{
+	width:700px;
+}
+#FullColor .modalb-content{
+	background:#03a9f4;
+}
+#FullColor .modalb-content .modalb-body h2{
+	color:#fff;
+}
+#FullColor .modalb-content .modalb-body p{
+	color:#fff;
+}
+#FullColor .modalb-content .modalb-body .modalb-check-pro{
+	color:#fff;
+}
+.fullwidth-popup-Informationpromodalb .modalb-close-area .close{
+	background: #8e44ad;
+}
+.modalb-edu-general.fullwidth-popup-Informationpromodalb .modalb-body .modalb-check-pro.information-icon-pro{
+	color:#8e44ad;
+}
+.modalb-edu-general.fullwidth-popup-Informationpromodalb .modalb-footer a:before{
+	background:#8e44ad;
+}
+.Customwidth-popup-Warningmodalb .modalb-close-area .close{
+	background: #65b12d;
+}
+.modalb-edu-general.Customwidth-popup-Warningmodalb .modalb-body .modalb-check-pro.information-icon-pro{
+	color:#65b12d;
+}
+.modalb-edu-general.Customwidth-popup-Warningmodalb .modalb-footer a:before{
+	background:#f39c12;
+}
+.FullColor-popup-Dangermodalb .modalb-close-area .close{
+	background: #F45846;
+}
+.modalb-edu-general.FullColor-popup-Dangermodalb .modalb-body .modalb-check-pro.information-icon-pro{
+	color:#F45846;
+}
+.modalb-edu-general.FullColor-popup-Dangermodalb .modalb-footer a:before{
+	background:#F45846;
+}
+.FullColor-popup-Alertmodalb .modalb-close-area .close{
+	background: #d35400;
+}
+.modalb-edu-general.FullColor-popup-Alertmodalb .modalb-body .modalb-check-pro.information-icon-pro{
+	color:#d35400;
+}
+.modalb-edu-general.FullColor-popup-Alertmodalb .modalb-footer a:before{
+	background:#d35400;
+}
+.footer-modalb-admin{
+	text-align:center;
+	padding:0px 0px 50px 0px;
+}
+.Primarymodalb-bgcolor .modalb-content{
+	background: #303030;
+}
+.modalb-edu-general.Primarymodalb-bgcolor .modalb-body h2{
+	color:#fff;
+}
+.modalb-edu-general.Primarymodalb-bgcolor .modalb-body p{
+	color:#fff;
+}
+.header-color-modalb{
+	padding:20px 50px 20px 50px;
+	color:#fff;
+}
+.header-color-modalb.bg-color-1{
+	background:#006DF0;
+}
+.header-color-modalb.bg-color-2{
+	background:#8e44ad;
+}
+.header-color-modalb.bg-color-3{
+	background:#f39c12;
+}
+.header-color-modalb.bg-color-4{
+	background:#F45846;
+}
+.header-color-modalb.bg-color-5{
+	background:#d35400;
+}
+.header-color-modalb h4{
+	font-size:20px;
+}
+.tab-content-details {
+    text-align: center;
+    background: #fff;
+    padding: 20px 100px;
+}
+.tab-content-details p {
+    font-size: 14px;
+    color: #303030;
+    line-height: 24px;
+}
+.modalb-area-button .Primary{
+	background: #006DF0;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+.modalb-area-button .Information{
+	background: #933EC5;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+.modalb-area-button .Warning{
+	background: #65b12d;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+.modalb-area-button .danger-color{
+	background: #D80027;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+.modalb-footer a{
+	font-size:14px;
+	color:#fff;
+	background: #006DF0;
+	padding:10px 20px;
+	border-radius:3px;
+}
+.modalb-footer a:hover{
+	color:#fff;
+}

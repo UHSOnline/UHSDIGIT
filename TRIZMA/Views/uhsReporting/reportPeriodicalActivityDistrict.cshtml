@@ -1,0 +1,357 @@
+﻿@model List<TRIZMA.Models.uhsBIrepsucc02Db>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Activity Report District</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        .tableHead {
+            border-bottom: solid !important;
+            border-bottom-color: lightblue !important;
+            border-bottom-width: thin !important;
+            color: steelblue;
+        }
+
+        .tableHeadb {
+            border-bottom: solid !important;
+            border-bottom-color: steelblue !important;
+            border-bottom-width: thin !important;
+            color: steelblue;
+        }
+
+        /* Style the tab */
+        .tab {
+            float: left;
+            /*border: 1px solid #ccc;*/
+            background-color: white;
+            width: 20%;
+            height: 300px;
+        }
+
+            /* Style the buttons inside the tab */
+            .tab button {
+                display: block;
+                background-color: inherit;
+                color: black;
+                padding: 22px 16px;
+                width: 100%;
+                border: none;
+                outline: none;
+                text-align: left;
+                cursor: pointer;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: #cce4ff;
+                }
+
+                /* Create an active/current "tab button" class */
+                .tab button.active {
+                    background-color: #e6f2ff;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 0px 12px;
+            /*border: 1px solid #ccc;*/
+            width: 80%;
+            border-left: none;
+            /*height: 300px;*/
+        }
+    </style>
+</head><!--/head-->
+<body>
+
+    <div style="padding-left:30px; background-color:white; min-height:100%">
+        <div class="row">
+            @if (ViewBag.identif == 1)
+    {
+        <h3 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Activity Report </span><span style="color:steelblue"> District </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+}
+else
+if (ViewBag.identif == 2)
+{
+        <h3 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Activity Report </span><span style="color:steelblue"> Asset360 </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+}
+else
+if (ViewBag.identif == 3)
+{
+        <h3 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Activity Report </span><span style="color:steelblue"> BioMed360 </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+}
+else
+if (ViewBag.identif == 4)
+{
+        <h3 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Activity Report </span><span style="color:steelblue"> Surgical Services </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+}
+else
+if (ViewBag.identif == 5)
+{
+        <h3 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Activity Report </span><span style="color:steelblue"> COE Operations </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+}
+        </div>
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12" align="center" style="padding-bottom:240px">
+                <div class="row">
+                    
+                    <hr />
+                    <div style="padding-bottom:6px"><span style="color:cadetblue; font-size:12px">Region:</span></div>
+                    @Html.DropDownList("Region", ViewBag.region as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "getTable(1)" })
+                    <hr />
+                    <div style="padding-bottom:6px"><span style="color:cadetblue; font-size:12px">Division:</span></div>
+                    @Html.DropDownList("Division", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "division"), new { id = "drop2", @class = "form-control", @onchange = "getTable(2)" })
+                    <hr />
+                    <div style="padding-bottom:6px"><span style="color:cadetblue; font-size:12px">District:</span></div>
+                    @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop3", @class = "form-control", @onchange = "getTable(3)" })
+                    <hr />
+                    @if (ViewBag.identif == 2 || ViewBag.identif == 3)
+                    {
+                    <div style="padding-bottom:6px"><span style="color:cadetblue; font-size:12px">Account:</span></div>
+                    @Html.DropDownList("Account", new SelectList(Enumerable.Empty<SelectListItem>(), "IDc", "cstnm"), new { id = "drop4", @class = "form-control", @onchange = "getTable(4)" })
+                    <hr />
+                    }
+                </div>                                       
+            </div>
+            
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                @if (ViewBag.identif == 2 || ViewBag.identif == 3)
+    {
+            <div class="col-xl-10 col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                <div id="dataTablea"></div>
+            </div>
+}
+else
+{
+            <div class="col-xl-7 col-lg-10 col-md-11 col-sm-12 col-xs-12">
+                <div id="dataTablea"></div>
+            </div>
+}
+
+            </div>
+        </div>
+        
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+            var d = (new Date(Date.now() - tzoffset));
+            var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+            var eddf = "  -  " + eddt.slice(5, 7) + "/" + eddt.slice(8, 10) + "/" + eddt.slice(0, 4);
+            $("#headDate").val(eddf).html(eddf);
+        });
+    </script>
+    <script type="text/javascript">
+        function getTable(t) {
+            var dp1 = $("#drop1").val();
+            var dp2 = $("#drop2").val();
+            var dp3 = $("#drop3").val();
+            var dp4 = $("#drop4").val();
+            var mid = @ViewBag.identif;
+            if (t == 1) {
+                var a = 1;
+                var b = dp1;
+                dpappend(a, b, t);
+            } else
+                if (t == 2) {
+                    if (dp2 == 0 || dp2 == null) {
+                        var a = 1;
+                        var b = dp1;
+                        $("#drop3").html("");
+                        $("#drop4").html("");
+                    }
+                    else {
+                        var a = 2;
+                        var b = dp2;
+                        dpappend(a, b, t);
+                    }
+                }
+                else
+                    if (t == 3 && (mid == 2 || mid == 3)) {
+                        if (dp3 == 0 || dp3 == null) {
+                            var a = 2;
+                            var b = dp2;
+                            $("#drop4").html("");
+                        } else {
+                            var a = 3;
+                            var b = dp3;
+                            dpappend(a, b, t);
+                        }
+                    }
+                    else
+                        if (t == 3) {
+                            if (dp3 == 0 || dp3 == null) {
+                                var a = 2;
+                                var b = dp2;
+                            } else {
+                                var a = 3;
+                                var b = dp3;
+                            }
+                        }
+                    else
+                        if (t == 4) {
+                            if (dp4 == 0 || dp4 == null) {
+                                var a = 3;
+                                var b = dp3;
+                            } else {
+                                var a = 4;
+                                var b = dp4;
+                            }
+                        }
+            $("#dataTablea").load("/uhsReporting/_reportTablePADist", { ID: b, tpid: a, mid: mid });
+        }
+        function dpappend(a,b,t) {
+            var data = @Html.Raw(Json.Encode(@ViewBag.structure));
+            var datab = @Html.Raw(Json.Encode(@ViewBag.structureb));
+            var datac = @Html.Raw(Json.Encode(@ViewBag.accA360));
+            if (t == 1) {
+                $("#drop2").html("");
+                $("#drop3").html("");
+                $("#drop4").html("");
+                $.each(datab, function (ID, datab) {
+                    if (datab.regid == 0) {
+                        $("#drop2").append(
+                            $('<option></option>').val(datab.divid).html(datab.division));
+                    }
+                    else
+                        if (datab.regid != b) {
+                            return;
+                        }
+                        else {
+                            $("#drop2").append(
+                                $('<option></option>').val(datab.divid).html(datab.division));
+                        }
+                });
+            }
+            else
+                if (t == 2) {
+                    $("#drop3").html("");
+                    $("#drop4").html("");
+                    $.each(data, function (ID, data) {
+                        if (data.regid == 0) {
+                            $("#drop3").append(
+                                $('<option></option>').val(data.distid).html(data.district));
+                        }
+                        else
+                            if (data.divid != b) {
+                                return;
+                            }
+                            else {
+                                $("#drop3").append(
+                                    $('<option></option>').val(data.distid).html(data.district));
+                            }
+                    });
+                }
+                else
+                    if (t == 3) {
+                        $("#drop4").html("");
+                        $("#drop4").append(
+                            $('<option></option>').val(0).html("-"));
+                        $.each(datac, function (ID, datac) {
+                            if (datac.distid != b) {
+                                    return;
+                                }
+                                else {
+                                    $("#drop4").append(
+                                        $('<option></option>').val(datac.IDc).html(datac.cstnm));
+                                }
+                        });
+                    }
+        }
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿@model TRIZMA.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Operations | </title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="login">
+
+    <br />
+    <br />
+    <div class="row">
+        <div style="text-align:center">
+            <br />
+            <br />
+            <br />
+            <br />
+            <img src="~/images/logo.png" />
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h4>Create a new account.</h4>
+                <hr />
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div>
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                </div>
+
+                <div>
+                    @Html.TextBoxFor(m => m.Email, new { @style = "min-width:280px; max-width:280px; min-height:32px; text-align:center" })
+                </div>
+
+
+                <div>
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                </div>
+
+                <div>
+                    @Html.PasswordFor(m => m.Password, new { @style = "min-width:280px; max-width:280px; min-height:32px; text-align:center" })
+                </div>
+                            <div>
+                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            </div>
+
+                            <div>
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @style = "min-width:280px; max-width:280px; min-height:32px; text-align:center" })
+                            </div>
+                            <br />
+                                <div>
+                                    <input type="submit" value="Register" class="btn btn-default" />
+                                </div>
+
+            }
+            <br />
+            <hr />
+        </div>
+    </div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿
+@model List<TRIZMA.Models.agentsTODistDb>
+
+
+@foreach (var item in Model)
+{
+    //if (item.projectID == ViewBag.projectID)
+    //{
+        <li class="sub_menu">
+            <a href="level2.html">@item.taskOrder</a>   
+        </li>
+
+    @*}*@
+}

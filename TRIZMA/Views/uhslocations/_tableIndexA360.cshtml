@@ -1,0 +1,21 @@
+﻿
+@model List<TRIZMA.Models.UHSACCTSDb>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @*<a href="#" class="editClick" data-id="@item.ID" style="color:forestgreen; padding-left:5px"><i class="fa fa-edit"></i></a>*@
+            <a href="#" class="delClick" data-id="@item.ID" style="color:red; padding-left:8px"><i class="fa fa-trash-o" style="transform:scale(1.2)"></i></a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.REG)</td>
+        <td>@Html.DisplayFor(modelItem => item.DIV)</td>
+        <td>@Html.DisplayFor(modelItem => item.DIST)</td>       
+        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+        <td>@Html.DisplayFor(modelItem => item.IDc)</td>
+        <td>@Html.DisplayFor(modelItem => item.CSTNM)</td>
+        <td>@Html.DisplayFor(modelItem => item.ACTP)</td>
+        <td>@Html.DisplayFor(modelItem => item.typedesc)</td>
+    </tr>
+}
+

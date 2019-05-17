@@ -1,0 +1,32 @@
+﻿
+
+@{
+    ViewBag.Title = "RedirectAfterRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2>Data Operations Services</h2>
+<br />
+<br />
+<div class="row">
+    <div class="col-lg-10">
+        <br />
+        <br />
+        <p style="font-size:28px;">Success!</p>
+        <p style="font-size:20px;">Your Account has been created!</p>
+        <br />
+        <p style="color:darkgray;">To start using Data Operations services, please go to @Html.ActionLink("Home Page", "RedirectAfterLogin", "Home", routeValues: null, htmlAttributes: new { title = "Home Page" }).</p> 
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+
+<br />
+<br />

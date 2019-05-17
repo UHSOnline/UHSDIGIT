@@ -1,0 +1,8 @@
+﻿@model List<TRIZMA.Models.agentsTODistDb>
+
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("Index", "formsCRUD", new { projectID = item.projectID, taskOrderID = item.taskOrderID, Int1 = 1 })"><span class="mini-sub-pro">@item.taskOrder</span></a></li>
+    
+}

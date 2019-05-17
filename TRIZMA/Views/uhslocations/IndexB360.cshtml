@@ -1,0 +1,377 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UHS: SYSADM: User Locations</title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <style>
+        .multitables {
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @Html.Action("_upperLeftHeader", "formsCRUD")
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        @Html.Action("_upperProfile", "formsCRUD")
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                @Html.Action("_sidebarDropDownMenu", "formsCRUD")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @Html.Action("_sidebarFooter", "formsCRUD")
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    @Html.Action("_upperBaseMenu", "formsCRUD")
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                            @Html.Action("_selectbuttonsb", "uhsusercontrol", new { id1 = 2 })
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>UHS: <span style="color:lightgray">SYSADM: </span><span style="color:steelblue"> BioMed</span><span style="color:darkorange">360 </span> Locations Map</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div id="mapid13" style="width:100%; height: 720px; position: relative"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>
+                                        UHS: SYSADM: B360 Select location from UHS data source "dimCustomer".
+                                        <span style="font-size:13px; color:steelblue">Enter 6 digit Customer Account# manually or copy/paste, and wait for the system to return your value.</span>
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="">
+                                        <main>
+                                            <input type="text" id="customer" class="tags-input" style="border-radius:5px; font-size:20px; padding-left:6px" />
+                                            <button type="button" class="createNew btn btn-success">Add to App <i class="fa fa-arrow-right"></i></button>
+                                        </main>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>UHS: SYSADM: B360 Locations Data</h2>
+
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table id="dt1" class="multitables table table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Remove</th>
+                                                <th>Region</th>
+                                                <th>Division</th>
+                                                <th>District</th>
+                                                <th>DB ID</th>
+                                                <th>UHS ID</th>
+                                                <th>Customer</th>
+                                                <th>Account Type</th>
+                                                <th>Operation</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @Html.Action("_tableIndexB360", "uhslocations")
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="x_title">
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <form action="/uhsusercontrol/ExportToExcel">
+                                                <input type="image" src="~/images/Excel2.png" />
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /page content -->
+    <!-- footer content -->
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery-ui.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#customer").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/uhslocations/customerSelectB360",
+                            type: "POST",
+                            dataType: "json",
+                            data: { ID: request.term },
+                            success: function (data) {
+                                response($.map(data, function (item) {
+                                    return { label: item.Value, value: item.Value };
+                                }))
+                            }
+                        })
+                    },
+                    messages: {
+                        noResults: "", results: ""
+                    }
+                });
+            })
+    </script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- ECharts -->
+    <script src="../vendors/echarts/dist/echarts.min.js"></script>
+    <script src="../vendors/echarts/map/js/world.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/js/jquery-confirm.min.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <script src="~/js/leaflet.js"></script>
+    <script type="text/javascript">
+        var mymap = L.map('mapid13').setView([39.707, -460.54], 4);
+        var sw = new L.latLng(5.499550, -167.276413); //Southwest
+        var ne = new L.latLng(83.162102, -52.233040);  //Northeast
+        var bounds = new L.latLngBounds(sw, ne);
+        var blueIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-blue.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicnVtdW5rbyIsImEiOiJjamIzcDVsd2gycDhyMnFxa3ZuOGcwcXZqIn0.LivgKgnmM6_E734yDYqzBw', {
+            maxZoom: 18,
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+        $(window).load(function (e) {
+            e.preventDefault();
+            getA360loc();
+            //console.log("proba");
+            function getA360loc() {
+                var markeri = [];
+                $.ajax({
+                    url: '/uhsuserB360/getB360map',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: 1 },
+                    success: function (populate) {
+                        $.each(populate, function (IDc, datatable) {
+                            var acctid = datatable.IDc;
+                            var acct = datatable.CUST;
+                            var distid = datatable.DISTID;
+                            var dist = datatable.DIST;
+                            var divID = 0;
+                            var divNm = datatable.DIV;
+                            var regID = 0;
+                            var region = datatable.REG;
+                            var disPh = datatable.PHON;
+                            var city = datatable.CITY;
+                            var aclng = datatable.LNG;
+                            var aclat = datatable.LAT;
+                            var OMH = datatable.MGR;
+                            var DOD = datatable.DOD;
+                            var type = datatable.typedesc;
+                            var popsec1 = "<span style='color:darkorange; font-size:12px'>Division:</span><span style='color:steelblue; font-size:12px'> " + divNm + "</span><br><span style='color:darkorange; font-size:12px'> District: </span><span style='color:steelblue; font-size:12px'>" + dist + "</span><br><span style='color:darkorange; font-size:12px'> Account Number:</span><span style='color:steelblue; font-size:12px'> " + acctid + "</span><br><span style='color:darkorange; font-size:12px'> Customer: </span><span style='color:steelblue; font-size:12px'> " + acct + "</span><br><span style='color:darkorange; font-size:12px'> DOD:</span><span style='color:steelblue; font-size:12px'> " + DOD + "</span><br><span style='color:darkorange; font-size:12px'> OMH:</span><span style='color:steelblue; font-size:12px'> " + OMH + "</a><br><br />";
+                            markeri.push(L.marker([aclat, aclng], { icon: blueIcon, id: distid }).bindPopup(popsec1).openPopup());
+
+                        })
+                        var fgroup = new L.featureGroup(markeri);
+                        fgroup.addTo(mymap).bringToFront();
+                        mymap.setView([38.284385, -98.60], [5]);
+
+                    }
+                })
+            };
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(".delClick").on('click', function (e) {
+            e.preventDefault();
+            var id1 = $(this).data("id");
+            delDoc(id1);
+        });
+        function delDoc(id1) {
+            $.confirm({
+                title: 'Delete!',
+                content: 'Continue?',
+                buttons: {
+                    confirm: function () {
+                        delAccount(id1);
+                    },
+                    cancel: function () {
+                        //$.alert('Canceled!');
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        };
+        function delAccount(id1) {
+            $.ajax({
+                url: '/uhslocations/DeleteAccount',
+                type: "GET",
+                dataType: "JSON",
+                data: { IDd: id1, typeid: 2 },
+                success: function () {
+                    location.reload();
+                }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(".createNew").on('click', function (e) {
+            e.preventDefault();
+            var IDc = $("#customer").val();
+            if(IDc == 0){
+                alert("Please select Customer Account!");
+            }
+            else {
+                $.ajax({
+                    url: '/uhslocations/CreateAccountPre',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { IDc: IDc, dctp: 2 },
+                    success: function (populate) {
+                        $.each(populate, function (IDc, cheka) {
+                            if (cheka.modInt01 == 1) {
+                                window.location = "/uhslocations/CreateAccount?IDc=" + cheka.modInt02 + "&dctp=" + cheka.modInt03;
+                            } else if (cheka.modInt01 == 2) {
+                                alert("This Customer Account is currently being edited by another User. Please try again in 5 minutes!");
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multitables').DataTable({
+                "order": [[0, "desc"],[2, "asc"],[3, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+</body>
+</html>

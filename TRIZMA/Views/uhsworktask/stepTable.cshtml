@@ -1,0 +1,32 @@
+﻿@model List<TRIZMA.Models.UHSWOP01vDb>
+
+@foreach (var item in Model)
+{
+<tr style="color:#0076A8">
+    <td style="text-align:center; color:white !important">.</td>
+    <td><a href="#">@item.stepnm</a></td>
+
+    <td style="text-align:center">@item.datest</td>
+    <td style="text-align:center">@item.dateex</td>
+    <td style="text-align:center">
+        <span class="progress">
+            <span class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                  aria-valuenow=@item.succes aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
+                @item.succes %
+            </span>
+        </span>
+
+    </td>
+    <td style="text-align:center">
+        <span class="progress">
+            <span class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                  aria-valuenow=@item.timsucsa aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
+                @item.timsucsb
+            </span>
+        </span>
+
+    </td>
+    <td style="text-align:center"><i class="fa fa-check" style="color:forestgreen"></i></td>
+</tr>
+}
+

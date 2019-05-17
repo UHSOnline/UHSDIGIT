@@ -1,0 +1,488 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UHS Customer Handler</title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link href="~/Content/textBoxStyle.css" rel="stylesheet" />
+
+
+    <!-- Google Webfont -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Crimson+Text' rel='stylesheet' type='text/css'>
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="~/css/themify-icons.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="~/css/superfish.css">
+    <!-- Easy Responsive Tabs -->
+    <link rel="stylesheet" href="~/css/easy-responsive-tabs.css">
+
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="~/css/style.css">
+    @*<link href="../build/css/custom.min.css" rel="stylesheet">*@
+
+</head>
+<body class="inner-page">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" style="color:white">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar" style="color:white"></span>
+                    <span class="icon-bar" style="color:white"></span>
+                    <span class="icon-bar" style="color:white"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                @Html.Partial("_navBar", "uhsCH")
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="fh5co-spacer fh5co-spacer-lg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="fh5co-spacer fh5co-spacer-sm"></div>
+            <div class="col-md-12">
+                <h2 class="h3"><a href="http://www.uhs.com" target="_blank"><img src="~/images/uhsLogoEdit2.png" /></a><a style="color:white">*</a> Customer Handler</h2>
+                <hr />
+            </div>
+
+            <div class="col-md-6">
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam. Ipsa qui consequatur laborum culpa recusandae ullam repellendus, quod cum nemo consequuntur quidem labore minima dignissimos, eum!</p>
+            </div>
+            <div class="col-md-6" style="text-align:center">
+                <br />
+                <img src="~/images/webtesting3.png" />
+            </div>
+            <div class="col-md-12">
+                <hr />
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="fh5co-spacer fh5co-spacer-sm"></div>
+        <section id="fh5co-feature-slider">
+            <div class="col-md-12">
+                <div class="owl-carousel-fullwidth owl-carousel-2">
+                    <!-- START .items -->
+                    @Html.Partial("_sliderMenu", "uhsCH")
+                    <!-- END   .item -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="fh5co-spacer fh5co-spacer-md"></div>
+
+            <section>
+                <div class="col-md-12">
+
+                    @*@{
+                            List<SelectListItem> listItems = new List<SelectListItem>();
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "AtlantaPort",
+                                Value = "AtlantaPort"
+                            });
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "NewJersyTerminal",
+                                Value = "NewJersyTerminal",
+                                Selected = true
+                            });
+                            listItems.Add(new SelectListItem
+                            {
+                                Text = "AWS",
+                                Value = "AWS"
+                            });
+                        }
+
+                        @Html.DropDownList("yourDropName", listItems, new { @class = "form-control" })*@
+
+
+
+
+                    <div class="fh5co-spacer fh5co-spacer-sm"></div>
+                    <div id="fh5co-tab-feature-center" class="fh5co-tab">
+                        <ul class="resp-tabs-list hor_1">
+                            <li><i class="glyphicon glyphicon-user"></i> Customer</li>
+                            <li><i class="fh5co-tab-menu-icon ti-paint-bucket"></i> Branding</li>
+                            <li><i class="fh5co-tab-menu-icon ti-shopping-cart"></i> E-Commerce</li>
+                        </ul>
+                        <div class="resp-tabs-container hor_1">
+                            <div>
+                                <div class="row">
+                                    <div id="mapid" style="width: 100%; height: 560px; position: relative; outline: none"></div>
+                                    @*<img src="images/prod-1.jpg" alt="..." />*@
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="" style="text-align:center">
+                                        <main>
+                                            <input type="text" id="zipCode" class="tags-input" style="border-radius:5px" />
+                                            <p style="color:steelblue; font-size:smaller; font-family: Calibri">Search database</p>
+                                        </main>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Aesthetic Design</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam. Ipsa qui consequatur laborum culpa recusandae ullam repellendus, quod cum nemo consequuntur quidem labore minima dignissimos, eum!</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex fuga illum necessitatibus consequuntur aspernatur omnis quidem ut, similique esse assumenda.</p>
+                                    </div>
+                                </div>
+                                <table id="datatable" class="table table-hover" style="font-size:smaller">
+                                    <thead>
+                                        <tr style="background-color:antiquewhite">
+                                            <th>ID</th>
+                                            <th>Edit</th>
+                                            <th>Level 1</th>
+                                            <th>Level 2</th>
+                                            <th>Sub Group</th>
+                                            <th>Created</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @Html.Action("_tablePartial1", "uhsCH")
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Branding &amp; Identity</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Nam tristique porttitor neque, sit amet aliquet metus ultricies non. Vestibulum lacinia ante sit amet enim iaculis tempus. Nulla aliquam tincidunt leo, et consequat justo viverra id. Maecenas lacinia libero vel iaculis tincidunt. Quisque luctus massa eu sodales vehicula. Duis gravida at nunc sit amet sagittis. Fusce pulvinar scelerisque enim, vel interdum erat ullamcorper a. Cras elementum mauris justo, quis lacinia erat mollis sed. Donec malesuada odio eu metus consequat interdum. </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>In varius, ex ut tincidunt tempor, nunc nisi commodo quam, vel volutpat ex eros id tellus. Morbi cursus libero mi. In condimentum leo in libero volutpat rutrum. Ut pellentesque finibus lacus, sed imperdiet ex tincidunt vel. Proin et blandit nisl, dapibus faucibus urna. Praesent et nisi dictum, placerat purus eget, varius est. Suspendisse potenti. Curabitur blandit faucibus auctor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Online Shop</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam.</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="fh5co-spacer fh5co-spacer-sm">
+                <div class="col-md-12">
+                    <div id="fh5co-tab-feature" class="fh5co-tab">
+                        <ul class="resp-tabs-list hor_1">
+                            <li><i class="fh5co-tab-menu-icon ti-ruler-pencil"></i>Design</li>
+                            <li><i class="fh5co-tab-menu-icon ti-paint-bucket"></i> Branding</li>
+                            <li><i class="fh5co-tab-menu-icon ti-shopping-cart"></i> E-Commerce</li>
+                        </ul>
+                        <div class="resp-tabs-container hor_1">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Aesthetic Design</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam. Ipsa qui consequatur laborum culpa recusandae ullam repellendus, quod cum nemo consequuntur quidem labore minima dignissimos, eum!</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex fuga illum necessitatibus consequuntur aspernatur omnis quidem ut, similique esse assumenda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Branding &amp; Identity</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Nam tristique porttitor neque, sit amet aliquet metus ultricies non. Vestibulum lacinia ante sit amet enim iaculis tempus. Nulla aliquam tincidunt leo, et consequat justo viverra id. Maecenas lacinia libero vel iaculis tincidunt. Quisque luctus massa eu sodales vehicula. Duis gravida at nunc sit amet sagittis. Fusce pulvinar scelerisque enim, vel interdum erat ullamcorper a. Cras elementum mauris justo, quis lacinia erat mollis sed. Donec malesuada odio eu metus consequat interdum. </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>In varius, ex ut tincidunt tempor, nunc nisi commodo quam, vel volutpat ex eros id tellus. Morbi cursus libero mi. In condimentum leo in libero volutpat rutrum. Ut pellentesque finibus lacus, sed imperdiet ex tincidunt vel. Proin et blandit nisl, dapibus faucibus urna. Praesent et nisi dictum, placerat purus eget, varius est. Suspendisse potenti. Curabitur blandit faucibus auctor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Online Shop</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam.</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="fh5co-spacer fh5co-spacer-sm">
+                <div class="col-md-12">
+                    <div id="fh5co-tab-feature-vertical" class="fh5co-tab">
+                        <ul class="resp-tabs-list hor_1">
+                            <li><i class="fh5co-tab-menu-icon ti-ruler-pencil"></i>Design</li>
+                            <li><i class="fh5co-tab-menu-icon ti-paint-bucket"></i> Branding</li>
+                            <li><i class="fh5co-tab-menu-icon ti-shopping-cart"></i> E-Commerce</li>
+                        </ul>
+                        <div class="resp-tabs-container hor_1">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Aesthetic Design</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam. Ipsa qui consequatur laborum culpa recusandae ullam repellendus, quod cum nemo consequuntur quidem labore minima dignissimos, eum!</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex fuga illum necessitatibus consequuntur aspernatur omnis quidem ut, similique esse assumenda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Branding &amp; Identity</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Nam tristique porttitor neque, sit amet aliquet metus ultricies non. Vestibulum lacinia ante sit amet enim iaculis tempus. Nulla aliquam tincidunt leo, et consequat justo viverra id. Maecenas lacinia libero vel iaculis tincidunt. Quisque luctus massa eu sodales vehicula. Duis gravida at nunc sit amet sagittis. Fusce pulvinar scelerisque enim, vel interdum erat ullamcorper a. Cras elementum mauris justo, quis lacinia erat mollis sed. Donec malesuada odio eu metus consequat interdum. </p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>In varius, ex ut tincidunt tempor, nunc nisi commodo quam, vel volutpat ex eros id tellus. Morbi cursus libero mi. In condimentum leo in libero volutpat rutrum. Ut pellentesque finibus lacus, sed imperdiet ex tincidunt vel. Proin et blandit nisl, dapibus faucibus urna. Praesent et nisi dictum, placerat purus eget, varius est. Suspendisse potenti. Curabitur blandit faucibus auctor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="h3">Online Shop</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis deserunt dolorem, debitis cupiditate nihil velit dolores, inventore voluptatem delectus quos atque similique natus eaque qui, nisi repudiandae dolore sit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aut maxime eius magnam.</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptatem, vitae nesciunt ad hic quam quisquam sit possimus officia ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, ex. Lorem ipsum dolor sit amet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fh5co-spacer fh5co-spacer-md"></div>
+                <!-- END Tabs -->
+
+
+            </section>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script type="text/javascript">
+
+            var mymap = L.map('mapid').setView([39.707, -460.54], 4);
+            var sw = new L.latLng(5.499550, -167.276413); //Southwest
+            var ne = new L.latLng(83.162102, -52.233040);  //Northeast
+            var bounds = new L.latLngBounds(sw, ne);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicnVtdW5rbyIsImEiOiJjamIzcDVsd2gycDhyMnFxa3ZuOGcwcXZqIn0.LivgKgnmM6_E734yDYqzBw', {
+                maxZoom: 18,
+                id: 'mapbox.streets'
+            }).addTo(mymap);
+            $("#getZIPcode").click(function (e) {
+                e.preventDefault();
+                getziplocation();
+                //console.log("proba");
+                function getziplocation() {
+                    var markeri = [];
+                    var zipCode = $('#zipCode').val();
+                    $.ajax({
+                        url: '/geoServer/getZipCode',
+                        type: "GET",
+                        dataType: "JSON",
+                        data: { ID: zipCode },
+                        success: function (populate) {
+                            $.each(populate, function (ZIP, datatable) {
+                                var zipCodeN = datatable.ZIP;
+                                var zipLat = datatable.LAT;
+                                var zipLng = datatable.LNG;
+                                markeri.push(L.marker([zipLat, zipLng]).bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup());
+                            });
+                            var fgroup = new L.featureGroup(markeri);
+                            fgroup.addTo(mymap);
+                            mymap.fitBounds(fgroup.getBounds());
+                        }
+                    });
+                    //$.ajax({
+                    //    url: 'http://192.168.16.103:8080/geoserver/topp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=topp:states&maxFeatures=50&outputFormat=application%2Fjson',
+                    //    type: "GET",
+                    //    crossDomain: true,
+                    //    dataType: "json",
+                    //    jsonCallback: 'getJson',
+                    //    success: function (data) {
+                    //        console.log(data);
+                    //        var lejer = new L.GeoJSON();
+                    //        lejer.addData(data);
+                    //        //prikazemo ga
+                    //        mymap.addLayer(lejer);
+                    //    }
+                    //});
+                }
+            });
+
+
+
+
+            //L.marker([35.24562, -439.18945]).addTo(mymap)
+            //.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+            //    L.polygon([
+            //	[43.19717, -471.18164],
+            //	[35.10193, -464.85352],
+            //	[42.81152, -450.87891]
+            //    ]).addTo(mymap).bindPopup("I am a polygon.");
+
+
+            //var popup = L.popup();
+
+            //function onMapClick(e) {
+            //	popup
+            //		.setLatLng(e.latlng)
+            //		.setContent("You clicked the map at " + e.latlng.toString())
+            //		.openOn(mymap);
+            //}
+
+            //mymap.on('click', onMapClick);
+
+    </script>
+
+
+
+    <!-- /page content -->
+    <!-- footer content -->
+    @*<footer>
+            <div style="text-align:center">
+                <a href="https://www.trizma.com"><img src="~/images/logoSmall.png"></a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>*@
+    <!-- /footer content -->
+    <!-- jQuery -->
+
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function () {
+                $("#zipCode").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/ddlPopulate/autoComplete",
+                            type: "POST",
+                            dataType: "json",
+                            data: { ID: request.term },
+                            success: function (data) {
+                                response($.map(data, function (item) {
+                                    return { label: item.Value, value: item.Value };
+                                }))
+                            }
+                        })
+                    },
+                    messages: {
+                        noResults: "", results: ""
+                    }
+                });
+            })
+    </script>
+
+
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Owl carousel -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <!-- Superfish -->
+    <script src="~/js/hoverIntent.js"></script>
+    <script src="~/js/superfish.js"></script>
+    <!-- Easy Responsive Tabs -->
+    <script src="~/js/easyResponsiveTabs.js"></script>
+    <!-- FastClick for Mobile/Tablets -->
+    <script src="~/js/fastclick.js"></script>
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/build/js/custom.min.js"></script>
+
+</body>
+</html>

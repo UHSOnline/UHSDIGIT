@@ -1,0 +1,348 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Reporting Index</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    <link href="~/css/jquery.inputpicker.css" rel="stylesheet" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+
+
+    <div class="lckbckscr">
+
+        <div id="wrapper">
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <div style="padding-top:4px; padding-left:32px">
+                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <br />
+                            <h3 class="page-header"><span style="color:steelblue">Reporting </span><span style="color:darkorange"> Services</span></h3>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <br />
+                                <h4 class="page-header"><span style="color:steelblue">Activity </span><span style="color:darkorange"> Reports</span></h4>
+                                <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                    <img src="~/images/slatHTML.png" />
+                                </div>
+                                <div class="col-lg-11">
+                                    <ul>
+                                        <li>
+                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityDistrict?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                Activity Report - District
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityA360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                Activity Report - Asset360
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityB360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                Activity Report - BioMed360
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivitySS?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                Activity Report - Surgical Services
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityCOE?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                Activity Report - COE Operations
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <br />
+
+                                <h4 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Reports</span></h4>
+                                <div class="row">
+                                    <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2" style="padding-top:10px">
+                                        <img src="~/images/slatPBI.png" />
+                                    </div>
+                                    <div class="col-lg-11">
+                                        <ul>
+                                            <li>
+                                                <a onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Monthly Success by Operation
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiMGQ0ZGQ3MjMtNzAzOC00MWY0LWI4MTUtY2UyMDNlMGRiNmU3IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Periodical/Daily Success
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiODUyYmJkY2UtYmZlMy00YTcyLTg3NjctYmUxYjJlNDE2Mjg1IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Monthly Report - Daily Activities by Location
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                        <img src="~/images/slatHTML.png" />
+                                    </div>
+                                    <div class="col-lg-11">
+                                        <ul>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportPeriodicalActivityDistrict?projectID=13&taskOrderID=62&Int1=1', '', '1280', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Activity: District
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportPeriodicalActivityDistrict?projectID=13&taskOrderID=62&Int1=2', '', '1360', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Activity: Asset360
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportPeriodicalActivityDistrict?projectID=13&taskOrderID=62&Int1=3', '', '1360', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Activity: BioMed360
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportPeriodicalActivityDistrict?projectID=13&taskOrderID=62&Int1=4', '', '1280', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Activity: Surgical Services
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportPeriodicalActivityDistrict?projectID=13&taskOrderID=62&Int1=5', '', '1280', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Periodical Report - Activity: COE Operations
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-10">
+                            <button class="btn btn-default btnactive">Dugme za stisnuti</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-10">
+                            <input class="form-control" id="demo" value="-">
+                        </div>
+                    </div>
+
+
+                    <br />
+                    <br />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <script src="~/js/jquery.inputpicker.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+            var d = (new Date(Date.now() - tzoffset));
+            var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+            var yr1 = eddt.slice(0, 4);
+            var mn1 = eddt.slice(5, 7);
+            var dy1 = eddt.slice(8, 10);
+            var tm1 = eddt.slice(11, 16);
+            var eddf = mn1 + "/" + dy1 + "/" + yr1 + " " + tm1;
+            $("#dtpicker1").val(eddf);
+        });
+    </script>
+    <script type="text/javascript">
+        function PopupCenterDual(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.btnactive', function () {
+            var data1 = @Html.Raw(Json.Encode(ViewBag.data1));
+            var setall = [];        
+            setall.push({ value: "0", text: "-", description: "", phone: "", address: "", personalnote: "" });
+            $.each(data1, function (ID, data1) {               
+                setall.push({ value: data1.ID, text: data1.project, description: data1.taskOrder, phone: data1.createdDT, address: data1.editedDT, personalnote: data1.createdByUserID });                
+            });            
+            $('#demo').inputpicker({
+                data: setall,
+                fields: [
+                    { name: 'value', text: 'Id' },
+                    { name: 'text', text: 'Title' },
+                    { name: 'description', text: 'Description' },
+                    { name: 'phone', text: 'Phone' },
+                    { name: 'address', text: 'Address' },
+                    { name: 'personalnote', text: 'Personal Note' }
+                ],
+                headShow: true,
+                fieldText: 'text',
+                fieldValue: 'value'
+            });
+        });       
+    </script>
+</body>
+</html>

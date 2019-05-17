@@ -1,0 +1,2208 @@
+﻿
+
+@{
+    Layout = null;
+}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Bar Charts | Kiaalap - Kiaalap Admin Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    @*<link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">*@
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">
+    <!-- modals CSS
+        ============================================ -->
+
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    <link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 1030;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
+
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="sparkline12-hd">
+                                    <div class="main-sparkline12-hd">
+                                        <h1><span style="color:#0076A8">A3 Form</span></h1>
+                                    </div>
+                                </div>
+                                <span style="color:#F69240; font-size:12px"> District: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.comboDistrict </span>
+                                <span style="color:#F69240; font-size:12px"> Month: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.mnth </span>
+                                <span style="color:#F69240; font-size:12px"> Created: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.crdate </span>
+                                <span style="color:#F69240; font-size:12px"> Start: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.crdate </span>
+                                <span style="color:#F69240; font-size:12px"> End: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.crdate </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab review Start-->
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-payment-inner-st">
+
+
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
+                                                        <div class="main-sparkline12-hd">
+                                                            <h1><span style="color:#0076A8">Basic Info:</span></h1>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#0076A8">Project Name:</label>
+                                                        <input type="text" class="form-control" id="project" placeholder="Type Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#F69240">Operations Manager:</label>
+                                                        <input type="text" class="form-control" id="oprmngr" placeholder="Type Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#F69240">Kaizen Leader:</label>
+                                                        <input type="text" class="form-control" id="kznlead" placeholder="Type Name">
+                                                    </div>
+                                                    <br />
+                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
+                                                        <div class="main-sparkline12-hd">
+                                                            <h1><span style="color:#0076A8">App Module:</span></h1>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#F69240">App Module:</label>
+                                                        <select class="form-control" id="appmodule"></select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#0076A8">Area:</label>
+                                                        <select class="form-control" id="apparea"></select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#0076A8">Task:</label>
+                                                        <select class="form-control" id="apptask"></select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#0076A8">Standard:</label>
+                                                        <select class="form-control" id="l3id"></select>
+                                                    </div>
+                                                    <br />
+                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
+                                                        <div class="main-sparkline12-hd">
+                                                            <h1><span style="color:#0076A8">Location:</span></h1>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label style="font-size:12px; color:#0076A8">District:</label>
+                                                        <select class="form-control" id="district"></select>
+                                                    </div>
+                                                    @if (ViewBag.tskoid == 52 || ViewBag.IDK == 52 || ViewBag.tskoid == 53 || ViewBag.IDK == 53 || ViewBag.tskoid == 57 || ViewBag.IDK == 57 || ViewBag.tskoid == 58 || ViewBag.IDK == 58)
+                                            {
+                                                @Html.Hidden("account", new { Value = 0 })
+                                    }
+                                    else if (ViewBag.tskoid == 55 || ViewBag.IDK == 55 || ViewBag.tskoid == 56 || ViewBag.IDK == 56)
+                                    {
+                                        <div class="form-group">
+                                            <label style="font-size:12px; color:#0076A8">Account:</label>
+                                            <select class="form-control" id="account"></select>
+                                        </div>
+                            }
+                                                </div>
+
+                                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
+                                                        <div class="main-sparkline12-hd">
+                                                            <h1><span style="color:#0076A8">Description:</span></h1>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#0076A8">Problem Statement:</label>
+                                                                <textarea id="problem" placeholder="Description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#F69240">Team Members:</label>
+                                                                <textarea id="teammbr" placeholder="Type Name"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#0076A8">Scope, Objectives and Goal:</label>
+                                                                <textarea id="scpobjc" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#0076A8">Objective:</label>
+                                                                <textarea id="objectv" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#F69240">In Scope:</label>
+                                                                <textarea id="scopein" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#F69240">Out of Scope:</label>
+                                                                <textarea id="scopeot" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#0076A8">Current State:</label>
+                                                                <textarea id="statecr" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group res-mg-t-15">
+                                                                <label style="font-size:12px; color:#0076A8">Future State:</label>
+                                                                <textarea id="stateft" placeholder="Type"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab review Start-->
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="product-payment-inner-st">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="review-content-section">
+
+
+
+
+
+
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="row">
+                                                    <div class="alert-title">
+                                                        <h2><span style="color:#0076A8">Completion:</span></h2>
+
+                                                    </div>
+                                                    <div class="alert alert-success alert-st-one alert-st-bg alert-st-bg11" role="alert">
+                                                        <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1 admin-check-pro-clr12" aria-hidden="true"></i>
+
+                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="complda" onchange="complda()" style="transform:scale(2)" /></span><strong> Completed!</strong> Document</p>
+                                                    </div>
+                                                    <div class="alert alert-success alert-st-one alert-st-bg alert-st-bg11" role="alert">
+                                                        <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1 admin-check-pro-clr12" aria-hidden="true"></i>
+
+                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> Champ!</strong> Signoff</p>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="padding-top:6px">
+                                                <div class="form-group">
+                                                    <label style="font-size:12px; color:#F69240">Process Owner:</label>
+                                                    <input type="text" class="form-control" id="prOwner" value="@ViewBag.usrnm" readonly="readonly">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label style="font-size:12px; color:#6399AE">Communicate Results To:</label>
+                                                    <input type="text" class="form-control" id="commres" placeholder="Type Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12" style="padding-top:6px">
+                                                <div class="analysis-progrebar-content" style="padding-bottom:20px">
+                                                    <h5>Progress</h5>
+                                                    <h2 class="storage-right"><span class="counter" id="mainProgPerc"></span>%</h2>
+                                                    <div class="progress progress-mini ug-1">
+                                                        <div class="progress-bar" id="mainProg"></div>
+                                                    </div>
+                                                    <div class="m-t-sm small">
+                                                        <p>Overall Project Progress, average value.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="analysis-progrebar-content">
+                                                    <h5>Timeline</h5>
+                                                    <h2 class="storage-right"><span class="counter" id="mainTimePerc"></span>%</h2>
+                                                    <div class="progress progress-mini ug-1">
+                                                        <div class="progress-bar" id="mainTime"></div>
+                                                    </div>
+                                                    <div class="m-t-sm small">
+                                                        <p>Overall Project Timeline, average value.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Single pro tab review End-->
+            <!-- Static Table Start -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+                                <div class="sparkline13-hd">
+                                    <div class="main-sparkline13-hd">
+                                        <h1><span style="color:#0076A8">A3 Form</span><span style="color:#F69240"> Step </span><span style="color:#0076A8"> List</span></h1>
+                                    </div>
+                                </div>
+                                <div class="sparkline13-graph">
+                                    <div class="datatable-dashv1-list custom-datatable-overright">
+                                        <div id="toolbar">
+                                            <select class="form-control dt-tb">
+                                                <option value="">Export Basic</option>
+                                                <option value="all">Export All</option>
+                                                <option value="selected">Export Selected</option>
+                                            </select>
+                                        </div>
+                                        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                               data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="Delete">Delete</th>
+                                                    <th data-field="StepName" data-editable="false">Step Name</th>
+                                                    <th data-field="StartDate" data-editable="false">Start Date</th>
+                                                    <th data-field="ExpectedDate" data-editable="false">Expected Date</th>
+                                                    <th data-field="ProgressLine" data-editable="false">Progress</th>
+                                                    <th data-field="TimeLine" data-editable="false">Timeline</th>
+                                                    <th data-field="HighPriority" data-editable="false">HP</th>
+                                                    <th data-field="Completed" data-editable="false">COM</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in ViewBag.stepTable)
+                                        {
+                                            <tr style="color:#0076A8">
+                                                <td style="text-align:center"><a href="#" class="delStep" onclick="delStep('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.4)" title="delete"></i></a></td>
+                                                <td><a href="#" onclick="stepModal('@item.ID')">@item.stepnm</a></td>
+
+                                                <td style="text-align:center">@item.datest</td>
+                                                <td style="text-align:center">@item.dateex</td>
+                                                <td style="text-align:center">
+                                                    @if (item.compld == true)
+                                            {
+                                                if (item.succes >= 100)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-info" role="progressbar"
+                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                            Completed!
+                                                        </div>
+                                                    </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar"
+                                                     aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
+                                                    @item.succes%
+                                                </div>
+                                            </div>
+                                }
+
+                            }
+                            else if (item.succes >= 100)
+                            {
+
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                                         aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
+                                        @item.succes%
+                                    </div>
+                                </div>
+                    }
+                    else
+                    {
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar"
+                                 aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
+                                @item.succes%
+                            </div>
+                        </div>
+            }
+                                                </td>
+                                                <td style="text-align:center">
+                                                    @if (item.timsucce >= 100)
+                                            {
+                                                if (item.compld == true)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-danger" role="progressbar"
+                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                            Overdue!
+                                                        </div>
+                                                    </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+                                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                    Overdue!
+                                                </div>
+                                            </div>
+                                }
+
+                            }
+                            else if (item.timsucce >= 80 && item.timsucce < 100)
+                            {
+                                if (item.compld == true)
+                                {
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar"
+                                             aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
+                                            @item.timsucsb
+
+                                        </div>
+                                    </div>
+                        }
+                        else
+                        {
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+                                     aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
+                                    @item.timsucsb
+                                </div>
+                            </div>
+                }
+            }
+            else
+            {
+                if (item.compld == true)
+                {
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar"
+                             aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
+                            @item.timsucsb
+                        </div>
+                    </div>
+        }
+        else
+        {
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                     aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
+                    @item.timsucsb
+                </div>
+            </div>
+}
+}
+                                                </td>
+                                                @if (item.priohg == true)
+                                        {
+                                            <td style="text-align:center"><i class="fa fa-flag" style="color:red; transform:scale(1.6)" title="high priority"></i></td>
+                                }
+                                else
+                                {
+                                    <td style="text-align:center"><span style="color:white">.</span></td>
+                        }
+                                                @if (item.compld == true)
+                                        {
+                                            <td style="text-align:center"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.8)" title="completed"></i></td>
+                                }
+                                else
+                                {
+                                    <td style="text-align:center"><i class="fa fa-close" style="color:#F69240; transform:scale(1.8)" title="not completed"></i></td>
+                        }
+
+                                            </tr>
+                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Static Table End -->
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button type="button" class="btn btn-outline btn-default btn-sm col-lg-12 newStep" style="font-size:14px">Add New Step!</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span style="color:#F69240; font-size:12px"> Document ID: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.docID </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="PrimaryModalalert" class="modal modal-edu-general fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-close-area modal-close-df">
+                            <a class="close" data-dismiss="modal" href="#" onclick="reload()"><i class="fa fa-close"></i></a>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="col-lg-12">
+
+                                <div class="sparkline12-hd" style="padding-bottom:2px">
+                                    <div class="main-sparkline12-hd">
+                                        <h1><span style="color:#0076A8">Step Edit:</span></h1>
+                                    </div>
+                                </div>
+                                <hr />
+                                <br />
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-5">
+                                        <div class="form-group">
+                                            <label style="font-size:12px; color:#0076A8">Step Name:</label>
+                                            <input type="text" class="form-control" id="stepnm" placeholder="Type Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="color:#F69240">Assigned To:</label>
+                                            <input id="assgto" class="form-control" placeholder="Type Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="color:#6399AE">Step Description:</label>
+                                            <textarea id="stepds" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group" align="center">
+                                            <label style="color:#6399AE">Start date:</label>
+                                            <input type="text" class="datepicker-here form-control" id="datest" data-timepicker="true" style="max-width:264px; border:solid; border-width:thin; border-color:lightgray; text-align:center" />
+                                        </div>
+                                        <div class="form-group" align="center">
+                                            <label style="color:#6399AE">Expected date:</label>
+                                            <input type="text" class="datepicker-here form-control" id="dateex" data-timepicker="true" style="max-width:264px; border:solid; border-width:thin; border-color:lightgray; text-align:center" />
+                                        </div>
+                                        <div class="col-lg-12" align="center" style="padding-top:13px">
+                                            <div class="col-lg-12">
+                                                <label style="color:#6399AE">Progress:</label>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" id="succProg"
+                                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%; color:#01426A">
+                                                        0.0%
+                                                    </div>
+                                                </div>
+                                                <label style="color:#6399AE">Timeline:</label>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" id="timeProg"
+                                                         aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%; color:#01426A">
+                                                        0.0%
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label style="color:#6399AE">Progress:</label>
+                                            <input type="number" class="form-control" min="0" max="100" id="succes" style="font-size:48px; font-weight:bold; color:#6399AE; min-height:60px; text-align:center" />
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#6399AE">Hrs:</label>
+                                                    <input type="number" class="form-control" min="0" max="100" id="wrkhrs" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#6399AE">Min:</label>
+                                                    <input type="number" class="form-control" min="0" max="59" id="wrkmin" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#00966C">$ Dollars:</label>
+                                                    <input type="number" class="form-control" min="0" id="expsdl" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#00966C">Cents:</label>
+                                                    <input type="number" class="form-control" min="0" max="99" id="expsct" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12" style="color:#0076A8">
+                                        <br />
+                                        <h4>Incompliance:</h4>
+                                        <hr />
+                                        <br />
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incUnit" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Unit</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incPart" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Part</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incModule" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Module</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incTool" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Tool</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMaterial" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Material</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incAccess" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Access</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incData" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Data</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incDocument" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Document</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incReport" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Report</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incSME" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">SME</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incStuff" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Stuff</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incTime" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Time</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMoney" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Money</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incSetup" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Setup</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMisusage" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Misusage</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incVehicle" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Vehicle</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incOther" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Other</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="color:#6399AE">Other Description:</label>
+                                            <textarea id="incOthDs" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-lg-12">
+                                <span style="padding-right:10px"><input type="checkbox" id="priohg" style="transform:scale(2)" /></span>
+                                <span style="color:red; padding-right:3px"><i class="fa fa-flag"></i></span>
+                                <span style="padding-right:60px; color:#005F86; font-size:16px"><b>High Priority!</b></span>
+                                <span style="padding-right:10px"><input type="checkbox" id="compld" style="transform:scale(2)" /></span>
+                                <span style="padding-right:40px; color:#005F86; font-size:16px"><b>Step Completed!</b></span>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="reload()">Dismiss!</button>
+                                <button type="button" class="btn btn-success SaveStep">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+        </div>
+        <!-- lckbckscr End -->
+    </div>
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+    <!-- data table JS
+        ============================================ -->
+    <script src="~/main/js/data-table/bootstrap-table.js"></script>
+    <script src="~/main/js/data-table/tableExport.js"></script>
+    <script src="~/main/js/data-table/data-table-active.js"></script>
+    <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+    <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="~/main/js/data-table/bootstrap-table-export.js"></script>
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    @*<script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>*@
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <script src="~/dist/js/datepicker.min.js"></script>
+
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+
+    
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(".SaveStep").on('click', function () {
+                var btn = 2;
+                var stn = $("#stepnm").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var da = $("#datest").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var db = $("#dateex").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var da1 = da.slice(0, 2); var da2 = da.slice(3, 5); var da3 = da.slice(6, 10); var da4 = da.slice(11, 13); var da5 = da.slice(14, 16);
+                var dat = da3.toString() + da1.toString() + da2.toString() + da4.toString() + da5.toString();
+                var db1 = db.slice(0, 2); var db2 = db.slice(3, 5); var db3 = db.slice(6, 10); var db4 = db.slice(11, 13); var db5 = db.slice(14, 16);
+                var dbt = db3.toString() + db1.toString() + db2.toString() + db4.toString() + db5.toString();
+                if (stn == null || stn == "") {
+                    alert("Please type Step Name!");
+                } else
+                if (da == null || da == "") {
+                    alert("Please select Start Date!");
+                }
+                else if (db == null || db == "") {
+                    alert("Please select Expected Date!");
+                }
+                else if (dbt <= dat) {
+                    alert("Expected Date must be later then Start Date!");
+                }
+                else {
+                    var chek = $("#sID").val();
+
+                    if (chek == null || chek == "") {
+                        save3010002();
+                    }
+                    else {
+                        edit3010002();
+                    }
+                }
+            });
+            function btnSave02() {
+                var btn = 2;
+                var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var appmodule = $("#appmodule").val();
+                var apparea = $("#apparea").val();
+                var apptask = $("#apptask").val();
+                var l3id = $("#l3id").val();
+                var district = $("#district").val();
+                var account = $("#account").val();
+                if (project == null || project == "") {
+                    alert("Please enter Project Name:");
+                } else if (appmodule == 0) {
+                    alert("Please select App Module:");
+                }
+                else if (apparea == 0) {
+                    alert("Please select Area:");
+                }
+                else if (apptask == 0) {
+                    alert("Please select Task:");
+                }
+                else if (l3id == 0) {
+                    alert("Please select Standard:");
+                }
+                else if (district == 0) {
+                    alert("Please select District:");
+                }
+                else if ((@ViewBag.tskoid == 55 || @ViewBag.tskoid == 56) && account == 0) {
+                    alert("Please select Account:");
+                }
+                else
+                {
+                    edit3010001(btn);
+                }
+
+            };
+            function btnSave03() {
+                var btn = 3;
+                var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var appmodule = $("#appmodule").val();
+                var apparea = $("#apparea").val();
+                var apptask = $("#apptask").val();
+                var l3id = $("#l3id").val();
+                var district = $("#district").val();
+                var account = $("#account").val();
+                if (project == null || project == "") {
+                    alert("Please enter Project Name:");
+                } else if (appmodule == 0) {
+                    alert("Please select App Module:");
+                }
+                else if (apparea == 0) {
+                    alert("Please select Area:");
+                }
+                else if (apptask == 0) {
+                    alert("Please select Task:");
+                }
+                else if (l3id == 0) {
+                    alert("Please select Standard:");
+                }
+                else if (district == 0) {
+                    alert("Please select District:");
+                }
+                else if ((@ViewBag.tskoid == 55 || @ViewBag.tskoid == 56) && account == 0) {
+                    alert("Please select Account:");
+                } else {
+                    edit3010001(btn);
+                }
+            };
+            $('.newStep').on('click', function () {
+                var compld = $("#complda").is(":checked");
+                var a = 4;
+                if (compld == false) {
+                    var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var appmodule = $("#appmodule").val();
+                    var apparea = $("#apparea").val();
+                    var apptask = $("#apptask").val();
+                    var l3id = $("#l3id").val();
+                    var district = $("#district").val();
+                    var account = $("#account").val();
+                    if (project == null || project == "") {
+                        alert("Please enter Project Name:");
+                    } else if (appmodule == 0) {
+                        alert("Please select App Module:");
+                    }
+                    else if (apparea == 0) {
+                        alert("Please select Area:");
+                    }
+                    else if (apptask == 0) {
+                        alert("Please select Task:");
+                    }
+                    else if (l3id == 0) {
+                        alert("Please select Standard:");
+                    }
+                    else if (district == 0) {
+                        alert("Please select District:");
+                    }
+                    else if ((@ViewBag.tskoid == 55 || @ViewBag.tskoid == 56) && account == 0) {
+                        alert("Please select Account:");
+                    }
+                    else
+                    {
+                        edit3010001(a);
+                        $('#PrimaryModalalert').modal('toggle');
+                    }
+
+
+                }
+                else {
+                    alert("This document is checked Completed! Adding New Steps is not alowed!");
+                }
+
+            });
+            $("#compld").on('change', function () {
+
+                var stn = $("#stepnm").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var da = $("#datest").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var db = $("#dateex").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var da1 = da.slice(0, 2); var da2 = da.slice(3, 5); var da3 = da.slice(6, 10); var da4 = da.slice(11, 13); var da5 = da.slice(14, 16);
+                var dat = da3.toString() + da1.toString() + da2.toString() + da4.toString() + da5.toString();
+                var db1 = db.slice(0, 2); var db2 = db.slice(3, 5); var db3 = db.slice(6, 10); var db4 = db.slice(11, 13); var db5 = db.slice(14, 16);
+                var dbt = db3.toString() + db1.toString() + db2.toString() + db4.toString() + db5.toString();
+                if (stn == null || stn == "") {
+                    alert("Please type Step Name!");
+                } else
+                    if (da == null || da == "") {
+                        alert("Please select Start Date!");
+                    }
+                    else if (db == null || db == "") {
+                        alert("Please select Expected Date!");
+                    }
+                    else if (dbt <= dat) {
+                        alert("Expected Date must be later then Start Date!");
+                    } else {
+                        var compl = $("#compld").is(":checked");
+                        if (compl == true) {
+                            $("#stepnm").attr('readonly', true);
+                            $("#stepds").attr('readonly', true);
+                            $("#assgto").attr('readonly', true);
+                            $("#wrkhrs").attr('readonly', true);
+                            $("#wrkmin").attr('readonly', true);
+                            $("#expsdl").attr('readonly', true);
+                            $("#expsct").attr('readonly', true);
+                            $("#priohg").attr('disabled', 'disabled');
+                            $("#succes").attr('readonly', true);
+                            $("#incUnit").attr('disabled', 'disabled');
+                            $("#incPart").attr('disabled', 'disabled');
+                            $("#incModule").attr('disabled', 'disabled');
+                            $("#incTool").attr('disabled', 'disabled');
+                            $("#incMaterial").attr('disabled', 'disabled');
+                            $("#incAccess").attr('disabled', 'disabled');
+                            $("#incData").attr('disabled', 'disabled');
+                            $("#incDocument").attr('disabled', 'disabled');
+                            $("#incReport").attr('disabled', 'disabled');
+                            $("#incSME").attr('disabled', 'disabled');
+                            $("#incStuff").attr('disabled', 'disabled');
+                            $("#incTime").attr('disabled', 'disabled');
+                            $("#incMoney").attr('disabled', 'disabled');
+                            $("#incSetup").attr('disabled', 'disabled');
+                            $("#incMisusage").attr('disabled', 'disabled');
+                            $("#incVehicle").attr('disabled', 'disabled');
+                            $("#incOther").attr('disabled', 'disabled');
+                            $("#incOthDs").attr('readonly', true);
+                            $("#datest").attr("disabled", "disabled");
+                            $("#dateex").attr("disabled", "disabled");
+                            $("#succProg").removeClass("progress-bar-striped active");
+                            $("#timeProg").removeClass("progress-bar-striped active");
+                        } else {
+
+                            $("#stepds").attr('readonly', false);
+                            $("#assgto").attr('readonly', false);
+                            $("#wrkhrs").attr('readonly', false);
+                            $("#wrkmin").attr('readonly', false);
+                            $("#expsdl").attr('readonly', false);
+                            $("#expsct").attr('readonly', false);
+                            $("#priohg").removeAttr('disabled');
+                            $("#succes").attr('readonly', false);
+                            $("#incUnit").removeAttr('disabled');
+                            $("#incPart").removeAttr('disabled');
+                            $("#incModule").removeAttr('disabled');
+                            $("#incTool").removeAttr('disabled');
+                            $("#incMaterial").removeAttr('disabled');
+                            $("#incAccess").removeAttr('disabled');
+                            $("#incData").removeAttr('disabled');
+                            $("#incDocument").removeAttr('disabled');
+                            $("#incReport").removeAttr('disabled');
+                            $("#incSME").removeAttr('disabled');
+                            $("#incStuff").removeAttr('disabled');
+                            $("#incTime").removeAttr('disabled');
+                            $("#incMoney").removeAttr('disabled');
+                            $("#incSetup").removeAttr('disabled');
+                            $("#incMisusage").removeAttr('disabled');
+                            $("#incVehicle").removeAttr('disabled');
+                            $("#incOther").removeAttr('disabled');
+                            $("#incOthDs").attr('readonly', false);
+                            $("#succProg").addClass("progress-bar-striped active");
+                            $("#timeProg").addClass("progress-bar-striped active");
+                            $('.SaveStep').css({ "visibility": "visible" });
+                        }
+                    }
+
+            });
+            function complda() {
+                alert("test");
+                var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var appmodule = $("#appmodule").val();
+                var apparea = $("#apparea").val();
+                var apptask = $("#apptask").val();
+                var l3id = $("#l3id").val();
+                var district = $("#district").val();
+                var account = $("#account").val();
+                if (project == null || project == "") {
+                    alert("Please enter Project Name:");
+                } else if (appmodule == 0) {
+                    alert("Please select App Module:");
+                }
+                else if (apparea == 0) {
+                    alert("Please select Area:");
+                    $("#complda").prop("checked", false);
+                }
+                else if (apptask == 0) {
+                    alert("Please select Task:");
+                    $("#complda").prop("checked", false);
+                }
+                else if (l3id == 0) {
+                    alert("Please select Standard:");
+                    $("#complda").prop("checked", false);
+                }
+                else if (district == 0) {
+                    alert("Please select District:");
+                    $("#complda").prop("checked", false);
+                }
+                else if ((@ViewBag.tskoid == 55 || @ViewBag.tskoid == 56) && account == 0) {
+                    alert("Please select Account:");
+                    $("#complda").prop("checked", false);
+                } else {
+                    edit3010001(3);
+                }
+            };
+            function save3010002() {
+                $("head").addClass("loadDiv");
+                $('.loadimage').show();
+                var docID = '@ViewBag.docID';
+                var edusid = @ViewBag.userID;
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var datet = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var dt1 = datet.slice(0, 4);
+                var dt2 = datet.slice(5, 7);
+                var dt3 = datet.slice(8, 10);
+                var tm1 = datet.slice(11, 13);
+                var tm2 = datet.slice(14, 16);
+                var tm3 = datet.slice(17, 19);
+                var tmt = dt1.toString() + dt2.toString() + dt3.toString() + tm1.toString() + tm2.toString() + tm3.toString();
+                var eddt = datet.slice(0, 10) + ' ' + datet.slice(11, 23); // "2013-12-08 17:55:38.130"
+                var dater = dt2.toString() + "/" + dt3.toString() + "/" + dt1.toString() + " " + tm1.toString() + ":" + tm2.toString();
+                var ID = docID + tmt.toString();
+                var projid = 13;
+                var tskoid = 65;
+                var dcgrid = 3010;
+                var dctpid = 3010002;
+                var tspdid = 1;
+                var distid = $("#district").val();
+                var acctid = $("#account").val();
+                var dimgid = @ViewBag.dimgid;
+                var docmid = '@ViewBag.docmid';
+                var L3ID = $("#l3id").val();
+                var stepnm = $("#stepnm").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var stepds = $("#stepds").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var datest = $("#datest").val();
+                var dateex = $("#dateex").val();
+                var assgto = $("#assgto").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var wrkhrsb = $("#wrkhrs").val(); if (wrkhrsb == null || wrkhrsb == 0) { var wrkhrs = 0 } else { wrkhrs = wrkhrsb };
+                var wrkminb = $("#wrkmin").val(); if (wrkminb == null || wrkminb == 0) { var wrkmin = 0 } else { wrkmin = wrkminb };
+                var expsdlb = $("#expsdl").val(); if (expsdlb == null || expsdlb == 0) { var expsdl = 0 } else { expsdl = expsdlb };
+                var expsctb = $("#expsct").val(); if (expsctb == null || expsctb == 0) { var expsct = 0 } else { expsct = expsctb };
+                var priohg = $("#priohg").is(":checked");
+                var compld = $("#compld").is(":checked");
+                if (compld == true) {
+                    var dateed = dater;
+                    var compid = edusid;
+                }
+                else {
+                    var dateed = null;
+                    var compid = 0;
+                }
+                var succesb = $("#succes").val(); if (succesb == null || succesb == 0) { var succes = 0 } else { succes = succesb };
+                var incUnit = $("#incUnit").is(":checked");
+                var incPart = $("#incPart").is(":checked");
+                var incModule = $("#incModule").is(":checked");
+                var incTool = $("#incTool").is(":checked");
+                var incMaterial = $("#incMaterial").is(":checked");
+                var incAccess = $("#incAccess").is(":checked");
+                var incData = $("#incData").is(":checked");
+                var incDocument = $("#incDocument").is(":checked");
+                var incReport = $("#incReport").is(":checked");
+                var incSME = $("#incSME").is(":checked");
+                var incStuff = $("#incStuff").is(":checked");
+                var incTime = $("#incTime").is(":checked");
+                var incMoney = $("#incMoney").is(":checked");
+                var incSetup = $("#incSetup").is(":checked");
+                var incMisusage = $("#incMisusage").is(":checked");
+                var incVehicle = $("#incVehicle").is(":checked");
+                var incOther = $("#incOther").is(":checked");
+                var incOthDs = $("#incOthDs").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var chck = false;
+                var chckid = 0;
+                var chckdt = null;
+                var crdt = $("#doccrdt").val();
+                var crusid = $("doccrusid").val();
+                var data = {
+                    ID: ID,
+                    IDT: docID,
+                    projid: projid,
+                    tskoid: tskoid,
+                    dcgrid: dcgrid,
+                    dctpid: dctpid,
+                    tspdid: tspdid,
+                    distid: distid,
+                    acctid: acctid,
+                    userid: edusid,
+                    dimgid: dimgid,
+                    docmid: docmid,
+                    L3ID: L3ID,
+                    stepnm: stepnm,
+                    stepds: stepds,
+                    datest: datest,
+                    dateex: dateex,
+                    assgto: assgto,
+                    wrkhrs: wrkhrs,
+                    wrkmin: wrkmin,
+                    expsdl: expsdl,
+                    expsct: expsct,
+                    priohg: priohg,
+                    compld: compld,
+                    compid: compid,
+                    dateed: dateed,
+                    succes: succes,
+                    incUnit: incUnit,
+                    incPart: incPart,
+                    incModule: incModule,
+                    incTool: incTool,
+                    incMaterial: incMaterial,
+                    incAccess: incAccess,
+                    incData: incData,
+                    incDocument: incDocument,
+                    incReport: incReport,
+                    incSME: incSME,
+                    incStuff: incStuff,
+                    incTime: incTime,
+                    incMoney: incMoney,
+                    incSetup: incSetup,
+                    incMisusage: incMisusage,
+                    incVehicle: incVehicle,
+                    incOther: incOther,
+                    incOthDs: incOthDs,
+                    chck: chck,
+                    chckid: chckid,
+                    chckdt: chckdt,
+                    crdt: eddt,
+                    eddt: eddt,
+                    crusid: edusid,
+                    edusid: edusid
+                };
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    url: '/uhsCH/save3010002',
+                    dataType: "JSON",
+                    success: function (respond) {
+                        if (respond == 1) {
+                            location.reload();
+                        }
+                        else {
+                            alert("Error: Failed to save Step!");
+                        }
+                    }
+                });
+            };
+            function edit3010002() {
+                $("head").addClass("loadDiv");
+                $('.loadimage').show();
+                var docID = '@ViewBag.docID';
+                var edusid = @ViewBag.userID;
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var datet = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var dt1 = datet.slice(0, 4);
+                var dt2 = datet.slice(5, 7);
+                var dt3 = datet.slice(8, 10);
+                var tm1 = datet.slice(11, 13);
+                var tm2 = datet.slice(14, 16);
+                var tm3 = datet.slice(17, 19);
+                var tmt = dt1.toString() + dt2.toString() + dt3.toString() + tm1.toString() + tm2.toString() + tm3.toString();
+                var eddt = datet.slice(0, 10) + ' ' + datet.slice(11, 23); // "2013-12-08 17:55:38.130"
+                var dater = dt2.toString() + "/" + dt3.toString() + "/" + dt1.toString() + " " + tm1.toString() + ":" + tm2.toString();
+                var ID = $("#sID").val();
+                var projid = 13;
+                var tskoid = 65;
+                var dcgrid = 3010;
+                var dctpid = 3010002;
+                var tspdid = 1;
+                var distid = $("#district").val();
+                var acctid = $("#account").val();
+
+                var dimgid = @ViewBag.dimgid;
+                var docmid = '@ViewBag.docmid';
+                var L3ID = $("#l3id").val();
+                var stepnm = $("#stepnm").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var stepds = $("#stepds").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var datest = $("#datest").val();
+                var dateex = $("#dateex").val();
+                var assgto = $("#assgto").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var wrkhrsb = $("#wrkhrs").val(); if (wrkhrsb == null || wrkhrsb == 0) { var wrkhrs = 0; } else { var wrkhrs = wrkhrsb; };
+                var wrkminb = $("#wrkmin").val(); if (wrkminb == null || wrkminb == 0) { var wrkmin = 0; } else { var wrkmin = wrkminb; };
+                var expsdlb = $("#expsdl").val(); if (expsdlb == null || expsdlb == 0) { var expsdl = 0; } else { var expsdl = expsdlb; };
+                var expsctb = $("#expsct").val(); if (expsctb == null || expsctb == 0) { var expsct = 0; } else { var expsct = expsctb; };
+                var priohg = $("#priohg").is(":checked");
+                var compld = $("#compld").is(":checked");
+                var scompld = $("#scompld").val();
+
+                if (compld == scompld) {
+                    var dateed = $("#sdateed").val();
+                    var compid = $("#scompid").val();
+                }
+                else {
+                    if (compld == true) {
+                        var dateed = dater;
+                        var compid = edusid;
+                    }
+                    else {
+                        var dateed = null;
+                        var compid = 0;
+                    }
+                }
+                var succesb = $("#succes").val(); if (succesb == null || succesb == 0) { var succes = 0 } else { succes = succesb };
+                var incUnit = $("#incUnit").is(":checked");
+                var incPart = $("#incPart").is(":checked");
+                var incModule = $("#incModule").is(":checked");
+                var incTool = $("#incTool").is(":checked");
+                var incMaterial = $("#incMaterial").is(":checked");
+                var incAccess = $("#incAccess").is(":checked");
+                var incData = $("#incData").is(":checked");
+                var incDocument = $("#incDocument").is(":checked");
+                var incReport = $("#incReport").is(":checked");
+                var incSME = $("#incSME").is(":checked");
+                var incStuff = $("#incStuff").is(":checked");
+                var incTime = $("#incTime").is(":checked");
+                var incMoney = $("#incMoney").is(":checked");
+                var incSetup = $("#incSetup").is(":checked");
+                var incMisusage = $("#incMisusage").is(":checked");
+                var incVehicle = $("#incVehicle").is(":checked");
+                var incOther = $("#incOther").is(":checked");
+                var incOthDs = $("#incOthDs").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                var chck = false;
+                var chckid = 0;
+                var chckdt = null;
+                var crdt = $("#scrdt").val();
+                var crusid = $("scrusid").val();
+                var data = {
+                    ID: ID,
+                    IDT: docID,
+                    projid: projid,
+                    tskoid: tskoid,
+                    dcgrid: dcgrid,
+                    dctpid: dctpid,
+                    tspdid: tspdid,
+                    distid: distid,
+                    acctid: acctid,
+                    userid: edusid,
+                    dimgid: dimgid,
+                    docmid: docmid,
+                    L3ID: L3ID,
+                    stepnm: stepnm,
+                    stepds: stepds,
+                    datest: datest,
+                    dateex: dateex,
+                    assgto: assgto,
+                    wrkhrs: wrkhrs,
+                    wrkmin: wrkmin,
+                    expsdl: expsdl,
+                    expsct: expsct,
+                    priohg: priohg,
+                    compld: compld,
+                    compid: compid,
+                    dateed: dateed,
+                    succes: succes,
+                    incUnit: incUnit,
+                    incPart: incPart,
+                    incModule: incModule,
+                    incTool: incTool,
+                    incMaterial: incMaterial,
+                    incAccess: incAccess,
+                    incData: incData,
+                    incDocument: incDocument,
+                    incReport: incReport,
+                    incSME: incSME,
+                    incStuff: incStuff,
+                    incTime: incTime,
+                    incMoney: incMoney,
+                    incSetup: incSetup,
+                    incMisusage: incMisusage,
+                    incVehicle: incVehicle,
+                    incOther: incOther,
+                    incOthDs: incOthDs,
+                    chck: chck,
+                    chckid: chckid,
+                    chckdt: chckdt,
+                    crdt: eddt,
+                    eddt: eddt,
+                    crusid: edusid,
+                    edusid: edusid
+                };
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    url: '/uhsCH/edit3010002',
+                    dataType: "JSON",
+                    success: function (respond) {
+                        if (respond == 1) {
+                            location.reload();
+                        }
+                        else {
+                            alert("Error: Failed to Edit Step!");
+                        }
+                    }
+                });
+            };
+            function edit3010001(a) {
+                $("head").addClass("loadDiv");
+                $('.loadimage').show();
+                var data1 = @Html.Raw(Json.Encode(ViewBag.pageData));
+                $.each(data1, function (ID, data1) {
+                    var edusid = @ViewBag.userID;
+                    var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                    var d = (new Date(Date.now() - tzoffset));
+                    var datet = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                    var eddt = datet.slice(0, 10) + ' ' + datet.slice(11, 23); // "2013-12-08 17:55:38.130"
+                    var ID = '@ViewBag.docID';
+                    var projid = 13;
+                    var tskoid = 65;
+                    var dcgrid = 3010;
+                    var dctpid = 3010001;
+                    var tspdid = 1;
+                    var distid = $("#district").val();
+                    var acctid = $("#account").val();
+                    var userid = edusid;
+                    var dimgid = data1.dimgid;
+                    var docmid = data1.docmid;
+                    var L3ID = $("#l3id").val();
+                    var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var problem = $("#problem").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var oprmngr = $("#oprmngr").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var kznlead = $("#kznlead").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var teammbr = $("#teammbr").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var scpobjc = $("#scpobjc").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var objectv = $("#objectv").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var scopein = $("#scopein").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var scopeot = $("#scopeot").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var statecr = $("#statecr").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var stateft = $("#stateft").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var commres = $("#commres").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    var compldb = data1.compld;
+                    var compidb = data1.compid;
+                    var chckb = data1.chck;
+                    var chckidb = data1.chckid;
+                    var chckdtb = data1.chckdt;
+                    var crdt = data1.crdt;
+                    var crusid = data1.crusid;
+                    var datest = data1.datest;
+                    var dateex = data1.dateex;
+                    var dateed = data1.dateed;
+                    var avgsucce = data1.avgsucce;
+                    var chckdtb = data1.chckdt;
+                    var complda = $("#complda").is(":checked");
+                    if (complda != compldb) {
+                        var compld = complda;
+                        var compid = edusid;
+                    } else {
+                        var compld = compldb;
+                        var compid = compidb;
+                    }
+                    var chcka = $("#chck").is(":checked");
+                    if (chcka != chckb) {
+                        var chck = chcka;
+                        var chckid = edusid;
+                        var chckdt = eddt;
+                    } else {
+                        var chck = chckb;
+                        var chckid = chckidb;
+                        var chckdt = chckdtb;
+                    }
+                    var data = {
+                        ID: ID,
+                        projid: projid,
+                        tskoid: tskoid,
+                        dcgrid: dcgrid,
+                        dctpid: dctpid,
+                        tspdid: tspdid,
+                        distid: distid,
+                        acctid: acctid,
+                        userid: userid,
+                        dimgid: dimgid,
+                        docmid: docmid,
+                        L3ID: L3ID,
+                        project: project,
+                        problem: problem,
+                        oprmngr: oprmngr,
+                        kznlead: kznlead,
+                        teammbr: teammbr,
+                        scpobjc: scpobjc,
+                        objectv: objectv,
+                        scopein: scopein,
+                        scopeot: scopeot,
+                        statecr: statecr,
+                        stateft: stateft,
+                        commres: commres,
+                        compld: compld,
+                        compid: compid,
+                        datest: datest,
+                        dateex: dateex,
+                        dateed: dateed,
+                        avgsucce: avgsucce,
+                        chck: chck,
+                        chckid: chckid,
+                        chckdt: chckdt,
+                        crdt: crdt,
+                        eddt: eddt,
+                        crusid: crusid,
+                        edusid: edusid
+                    };
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        url: '/uhsCH/edit3010001',
+                        dataType: "JSON",
+                        success: function (respond) {
+                            if (respond == 1) {
+                                if (a == 2) {
+                                    window.location = "/uhsworktask/Index?projectID=13&taskOrderID=65&Int1=1";
+                                }
+                                else if (a == 3) {
+                                    location.reload();
+                                }
+                                else if (a == 4) {
+                                    $('.loadimage').hide();
+                                    $("head").removeClass("loadDiv");
+
+                                }
+                            }
+                            else {
+                                alert("Error: Failed to save Step!");
+                            }
+                        }
+                    });
+                });
+            };
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var data1 = @Html.Raw(Json.Encode(ViewBag.pageData));
+            var mode = @Html.Raw(Json.Encode(ViewBag.mode));
+            var task = @Html.Raw(Json.Encode(ViewBag.task));
+            var dist = @Html.Raw(Json.Encode(ViewBag.districts));
+            var acct = @Html.Raw(Json.Encode(ViewBag.accts));
+            var inquries = @Html.Raw(Json.Encode(ViewBag.inquries));
+            $.each(data1, function (ID, data1) {
+                $("#project").val(data1.project);
+                if (data1.project != null && data1.project != "" && data1.project != " ") {
+                    $("#project").attr('readonly', 'readonly');
+                }
+                $("#complda").prop("checked", data1.compld);
+                $("#chck").prop("checked", data1.chck);
+
+                $("#problem").val(data1.problem);
+                $("#oprmngr").val(data1.oprmngr);
+                $("#kznlead").val(data1.kznlead);
+                $("#teammbr").val(data1.teammbr);
+                $("#scpobjc").val(data1.scpobjc);
+                $("#objectv").val(data1.objectv);
+                $("#scopein").val(data1.scopein);
+                $("#scopeot").val(data1.scopeot);
+                $("#statecr").val(data1.statecr);
+                $("#stateft").val(data1.stateft);
+                $("#commres").val(data1.commres);
+                $("#district").val(data1.distid);
+                $("#account").val(data1.acctid);
+                $("#l3id").val(data1.L3ID);
+                if (data1.compld == true) {
+                    $("#problem").attr('readonly', true);
+                    $("#oprmngr").attr('readonly', true);
+                    $("#kznlead").attr('readonly', true);
+                    $("#teammbr").attr('readonly', true);
+                    $("#scpobjc").attr('readonly', true);
+                    $("#objectv").attr('readonly', true);
+                    $("#scopein").attr('readonly', true);
+                    $("#scopeot").attr('readonly', true);
+                    $("#statecr").attr('readonly', true);
+                    $("#stateft").attr('readonly', true);
+                    $("#commres").attr('readonly', true);
+                    $("#district").attr('readonly', true);
+                    $("#account").attr('readonly', true);
+                    $("#appmodule").attr('readonly', true);
+                    $("#apparea").attr('readonly', true);
+                    $("#apptask").attr('readonly', true);
+                    $("#l3id").attr('readonly', true);
+                    $("#compld").attr('disabled', 'disabled');
+
+                    $("#stepds").attr('readonly', true);
+                    $("#assgto").attr('readonly', true);
+                    $("#wrkhrs").attr('readonly', true);
+                    $("#wrkmin").attr('readonly', true);
+                    $("#expsdl").attr('readonly', true);
+                    $("#expsct").attr('readonly', true);
+                    $("#priohg").attr('disabled', 'disabled');
+                    $("#succes").attr('readonly', true);
+                    $("#incUnit").attr('disabled', 'disabled');
+                    $("#incPart").attr('disabled', 'disabled');
+                    $("#incModule").attr('disabled', 'disabled');
+                    $("#incTool").attr('disabled', 'disabled');
+                    $("#incMaterial").attr('disabled', 'disabled');
+                    $("#incAccess").attr('disabled', 'disabled');
+                    $("#incData").attr('disabled', 'disabled');
+                    $("#incDocument").attr('disabled', 'disabled');
+                    $("#incReport").attr('disabled', 'disabled');
+                    $("#incSME").attr('disabled', 'disabled');
+                    $("#incStuff").attr('disabled', 'disabled');
+                    $("#incTime").attr('disabled', 'disabled');
+                    $("#incMoney").attr('disabled', 'disabled');
+                    $("#incSetup").attr('disabled', 'disabled');
+                    $("#incMisusage").attr('disabled', 'disabled');
+                    $("#incVehicle").attr('disabled', 'disabled');
+                    $("#incOther").attr('disabled', 'disabled');
+                    $("#incOthDs").attr('readonly', true);
+                    $('.SaveStep').css({ "visibility": "hidden" });
+                }
+                $("#mainProg").attr('aria-valuenow', data1.avgsucsa).css('width', data1.avgsucsb).html("progress: " + data1.avgsucsb);
+                    $("#mainProgPerc").val(data1.avgsucsa).html(data1.avgsucsa);
+                    if (data1.avgsucce == 100) {
+
+                        $("#mainProg").addClass("progress-bar-info").css('width', data1.avgsucsb);
+                    }
+                    else {
+
+                        $("#mainProg").addClass("progress-bar-success").css('width', data1.avgsucsb);
+                    }
+
+                $("#mainTimePerc").val(data1.prgsucsa).html(data1.prgsucsa);
+                if (data1.prgsucce > 100) {
+                    $("#mainTime").addClass("progress-bar-danger").css('width', data1.prgsucsb);
+                }
+                else if (data1.prgsucce == 100) {
+                    $("#mainTime").addClass("progress-bar-info").css('width', data1.prgsucsb);
+                }
+                else if (data1.prgsucce >= 80 && data1.prgsucce < 100) {
+                    $("#mainTime").addClass("progress-bar-warning").css('width', data1.prgsucsb);
+                }
+                else {
+                    $("#mainTime").addClass("progress-bar-success").css('width', data1.prgsucsb);
+                }
+                if (data1.L3ID != 0) {
+                    $.each(inquries, function (ID, inquries) {
+                        if (inquries.ID != data1.L3ID) {
+                            return;
+                        }
+                        $("#appmodule").append(
+                            $('<option></option>').val(inquries.tskoid).html(inquries.taskOrder));
+                        $("#appmodule").val(inquries.tskoid);
+                        $("#apparea").append(
+                            $('<option></option>').val(inquries.L1ID).html(inquries.L1DS));
+                        $("#apparea").val(inquries.L1ID);
+                        $("#apptask").append(
+                            $('<option></option>').val(inquries.L2ID).html(inquries.L2DS));
+                        $("#apptask").val(inquries.L2ID);
+                        $("#l3id").append(
+                            $('<option></option>').val(inquries.ID).html(inquries.L3DS));
+                        $("#l3id").val(data1.L3ID);
+                    });
+                    $.each(dist, function (ID, dist) {
+                        $("#district").append(
+                            $('<option></option>').val(dist.ID).html(dist.DistrictName));
+                        $("#district").val(dist.ID);
+                    });
+                    if (@ViewBag.tskoid == 55 || @ViewBag.tskoid == 56) {
+                        $.each(acct, function (ID, acct) {
+                            $("#account").append(
+                                $('<option></option>').val(acct.ID).html(acct.CSTNM));
+                            $("#account").val(acct.ID);
+                        });
+                    }
+                }
+                else if (data1.L3ID == 0) {
+                    if (@ViewBag.IDK == 52) {
+                        $.each(mode, function (ID, mode) {
+                            $("#appmodule").append(
+                                $('<option></option>').val(mode.tskoid).html(mode.taskOrder));
+                            $("#appmodule").val(mode.tskoid);
+
+                        });
+                        $.each(task, function (ID, task) {
+                            $("#apparea").append(
+                                $('<option></option>').val(task.L1ID).html(task.L1DS));
+
+                        });
+                        $.each(dist, function (ID, dist) {
+                            $("#district").append(
+                                $('<option></option>').val(dist.ID).html(dist.DistrictName));
+                        });
+                    }
+                    else if (@ViewBag.IDK == 53 || @ViewBag.IDK == 57 || @ViewBag.IDK == 58) {
+                        $.each(mode, function (ID, mode) {
+                            $("#appmodule").append(
+                                $('<option></option>').val(mode.tskoid).html(mode.taskOrder));
+                            $("#appmodule").val(mode.tskoid);
+
+                        });
+                        $.each(task, function (ID, task) {
+                            $("#apparea").append(
+                                $('<option></option>').val(task.L1ID).html(task.L1DS));
+
+                        });
+                        $.each(dist, function (ID, dist) {
+                            $("#district").append(
+                                $('<option></option>').val(dist.ID).html(dist.DistrictName));
+                        });
+
+                    }
+                    else if (@ViewBag.IDK == 55 || @ViewBag.IDK == 56) {
+                        $.each(mode, function (ID, mode) {
+                            $("#appmodule").append(
+                                $('<option></option>').val(mode.tskoid).html(mode.taskOrder));
+                            $("#appmodule").val(mode.tskoid);
+
+                        });
+                        $.each(task, function (ID, task) {
+                            $("#apparea").append(
+                                $('<option></option>').val(task.L1ID).html(task.L1DS));
+
+                        });
+                        $.each(dist, function (ID, dist) {
+                            $("#district").append(
+                                $('<option></option>').val(dist.ID).html(dist.DistrictName));
+                        });
+
+                    }
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var chk = @ViewBag.tskoid;
+            var task = @Html.Raw(Json.Encode(ViewBag.task));
+            var tasg = @Html.Raw(Json.Encode(ViewBag.tasg));
+            var inquries = @Html.Raw(Json.Encode(ViewBag.inquries));
+            var accts = @Html.Raw(Json.Encode(ViewBag.accts));
+            $("#apparea").on('change', function () {
+                var idt = $("#apparea").val();
+                if (chk == 52) {
+                    if (idt == 0) {
+                        $("#apptask").html("");
+                        $("#l3id").html("");
+                    }
+                    else {
+                        $("#apptask").html("");
+                        $("#l3id").html("");
+                        $.each(tasg, function (ID, tasg) {
+                            if (tasg.L1ID != idt && tasg.L1ID != 0) {
+                                return;
+                            }
+                            $("#apptask").append(
+                                $('<option></option>').val(tasg.L2ID).html(tasg.L2DS));
+                        });
+                    }
+                }
+                else if (chk == 53 || chk == 55 || chk == 56 || chk == 57 || chk == 58) {
+
+                    if (idt == 0) {
+                        $("#apptask").html("");
+                        $("#l3id").html("");
+                    }
+                    else {
+                        $("#apptask").html("");
+                        $("#l3id").html("");
+                        $.each(inquries, function (ID, inquries) {
+                            if (inquries.L1ID != idt && inquries.L1ID != 0) {
+                                return;
+                            }
+                            $("#apptask").append(
+                                $('<option></option>').val(inquries.L2ID).html(inquries.L2DS));
+                        });
+                    }
+                }
+            });
+            $("#apptask").on('change', function () {
+                var idt = $("#apptask").val();
+                if (chk == 52) {
+                    if (idt == 0) {
+                        $("#l3id").html("");
+                    }
+                    else {
+                        $("#l3id").html("");
+                        $.each(inquries, function (ID, inquries) {
+                            if (inquries.L2ID != idt && inquries.L2ID != 0) {
+                                return;
+                            }
+                            $("#l3id").append(
+                                $('<option></option>').val(inquries.ID).html(inquries.L3DS));
+                        });
+                    }
+                }
+                else if (chk == 53 || chk == 55 || chk == 56 || chk == 57 || chk == 58) {
+                    if (idt == 0) {
+                        $("#l3id").html("");
+                    }
+                    else {
+                        $("#l3id").html("");
+                        $.each(inquries, function (ID, inquries) {
+                            if (inquries.L2ID != idt && inquries.L1ID != 0) {
+                                return;
+                            }
+                            $("#l3id").append(
+                                $('<option></option>').val(inquries.ID).html(inquries.L3DS));
+                        });
+                    }
+                }
+            });
+            $("#district").on('change', function () {
+                var idt = $("#district").val();
+                if (chk == 55 || chk == 56) {
+                    if (idt == 0) {
+                        $("#account").html("");
+                    }
+                    else {
+                        $("#account").html("");
+                        $.each(accts, function (IDc, accts) {
+                            if (accts.DISTID != idt && accts.DISTID != 0) {
+                                return;
+                            }
+                            $("#account").append(
+                                $('<option></option>').val(accts.IDc).html(accts.CSTNM));
+                        });
+                    }
+                }
+                else {
+
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function closeDoc() {
+            var cns = @ViewBag.cntSteps;
+            if (cns < 1) {
+                $.confirm({
+                    title: 'Warning <i class="fa fa-exclamation-circle" style="color:red"></i>',
+                    content: 'This <span style="color:#0076A8"><b> A3 Form </b></span> contains "0" Steps.<br>If you click <b>"Confirm"</b> it will be dismissed.<br>If you would like to save this document without steps please click <b> "Cancel" </b>.<br>Use <span style="color:forestgreen; font-weight:bold;"> "Save & Close" </span> button instead of <span style="color:red; font-weight:bold;"> "Quit" </span>!',
+                    buttons: {
+                        confirm: function () {
+                            var a = '@ViewBag.docID';
+                            $.ajax({
+                                url: '/uhsCH/delDoc3010001',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { id: a },
+                                success: function (response) {
+                                    if (response == 1) {
+                                        window.location = "/uhsworktask/Index?projectID=13&taskOrderID=65&Int1=1";
+                                    }
+                                    else {
+                                        alert("Error: Failed to delete document!");
+                                    }
+                                }
+                            });
+                        },
+                        cancel: function () {
+                        }
+                    }
+                });
+            }
+            else {
+                window.location = "/uhsworktask/Index?projectID=13&taskOrderID=65&Int1=1";
+            }
+        };
+        function reload() {
+            location.reload();
+        };
+    </script>
+
+    <script type="text/javascript">
+        function stepModal(a) {
+            var steps = @Html.Raw(Json.Encode(ViewBag.stepTable));
+            $.each(steps, function (ID, steps) {
+                if (a != steps.ID) {
+                    return;
+                }
+                $("#sID").val(steps.ID);
+                $("#scrdt").val(steps.crdt);
+                $("#scompid").val(steps.compid);
+                $("#scrusid").val(steps.crusid);
+                $("#scompld").val(steps.compld);
+                $("#sdateed").val(steps.dateed);
+                $("#stepnm").val(steps.stepnm);
+                $("#compld").prop("checked", steps.compld);
+                if (steps.stepnm != null && steps.stepnm != "" && steps.stepnm != " ") {
+                    $("#stepnm").attr('readonly', 'readonly'); 'disabled', 'disabled'
+                }
+                $("#datest").val(steps.datest);
+                if (steps.datest != null && steps.datest != "" && steps.datest != " ") {
+                    $("#datest").attr("disabled", "disabled");
+                }
+                $("#dateex").val(steps.dateex);
+                if (steps.dateex != null && steps.dateex != "" && steps.dateex != " ") {
+                    $("#dateex").attr("disabled", "disabled");
+                }
+                if (steps.compld == true) {
+                    $("#stepds").val(steps.stepds).attr('readonly', true);
+                    $("#assgto").val(steps.assgto).attr('readonly', true);
+                    $("#wrkhrs").val(steps.wrkhrs).attr('readonly', true);
+                    $("#wrkmin").val(steps.wrkmin).attr('readonly', true);
+                    $("#expsdl").val(steps.expdol).attr('readonly', true);
+                    $("#expsct").val(steps.expcnt).attr('readonly', true);
+                    $("#priohg").prop("checked", steps.priohg).attr('disabled', 'disabled');
+                    $("#succes").val(steps.succes).attr('readonly', true);
+                    $("#incUnit").prop("checked", steps.incUnit).attr('disabled', 'disabled');
+                    $("#incPart").prop("checked", steps.incPart).attr('disabled', 'disabled');
+                    $("#incModule").prop("checked", steps.incModule).attr('disabled', 'disabled');
+                    $("#incTool").prop("checked", steps.incTool).attr('disabled', 'disabled');
+                    $("#incMaterial").prop("checked", steps.incMaterial).attr('disabled', 'disabled');
+                    $("#incAccess").prop("checked", steps.incAccess).attr('disabled', 'disabled');
+                    $("#incData").prop("checked", steps.incData).attr('disabled', 'disabled');
+                    $("#incDocument").prop("checked", steps.incDocument).attr('disabled', 'disabled');
+                    $("#incReport").prop("checked", steps.incReport).attr('disabled', 'disabled');
+                    $("#incSME").prop("checked", steps.incSME).attr('disabled', 'disabled');
+                    $("#incStuff").prop("checked", steps.incStuff).attr('disabled', 'disabled');
+                    $("#incTime").prop("checked", steps.incTime).attr('disabled', 'disabled');
+                    $("#incMoney").prop("checked", steps.incMoney).attr('disabled', 'disabled');
+                    $("#incSetup").prop("checked", steps.incSetup).attr('disabled', 'disabled');
+                    $("#incMisusage").prop("checked", steps.incMisusage).attr('disabled', 'disabled');
+                    $("#incVehicle").prop("checked", steps.incVehicle).attr('disabled', 'disabled');
+                    $("#incOther").prop("checked", steps.incOther).attr('disabled', 'disabled');
+                    $("#incOthDs").val(steps.incOthDs).attr('readonly', true);
+                    $('.SaveStep').css({ "visibility": "hidden" });
+                } else {
+                    $("#stepds").val(steps.stepds);
+                    $("#assgto").val(steps.assgto);
+                    $("#wrkhrs").val(steps.wrkhrs);
+                    $("#wrkmin").val(steps.wrkmin);
+                    $("#expsdl").val(steps.expdol);
+                    $("#expsct").val(steps.expcnt);
+                    $("#priohg").prop("checked", steps.priohg);
+                    $("#succes").val(steps.succes);
+                    $("#incUnit").prop("checked", steps.incUnit);
+                    $("#incPart").prop("checked", steps.incPart);
+                    $("#incModule").prop("checked", steps.incModule);
+                    $("#incTool").prop("checked", steps.incTool);
+                    $("#incMaterial").prop("checked", steps.incMaterial);
+                    $("#incAccess").prop("checked", steps.incAccess);
+                    $("#incData").prop("checked", steps.incData);
+                    $("#incDocument").prop("checked", steps.incDocument);
+                    $("#incReport").prop("checked", steps.incReport);
+                    $("#incSME").prop("checked", steps.incSME);
+                    $("#incStuff").prop("checked", steps.incStuff);
+                    $("#incTime").prop("checked", steps.incTime);
+                    $("#incMoney").prop("checked", steps.incMoney);
+                    $("#incSetup").prop("checked", steps.incSetup);
+                    $("#incMisusage").prop("checked", steps.incMisusage);
+                    $("#incVehicle").prop("checked", steps.incVehicle);
+                    $("#incOther").prop("checked", steps.incOther);
+                    $("#incOthDs").val(steps.incOthDs);
+                }
+                var ita = steps.succes;
+                var itb = ita.toString() + ".0";
+                var itc = ita.toString() + ".0%";
+                if (steps.compld == true) {
+                    if (ita == 100) {
+                        $("#succProg").removeClass("progress-bar-info progress-bar-striped active").addClass("progress-bar-success").attr('aria-valuenow', '100').css('width', '100%').html('').html('Success!');
+                    }
+                    else {
+                        $("#succProg").removeClass("progress-bar-striped active").attr('aria-valuenow', itb).css('width', itc).html(itc);
+                    }
+                }
+                else {
+                    if (ita == 100) {
+                        $("#succProg").removeClass("progress-bar-info").addClass("progress-bar-success").attr('aria-valuenow', '100').css('width', '100%').html("").html('Success!');
+                    }
+                    else {
+                        $("#succProg").attr('aria-valuenow', itb).css('width', itc).html(itc);
+                    }
+                }
+                if (steps.compld == true) {
+                    if (steps.timsucce > 100) {
+                        $("#timeProg").removeClass("progress-bar-info progress-bar-striped active").addClass("progress-bar-danger").html("").attr('aria-valuenow', '100').css('width', '100%').html('Overdue!');
+                    } else if (steps.timsucce == 100) {
+                        $("#timeProg").removeClass("progress-bar-info progress-bar-striped active").addClass("progress-bar-success").attr('aria-valuenow', '100').css('width', '100%').html("").html('On Time!');
+                    } else if (steps.timsucce >= 80 && steps.timsucce < 100) {
+                        $("#timeProg").removeClass("progress-bar-info progress-bar-striped active").addClass("progress-bar-warning").attr('aria-valuenow', steps.timsucsa).css('width', steps.timsucsb).html(steps.timsucsb);
+                    } else {
+                        $("#timeProg").removeClass("progress-bar-striped active").attr('aria-valuenow', steps.timsucsa).css('width', steps.timsucsb).html(steps.timsucsb);
+                    }
+
+                }
+                else {
+                    if (steps.timsucce > 100) {
+                        $("#timeProg").removeClass("progress-bar-info").addClass("progress-bar-danger").html("").attr('aria-valuenow', '100').css('width', '100%').html('Overdue!');
+                    } else if (steps.timsucce == 100) {
+                        $("#timeProg").removeClass("progress-bar-info").addClass("progress-bar-success").attr('aria-valuenow', '100').css('width', '100%').html("").html('On Time!');
+                    } else if (steps.timsucce >= 80 && steps.timsucce < 100) {
+                        $("#timeProg").removeClass("progress-bar-info").addClass("progress-bar-warning").attr('aria-valuenow', steps.timsucsa).css('width', steps.timsucsb).html(steps.timsucsb);
+                    } else {
+                        $("#timeProg").attr('aria-valuenow', steps.timsucsa).css('width', steps.timsucsb).html(steps.timsucsb);
+                    }
+                }
+            });
+            $('#PrimaryModalalert').modal('toggle');
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".delList").on('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#succes").on('change', function () {
+                var ita = $("#succes").val();
+                var itb = ita.toString() + ".0";
+                var itc = ita.toString() + ".0%";
+                if (ita == 100) {
+                    $("#succProg").removeClass("progress-bar-info progress-bar-striped active").addClass("progress-bar-success");
+                    $("#succProg").attr('aria-valuenow', '100').css('width', '100%').html('100%');
+                }
+                else {
+                    $("#succProg").removeClass("progress-bar-success").addClass("progress-bar-info progress-bar-striped active");
+                    $("#succProg").attr('aria-valuenow', itb).css('width', itc).html(itc);
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        function delStep(a) {
+            $.confirm({
+                title: 'Delete!',
+                content: 'Are you sure?',
+                buttons: {
+                    confirm: function () {
+                        $.ajax({
+                            url: '/uhsCH/delStep3010002',
+                            type: "GET",
+                            dataType: "JSON",
+                            data: { id: a },
+                            success: function (response) {
+                                if (response == 1) {
+                                    location.reload();
+                                }
+                                else {
+                                    alert("Error: Failed to delete document!");
+                                }
+                            }
+                        });
+                    },
+                    cancel: function () {
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            });
+        };
+
+    </script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        })
+
+        // popover demo
+        $("[data-toggle=popover]").popover()
+    </script>
+</body>
+
+</html>

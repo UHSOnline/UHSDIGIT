@@ -1,0 +1,932 @@
+﻿@model List<TRIZMA.Models.AGLINVMDL1Db>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Agility: Inventory Mapping</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    <link href="~/css/jquery.inputpicker.css" rel="stylesheet" />
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 16px;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            max-height: 80px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+        .divData {
+            display: none;
+        }
+        .thinBorder {
+            border: solid;
+            border-width: thin;
+            border-color: #F0FFFF;
+        }
+
+        .thinBorderb {
+            border: solid;
+            border-width: thin;
+            border-color: #85CDDB;
+        }
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6000;
+            text-align: center;
+        }
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+
+
+    <div class="lckbckscr">
+
+        <div id="wrapper">
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <div style="padding-top:4px; padding-left:16px">
+                        <button class="btn btn-default" onclick="location.href='/aglinvMap?projectID=15&taskOrderID=66&Int1=1'" title="Go Back"><i class="fa fa-backward"></i><span style="color:#0076A8;padding-left:8px"> Back to Document List</span></button>
+                        <span style="color:white; padding-left:62px">.</span>
+                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:#0076A8 !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <br />
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <h4 class="page-header"><span style="color:#F69240">Inventory </span><span style="color:#0076A8"> Mapping: Edit </span><span style="color:#F69240"> Document <small>(Customer Inventory Data)</small></span></h4>
+                    </div>
+                    <div class="row">
+                        @foreach (var item in ViewBag.docList)
+                        {
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <img src="~/images/customers/L_@item.acctImage" class="responsiveimg" />
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="padding-left:32px">
+                                <label style="color:#0076A8; font-size:24px;"><u>@item.acctName</u></label>
+                                <br /><br />
+                                <table>
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Address: </span></td>
+                                            <td><span style="color:#0076A8; font-size:16px;"> @item.acctAddress</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Hours: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctHours</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <table>
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctid</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Doc.ID: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> @item.ID</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Date: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> @item.docDate</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Owner: </span></td>
+                                            <td><span style="color:#0076A8; font-size:14px;"> Admin</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" style="background-color:white !important">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <i class="fa fa-gears fa-3x" style="color:darkgray"></i>
+                                                    </div>
+                                                    <div class="col-xs-9 text-right">
+                                                        <div class="huge" style="color:#0076A8">@ViewBag.manuNo</div>
+                                                        <div style="color:#F69240">Manufacturers!</div>
+                                                        <div style="color:#0076A8">Match Confirmed: @item.manMacConf</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading" style="background-color:white !important">
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <i class="fa fa-server fa-3x" style="color:darkgray"></i>
+                                                    </div>
+                                                    <div class="col-xs-9 text-right">
+                                                        <div class="huge" style="color:#0076A8">@ViewBag.modlNo</div>
+                                                        <div style="color:#F69240">Equip. Models!</div>
+                                                        <div style="color:#0076A8">Match Confirmed: @item.modMacConf</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item" onclick="PopupCenterDual(1)">
+                                                <i class="fa fa-gears fa-fw"></i><span style="padding-left:8px"> Equipment Manufacturers</span>
+                                                <span class="pull-right text-muted small">
+                                                    <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="list-group-item" onclick="PopupCenterDual(2)">
+                                                <i class="fa fa-sliders fa-fw"></i><span style="padding-left:8px"> Equipment Types</span>
+                                                <span class="pull-right text-muted small">
+                                                    <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="list-group-item" onclick="PopupCenterDual(3)">
+                                                <i class="fa fa-server fa-fw"></i><span style="padding-left:8px"> Equipment Models</span>
+                                                <span class="pull-right text-muted small">
+                                                    <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service </span></em>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <!-- /.list-group -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        }
+
+                    </div>
+                    <div class="row">
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="panel-group" id="accordion"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+            @Html.Hidden("cntr")
+            @Html.Hidden("cnsl")
+            @Html.Hidden("impid")
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <!-- Flot Charts JavaScript -->
+    <script src="~/js/flot/excanvas.min.js"></script>
+    <script src="~/js/flot/jquery.flot.js"></script>
+    <script src="~/js/flot/jquery.flot.pie.js"></script>
+    <script src="~/js/flot/jquery.flot.resize.js"></script>
+    <script src="~/js/flot/jquery.flot.time.js"></script>
+    <script src="~/js/flot/jquery.flot.tooltip.min.js"></script>
+    @*<script src="~/js/flot-data.js"></script>*@
+    <script src="~/js/jquery.inputpicker.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+            $("#cntr").val(0);
+            $("#cnsl").val(0);
+            $("#impid").val(0);
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var dataa = @Html.Raw(Json.Encode(@ViewBag.dataa));
+            var datab = @Html.Raw(Json.Encode(@ViewBag.datab));
+            //console.log(datab);
+            var partc = "</tbody></table></div></div></div>";
+            $.each(dataa, function (ID, dataa) {
+                var parta = "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-forward' style='color:#0076A8'></i><span style='color:#0076A8'> " + dataa.Device_Category + " </span></a><span class='pull-right'><i class='fa fa-check' style='color:forestgreen; transform:scale(1.3)'></i><span style='color:#0076A8; padding-left:8px; font-size:12px'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:forestgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:forestgreen; transform:scale(1.3)'></i><span style='color:#0076A8; padding-left:8px; font-size:12px'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:forestgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:lightpink; transform:scale(1.3)'></i><span style='color:#0076A8; padding-left:8px; font-size:12px'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:lightpink; font-size:16px' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse collapse'><div class='panel-body'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Data:</th><th>Edit:</th></tr></thead><tbody>";
+                var partb = [];
+                $.each(datab, function (ID, datab) {
+                    if (dataa.impTypeID == datab.impTypeID) {
+                        if (datab.matchSingle == true) {
+                            var insa = "<td style='padding-left:8px'><i class='fa fa-check' style='color:forestgreen'></i></td>";
+                        } else {
+                            var insa = "<td style='padding-left:8px'><i class='fa fa-close' style='color:lightpink'></i></td>";
+                        }
+                        if (datab.matchMultip == true) {
+                            var insb = "<td style='padding-left:8px'><i class='fa fa-check' style='color:forestgreen'></i><span style='color:forestgreen'>" + datab.Cnt + " models </span></td>";
+                        }
+                        else {
+                            var insb = "<td style='padding-left:8px'><i class='fa fa-close' style='color:lightpink'></i></td>";
+                        }
+                        if (datab.matchConfrm == true) {
+                            var insc = "<i class='fa fa-check' id='ch_" + datab.modelImpID + "' style='color:forestgreen; transform:scale(2)' data-id='" + datab.matchConfrm + "'></i>";
+                        }
+                        else {
+                            var insc = "<i class='fa fa-close' id='ch_" + datab.modelImpID + "' style='color:lightpink; transform:scale(1.3)' data-id='" + datab.matchConfrm + "'></i>";
+                        }
+                        if (datab.manualInput == true) {
+                            var nwsc = "<span id='nw_" + datab.modelImpID + "' style='color:forestgreen'><b>NEW</b></span>";
+                        }
+                        else {
+                            var nwsc = "<span id='nw_" + datab.modelImpID + "' style='color:white'>.</span>";
+                        }
+                        var partf = "<tr><td style='max-width:100%; white-space:nowrap'><table class='table-striped' style='font-size:12px'><thead></thead><tbody><tr><td><span style='color:#F69240'>Device:</span></td><td style='padding-left:8px'><span id='spDev_" + datab.modelImpID + "' style='color:#0076A8' data-id='" + datab.Device_Category + "'>" + datab.Device_Category + "</span></td></tr><tr><td><span style='color:#F69240'>Model:</span></td><td style='padding-left:8px'><span id='spMod_" + datab.modelImpID + "' style='color:#0076A8' data-id='" + datab.Model + "'>" + datab.Model + "</span></td></tr><tr><td><span style='color:#F69240'>Manufacturer:</span></td><td style='padding-left:8px'><span id='spMan_" + datab.modelImpID + "' style='color:darkgray' data-id='" + datab.Manufacturer + "'>" + datab.Manufacturer + "</span></td></tr></tbody></table></td><td><table class='table-striped' style='font-size:12px'><thead></thead><tbody><tr><td><span style='color:#F69240'>Found Single:</span></td>" + insa + "</tr><tr><td><span style='color:#F69240'>Found Multiple:</span></td>" + insb + "</tr></tbody></table></td><td style='padding-top:8px'>" + insc + "</td><td>" + nwsc + "</td><td><div class='divData' id='div_" + datab.modelImpID + "'><div class='col-lg-12' style='padding-bottom:28px'><div class='col-lg-6'><div class='row' style='padding-bottom:16px'><h4 class='page-header'><span style='color:#0076A8'>Manual </span><span style='color:#F69240'> Map:</span></h4><label style='font-size:12px; color:#F69240'>Manufacturer:</label><select class='col-lg-12' id='dpa_" + datab.modelImpID + "' data-id='" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' onchange='dpSelect(1," + datab.modelImpID + ")'></select><span class='pull-right'><a href='#' class='linkAll' id='x1' data-id='" + datab.modelImpID + "' style='font-size:12px'><u> All InService Manufacturers:</u></a></span><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Equipment Type:</label><select class='col-lg-12' id='dpb_" + datab.modelImpID + "' data-id='" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' onchange='dpSelect(2," + datab.modelImpID + ")'></select><span class='pull-right'><a href='#' class='linkAll' id='x2' data-id='" + datab.modelImpID + "' style='font-size:12px'><u> All InService Equipment Types:</u></a></span><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Model Description:</label><select class='col-lg-12' id='dpc_" + datab.modelImpID + "' data-id='" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' onchange='dpSelect(3," + datab.modelImpID + ")'></select><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Model:</label><select class='col-lg-12' id='dpd_" + datab.modelImpID + "' data-id='" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' onchange='dpSelect(4," + datab.modelImpID + ")'></select></div><div class='row'><span class='pull-right'><button class='btn btn-default btnReset' data-id='" + datab.modelImpID + "'>Reset Selection!</button></span></div></div><div class='col-lg-6' style='padding-left:48px'><div class='row' style='padding-bottom:16px'><h4 class='page-header'><span style='color:#0076A8'>Result </span><span style='color:#F69240'> Data:</span></h4><label style='font-size:12px; color:#F69240'>Manufacturer:</label><input type='text' class='col-lg-12' id='txa_" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' /><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Equipment Type:</label><input type='text' class='col-lg-12' id='txb_" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' /><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Model Description:</label><input type='text' class='col-lg-12' id='txc_" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' /><br><label style='font-size:12px; color:#F69240; padding-top:6px'>Model:</label><input type='text' class='col-lg-12' id='txd_" + datab.modelImpID + "' onkeyup='dpreset(" + datab.modelImpID + ")' style='min-height:32px; font-size:13px; color:#0076A8' /><br></div><div class='row' style='padding-bottom:4px'><div class='col-lg-10'><div class='row' style='padding-top:1px'><input type='text' class='col-lg-12' id='txm_" + datab.modelImpID + "' style='min-height:32px; font-size:13px; color:#0076A8' placeholder='Paste Model NK' /></div></div><div class='col-lg-2'><div class='row'><button class='btn btn-default col-lg-12 findSingle' data-id='" + datab.modelImpID + "'>Find!</button></div></div></div><div class='row' style='padding-bottom:4px'><button class='btn btn-info col-lg-12 btnCustDat' data-id='" + datab.modelImpID + "'>Use Customer Data!</button></div><div class='row'><button class='btn btn-success col-lg-12 btnComplete' id='bt_" + datab.impTypeID + "' data-id='" + datab.modelImpID + "'>Complete Mapping?</button></div></div></div></div></td><td style='padding-top:8px' align='right'><button class='btn btn-default btnactive' id='bt_" + datab.modelImpID + "' data-id='" + datab.modelImpID + "'><span style='color:#0076A8; padding-right:6px'>Edit</span><i class='fa fa-forward' style='color:darkseagreen'></i></button></td></tr>";
+                        partb = partb + partf;
+                    }
+                });
+                var html = parta + partb + partc;
+                $("#accordion").append(html);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function dpreset(a) {
+            var dpc = "#dpc_" + a;
+            var dpd = "#dpd_" + a;
+            var txc = "#txc_" + a;
+            var txd = "#txd_" + a;
+            $(dpc).val(0);
+            $(dpd).val(0);
+            $(txc).val("").html("").data("id", 0);
+            $(txd).data("id", 0);
+        };
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multidatatables').DataTable({
+                "order": [[0, "asc"]]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function PopupCenterDual(a) {
+            var url = '/aglinvMap/equipManuf?ID=' + a;
+            var w = 1640; var h = 736;
+            var title = 'Inventory Mapping';
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.btnactive', function () {
+            var btn = $(this).data("id");
+            var impid = $("#impid").val();
+            var cntr = $("#cntr").val();
+            var divO = "#div_" + btn;
+            var bt = "#bt_" + btn;
+            var dpa = "#dpa_" + btn;
+            var dpb = "#dpb_" + btn;
+            var dpc = "#dpc_" + btn;
+            var dpd = "#dpd_" + btn;
+            var txa = "#txa_" + btn;
+            var txb = "#txb_" + btn;
+            var txc = "#txc_" + btn;
+            var txd = "#txd_" + btn;
+            var docid = '@ViewBag.docID';
+            if (cntr == 1) {
+                if (btn == impid) {
+                    $(divO).hide();
+                    var bt = "#bt_" + btn;
+                    $(bt).html("").html('<span style="color:#0076A8; padding-right:6px">Edit</span><i class="fa fa-forward" style="color:darkseagreen"></i>');
+                    $("#cntr").val(0);
+                    $("#cnsl").val(0);
+                }
+                else {
+                    alert("Device is being edited. Complete current edit first!");
+                }
+            }
+            else {
+                $.ajax({
+                    url: '/aglinvMap/popDrop',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { a: docid, b: btn },
+                    success: function (data) {
+                        $(divO).show();
+                        $(dpa).html("");
+                        $(dpb).html("");
+                        $(dpc).html("");
+                        $(dpd).html("");
+                        $(dpa).append($('<option></option>').val(0).html("-"));
+                        $(dpb).append($('<option></option>').val(0).html("-"));
+                        $(dpc).append($('<option></option>').val(0).html("-"));
+                        $(dpd).append($('<option></option>').val(0).html("-"));
+
+                        $.each(data, function (ID, data) {
+                            if (data.ID == 1) {
+                                $(dpa).append(
+                                    $('<option></option>').val(data.IDNK).html(data.Desc));
+                            }
+                            else
+                                if (data.ID == 2) {
+                                    $(dpb).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                }
+                                else
+                                    if (data.ID == 3) {
+                                        $(dpc).append(
+                                            $('<option></option>').val(data.IDNK).html(data.Desc));
+                                    }
+                                    else if (data.ID == 4) {
+                                        $(dpd).append(
+                                            $('<option></option>').val(data.IDNK).html(data.Desc));
+                                    } else if (data.ID == 11) {
+                                        if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
+                                            $(txa).val(data.Desc).html(data.Desc).data("id", 0);
+                                        }
+                                        else {
+                                            $(dpa).val(data.IDNK);
+                                            $(txa).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                                        }
+
+                                    } else if (data.ID == 12) {
+                                        if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
+                                            $(txb).val(data.Desc).html(data.Desc).data("id", 0);
+                                        }
+                                        else {
+                                            $(dpb).val(data.IDNK);
+                                            $(txb).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                                        }
+
+                                    } else if (data.ID == 13) {
+                                        if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
+                                            $(txc).val(data.Desc).html(data.Desc).data("id", 0);
+                                        }
+                                        else {
+                                            $(dpc).val(data.IDNK);
+                                            $(txc).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                                        }
+
+                                    } else if (data.ID == 14) {
+                                        if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
+                                            $(txd).val(data.Desc).html(data.Desc).data("id", 0);
+                                        }
+                                        else {
+                                            $(dpd).val(data.IDNK);
+                                            $(txd).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                                        }
+
+                                    }
+                                    else {
+                                        return;
+                                    }
+                        });
+
+                        $(bt).html("").html('<span style="color:#0076A8; padding-right:6px">Close</span><i class="fa fa-backward" style="color:lightpink"></i>');
+                        $("#impid").val(btn);
+                        $("#cntr").val(1);
+                    }
+                });
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.linkAll', function (e) {
+            e.preventDefault();
+            var dt = $(this).data("id");
+            var b = $(this).attr("id").replace("x", "");
+            var a = parseInt(b);
+            var dpa = "#dpa_" + dt;
+            var dpb = "#dpb_" + dt;
+            var dpc = "#dpc_" + dt;
+            var dpd = "#dpd_" + dt;
+            var txm = "#txm_" + dt;
+            $.ajax({
+                url: '/aglinvMap/getAll',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a },
+                success: function (data) {
+                    if (a == 1) {
+                        $(dpa).html("");
+                        $(dpb).html("");
+                        $(dpc).html("");
+                        $(dpd).html("");
+                        $(dpa).append($('<option></option>').val(0).html("-"));
+                        $.each(data, function (ID, data) {
+                            $(dpa).append(
+                                $('<option></option>').val(data.ManufacturerNK).html(data.ManufacturerName));
+                        });
+                    }
+                    else
+                        if (a == 2) {
+                            $(dpb).html("");
+                            $(dpc).html("");
+                            $(dpd).html("");
+                            $(dpb).append($('<option></option>').val(0).html("-"));
+                            $.each(data, function (ID, data) {
+                                $(dpb).append(
+                                    $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentTypeDescr));
+                            });
+
+                        }
+                        else
+                            if (a == 3) {
+                                $(dpc).html("");
+                                $(dpd).html("");
+                                $(dpc).append($('<option></option>').val(0).html("-"));
+                                $.each(data, function (ID, data) {
+                                    $(dpc).append(
+                                        $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
+                                });
+
+                            }
+                }
+            });
+            $(txm).val("").html("");
+            $("#cnsl").val(1);
+        });
+    </script>
+    <script type="text/javascript">
+        function dpSelect(a, b) {
+            var dpa = "#dpa_" + b;
+            var dpb = "#dpb_" + b;
+            var dpc = "#dpc_" + b;
+            var dpd = "#dpd_" + b;
+            var txa = "#txa_" + b;
+            var txb = "#txb_" + b;
+            var txc = "#txc_" + b;
+            var txd = "#txd_" + b;
+            var txm = "#txm_" + b;
+            var cnsl = $("#cnsl").val();
+            if (a == 1) {
+                if (cnsl == 0) {
+                    var dpah = $('option:selected', dpa).text();
+                    var dpag = $('option:selected', dpa).val();
+                    $(txa).val(dpah).html(dpah).data("id", dpag);
+                    $("#cnsl").val(0);
+                }
+                else {
+                    var dpah = $('option:selected', dpa).text();
+                    var dpag = $('option:selected', dpa).val();
+                    $(txa).val(dpah).html(dpah).data("id", dpag);
+                    $.ajax({
+                        url: '/aglinvMap/getModels',
+                        type: "GET",
+                        dataType: "JSON",
+                        data: { b: dpag, c: 1 },
+                        success: function (data) {
+                            console.log(data);
+                            $(dpb).html("");
+                            $(dpc).html("");
+                            $(dpd).html("");
+                            $(dpb).append($('<option></option>').val(0).html("-"));
+                            $(dpc).append($('<option></option>').val(0).html("-"));
+                            $(dpd).append($('<option></option>').val(0).html("-"));
+                            $.each(data, function (ID, data) {
+                                $(dpb).append(
+                                    $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentTypeDescr));
+                            });
+                        }
+                    });
+                    $("#cnsl").val(1);
+                }
+            }
+            else
+                if (a == 2) {
+                    if (cnsl == 0) {
+                        var dpbh = $('option:selected', dpb).text();
+                        var dpbg = $('option:selected', dpb).val();
+                        $(txb).val(dpbh).html(dpbh).data("id", dpbg);
+                        $("#cnsl").val(0);
+                    }
+                    else {
+
+                        var dpbh = $('option:selected', dpb).text();
+                        var dpbg = $('option:selected', dpb).val();
+                        $(txb).val(dpbh).html(dpbh).data("id", dpbg);
+                        $.ajax({
+                            url: '/aglinvMap/getModels',
+                            type: "GET",
+                            dataType: "JSON",
+                            data: { b: dpbg, c: 2 },
+                            success: function (data) {
+                                $(dpc).html("");
+                                $(dpd).html("");
+                                $(dpc).append($('<option></option>').val(0).html("-"));
+                                $(dpd).append($('<option></option>').val(0).html("-"));
+                                $.each(data, function (ID, data) {
+                                    $(dpc).append(
+                                        $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
+                                });
+                            }
+                        });
+                        $("#cnsl").val(1);
+                    }
+                }
+                else
+                    if (a == 3) {
+                        if (cnsl == 0) {
+                            var dpch = $('option:selected', dpc).text();
+                            var dpcg = $('option:selected', dpc).val();
+                            $(txc).val(dpch).html(dpch).data("id", dpcg);
+                            $("#cnsl").val(0);
+                        }
+                        else {
+                            var dpch = $('option:selected', dpc).text();
+                            var dpcg = $('option:selected', dpc).val();
+                            $(txc).val(dpch).html(dpch).data("id", dpcg);
+                            $.ajax({
+                                url: '/aglinvMap/getModels',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { b: dpcg, c: 3 },
+                                success: function (data) {
+                                    $(dpd).html("");
+                                    $.each(data, function (ID, data) {
+                                        $(dpd).append(
+                                            $('<option></option>').val(data.ModelNK).html(data.modelID1));
+                                        $(txd).val(data.modelID1).html(data.modelID1);
+                                    });
+                                }
+                            });
+                            $("#cnsl").val(1);
+                        }
+                    }
+                    else
+                        if (a == 4) {
+                            var dpdh = $('option:selected', dpd).text();
+                            var dpdg = $('option:selected', dpd).val();
+                            $(dpc).val(dpdg);
+                            var dpch = $('option:selected', dpc).text();
+                            $(txc).val(dpch).html(dpch).data("id", dpdg);
+                            $(txd).val(dpdh).html(dpdh).data("id", dpdg);                            
+                        }
+            $(txm).val("").html("");
+        };
+
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.btnReset', function (e) {
+            e.preventDefault();
+            var b = $(this).data("id");
+            var docID = '@ViewBag.docID';
+            var dpa = "#dpa_" + b;
+            var dpb = "#dpb_" + b;
+            var dpc = "#dpc_" + b;
+            var dpd = "#dpd_" + b;
+            var txa = "#txa_" + b; $(txa).val("").html("");
+            var txb = "#txb_" + b; $(txb).val("").html("");
+            var txc = "#txc_" + b; $(txc).val("").html("");
+            var txd = "#txd_" + b; $(txd).val("").html("");
+            var txm = "#txm_" + b; $(txm).val("").html("");
+            $(dpa).html("");
+            $(dpb).html("");
+            $(dpc).html("");
+            $(dpd).html("");
+            $(dpa).append($('<option></option>').val(0).html("-"));
+            $(dpb).append($('<option></option>').val(0).html("-"));
+            $(dpc).append($('<option></option>').val(0).html("-"));
+            $(dpd).append($('<option></option>').val(0).html("-"));
+            $.ajax({
+                url: '/aglinvMap/popDrop',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: docID, b: b },
+                success: function (data) {
+                    $.each(data, function (ID, data) {
+                        if (data.ID == 1) {
+
+                            $(dpa).append(
+                                $('<option></option>').val(data.IDNK).html(data.Desc));
+                        }
+                        else
+                            if (data.ID == 2) {
+                                $(dpb).append(
+                                    $('<option></option>').val(data.IDNK).html(data.Desc));
+                            }
+                            else
+                                if (data.ID == 3) {
+                                    $(dpc).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                } else
+                                    if (data.ID == 4) {
+                                        $(dpd).append(
+                                            $('<option></option>').val(data.IDNK).html(data.Desc));
+                                    }
+                                else {
+                                    return;
+                                }
+                    });
+                }
+            });
+            $(txa).data("id", 0);
+            $(txb).data("id", 0);
+            $(txc).data("id", 0);
+            $(txd).data("id", 0);
+            $("#cnsl").val(0);
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.btnCustDat', function (e) {
+            e.preventDefault();
+            var b = $(this).data("id");
+            var txa = "#txa_" + b; $(txa).val("").html("");
+            var txc = "#txc_" + b; $(txc).val("").html("");
+            var txd = "#txd_" + b; $(txd).val("").html("");
+            var txm = "#txm_" + b; $(txm).val("").html("");
+            var sp1 = "#spDev_" + b;
+            var sp2 = "#spMod_" + b;
+            var sp3 = "#spMan_" + b;
+            var spDev = $(sp1).data("id");
+            var spMod = $(sp2).data("id");
+            var spMan = $(sp3).data("id");
+            var dpa = "#dpa_" + b;
+            var dpb = "#dpb_" + b;
+            var dpc = "#dpc_" + b;
+            var dpd = "#dpd_" + b;
+            $(txa).val(spMan).html(spMan);
+            $(txc).val(spDev).html(spDev);
+            $(txd).val(spMod).html(spMod);
+            $(dpa).val(0);
+            $(dpb).val(0);
+            $(dpc).val(0);
+            $(dpd).val(0);
+            $(txa).data("id", 0);
+            $(txc).data("id", 0);
+            $(txd).data("id", 0);
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.findSingle', function (e) {
+            e.preventDefault();
+            var b = $(this).data("id");
+            var dpa = "#dpa_" + b;
+            var dpb = "#dpb_" + b;
+            var dpc = "#dpc_" + b;
+            var dpd = "#dpd_" + b;
+            var txa = "#txa_" + b;
+            var txb = "#txb_" + b;
+            var txc = "#txc_" + b;
+            var txd = "#txd_" + b;
+            var txm = "#txm_" + b;
+            var a = $(txm).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            $.ajax({
+                url: '/aglinvMap/findSingle',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a },
+                success: function (data) {
+                    $(dpa).html("");
+                    $(dpb).html("");
+                    $(dpc).html("");
+                    $(dpd).html("");
+                    $(txa).val("").html("");
+                    $(txb).val("").html("");
+                    $(txc).val("").html("");
+                    $(txd).val("").html("");
+                    $.each(data, function (ID, data) {
+                        $(txa).val(data.Manufacturer).html(data.Manufacturer).data("id", data.ManufacturerNK);
+                        $(txb).val(data.equipmentType).html(data.equipmentType).data("id", data.equipmentTypeNK);
+                        $(txc).val(data.ModelDescription).html(data.ModelDescription).data("id", data.ModelNK);
+                        $(txd).val(data.modelID1).html(data.modelID1).data("id", data.ModelNK);
+                        $(dpa).append(
+                            $('<option></option>').val(data.ManufacturerNK).html(data.Manufacturer));
+                        $(dpb).append(
+                            $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentType));
+                        $(dpc).append(
+                            $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
+                        $(dpd).append(
+                            $('<option></option>').val(data.ModelNK).html(data.modelID1));
+                    });
+                    $(txm).val("").html("");
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('click', '.btnComplete', function (e) {
+            e.preventDefault();
+            var b = $(this).data("id");
+            var g = $(this).attr("id").replace("bt_", ""); var ga = parseInt(g);            
+            var docID = '@ViewBag.docID';
+            var dpa = "#dpa_" + b; 
+            var dpb = "#dpb_" + b; 
+            var dpc = "#dpc_" + b; 
+            var dpd = "#dpd_" + b; 
+            var txa = "#txa_" + b; var txaf = $(txa).data("id"); var txav = $(txa).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var txb = "#txb_" + b; var txbf = $(txb).data("id"); var txbv = $(txb).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var txc = "#txc_" + b; var txcf = $(txc).data("id"); var txcv = $(txc).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var txd = "#txd_" + b; var txdf = $(txd).data("id"); var txdv = $(txd).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var ch = "#ch_" + b; var chf = $(ch).data("id");
+            var cnta = "#cnta_" + ga; var cntaf = $(cnta).data("id");
+            var cntb = "#cntb_" + ga; var cntbf = $(cntb).data("id");
+            var cntc = "#cntc_" + ga; var cntcf = $(cntc).data("id");
+            if (txdf == 0) {
+                var stra = docID + "<|>" + b + "<|>" + txaf + "<|>" + txbf + "<|>" + txcf + "<|>" + txdf + "<|>" + txav + "<|>" + txbv + "<|>" + txcv + "<|>" + txdv;
+                $.ajax({
+                    url: '/aglinvMap/comMap',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { a: 0, b: stra },
+                    success: function (ddID) {
+                        alert("Success!");
+                        $(ch).removeClass('fa-close').addClass('fa-check').css('color', 'forestgreen');
+                        if (ch == true) {
+                            return;
+                        }
+                        else {
+                            $(cntb).val(cntbf + 1).html(cntbf + 1).data("id", cntbf + 1).css('font-weight','bold');
+                            $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight','bold');
+                        }
+                    }
+                });
+            }
+            else {
+                var stra = docID + "<|>" + b + "<|>" + txdf;
+                $.ajax({
+                    url: '/aglinvMap/comMap',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { a: 1, b: stra },
+                    success: function (ddID) {
+                        alert("Success!");
+                        $(ch).removeClass('fa-close').addClass('fa-check').css('color', 'forestgreen').css('transform', 'scale(2)');
+                        if (ch == true) {
+                            return;
+                        }
+                        else {
+                            $(cnta).val(cntaf + 1).html(cntaf + 1).data("id", cntaf + 1).css('font-weight', 'bold');
+                            $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight', 'bold');
+                        }
+                    }
+                });
+            }   
+        });
+    </script>
+</body>
+</html>

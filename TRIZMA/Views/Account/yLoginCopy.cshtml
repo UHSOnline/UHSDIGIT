@@ -1,0 +1,132 @@
+﻿@using TRIZMA.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Operations | </title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="login">
+
+    <br />
+    <br />
+    
+    <div class="row">
+        <div style="text-align:center">
+            <br />
+            <br />
+            <br />
+            <br />
+            <img src="~/images/logo.png" />
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <h4>@ViewBag.Title</h4>
+            <hr />
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                    @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            </div>
+                            
+                                <div>
+                                    @Html.TextBoxFor(m => m.Email, new { @style = "min-width:280px; max-width:280px; min-height:32px; text-align:center" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                
+                                <div>
+                                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                                </div>
+                                
+                                <div>
+                                    @Html.PasswordFor(m => m.Password, new { @style = "min-width:280px; max-width:280px; min-height:32px; text-align:center" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+
+                                <br />
+
+                                <div>
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                                <br />
+                                <div>
+                                    <input type="submit" value="Log in" class="btn btn-default" />
+                                </div>
+                            
+                            <br />
+                            <hr />
+                            <p>
+                                @Html.ActionLink("Register as a new user", "Register")
+                            </p>
+
+                            <br />
+                            <br />
+                            <a href="@Url.Action("Index", "formsCRUD", new { projectID = 1, taskOrderID = 1, Int1 = 1 })">Go to Start Page</a>
+                                
+
+                                @* Enable this once you have account confirmation enabled for password reset functionality
+                                    <p>
+                                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                    </p>*@
+                                }
+</section>
+        </div>
+        @*<div class="col-md-4">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>*@
+    </div>
+
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+    
+
+
+

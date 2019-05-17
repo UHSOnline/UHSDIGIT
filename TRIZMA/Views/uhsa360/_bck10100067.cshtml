@@ -1,0 +1,14 @@
+﻿@model List<TRIZMA.Models.UHSOMD11vDb>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.crdate)</td>
+        <td>@Html.DisplayFor(modelItem => item.distnm)</td>
+        <td>@Html.DisplayFor(modelItem => item.CSTNM)</td>
+        <td><a class="fa fa-share" href="/uhsa360/getEditPar10100067?dctp=1010006&id1=@item.acctid&id2=2&id3=@item.ID" data-id="@item.ID" style="font-size:x-small; color:forestgreen; transform:scale(1.5)"></a></td>
+    </tr>
+}
+
+

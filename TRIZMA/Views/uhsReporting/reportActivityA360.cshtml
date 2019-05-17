@@ -1,0 +1,258 @@
+﻿@model List<TRIZMA.Models.UHSWEBOMD11vDb>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Activity Report A360</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+        .tableHead {
+            border-bottom:solid !important; 
+            border-bottom-color:lightblue !important; 
+            border-bottom-width:thin !important;
+            color:steelblue;
+            
+        }
+        .tableHeadb {
+            border-bottom:solid !important; 
+            border-bottom-color:steelblue !important; 
+            border-bottom-width:thin !important;
+            color:steelblue;
+        }
+    </style>
+</head><!--/head-->
+<body>
+
+    <div style="padding-left:30px; background-color:white; min-height:100%">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <br />
+                <h3 class="page-header"><span style="color:steelblue">Activity Report </span><span style="color:steelblue">Asset</span><span style="color:darkorange">360 </span><span id="headDate" style="color:steelblue; font-size:13px"></span></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-bottom:10px">
+                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
+            </div>
+        </div>
+        <script type="text/javascript">
+                        function Filldd1() {
+                            $('.datarowa').hide();
+                            var oid = $("#drop1").val();
+                                 if(oid == 3){ var check1 = 'GREAT LAKES' }
+                            else if(oid == 4){ var check1 = 'GULF' }
+                            else if(oid == 5){ var check1 = 'HEARTLAND' }
+                            else if(oid == 6){ var check1 = 'MEMORIAL HERMANN' }
+                            else if(oid == 8){ var check1 = 'NORTH CENTRAL' }
+                            else if(oid == 9){ var check1 = 'NORTHEAST' }
+                            else if(oid == 10){ var check1 = 'NORTHWEST' }
+                            else if(oid == 13){ var check1 = 'SOUTH CENTRAL' }
+                            else if(oid == 14){ var check1 = 'SOUTHEAST' }
+                            else if(oid == 15){ var check1 = 'SOUTHWEST' }
+                            var seldiv = @Html.Raw(Json.Encode(@ViewBag.seldiv));
+                            $.each(seldiv, function (DIV, seldiv)
+                            {
+                                if(oid == 0){
+                                    $('.datarowa').show();
+                                }
+                                else {
+                                    if(seldiv.DIV == check1){
+                                        var item1 = "#" + seldiv.IDc;
+                                        $(item1).show();
+                                    }
+                                }
+
+                            });
+                        }
+        </script>
+        <div class="row">
+            <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                <table class="table table-striped table-hover table-responsive" style="font-size:11px">
+                    <thead>
+                        <tr>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb">Cadence</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>                           
+                            <th class="tableHeadb" style="color:white">.</th>
+                            <th class="tableHeadb" style="color:white">.</th>
+
+                        </tr>
+                        <tr>
+                            <th class="tableHead">Region</th>
+                            <th class="tableHead">Division</th>
+                            <th class="tableHead">District</th>
+                            <th class="tableHead">Account#</th>
+                            <th class="tableHead">Customer</th>
+                            <th class="tableHead">Daily</th>
+                            <th class="tableHead">Weekly</th>
+                            <th class="tableHead">Monthly</th>
+                            <th class="tableHead">Quarterly</th>
+                            <th class="tableHead">Annually</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr id="@item.IDc" class="datarowa">
+                                <td>@item.REG</td>
+                                <td>@item.DIV</td>
+                                <td>@item.DIST</td>
+                                <td>@item.IDc</td>
+                                <td>@item.CUST</td>
+                                @if (item.a360dyc == 0)
+                                {
+                                    <td style="padding-left:14px;"><i class="fa fa-close" style="color:lightpink; transform:scale(1.2)"></i></td>
+                                }
+                                else if (item.a360dyc == 1)
+                                {
+                                    <td style="padding-left:13px"><i class="fa fa-check" style="color:lightseagreen; transform:scale(1.6)"></i></td>
+                                }
+                                @if (item.a360wkc == 0)
+                                {
+                                    <td style="padding-left:14px"><i class="fa fa-close" style="color:lightpink; transform:scale(1.2)"></i></td>
+                                }
+                                else if (item.a360wkc == 1)
+                                {
+                                    <td style="padding-left:13px"><i class="fa fa-check" style="color:lightseagreen; transform:scale(1.6)"></i></td>
+                                }
+                                @if (item.a360prc == 0)
+                                {
+                                    <td style="padding-left:14px"><i class="fa fa-close" style="color:lightpink; transform:scale(1.2)"></i></td>
+                                }
+                                else if (item.a360prc == 1)
+                                {
+                                    <td style="padding-left:13px"><i class="fa fa-check" style="color:lightseagreen; transform:scale(1.6)"></i></td>
+                                }
+                                @if (item.a360qtc == 0)
+                                {
+                                    <td style="padding-left:14px"><i class="fa fa-close" style="color:lightpink; transform:scale(1.2)"></i></td>
+                                }
+                                else if (item.a360qtc == 1)
+                                {
+                                    <td style="padding-left:13px"><i class="fa fa-check" style="color:lightseagreen; transform:scale(1.6)"></i></td>
+                                }
+                                @if (item.a360yrc == 0)
+                                {
+                                    <td style="padding-left:14px"><i class="fa fa-close" style="color:lightpink; transform:scale(1.2)"></i></td>
+                                }
+                                else if (item.a360yrc == 1)
+                                {
+                                    <td style="padding-left:13px"><i class="fa fa-check" style="color:lightseagreen; transform:scale(1.6)"></i></td>
+                                }
+                                
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+            var d = (new Date(Date.now() - tzoffset));
+            var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+            var eddf = "  -  " + eddt.slice(5, 7) + "/" + eddt.slice(8, 10) + "/" + eddt.slice(0, 4);
+            $("#headDate").val(eddf).html(eddf);
+        });
+    </script>
+
+</body>
+</html>

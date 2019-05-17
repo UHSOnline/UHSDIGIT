@@ -1,0 +1,289 @@
+
+
+
+
+
+--- Gemba Walk List ---
+1010	1010001	1	Daily	1	BERD (Check MME and Beds in DB)
+1010	1010001	1	Daily	2	Shipping table: Check 6S check list
+1010	1010001	1	Daily	3	White board
+1010	1010001	1	Daily	4	Cleaning area: check 6S check list
+1010	1010001	1	Daily	5	Inspection table: check 6S check list
+1010	1010001	1	Daily	6	MME DS: Make sure all MMEs are in their location
+1010	1010001	1	Daily	7	Check DS Overflow area
+1010	1010001	1	Daily	8	Check DS Ventilators area
+1010	1010001	1	Daily	9	Check DS Beds area
+1010	1010001	1	Daily	10	Check DS Mattress area
+1010	1010001	1	Daily	11	Check DI area
+1010	1010001	1	Daily	12	Check Back Yard
+1010	1010001	1	Daily	13	Check Vehicle needs
+1010	1010001	1	Daily	14	Check staffing
+  
+1010	1010001	2	Weekly	1	Check Excess DB area
+1010	1010001	2	Weekly	2	Check Red tag area
+1010	1010001	2	Weekly	3	Check Corporate pool area
+1010	1010001	2	Weekly	4	Check back yard
+
+
+project ID: 13
+task order: 50
+
+--- 6S List ---
+1010	1010002	1	Daily	1	Place all tested equipment to DS racks
+1010	1010002	1	Daily	2	Return all tools (box cutters, tape gun and others to their location)
+1010	1010002	1	Daily	3	Return all test devices to their location
+1010	1010002	1	Daily	4	Remove any extra stuff from table surface
+1010	1010002	1	Daily	5	Wipe table surface
+1010	1010002	1	Daily	6	Make sure DS MME Rack is organized
+
+1010	1010002	2	Weekly	1	Make sure all labels are legible and appropriate
+1010	1010002	2	Weekly	2	Remove any outdated paper of any surface
+1010	1010002	2	Weekly	3	Sweep the floor
+1010	1010002	2	Weekly	4	Empty trash bin
+1010	1010002	2	Weekly	5	Check floor tapes: if torn replace with new tape
+
+--- VWP Visual Standards Assessment ---
+1020	1010003 1	Patient Ready Area	1	Beds	1	Beds stored so that each bed can be accessed from an aisle
+1020	1010003 1	Patient Ready Area	1	Beds	2	Each bed area labeled with what type of bed is stored
+1020	1010003 1	Patient Ready Area	1	Beds	3	The Min & Max quantity of each type of bed shown
+
+1020	1010003 1	Patient Ready Area	2	Vents, Bill-lights, Isolettes & Monitors	1	All castered equipment stored in FIFO lanes
+1020	1010003 1	Patient Ready Area	2	Vents, Bill-lights, Isolettes & Monitors	2	All lanes labeled with type of the equipment stored
+1020	1010003 1	Patient Ready Area	2	Vents, Bill-lights, Isolettes & Monitors	3	Direction of FIFO is shown with arrows at front and back of lanes
+1020	1010003 1	Patient Ready Area	2	Vents, Bill-lights, Isolettes & Monitors	4	Overhead electric outlets are used in FIFO lanes
+1020	1010003 1	Patient Ready Area	2	Vents, Bill-lights, Isolettes & Monitors	5	Min & Max quantity of each type of equipment is shown
+
+1020	1010003 1	Patient Ready Area	3	Infusion Pumps & Other MME	1	Similar equipment kept together
+1020	1010003 1	Patient Ready Area	3	Infusion Pumps & Other MME	2	Each metro cart labeled with an A4 size paper (8.5" x 11") indicating what is on each shelf
+1020	1010003 1	Patient Ready Area	3	Infusion Pumps & Other MME	3	Each shelf on metro cart labeled with equipment stored
+1020	1010003 1	Patient Ready Area	3	Infusion Pumps & Other MME	4	Min & Max quantity of each type of equipment is shown
+
+1020	1010003 1	Patient Ready Area	4	Mattresses & Blowers	1	Adequate space provided to store mattresses & blowers
+1020	1010003 1	Patient Ready Area	4	Mattresses & Blowers	2	Each type of mattress and blower has a designated and labeled storage space
+1020	1010003 1	Patient Ready Area	4	Mattresses & Blowers	3	Heavy mattresses stored where they can be easily and safely handled
+1020	1010003 1	Patient Ready Area	4	Mattresses & Blowers	4	Mattress blowers stored in a close proximity to mattresses
+1020	1010003 1	Patient Ready Area	4	Mattresses & Blowers	5	Min & Max quantity of each type of equipment is shown
+
+1020	1010003 1	Patient Ready Area	5	Specialty Equipment	1	Designated area for specialty equipment
+1020	1010003 1	Patient Ready Area	5	Specialty Equipment	2	FIFO where applicable
+1020	1010003 1	Patient Ready Area	5	Specialty Equipment	3	Specialty equipment is stored neatly and in an organized manner
+
+1020	1010003 2	Inspection / Testing Station	1	Inspection Station	1	Designated inspection area has overhead signage for inspection Station & DI Waiting to be Tested
+1020	1010003 2	Inspection / Testing Station	1	Inspection Station	2	Inspection benches are standardized so that any employee can work at any bench (benches not assigned to an individual)
+1020	1010003 2	Inspection / Testing Station	1	Inspection Station	3	Inspection benches labeled to indicate type of equipment tested
+1020	1010003 2	Inspection / Testing Station	1	Inspection Station	4	Inspection bench cleaned and organized at end of every shift
+1020	1010003 2	Inspection / Testing Station	1	Inspection Station	5	All tools, bins, equipment and supplies are organized, stored neatly and labeled with corresponding location on peg board, shelves and drawer for ease of access and use
+
+1020	1010003 2	Inspection / Testing Station	2	Testing Equipment & Supplies	1	All inspection benches have a mounted Safety Analyzer, tools and other standard supplies
+1020	1010003 2	Inspection / Testing Station	2	Testing Equipment & Supplies	2	Test equipment and supplies are stored based on frequency of use
+1020	1010003 2	Inspection / Testing Station	2	Testing Equipment & Supplies	3	Shared test equipment, tools and supplies are centrally located and labeled, organized and stored neatly for ease of access and use
+1020	1010003 2	Inspection / Testing Station	2	Testing Equipment & Supplies	4	Gas cylinders are secured, labeled and marked with caution floor tape
+
+1020	1010003 2	Inspection / Testing Station	3	Equipment Waiting to be Inspected	1	Vents and other castered equipment waiting to be tested have a designated and labeled storage space
+1020	1010003 2	Inspection / Testing Station	3	Equipment Waiting to be Inspected	2	Designated and labeled metro carts for MME waiting to be tested
+1020	1010003 2	Inspection / Testing Station	3	Equipment Waiting to be Inspected	3	Access to power outlets for equipment that needs to maintain charge while waiting to be tested
+1020	1010003 2	Inspection / Testing Station	3	Equipment Waiting to be Inspected	4	Customer damaged equipment is blue tagged and tag stays with equipment
+
+1020	1010003 3	Cleaning Station	1	Sink	1	Ecolab or DEMA proportioner is installed with approved disinfectant
+1020	1010003 3	Cleaning Station	1	Sink	2	Sinks cleaned daily - no gloves or other materials left on/in sink
+
+1020	1010003 3	Cleaning Station	2	Mattress Cleaning Station	1	Stainless steel tables used for mattress cleaning
+1020	1010003 3	Cleaning Station	2	Mattress Cleaning Station	2	Laundry bin clearly labeled for dirty coverlets with designated storage space
+1020	1010003 3	Cleaning Station	2	Mattress Cleaning Station	3	Separate labeled laundry bin for clean coverlets with designated storage space
+1020	1010003 3	Cleaning Station	2	Mattress Cleaning Station	4	Bags stored in close proximity to cleaning tables in clear containers labeled with bag type, size and part number
+
+1020	1010003 3	Cleaning Station	3	Supplies	1	Approved cleaning chemicals and supplies stored properly with all containers, bins and shelves labeled
+1020	1010003 3	Cleaning Station	3	Supplies	2	Primary and secondary containers are labeled with appropriate SDS #, secondary containers have "secondary container label" affixed including product name
+1020	1010003 3	Cleaning Station	3	Supplies	3	No cardboard or wooden shelving in cleaning area
+1020	1010003 3	Cleaning Station	3	Supplies	4	Cleaning supplies stored centrally with approximately a week's worth of supplies at cleaning stations
+1020	1010003 3	Cleaning Station	3	Supplies	5	All cleaning supply storage locations are labeled, organized and stored neatly for ease of access and use
+
+1020	1010003 3	Cleaning Station	4	Tools & PPE	1	All tools labeled, organized and stored neatly for ease of access and use
+1020	1010003 3	Cleaning Station	4	Tools & PPE	2	Cleaning brushes hung and labeled
+1020	1010003 3	Cleaning Station	4	Tools & PPE	3	Cleaning rags stored in a labeled plastic bin
+1020	1010003 3	Cleaning Station	4	Tools & PPE	4	Used rags are placed in a properly labeled container and laundered daily / weekly
+1020	1010003 3	Cleaning Station	4	Tools & PPE	5	PPE labeled, organized and stored neatly in a designated area for ease of access and use
+
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	1	Designated and labeled metro carts for MME waiting to be cleaned
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	2	Beds waiting to be cleaned are stored in designated area
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	3	Vents and other castered equipment waiting to be cleaned are stored in designated area
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	4	Mattresses waiting to be cleaned are stored on designated pallet rack(s) in proximity to mattress cleaning station
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	5	Area for equipment waiting to be cleaned designated with "DI Waiting to be Cleaned" overhead signage
+1020	1010003 3	Cleaning Station	5	Equipment Awaiting Cleaning	6	Customer damaged equipment is blue tagged and tag stays with equipment
+
+1020	1010003 3	Cleaning Station	6	Mobile Testing Cart	1	Designated Mobile Testing Cart in cleaning area
+1020	1010003 3	Cleaning Station	6	Mobile Testing Cart	2	Testing Cart includes Safety Analyzer, laptop, tools, weights and other supplies
+
+1020	1010003 4	Shipping / Receiving	1	Work Station	1	Shipping and receiving area well defined with signage and floor tape
+1020	1010003 4	Shipping / Receiving	1	Work Station	2	Shipping bench free of debris with enough room for processing
+1020	1010003 4	Shipping / Receiving	1	Work Station	3	Shipping work station equipped with computer station, label printer, scale, tools and supplies
+1020	1010003 4	Shipping / Receiving	1	Work Station	4	All tool and supply locations labeled, organized and stored neatly for ease of access and use
+
+1020	1010003 4	Shipping / Receiving	2	Packing Supplies	1	Boxes organized and divided with each section labeled with part # & size of the box
+1020	1010003 4	Shipping / Receiving	2	Packing Supplies	2	Reusable boxes stored, labeled and neatly organized in a designated area - do not reuse boxes unless requested by recipient
+1020	1010003 4	Shipping / Receiving	2	Packing Supplies	3	Bubble wrap roll mounted on dispenser (wall, pallet rack) for ease of access and use
+1020	1010003 4	Shipping / Receiving	2	Packing Supplies	4	Used card board boxes disposed in a recycle bin
+
+1020	1010003 4	Shipping / Receiving	3	Incoming / Outgoing Space	1	Incoming and outgoing shipment areas designated with signage
+1020	1010003 4	Shipping / Receiving	3	Incoming / Outgoing Space	2	Enough room allocated for incoming and outgoing shipments
+
+1020	1010003 5	Biomed Equipment Repair Department BERD	1	Tech Benches	1	All items in a designated and labeled location on the tech bench
+1020	1010003 5	Biomed Equipment Repair Department BERD	1	Tech Benches	2	Static mat and/or wrist strap available and utilized at all Tech benches
+1020	1010003 5	Biomed Equipment Repair Department BERD	1	Tech Benches	3	No files and post-it notes on workstation - all paper work stored in designated location
+1020	1010003 5	Biomed Equipment Repair Department BERD	1	Tech Benches	4	All hand tools organized and stored neatly for ease of access and use, in labeled toolbox(s)
+
+1020	1010003 5	Biomed Equipment Repair Department BERD	2	Parts Inventory	1	Repair parts stored in appropriately colored bins (product code 2 = blue, code 3 = yellow, code 7 = red, Mfg.Services = green)
+1020	1010003 5	Biomed Equipment Repair Department BERD	2	Parts Inventory	2	Designated and labeled metro cart / pallet rack for Manufacturing Services
+1020	1010003 5	Biomed Equipment Repair Department BERD	2	Parts Inventory	3	Each metro cart / pallet rack has signage indicating type of part inventory
+1020	1010003 5	Biomed Equipment Repair Department BERD	2	Parts Inventory	4	Non-inventory / harvested parts are labeled, organized and stored neatly in black bins
+1020	1010003 5	Biomed Equipment Repair Department BERD	2	Parts Inventory	5	Each bin labeled with part name, vendor part #, UHS stock # and product code with corresponding shelf label
+
+1020	1010003 5	Biomed Equipment Repair Department BERD	3	Equipment Flow	1	Metro carts labeled for Pending Evaluation, Evaluation Complete, AWP, Parts on Hand Awaiting Repair
+1020	1010003 5	Biomed Equipment Repair Department BERD	3	Equipment Flow	2	Customer damaged equipment is blue tagged and tag stays with equipment
+1020	1010003 5	Biomed Equipment Repair Department BERD	3	Equipment Flow	3	All equipment in repair has work order attached
+1020	1010003 5	Biomed Equipment Repair Department BERD	3	Equipment Flow	4	Designated area for beds and specialty equipment in repair status
+1020	1010003 5	Biomed Equipment Repair Department BERD	3	Equipment Flow	5	Designated area for vents and other castered equipment in repair status
+
+1020	1010003 5	Biomed Equipment Repair Department BERD	4	Test Devices & Shared Tools	1	Test circuits stored in labeled and uniform see-through bins
+1020	1010003 5	Biomed Equipment Repair Department BERD	4	Test Devices & Shared Tools	2	Shared test devices organized and stored neatly on metro carts for ease of access and use
+1020	1010003 5	Biomed Equipment Repair Department BERD	4	Test Devices & Shared Tools	3	Each test device should have a clearly labeled and dedicated area on metro cart
+1020	1010003 5	Biomed Equipment Repair Department BERD	4	Test Devices & Shared Tools	4	Other shared tools organized and stored neatly in a central location for ease of access and use
+
+1020	1010003 6	Surgical Services	1	Testing Area	1	Dedicated 220V 30amp and 110V 20amp Volt outlets available
+1020	1010003 6	Surgical Services	1	Testing Area	2	Black laser curtains available if no dedicated testing room
+1020	1010003 6	Surgical Services	1	Testing Area	3	Appropriate laser safety signs are posted
+1020	1010003 6	Surgical Services	1	Testing Area	4	Work bench in the testing room
+
+1020	1010003 6	Surgical Services	2	Laser Tech Station / Bench	1	All items in a designated and labeled location on the tech bench
+1020	1010003 6	Surgical Services	2	Laser Tech Station / Bench	2	PPE needed is accessible from the work station
+1020	1010003 6	Surgical Services	2	Laser Tech Station / Bench	3	No files and post-it notes on the tech bench, all paper work stored in a file cabinet
+1020	1010003 6	Surgical Services	2	Laser Tech Station / Bench	4	All hand tools stored in neatly organized toolboxes with drawers labeled according to contents
+
+1020	1010003 6	Surgical Services	3	Laser Inventory Storage	1	Fibers stored in a secured cabinet with identified sections for reusable and sterile fibers
+1020	1010003 6	Surgical Services	3	Laser Inventory Storage	2	Staging area for equipment to be shipped
+
+1020	1010003 6	Surgical Services	4	Accessories Storage	1	Well organized clearly labeled shelves
+1020	1010003 6	Surgical Services	4	Accessories Storage	2	Accessories located in close proximity to laser tech station
+
+1020	1010003 7	Overall Building	1	Facilities	1	Security doors locked from outside at all times, alarm set when building vacated
+1020	1010003 7	Overall Building	1	Facilities	2	District has a posted cleaning schedule with janitorial service and / or district team
+1020	1010003 7	Overall Building	1	Facilities	3	All burnt out lights and ballasts replaced at least once a quarter
+1020	1010003 7	Overall Building	1	Facilities	4	Temperature maintained between 70-76 in summer and 66-70 in winter
+1020	1010003 7	Overall Building	1	Facilities	5	HVAC maintenance contract in place
+1020	1010003 7	Overall Building	1	Facilities	6	Pest control contract is in place either directly or through landlord
+1020	1010003 7	Overall Building	1	Facilities	7	Floor sealed, maintained and kept clean
+1020	1010003 7	Overall Building	1	Facilities	8	UHS logos at front door and back doors
+1020	1010003 7	Overall Building	1	Facilities	9	District Welcome Sign at main entrance
+
+1020	1010003 7	Overall Building	2	Front Office	1	All office cubes neat and well organized
+1020	1010003 7	Overall Building	2	Front Office	2	At least one designated work space for visiting UHS employees
+1020	1010003 7	Overall Building	2	Front Office	3	Conference room equipped with conference table, white board, phone and monitor / projector
+1020	1010003 7	Overall Building	2	Front Office	4	Office supplies neatly organized and stored properly with all containers, bins & shelves labeled
+1020	1010003 7	Overall Building	2	Front Office	5	Break Room kept clean and orderly
+1020	1010003 7	Overall Building	2	Front Office	6	Knowledge board(s) updated and visible to all employees
+
+1020	1010003 7	Overall Building	3	Processing / Back Office	1	Processing center (Back Office) organized to create smooth flow of equipment
+1020	1010003 7	Overall Building	3	Processing / Back Office	2	Equipment stored separately in designated locations according to status (DI, DS, DB)
+1020	1010003 7	Overall Building	3	Processing / Back Office	3	Each area floor taped per color code and identified with an overhead signage
+1020	1010003 7	Overall Building	3	Processing / Back Office	4	All aisles and walk ways kept clear
+
+1020	1010003 7	Overall Building	4	Safety	1	All PPE requirements posted in each area
+1020	1010003 7	Overall Building	4	Safety	2	All PPE accessible to employees
+1020	1010003 7	Overall Building	4	Safety	3	Evacuation plan and tornado shelter communicated, posted and visible to all employees
+1020	1010003 7	Overall Building	4	Safety	4	Fire extinguishers, electric panels, eye wash stations, first aid kits and SDS holders are clearly marked and free from obstacles
+1020	1010003 7	Overall Building	4	Safety	5	Exit signs and emergency lighting are present and functioning
+1020	1010003 7	Overall Building	4	Safety	6	All gas cylinder storage locations are secured, labeled and marked with caution floor tape
+
+1020	1010003 7	Overall Building	5	Waste Removal & Recycling	1	District has garbage and recycling service
+1020	1010003 7	Overall Building	5	Waste Removal & Recycling	2	Office has paper shredder or service
+1020	1010003 7	Overall Building	5	Waste Removal & Recycling	3	Electronic waste (circuit boards, batteries, etc.) disposed of through and authorized service
+1020	1010003 7	Overall Building	5	Waste Removal & Recycling	4	Excess pallets and used cardboard boxes disposed of timely to avoid excessive accumulation
+
+1020	1010003 8	Other	1	NCMR	1	District has dedicated NCMR area that is contained, controlled and labeled
+1020	1010003 8	Other	1	NCMR	2	All items in NCMR have documentation attached indicating NCMR status
+
+1020	1010003 8	Other	2	Red Tag Area	1	District has allocated Red Tag area
+1020	1010003 8	Other	2	Red Tag Area	2	District has Red Tags and Red Tag log
+
+1020	1010003 8	Other	3	White Board / Huddle Area	1	District has white board and/or monitor located in a huddle area for both dept. 56 and dept. 74 (can be separate or shared)
+1020	1010003 8	Other	3	White Board / Huddle Area	2	Dept. 74 white board / monitor includes routing, DI to DS/DB performance, pending orders / pickups and general communication
+1020	1010003 8	Other	3	White Board / Huddle Area	3	Dept. 56 white board / monitor includes pending evaluation, AWP, high priority, technician workload / schedule, days in DB
+
+1020	1010003 8	Other	4	Sustainment Tools	1	District has equipment work flow diagrams illustrating how each equipment type flows through process
+1020	1010003 8	Other	4	Sustainment Tools	2	District has Gemba Walk check list
+1020	1010003 8	Other	4	Sustainment Tools	3	Each area has a cleaning / 6S check list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

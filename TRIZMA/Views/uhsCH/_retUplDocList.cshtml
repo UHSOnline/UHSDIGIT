@@ -1,0 +1,16 @@
+﻿@model List<TRIZMA.Models.uhspageitemsDb>
+@{
+    Layout = null;
+}
+
+<table class="table-striped table-hover table-responsive">
+    @foreach (var item in Model)
+    {        
+        <tr height="20px">
+            <td style="padding-left:5px; padding-right:5px; border-left:dashed; border-left-width:thin; border-left-color:lightgray; border-right:dashed; border-right-width:thin; border-right-color:lightgray; font-size:smaller"><a href="#" class="dnllink" data-id="@item.modStr1" name="@item.modStr2">@item.modStr2</a></td>
+            <td style="padding-left:5px; padding-right:5px; border-right:dashed; border-right-width:thin; border-right-color:lightgray"><a href="#" class="dellink" data-id="@item.modStr1"><i class="fa fa-trash" style="color:red"></i><span style="font-size:smaller; color:red"> delete</span></a></td>
+        </tr>        
+    }
+</table>
+
+

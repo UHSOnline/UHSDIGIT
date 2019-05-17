@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "RedirectAfterLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h4>Data Operations Services</h4>
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+        <p>
+            @Html.ActionLink("Bosch-Siemens", "Index", "k2017bsh1", routeValues: null, htmlAttributes: new { title = "Bosch-Siemens" })
+        </p>      
+        <p>
+            @Html.ActionLink("CSRA: GSS: Ticket Registry", "Index", "k2017cscemb1", routeValues: null, htmlAttributes: new { title = "CSRA: GSS: Ticket Registry" })
+        </p>      
+        <p>
+            @Html.ActionLink("CSRA: DIBP: Call Inquries", "Index", "k2017cscemb2", routeValues: null, htmlAttributes: new { title = "CSRA: DIBP: Call Inquries" })
+        </p>
+    </div>
+</div>
+
+<br />
+<h4>Data Operations Administration</h4>
+<br />
+
+<div class="row">
+    <div class="col-md-4">
+
+        <p>
+            @Html.ActionLink("Clients", "Index", "clients", routeValues: null, htmlAttributes: new { title = "Clients" })
+        </p>
+        <p>
+            @Html.ActionLink("Projects", "Index", "clientsProjects", routeValues: null, htmlAttributes: new { title = "Projects" })
+        </p>
+        <p>
+            @Html.ActionLink("Task Orders", "Index", "taskOrders", routeValues: null, htmlAttributes: new { title = "Task Orders" })
+        </p>
+        <p>
+            @Html.ActionLink("Task Orders Country", "Index", "taskOrdersCountry", routeValues: null, htmlAttributes: new { title = "Task Orders Country" })
+        </p>
+        <p>
+            @Html.ActionLink("Task Orders Inquries", "Index", "toInquries", routeValues: null, htmlAttributes: new { title = "Task Orders Inquries" })
+        </p>
+        <p>
+            @Html.ActionLink("TO Inqury Languages", "Index", "toInquriesLang", routeValues: null, htmlAttributes: new { title = "TO Inqury Languages" })
+        </p>
+        <p>
+            @Html.ActionLink("Agents", "Index", "agents", routeValues: null, htmlAttributes: new { title = "Agents" })
+        </p>
+
+    </div>
+</div>
+
+<br />
+<br />

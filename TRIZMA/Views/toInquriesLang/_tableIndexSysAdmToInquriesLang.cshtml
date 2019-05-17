@@ -1,0 +1,18 @@
+﻿@model List<TRIZMA.Models.toInquriesLangViewDb>
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ID)</td>
+        <td>
+            <a href="@Url.Action("Edit", "toInquriesLang", new { id = item.ID })" style="color:forestgreen; padding-left:5px"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Delete", "toInquriesLang", new { id = item.ID })" style="color:red; padding-left:8px"><i class="fa fa-power-off"></i></a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.clientID)</td>
+        <td>@Html.DisplayFor(modelItem => item.projectID)</td>
+        <td>@Html.DisplayFor(modelItem => item.taskOrderID)</td>
+        <td>@Html.DisplayFor(modelItem => item.inqLanguage)</td>
+        <td>@Html.DisplayFor(modelItem => item.createdDT)</td>
+    </tr>
+}

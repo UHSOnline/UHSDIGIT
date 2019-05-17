@@ -1,0 +1,415 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UHS: SS Cycle Count Monthly</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6000;
+            text-align: center;
+        }
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+
+
+    <div class="lckbckscr">
+
+        <div id="wrapper">
+
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <br />
+                        @if (ViewBag.control == 1)
+            {
+                <h4 class="page-header"><span style="color:#0076A8">Equipment Manufacturers: </span><span style="color:#F69240"> InService </span><span style="color:#0076A8"> Data (sourceCD = 5)</span></h4>
+}
+else
+if (ViewBag.control == 2)
+{
+            <h4 class="page-header"><span style="color:#0076A8">Equipment Types: </span><span style="color:#F69240"> InService </span><span style="color:#0076A8"> Data (sourceCD = 5)</span></h4>
+}
+else
+if (ViewBag.control == 3)
+{
+            <h4 class="page-header"><span style="color:#0076A8">Equipment Models: </span><span style="color:#F69240"> InService </span><span style="color:#0076A8"> Data (sourceCD = 5)</span></h4>
+}
+                    </div>
+
+                </div>
+                <div>
+                    <a class="Update" href=""><i class="ace-icon fa fa-pencil-square-o"></i>|</a>
+                </div>
+                <div id="MyPopup" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title">
+                                    Equipment Model Info:
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Manufacturer:</span></td>
+                                            <td><span id="modLnA" style="color:#0076A8">Manufacturer</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Equipment Type:</span></td>
+                                            <td><span id="modLnB" style="color:#0076A8">Equipment Type</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Model Description:</span></td>
+                                            <td><span id="modLnC" style="color:#0076A8">Model Description</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Model:</span></td>
+                                            <td><span id="modLnD" style="color:#0076A8"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Model ID2:</span></td>
+                                            <td><span id="modLnE" style="color:#0076A8">Model ID2</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right:8px"><span style="color:#F69240">Status:</span></td>
+                                            <td><span id="modLnF" style="color:#0076A8"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-lg-12" align="center">
+                                        <span style="color:#F69240">Model NK:</span>
+                                        <br>
+                                        <span id="modLnG" style="color:#0076A8; font-size:16px"><b></b></span>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" id="btnClosePopup" value="Close" class="btn btn-danger" data-dismiss="modal" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        @if (ViewBag.control == 1 || ViewBag.control == 2)
+            {
+                <div id="mainDiv">
+                    <table id="dt1" class="table table-hover table-responsive" style="font-size:12px">
+                        <thead>
+                            @if (ViewBag.control == 1)
+                {
+
+                    <tr style="color:#0076A8">
+                        <th>Manufacturer NK</th>
+                        <th>Manufacturer Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Approved By</th>
+                    </tr>
+
+
+
+    }
+    else if (ViewBag.control == 2)
+    {
+            <tr style="color:#0076A8">
+
+                <th>Type Descr</th>
+                <th>Function Name</th>
+                <th>Clinical Risk</th>
+                <th>Maint.Require.Descr</th>
+                <th>Risk Indicator</th>
+                <th>Cal.Class</th>
+                <th>Act.Class</th>
+            </tr>
+}
+
+                        </thead>
+                        <tbody style="background-color:white">
+                            @foreach (var item in ViewBag.data)
+                {
+                    if (ViewBag.control == 1)
+                    {
+                        <tr style="color:#0076A8">
+                            <td>@item.ManufacturerNK</td>
+                            <td>@item.ManufacturerName</td>
+                            <td>@item.Type</td>
+                            <td>@item.Status</td>
+                            <td>@item.ApprovedBy</td>
+                        </tr>
+        }
+        else if (ViewBag.control == 2)
+        {
+            <tr style="color:#0076A8">
+
+                <td>@item.equipmentTypeDescr</td>
+                <td>@item.equipmentFunctionName</td>
+                <td>@item.clinicalRiskDescr</td>
+                <td>@item.maintenanceRequirementsDescr</td>
+                <td>@item.riskIndicatorTotal</td>
+                <td>@item.calculatedClass</td>
+                <td>@item.actualClass</td>
+            </tr>
+}
+
+
+}
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+}
+else
+if (ViewBag.control == 3)
+{
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label style="color:#0076A8">Search by Equipment Model</label>
+                    <input type="text" class="form-control inputs" id="xmodel" name="model" />
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label style="color:#0076A8">Search by Equipment Model Description</label>
+                    <input type="text" class="form-control inputs" id="xdescr" name="descr" />
+                </div>
+            </div>
+
+            <table id="dt2" class="table table-hover table-responsive" style="font-size:11px">
+                <thead>
+                    <tr style="color:#0076A8">
+                        <th>ModelDescription</th>
+                        <th>modelID1</th>
+                        <th>ModelID2</th>
+                        <th>Status</th>
+                        <th>Manufacturer</th>
+                        <th>Equip.Type</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:white"></tbody>
+            </table>
+}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dt1').dataTable({
+                //"order": [[1, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+            
+        });
+    </script>
+    <script type="text/javascript">
+        $('.inputs').on('keyup paste', function () {           
+            var a = $("#xmodel").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var b = $("#xdescr").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+            var ac = a.length;
+            var bc = b.lenght;
+            if (((a == null || a == '' || a == ' ') && (b == null || b == '' || b == ' ')) || (ac < 2 && bc < 2)) {
+                $('#dt2').find('tbody').detach();
+                return;
+            }           
+            $('#dt2').find('tbody').detach();
+            $('#dt2').append($('<tbody>').css('background-color', 'white'));         
+            $.ajax({
+                url: '/aglinvMap/searchModel',
+                type: "GET",
+                dataType: "JSON",
+                data: { id: 1, ida: a, idb: b },
+                success: function (resp) {
+                    $.each(resp, function (ID, resp) {
+                        $("#dt2 tbody").append("<tr><td><a href='#' onclick='getNK(\"" + resp.ModelNK + "\")'>" + resp.ModelDescription + "</a></td><td style='color:#0076A8'>" + resp.modelID1 + "</td><td style='color:#0076A8'>" + resp.ModelID2 + "</td><td>" + resp.Status + "</td><td style='color:darkgray'>" + resp.manufacturer + "</td><td style='color:darkgray'>" + resp.equipmentType + "</td></tr>");
+                        
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        function getNK(a) {
+            $.ajax({
+                url: '/aglinvMap/getSingle',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a },
+                success: function (resp) {
+                    $.each(resp, function (ID, resp) {
+
+                        $("#modLnA").val("").html("");
+                        $("#modLnB").val("").html("");
+                        $("#modLnC").val("").html("");
+                        $("#modLnD").val("").html("");
+                        $("#modLnE").val("").html("");
+                        $("#modLnF").val("").html("");
+                        $("#modLnG").val("").html("");
+
+                        $("#modLnA").val(resp.manufacturer).html(resp.manufacturer);
+                        $("#modLnB").val(resp.manufacturer).html(resp.equipmentType);
+                        $("#modLnC").val(resp.manufacturer).html(resp.ModelDescription);
+                        $("#modLnD").val(resp.manufacturer).html(resp.modelID1);
+                        $("#modLnE").val(resp.manufacturer).html(resp.ModelID2);
+                        $("#modLnF").val(resp.manufacturer).html(resp.Status);
+                        $("#modLnG").val(resp.manufacturer).html(resp.ModelNK);
+                    
+                    });
+                }
+            });
+            $("#MyPopup").modal("show");
+            return false;
+            
+        };
+       
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover()
+    </script>
+
+</body>
+</html>

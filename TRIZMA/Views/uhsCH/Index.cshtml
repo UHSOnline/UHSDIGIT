@@ -1,0 +1,404 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>UHSDIGIT</title>
+    <!-- CSS -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+
+    <link href="~/css/uhsHome/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/animate.min.css" rel="stylesheet">
+    <link href="~/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/css/owl.transitions.css" rel="stylesheet">
+    <link href="~/css/prettyPhoto.css" rel="stylesheet">
+    <link href="~/css/uhsHome/main.css" rel="stylesheet">
+    <link href="~/css/styles.css" rel="stylesheet">
+
+    <link href="~/Content/DataTables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/images/ico/apple-touch-icon-57-precomposed.png">
+
+    <style>
+        
+            canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+            .docidstore {
+                display:none
+            }
+
+            .thStyle1 {
+                font-size:smaller;
+                text-align:center;
+                color:white;
+                min-width:30px;
+                }
+                .thStyle2 {
+                font-size:x-small;
+                
+                color:white;
+                }
+                .thStyle3 {
+                text-align:center;
+                font-size:x-small;
+                min-width:25px;
+                max-width:25px;
+                color:white
+                }
+                .thStyle4 {
+                text-align:center;
+                font-size:x-small;
+                min-width:25px;
+                max-width:25px;
+                color:#85CDDB;
+                }
+                
+
+
+                .tdStyle1 {
+                font-size:smaller;
+                text-align:center;
+                color:dodgerblue;
+                background-color:#F5F5F5;
+                min-width:30px;
+                }
+                .tdStyle2 {
+                font-size:smaller;
+                
+                }
+                .tdStyle3 {
+                text-align:center;
+                font-size:small;
+                min-width:25px;
+                max-width:25px;
+                }
+                .tdStyle4 {
+                text-align:center;
+                font-size:small;
+                min-width:25px;
+                max-width:25px;
+                color:white;
+                }
+                .tdStyle5 {
+                text-align:center;
+                font-size:small;
+                background-color:#F8F8F8;
+                min-width:25px;
+                max-width:25px;
+                }
+                .tdStyle6 {
+                text-align:center;
+                font-size:small;
+                background-color:#F8F8F8;
+                color:#F8F8F8;
+                min-width:25px;
+                max-width:25px;
+                }
+
+
+
+
+              .tfstyle1{
+                                    font-size:smaller; 
+                                    text-align:center; 
+                                    /*background-color:darkgray;*/
+                                    color:white;
+                                    min-width:30px;
+                                    }
+                                    .tfstyle2{
+                                    font-size:x-small; 
+                                    text-align:right;  
+                                    
+                                    color:dodgerblue;
+                                    }
+                                    .tfstyle3{
+                                     
+                                    text-align:center; 
+                                    font-size:small; 
+                                    min-width:25px;
+                                    max-width:25px;
+                                    }
+                                    .tfstyle4{
+                                    color:white;
+                                    text-align:center; 
+                                    font-size:small; 
+                                    min-width:25px;
+                                    max-width:25px;
+                                    }
+                                    .tfstyle5{
+                                    background-color:yellow; 
+                                    text-align:center; 
+                                    font-size:small; 
+                                    min-width:25px;
+                                    max-width:25px;
+                                    }
+
+
+.tab {
+    overflow: hidden;
+    width:100%;
+    text-align:center;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: lightcoral;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #85CDDB;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
+}
+
+.itcad {
+    background-color:#85CDDB !important;
+}
+.itcac {
+    color:#01426A !important;
+}
+        .itcae {
+            color: #85CDDB !important;
+            font-family: Arial !important;
+        }
+        .itcam {
+            color: white !important;
+            text-shadow: 1px 1px black;
+            font-family: Arial !important;
+        }
+.itcar {
+    color:white !important;
+    text-shadow: 1px 1px black;
+}
+.itcaf {
+    color:#01426A !important;
+}
+.itcak {
+    color:#F69240 !important;
+    text-shadow: 1px 1px black;
+}
+.ithae {
+    font-size:smaller;
+    text-align:center;
+    color:#01426A;
+    border-bottom:solid;
+    border-bottom-width:thin;
+    border-bottom-color:lightgray;
+}
+.itmapdiv {
+    background-color:white !important;
+}
+
+.container .box
+{
+    position: relative;
+    width:200px;
+    height:200px;
+    background: white;
+    transition: 0.5s;
+    display: inline-block;
+    border: solid 1px #85CDDB;
+}
+.container .box:hover
+{
+    transform: scale(1.1);
+    z-index: 1;
+    box-shadow: 0 2px 10px steelblue;
+}
+
+.container .box .thumb
+{
+    position: absolute;
+    width: 100%;
+    height:200px;
+    overflow: hidden;
+}
+
+.container .box .thumb img
+{
+    width: 100%;
+}
+.container .box .details
+{
+    position: absolute;
+    width: 100%;
+    height:200px;
+    overflow: hidden;
+    background: white;
+}
+
+.container .box .details .content
+{
+    position: absolute;
+    top: calc(50% + 16%);
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: 0.5s;
+}
+.container .box:hover .details .content
+{
+    top: calc(50%);
+    background: #F0FFFF;
+}
+
+.container .box .details .content .fa
+{
+    font-size: 80px;
+    color: black;
+}
+.container .box .details .content h3
+{
+    margin: 0;
+    padding: 0;
+    padding: 10px 0;
+    color: gray;
+}
+.container .box:hover .details .content h3
+{
+    color: steelblue;
+}
+.container .box .details .content a
+{
+    display: inline-block;
+    padding: 5px 20px;
+    color: steelblue;
+    border: 2px solid black;
+    text-decoration: none;
+    transition: 0.5s;
+    border-radius: 20px;
+    transform: scale(0);
+}
+.container .box:hover .details .content a
+{
+    transform: scale(1);
+}
+.container .box .details .content a:hover
+{
+    background: #fff;
+    color: #262626;
+
+}
+        footer {
+            display: none;
+        }
+
+
+
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+
+    <div class="mainpart">
+        @Html.Partial("_mainDetail")
+    </div>
+    <div>
+        <section id="cta" class="wow fadeIn">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="padding-top:9px"><span class="itcaf" style="padding-right:5px">Welcome to </span></td>
+                                    <td><img src="~/images/logo-header28.png" /></td>
+                                    <td style="padding-top:9px"><span class="itcaf" style="padding-left:3px"> data </span><span style="color:#F69240"> operations</span><span class="itcaf">.</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span style="font-size:12px; color:#6399AE">Access data stored in data warehouse using latest technology solutions. Data handler is a fully responsive web-based application service, with available user friendly tools that will help us access our business data stored in various storages. Using Microsoft .Net technology and Java services, we are able to retrieve and manipulate any data. Responsive Bootstrap and Html elements provide extensive graphical user experience.</span>
+                    </div>
+                </div>
+            </div>
+        </section><!--/#cta-->
+        
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9" style="padding-top:14px; padding-bottom:12px">
+                        <span style="font-size:11px; color:#F69240">Powered by</span>
+                        <a href="https://www.trizma.com" target="_blank" style="font-size:11px; color:#01426A"> Trizma </a>
+                        <span style="font-size:11px; color:#01426A"> DataInsight team.</span>                  
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <!--/# data handler java script-->
+        <!--/# data handler java script-->
+        <script src="~/js/uhsHome/jquery.js"></script>
+        <script src="~/js/uhsHome/bootstrap.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>
+        <!-- iCheck -->
+        <script src="~/vendors/iCheck/icheck.min.js"></script>
+
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+        <script src="~/js/uhsHome/mousescroll.js"></script>
+        <script src="~/js/uhsHome/smoothscroll.js"></script>
+        <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+        <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+        <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+        <script src="~/js/uhsHome/wow.min.js"></script>
+
+        <script src="~/js/uhsHome/main.js"></script>
+
+
+</body>
+</html>

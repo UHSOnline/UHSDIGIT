@@ -1,0 +1,11 @@
+﻿@model List<TRIZMA.Models.UHSWEBUSRCONDb>
+
+@foreach (var item in Model)
+{
+    <a data-toggle="collapse" href="#@item.district"><span style="padding-left:1em"> DISTRICT</span></a>
+    <div id="@item.district" class="panel-collapse collapse" style="padding-left:4em">
+        proba
+        @*@Html.Action("_DiagLevel1", "k2017orgAdmStructure", new { ID = item.divid })*@
+        <br />
+    </div>
+}

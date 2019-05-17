@@ -1,0 +1,243 @@
+﻿@model TRIZMA.Models.UHSUSAT1SURSERVDb
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UHS: SYSADM: SS Create New User-Location</title>
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/build/css/custom.min.css" rel="stylesheet">
+
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @Html.Action("_upperLeftHeader", "formsCRUD")
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        @Html.Action("_upperProfile", "formsCRUD")
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                @Html.Action("_sidebarDropDownMenu", "formsCRUD")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @Html.Action("_sidebarFooter", "formsCRUD")
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    @Html.Action("_upperBaseMenu", "formsCRUD")
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="float:left">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>UHS: SYSADM: Surgical Services Create New User-Location</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <br>
+
+                                        <div class="form-horizontal">
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.MGRID, "User:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.DropDownListFor(model => model.MGRID, ViewBag.users1 as IEnumerable<SelectListItem>, new { id = "usr1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 360px; border-color: lightgray; border-style:solid; border-width:thin;", @onchange = "FillDdl()" })
+
+                                                </div>
+                                            </div>
+                                            <script>
+                                                    function FillDdl() {
+                                                        var It0 = $('#usr1').val();
+                                                        if (It0 != 0) {
+                                                            $.ajax({
+                                                                url: '/uhsuserSS/FillDdl',
+                                                                type: "GET",
+                                                                dataType: "JSON",
+                                                                data: { ID: It0 },
+                                                                success: function (populate) {
+                                                                    $("#dist1").html(""); // clear before appending new list
+                                                                    $.each(populate, function (ID, datatable) {
+                                                                        $("#dist1").append(
+                                                                            $('<option></option>').val(datatable.ID).html(datatable.Value));
+                                                                    });
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                            </script>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.DISTID, "SS District #:", htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <div class="col-md-10">
+                                                    @Html.DropDownListFor(model => model.DISTID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "dist1", style = "padding-left:10px; padding-right:10px; height: 36px; min-width: 360px; border-color: lightgray; border-style:solid; border-width:thin;" })
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <button class="btn btn-default btnSave02" style="min-width:100px; min-height:36px">Create</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <br />
+                                        <br />
+                                        <div>
+                                            | @Html.ActionLink("Back to List", "Index", new { projectID = 6, taskOrderID = 61, Int1 = 1 })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /page content -->
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Data Operations by <a href="https://www.trizma.com"><img src="~/images/logoSmall.png"></a>
+        </div>
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- ECharts -->
+    <script src="~/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="~/vendors/echarts/map/js/world.js"></script>
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/build/js/custom.min.js"></script>
+    <script type="text/javascript">
+        $(".btnSave02").on('click', function (e) {
+            e.preventDefault();
+            postDocb();
+        });
+        function postDocb() {
+            var MGRID = $("#usr1").val();
+            var DISTID = $("#dist1").val();
+            var userid = @ViewBag.userid;
+            if (MGRID == 0) {
+                alert("Please select user!");
+            }
+            else {
+                var ID = String(MGRID) + String(DISTID);
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var joe = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var dt1 = joe.slice(0,10);
+                var tm1 = joe.slice(11, 23);
+                var dt = dt1 + " " + tm1;
+                var crdt = dt;
+                var eddt = dt;
+                var data1 = {
+                    ID: ID,
+                    MGRID: MGRID,
+                    DISTID: DISTID,
+                    crdt: crdt,
+                    eddt: eddt,
+                    crusid: userid,
+                    edusid: userid
+                };
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data1),
+                    url: '/uhsuserSS/CreateNew',
+                    dataType: "JSON",
+                    success: function (conf) {
+                        if(conf == 1){
+                            window.location = "/uhsuserSS/Index?projectID=6&taskOrderID=61&Int1=1";
+                        }
+                        else{
+                            alert("Failed!");
+                        }
+                    }
+                });
+            }
+
+        }
+    </script>
+
+</body>
+</html>

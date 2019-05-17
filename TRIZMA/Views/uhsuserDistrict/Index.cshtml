@@ -1,0 +1,356 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UHS: SYSADM: District Locations</title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <style>
+        .multitables {
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    @Html.Action("_upperLeftHeader", "formsCRUD")
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        @Html.Action("_upperProfile", "formsCRUD")
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                @Html.Action("_sidebarDropDownMenu", "formsCRUD")
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        @Html.Action("_sidebarFooter", "formsCRUD")
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    @Html.Action("_upperBaseMenu", "formsCRUD")
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                            @Html.Action("_selectbuttons", "uhsusercontrol", new { id1 = 3 })
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>UHS: <span style="color:lightgray">SYSADM: </span><span style="color:steelblue"> District</span> User Locations Map</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div id="mapid4" style="width:100%; height: 720px; position: relative"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>UHS: SYSADM: District User Locations Data</h2>
+
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Create", "uhsuserDistrict")'">Create New</button>
+                                        </li>
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table id="dt1" class="multitables table table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Remove</th>
+                                                <th>User District</th>
+                                                <th>User ID</th>
+                                                <th>User Name</th>
+                                                <th>Job Class</th>
+                                                <th>District ID</th>
+                                                <th>District</th>
+                                                <th>Division</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @Html.Action("_tableIndexDistrict", "uhsuserDistrict")
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="x_title">
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <form action="/uhsuserDistrict/ExportToExcel">
+                                                <input type="image" src="~/images/Excel2.png" />
+                                            </form>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /page content -->
+    <!-- footer content -->
+    <!-- /footer content -->
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- ECharts -->
+    <script src="../vendors/echarts/dist/echarts.min.js"></script>
+    <script src="../vendors/echarts/map/js/world.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+    <script src="~/js/leaflet.js"></script>
+    <script type="text/javascript">
+        var mymap = L.map('mapid4').setView([39.707, -460.54], 4);
+        var sw = new L.latLng(5.499550, -167.276413); //Southwest
+        var ne = new L.latLng(83.162102, -52.233040);  //Northeast
+        var bounds = new L.latLngBounds(sw, ne);
+        var greenIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-green.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var redIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-red.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicnVtdW5rbyIsImEiOiJjamIzcDVsd2gycDhyMnFxa3ZuOGcwcXZqIn0.LivgKgnmM6_E734yDYqzBw', {
+            maxZoom: 18,
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+        $(window).load(function (e) {
+            e.preventDefault();
+            getB360loc();
+            //console.log("proba");
+            function getB360loc() {
+                var markeri = [];
+                var dist1 = @Html.Raw(Json.Encode(@ViewBag.dist1));
+                $.ajax({
+                    url: '/uhsuserDistrict/getDistrictmap',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: 1 },
+                    success: function (populate) {
+                        $.each(populate, function (ID, datatable) {
+                            var distid = datatable.ID;
+                            var dist = datatable.dist;
+                            var divID = datatable.divID;
+                            var divNm = datatable.divNm;
+                            var regID = datatable.regID;
+                            var region = datatable.region;
+                            var disPh = datatable.disPh;
+                            var aclng = datatable.aclng;
+                            var aclat = datatable.aclat;
+                            var OMD = datatable.OMD;
+                            var DOD = datatable.DOD;
+                            var DSD = datatable.DSD;
+                            var popsec1 = "<span style='color:darkorange; font-size:12px'>Division:</span><span style='color:steelblue; font-size:12px'> " + divNm + "</span><br><span style='color:darkorange; font-size:12px'> District: </span><span style='color:steelblue; font-size:12px'>" + dist + "</span><br><span style='color:darkorange; font-size:12px'> DOD:</span><span style='color:steelblue; font-size:12px'> " + DOD + "</span><br><span style='color:darkorange; font-size:12px'> OMD:</span><span style='color:steelblue; font-size:12px'> " + OMD + "</a><br><br />";
+                            var poptab = '';
+                            poptab += "<table class='table-hover' style='font-size:12px'><thead style='color:darkorange'><tr><th>User</th><th>ID</th></tr></thead><tbody>"
+                            var con1 = '';
+                            $.each(dist1, function (DISTID, dist1) {
+                                if(dist1.DISTID == distid){
+                                    var str2 = String(dist1.MGRID) + String(distid);
+                                    poptab += "<tr><td style='padding-right:8px'>" + dist1.agentName + "</td><td style='padding-right:8px'>" + dist1.MGRID + "</td><td><a href='#' onclick='goDelete(" + str2 + ")' title='remove'><i class='fa fa-trash-o' style='color:red; transform:scale(1.2)'></i></a></td></tr>";
+                                    con1 += "1";
+                                } 
+                            });
+                            var che1 = con1.search("1");
+                            if(che1 == -1){
+                                poptab += "</tbody></table>";
+                                markeri.push(L.marker([aclat, aclng], { icon: redIcon, id: distid }).bindPopup(popsec1 + poptab).openPopup());
+                            } else {
+                                poptab += "</tbody></table>";
+                                markeri.push(L.marker([aclat, aclng], { icon: greenIcon, id: distid }).bindPopup(popsec1 + poptab).openPopup());
+                            }  
+                        })
+                        var fgroup = new L.featureGroup(markeri);
+                        fgroup.addTo(mymap).bringToFront();
+                        mymap.setView([38.284385, -98.60], [5]);
+
+                    }
+                })
+            };
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(".editClick").on('click', function (e) {
+            e.preventDefault();
+            var id1 = $(this).data("id");
+            editDoc(id1);
+        });
+        function editDoc(id1){
+            $.confirm({
+                title: 'Edit!',
+                content: 'Continue?',
+                buttons: {
+                    confirm: function () {
+                        editFiles(id1);
+                    },
+                    cancel: function () {
+                        //$.alert('Canceled!');
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        };
+        function editFiles(id1) {
+            window.location = "/uhsuserDistrict/EditDoc?id=" + id1;
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.dellink').on('click', function(e){
+                e.preventDefault();
+                var id1 = $(this).data("id");
+                goDelete(id1);
+            })
+        });
+        function goDelete(id1){
+            $.confirm({
+                title: 'Delete!',
+                content: 'Continue?',
+                buttons: {
+                    confirm: function () {
+                        deleteFiles(id1);
+                    },
+                    cancel: function () {
+                        //$.alert('Canceled!');
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        }
+        function deleteFiles(id1) {
+            window.location = "/uhsuserDistrict/Delete?id=" + id1;
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multitables').DataTable({
+                "order": [[0, "asc"],[1, "asc"],[3, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+
+</body>
+</html>

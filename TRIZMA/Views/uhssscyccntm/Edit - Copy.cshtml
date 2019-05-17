@@ -1,0 +1,846 @@
+﻿@model List<TRIZMA.Models.SSCYCCNTM1vDb>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>UHS: SS Cycle Count Monthly</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 2.0rem;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            min-height: 200px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6000;
+            text-align: center;
+        }
+    </style>
+</head><!--/head-->
+<body>
+    <div class="lckbckscr">
+        <div id="wrapper" style="padding-bottom:200px">
+            <!-- Navigation -->
+            <!-- Navigation -->
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <a class="navbar-brand" target="_blank" href="https://www.uhs.com" style="padding-right:184px"><img src="~/images/uhsLogoEdit3.png" /></a>
+                    <a class="w3-button w3-white w3-border btnSave03" title="Save"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:#0076A8; transform:scale(1.3)"></i></a>
+                    <a class="w3-button w3-white w3-border btnSave02" title="Save&Close"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:forestgreen; transform:scale(1.3)"></i></a>
+                    <a class="w3-button w3-white w3-border" onclick="location.href='/uhssscyccntm/Index?projectID=14&taskOrderID=64&Int1=1'" title="Quit"><i class="fa fa-close" style="padding-left:16px; padding-right:15px; color:red; transform:scale(1.3)"></i></a>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid" style="padding-bottom:360px">
+                    <div>
+                        <br />
+                        <h4 class="page-header">
+                            <span style="color:#0076A8">Surgical Services: </span>
+                            <span style="color:#F69240"> Cycle Count </span>
+                        </h4>
+                    </div>
+                    <div>
+                        <span style="color:#F69240; font-size:12px"> Month: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.mnth </span>
+                        <span style="color:#F69240; font-size:12px"> Date: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.crdate </span>
+                        <span style="color:#F69240; font-size:12px"> District: </span><span style="color:#0076A8; font-size:12px; padding-right:5px"> @ViewBag.comboDistrict </span>
+                        <span style="color:#F69240; font-size:12px"> Tech/Warehouse: </span><span style="color:#0076A8; font-size:12px"> @ViewBag.comboName </span>
+                    </div>
+
+
+                    <div>
+                        <br />
+                        <table id="dt1" class="table table-hover table-responsive" style="font-size:12px">
+                            <thead>
+                                <tr style="color:#0076A8; font-size:11px">
+                                    <th style="text-align:center; color:white !important">.</th>
+                                    <th style="text-align:center">Dist</th>
+                                    <th style="text-align:center">Wh</th>
+                                    <th style="text-align:center">Stock#</th>
+                                    <th style="text-align:center">Prod<br>Code</th>
+                                    <th style="text-align:center">Product<br>Description</th>
+                                    <th style="text-align:center">Counted<br>Prim Qty</th>
+                                    <th style="text-align:center">Actual<br>Prim Qty</th>
+                                    <th style="text-align:center">Prim<br>U/M</th>
+                                    <th style="text-align:center">Counted<br>Sec Qty</th>
+                                    <th style="text-align:center">Actual<br>Sec Qty</th>
+                                    <th style="text-align:center">Sec<br>U/M</th>
+                                    <th style="text-align:center">Pack<br>Ftr</th>
+                                    <th style="text-align:center">Counted Qty<br>Lowest UM</th>
+                                    <th style="text-align:center">Actual Qty<br>Lowest UM</th>
+                                    <th style="text-align:center">Variance Qty<br>Lowest UM</th>
+                                    <th style="text-align:center">Cost in<br>Lowest UM</th>
+                                    <th style="text-align:center">Variance<br>Cost</th>
+                                    <th style="text-align:center">Average<br>Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                {
+                    <tr id="@item.tb10">
+                        <td style="text-align:right; padding-top:9px; text-align:center">
+                            @if (item.lckdc == true)
+    {
+                            <a style="color:lightgray" title="locked"><i class="fa fa-lock" style="transform:scale(1.2)"></i></a>
+}
+else
+if (item.newArt == 1 && item.actQtyPUM == 0 && item.actQtySUM == 0)
+{
+                            <a href="#" class="delProd" data-id="@item.ID" style="color:red" title="delete"><i class="fa fa-trash-o" style="transform:scale(1.2)"></i></a>
+}
+else
+if (item.upCnt >= 2)
+{
+                        <a style="color:lightgray" title="locked"><i class="fa fa-lock" style="transform:scale(1.2)"></i></a>
+}
+else
+{
+if (item.newArt == 1)
+{
+                        <a href="#" class="delProd" data-id="@item.ID" style="color:red" title="delete"><i class="fa fa-trash-o" style="transform:scale(1.2)"></i></a>
+}
+else
+{
+                        <span style="color:white">.</span>
+}
+}
+                        </td>
+                        @if (item.newArt == 0)
+        {
+                <td style="padding-top:9px; text-align:center">@item.DistID</td>
+                <td style="padding-top:9px; text-align:center">@item.wareHouse</td>
+                <td style="padding-top:9px; text-align:center">@item.ITSTNO</td>
+                <td style="text-align:center; padding-top:9px">@item.productCode</td>
+}
+else
+{
+                <td style="padding-top:9px; text-align:center; color:dodgerblue">@item.DistID</td>
+                <td style="padding-top:9px; text-align:center; color:dodgerblue">@item.wareHouse</td>
+                <td style="padding-top:9px; text-align:center; color:dodgerblue" title="Added to list">@item.ITSTNO</td>
+                <td style="padding-top:9px; text-align:center; color:dodgerblue">@item.productCode</td>
+}
+                        <td style="padding-top:9px; color:cadetblue">@item.prodDesc</td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px">
+                            @if (item.PrimQty == 0)
+            {<span style="color:white">.</span> }
+else
+{ <span>@item.PrimQty</span>}
+                        </td>
+                        <td style="text-align:right">
+                            @if (item.lckdc == true)
+    {
+                        <input type="number" class="accInput" id="@item.tb01" data-id="@item.ITSTNO" value="@item.actQtyPUM" style="text-align:right; max-width:54px; border:none; background-color:white !important" disabled />
+}
+else
+if (item.newArt == 1 && item.actQtyPUM == 0 && item.actQtySUM == 0)
+{
+                        <input type="number" class="accInput" id="@item.tb01" data-id="@item.ITSTNO" value="@item.actQtyPUM" style="text-align:right; max-width:54px; border:none" />
+}
+
+
+else
+if (item.upCnt >= 2)
+{
+if (item.actQtyPUM == 0)
+{
+                        <span style="color:white" id="@item.tb01" data-id="@item.ITSTNO" value="0">.</span>
+}
+else
+{
+                        <input type="number" class="accInput" id="@item.tb01" data-id="@item.ITSTNO" value="@item.actQtyPUM" style="text-align:right; max-width:54px; border:none; background-color:white !important" disabled />
+}
+}
+else
+{
+                        <input type="number" class="accInput" id="@item.tb01" data-id="@item.ITSTNO" value="@item.actQtyPUM" style="text-align:right; max-width:54px; border:none" />
+}
+                        </td>
+                        <td style="text-align:center; padding-top:9px; color:#0076A8">@item.primUM</td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px">
+                            @if (item.SecQty == 0)
+            {<span style="color:white">.</span> }
+else
+{ <span>@item.SecQty</span>}
+                        </td>
+                        <td style="text-align:right">
+                            @if (item.lckdc == true)
+    {
+                            <input type="number" class="accInput" id="@item.tb02" data-id="@item.ITSTNO" value="@item.actQtySUM" style="text-align:right; max-width:54px; border:none; background-color:white !important" disabled />
+    }
+    else if (item.newArt == 1 && item.actQtyPUM == 0 && item.actQtySUM == 0 && item.packingFactor > 1)
+    {
+                        <input type="number" class="accInput" id="@item.tb02" data-id="@item.ITSTNO" value="@item.actQtyPUM" style="text-align:right; max-width:54px; border:none" />
+}
+else
+if (item.upCnt >= 2)
+{
+if (item.actQtySUM == 0)
+{
+                        <span style="color:white" id="@item.tb02" data-id="@item.ITSTNO" value="0">.</span>
+}
+else
+{
+                        <input type="number" class="accInput" id="@item.tb02" data-id="@item.ITSTNO" value="@item.actQtySUM" style="text-align:right; max-width:54px; border:none; background-color:white !important" disabled />
+}
+
+}
+else
+{
+if (item.packingFactor > 1)
+{
+                        <input type="number" class="accInput" id="@item.tb02" data-id="@item.ITSTNO" value="@item.actQtySUM" style="text-align:right; max-width:54px; border:none" />
+}
+else
+{
+                        <span style="color:white" id="@item.tb02" data-id="@item.ITSTNO" value="0">.</span>
+}
+}
+                        </td>
+                        <td style="text-align:center; padding-top:9px; color:#0076A8">@item.secUM</td>
+                        <td style="text-align:right; padding-top:9px; color:mediumpurple; padding-right:16px">
+                            @if (item.packingFactor == 1)
+            {<span id="@item.tb09" data-id="1" style="color:white">.</span> }
+else
+{ <span id="@item.tb09" data-id="@item.packingFactor">@item.packingFactor</span>}
+                        </td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px">
+                            @if (item.totLowQty == 0)
+            {
+                <span id="@item.tb03" data-id="0" style="color:white">.</span>
+}
+else
+{
+                <span id="@item.tb03" data-id="@item.totLowQty">@item.totLowQty</span>
+}
+                        </td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px"><span id="@item.tb04" data-id="@item.ITSTNO"></span></td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px"><span id="@item.tb05" data-id="@item.ITSTNO"></span></td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px"><span id="@item.tb06" data-id="@item.ITSTNO"></span></td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px"><span id="@item.tb07" data-id="@item.ITSTNO"></span></td>
+                        <td style="text-align:right; padding-top:9px; padding-right:16px"><span style="color:forestgreen">$ </span><span id="@item.tb08" data-id="@item.AvgPrice"> @item.AvgPrice</span></td>
+
+                    </tr>
+}
+                                <tr style="border-top:solid; border-top-width:2px; border-top-color:lightgray">
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td><span style="color:white">.</span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span style="font-size:12px; color:cadetblue">Total:</span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span id="totLQty"></span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span id="actLQty"></span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span id="varLQty"></span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span id="cstLQty"></span></td>
+                                    <td style="text-align:right; padding-top:11px; padding-right:16px"><span id="vcsLQty"></span></td>
+                                    <td><span style="color:white">.</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr />
+                    <div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "comboName"), new { id = "drop3", @class = "form-control", @style = "font-size:13px" })
+                        </div>
+                    @if (ViewBag.lckdc == true)
+{
+                    <button type="submit" class="btn btn-default"><i class="fa fa-plus" style="padding-right:3px; color:forestgreen"></i><span style="font-size:12px; color:#0076A8"> Add Product to List</span></button>
+                    }
+                    else
+                    {
+                    <button type="submit" class="btn btn-default btnNewDoc" id="btnNewDoc"><i class="fa fa-plus" style="padding-right:3px; color:forestgreen"></i><span style="font-size:12px; color:#0076A8"> Add Product to List</span></button>
+                    }
+
+                        
+
+                    </div>
+                    <hr />
+
+                </div>
+            </div>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+        <span class="resLive" id="resLive"><span id="ast001" style="padding-right:16px"></span><span id="ast002"></span></span>
+
+    </div>
+    <div class="loadimage">
+        <div class="loadmeRect">
+            <div class="loadmeRectChild loadmeRect1"></div>
+            <div class="loadmeRectChild loadmeRect2"></div>
+            <div class="loadmeRectChild loadmeRect3"></div>
+            <div class="loadmeRectChild loadmeRect4"></div>
+            <div class="loadmeRectChild loadmeRect5"></div>
+        </div>
+        @*<div class="loadme-mask"></div>*@
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+
+    <!-- iCheck -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var itstnos = @Html.Raw(Json.Encode(Model));
+            $.each(itstnos, function (ID, itstnos) {
+                var id1 = itstnos.ITSTNO;
+                changeVal(id1);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).on('change', '.accInput', function () {
+            var id1 = $(this).data("id");
+            changeVal(id1);
+        });
+    </script>
+    <script type="text/javascript">
+        function changeVal(id1) {
+            var it1 = "#T" + id1; var item1 = $(it1).val();
+            var it2 = "#X" + id1; var item2 = $(it2).val();
+            var fc1 = "#G" + id1; var fac1 = $(fc1).data("id");
+            var tb03 = "#A" + id1; var tab03 = $(tb03).data("id");
+            var tb04 = "#B" + id1;
+            var tb05 = "#C" + id1;
+            var tb06 = "#D" + id1;
+            var tb07 = "#E" + id1;
+            var tb08 = "#F" + id1; var tab08 = $(tb08).data("id");
+            if (item1 != 0 && item2 == 0) {
+                var item3 = (parseInt(item1) * fac1);
+                var item4 = parseInt(item1) * fac1 * tab08;
+                var item5 = item3 - tab03;
+                var item7 = item5 * tab08;
+                $(tb04).val(item3).html(item3);
+                if (item5 == 0) {
+                    $(tb05).val(item5).html("");
+                } else if (item5 < 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "#c83349");
+                } else if (item5 > 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "forestgreen");
+                }
+                $(tb06).val(item4).html("$ " + item4.toFixed(2));
+                if (item7 == 0) {
+                    $(tb07).val(item7).html("");
+                } else
+                    if (item7 < 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "#c83349");
+                    } else if (item7 > 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "forestgreen");
+                    }
+            } else if (item1 == 0 && item2 != 0) {
+                var item3 = parseInt(item2);
+                var item4 = parseInt(item2) * tab08;
+                var item5 = item3 - tab03;
+                var item7 = item5 * tab08;
+                $(tb04).val(item3).html(item3);
+                if (item5 == 0) {
+                    $(tb05).val(item5).html("");
+                } else if (item5 < 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "#c83349");
+                } else if (item5 > 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "forestgreen");
+                }
+                $(tb06).val(item4).html("$ " + item4.toFixed(2));
+                if (item7 == 0) {
+                    $(tb07).val(item7).html("");
+                } else
+                    if (item7 < 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "#c83349");
+                    } else if (item7 > 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "forestgreen");
+                    }
+            } else if (item1 != 0 && item2 != 0) {
+                var item3 = (parseInt(item1) * fac1) + parseInt(item2);
+                var item4 = ((parseInt(item1) * fac1) + parseInt(item2)) * tab08;
+                var item5 = item3 - tab03;
+                var item7 = item5 * tab08;
+                $(tb04).val(item3).html(item3);
+                if (item5 == 0) {
+                    $(tb05).val(item5).html("");
+                } else if (item5 < 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "#c83349");
+                } else if (item5 > 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "forestgreen");
+                }
+                $(tb06).val(item4).html("$ " + item4.toFixed(2));
+                if (item7 == 0) {
+                    $(tb07).val(item7).html("");
+                } else
+                    if (item7 < 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "red");
+                    } else if (item7 > 0) {
+                        $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                        $(tb07).css("color", "forestgreen");
+                    }
+            } else if (item1 == 0 && item2 == 0) {
+                var item3 = 0
+                var item5 = 0 - tab03;
+                var item7 = item5 * tab08;
+                $(tb04).val(item3).html("");
+                if (item5 == 0) {
+                    $(tb05).val(item5).html("");
+                } else if (item5 < 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "#eeac99");
+                } else if (item5 > 0) {
+                    $(tb05).val(item5).html(item5);
+                    $(tb05).css("color", "forestgreen");
+                }
+                $(tb06).val(0).html("");
+                $(tb07).val(item7).html("$ " + item7.toFixed(2));
+                $(tb07).css("color", "#eeac99");
+            }
+            getTotals();
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multitables').DataTable({
+                "order": [[2, "asc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btnSave02").on('click', function () {
+                var btn = 2;
+                post1064001(btn);
+            });
+            $(".btnSave03").on('click', function () {
+                var btn = 3;
+                post1064001(btn);
+            });
+            function post1064001(btn) {
+                $("head").addClass("loadDiv");
+                $('.loadimage').show();
+                var docID = '@ViewBag.docID';
+                var edusid = @ViewBag.userID;
+                var data = '';
+                data += docID;
+                //Iterate all td's in third column
+                $('#dt1 tbody tr td:nth-child(4)').each(function () {
+                    var id1 = $(this).text();
+                    if (id1 == ".") {
+                        return;
+                    }
+                    var it1 = "#T" + id1; var itm1 = $(it1).val();
+                    if (itm1 == 0) { var item1 = 0; } else { var item1 = itm1; }
+                    var it2 = "#X" + id1; var itm2 = $(it2).val();
+                    if (itm2 == 0) { var item2 = 0; } else { var item2 = itm2; }
+                    data += "," + id1 + "," + item1 + "," + item2 + "," + edusid;
+                });
+                console.log(data);
+                $.ajax({
+                    type: "POST",
+                    data: { data: data },
+                    url: '/uhssscyccntm/Save',
+                    dataType: "JSON",
+                    success: function (ddID) {
+                        if (ddID == 1) {
+                            if (btn == 2) {
+                                window.location = "/uhssscyccntm/Index?projectID=14&taskOrderID=64&Int1=1";
+                            } else if (btn == 3) {
+                                location.reload();
+                            }
+                        }
+                        else {
+                            alert("Error: Document update failed!");
+                        }
+                    }
+                });
+
+            };
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            adar1064001();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".btnNewDoc").on('click', function () {
+                var itstno = $("#drop3").val();
+                if (itstno == 0) {
+                    alert("Please select product from drop-down list!");
+                } else {
+                    $.ajax({
+                        url: '/uhssscyccntm/addNewIstno',
+                        type: "GET",
+                        dataType: "JSON",
+                        data: { ID: itstno },
+                        success: function (datatable) {
+                            
+                            $.each(datatable, function (ID, datatable) {
+                                console.log(datatable);
+                                if (datatable.packingFactor > 1) {
+                                    
+                                    var stringa = "<tr id='H" + itstno + "'><td style='padding-top:11px; text-align:center'><a href='#' onclick='delList(" + itstno + ")' class='delList' data-id='" + itstno + "' style='color:red'><i class='fa fa-trash-o' style='transform:scale(1.2)' title='delete'></i></a></td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + @ViewBag.distid + "</td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + '@ViewBag.whs' + "</td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + itstno + "</td><td style='text-align:center; padding-top:11px; color:dodgerblue'>" + datatable.productCode + "</td><td style='padding-top:11px; color:cadetblue'>" + datatable.prodDesc + "</td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:white'>.</span></td><td style='text-align:right'><input type='number' class='accInput' id='T" + itstno + "' data-id='" + itstno + "' value='0' style='text-align:right; max-width:54px; border:none' /></td><td style='text-align:center; padding-top:11px; color:#0076A8'>" + datatable.primUM + "</td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:white'>.</span></td><td style='text-align:right'><input type='number' class='accInput' id='X" + itstno + "' value='0' data-id='" + itstno + "' style='text-align:right; max-width:54px; border:none' /></td><td style='text-align:center; padding-top:11px; color:#0076A8'>" + datatable.secUM + "</td><td style='text-align:right; padding-top:11px; color:mediumpurple; padding-right:16px'><span id='G" + itstno + "' data-id='" + datatable.packingFactor + "'>" + datatable.packingFactor + "</span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='A" + itstno + "' value='0'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='B" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='C" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='D" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='E" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:forestgreen'>$ </span><span id='F" + itstno + "' data-id='" + datatable.AvgPrice + "'>" + datatable.AvgPrice + "</span></td></tr>";
+
+                                } else {
+                                    
+                                    var stringa = "<tr id='H" + itstno + "'><td style='padding-top:11px; text-align:center'><a href='#' onclick='delList(" + itstno + ")' class='delList' data-id='" + itstno + "' style='color:red'><i class='fa fa-trash-o' style='transform:scale(1.2)' title='delete'></i></a></td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + @ViewBag.distid + "</td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + '@ViewBag.whs' + "</td><td style='padding-top:11px; text-align:center; color:dodgerblue'>" + itstno + "</td><td style='text-align:center; padding-top:11px; color:dodgerblue'>" + datatable.productCode + "</td><td style='padding-top:11px; color:cadetblue'>" + datatable.prodDesc + "</td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:white'>.</span></td><td style='text-align:right'><input type='number' class='accInput' id='T" + itstno + "' data-id='" + itstno + "' value='0' style='text-align:right; max-width:54px; border:none' /></td><td style='text-align:center; padding-top:11px; color:#0076A8'>" + datatable.primUM + "</td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:white'>.</span></td><td style='text-align:right'><span id='X" + itstno + "' data-id='" + itstno + "' value='0' style='color:white'>.</span></td><td style='text-align:center; padding-top:11px; color:#0076A8'>" + datatable.secUM + "</td><td style='text-align:right; padding-top:11px; color:mediumpurple; padding-right:16px'><span id='G" + itstno + "' data-id='" + datatable.packingFactor + "' style='color:white'>.</span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='A" + itstno + "' value='0'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='B" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='C" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='D" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span id='E" + itstno + "' data-id='" + itstno + "'></span></td><td style='text-align:right; padding-top:11px; padding-right:16px'><span style='color:forestgreen'>$ </span><span id='F" + itstno + "' data-id='" + datatable.AvgPrice + "'>" + datatable.AvgPrice + "</span></td></tr>";
+                                }
+
+                                $("#dt1 tbody").append(stringa);
+                            });
+                        }
+                    });
+                }
+                adar1064001();
+                getTotals();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function adar1064001() {
+            $.ajax({
+                url: '/uhssscyccntm/Filldd2',
+                type: "GET",
+                dataType: "JSON",
+                data: { data: 1 },
+                success: function (datatable) {
+                    $("#drop3").html(""); // clear before appending new list
+                    $.each(datatable, function (ID, datatable) {
+                        var dID = datatable.ID
+                        var cnt = 0;
+                        $('#dt1 tbody tr td:nth-child(4)').each(function () {
+                            var id1 = $(this).text();
+                            if (id1 == ".") {
+                                return;
+                            }
+                            if (id1 == dID) {
+                                cnt = cnt + 1;
+                            }
+                        });
+                        if (cnt < 1) {
+                            $("#drop3").append(
+                                $('<option></option>').val(datatable.ID).html(datatable.comboName));
+                        }
+                    });
+                }
+            });
+        };
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".delProd").on('click', function (e) {
+                e.preventDefault();
+                var id1 = $(this).data("id");
+                $.confirm({
+                    title: 'Delete!',
+                    content: 'Are you sure?',
+                    buttons: {
+                        confirm: function () {
+                            $.ajax({
+                                url: '/uhssscyccntm/DeleteSingle',
+                                type: "GET",
+                                dataType: "JSON",
+                                data: { IDc: id1 },
+                                success: function (itstno) {
+                                    deleteFromList(itstno);
+                                    adar1064001();
+                                    getTotals();
+                                }
+                            });
+                        },
+                        cancel: function () {
+                        }
+                        //,
+                        //somethingElse: {
+                        //    text: 'Something else',
+                        //    btnClass: 'btn-blue',
+                        //    keys: ['enter', 'shift'],
+                        //    action: function(){
+                        //        $.alert('Something else?');
+                        //    }
+                        //}
+                    }
+                })
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".delList").on('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function delList(itstno) {
+            $.confirm({
+                title: 'Delete!',
+                content: 'Are you sure?',
+                buttons: {
+                    confirm: function () {
+                        deleteFromList(itstno);
+                    },
+                    cancel: function () {
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        }
+        function deleteFromList(itstno) {
+            var item = "#H" + itstno;
+            $(item).remove();
+            getTotals();
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getTotals();
+        });
+    </script>
+    <script type="text/javascript">
+        function getTotals() {
+            var totLQty = 0;
+            var actLQty = 0;
+            var varLQty = 0;
+            var cstLQty = 0;
+            var vcsLQty = 0;
+            $('#dt1 tbody tr td:nth-child(4)').each(function () {
+                var id1 = $(this).text();
+                if (id1 == ".") {
+                    return;
+                } else {
+                    var ot1 = "#A" + id1;
+                    var ot2 = "#B" + id1;
+                    var ot3 = "#C" + id1;
+                    var ot4 = "#D" + id1;
+                    var ot5 = "#E" + id1;
+                    var sn1 = $(ot1).data("id"); var sn1b = parseFloat(sn1); totLQty = totLQty + sn1b;
+                    var sn2 = $(ot2).val(); var sn2b = parseFloat(sn2); actLQty = actLQty + sn2b;
+                    var sn3 = $(ot3).val(); var sn3b = parseFloat(sn3); varLQty = varLQty + sn3b;
+                    var sn4 = $(ot4).val(); var sn4b = parseFloat(sn4); cstLQty = cstLQty + sn4b;
+                    var sn5 = $(ot5).val(); var sn5b = parseFloat(sn5); vcsLQty = vcsLQty + sn5b;
+                }
+            });
+            $("#totLQty").val(totLQty).html(totLQty);
+            $("#actLQty").val(actLQty).html(actLQty);
+            $("#varLQty").val(varLQty).html(varLQty); if (varLQty < 0) { $("#varLQty").css("color", "red"); } else if (varLQty == 0) { $("#varLQty").css("color", "white"); } else if (varLQty > 0) { $("#varLQty").css("color", "forestgreen"); }
+            $("#cstLQty").val(cstLQty).html("$ " + cstLQty.toFixed(2)); if (cstLQty < 0) { $("#cstLQty").css("color", "red"); } else if (cstLQty == 0) { $("#cstLQty").css("color", "white"); } else if (cstLQty > 0) { $("#cstLQty").css("color", "black"); }
+            $("#vcsLQty").val(vcsLQty).html("$ " + vcsLQty.toFixed(2)); if (vcsLQty < 0) { $("#vcsLQty").css("color", "red"); } else if (vcsLQty == 0) { $("#vcsLQty").css("color", "white"); } else if (vcsLQty > 0) { $("#vcsLQty").css("color", "forestgreen"); }
+        }
+    </script>
+    <script type="text/javascript">
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+                document.getElementById("resLive").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+                document.getElementById("resLive").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+        function topFunctionb() {
+            $('html, body').animate({
+                scrollTop: $("#contentdiv").offset().top
+            }, 700);
+        }
+    </script>
+
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        })
+
+        // popover demo
+        $("[data-toggle=popover]").popover()
+    </script>
+
+
+</body>
+</html>
