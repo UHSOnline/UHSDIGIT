@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Agility: Inventory Mapping</title>
+    <title>Agiliti: Inventory Mapping</title>
     <link href="~/css/w3.css" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
@@ -197,14 +197,6 @@
                                             <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
                                             <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                                <hr />
-                                <table>
-                                    <thead>
-
-                                    </thead>
-                                    <tbody>
 
                                         <tr>
                                             <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
@@ -224,7 +216,8 @@
                                         </tr>
                                     </tbody>
                                 </table>
-
+                                <br />
+                                <button class="btn btn-default col-lg-12" style="min-height:42px" onclick="PopupCenterDualb('@ViewBag.docID')"><span style="color:#0076A8">Document </span><span style="color:#F69240"> Overview</span></button>
 
 
                             </div>
@@ -425,6 +418,27 @@
             var url = '/aglinvMap/equipManuf?ID=' + a;
             var w = 1640; var h = 736;
             var title = 'Inventory Mapping';
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function PopupCenterDualb(a) {
+            var url = '/aglinvMap/docOverview?ID=' + a;
+            var w = 1086; var h = 640;
+            var title = 'Inventory Mapping: Document Overview';
             // Fixes dual-screen position Most browsers Firefox
             var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
             var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
@@ -724,7 +738,7 @@
                             $(dpc).val(dpdg);
                             var dpch = $('option:selected', dpc).text();
                             $(txc).val(dpch).html(dpch).data("id", dpdg);
-                            $(txd).val(dpdh).html(dpdh).data("id", dpdg);                            
+                            $(txd).val(dpdh).html(dpdh).data("id", dpdg);
                         }
             $(txm).val("").html("");
         };
@@ -872,12 +886,12 @@
         $(document).on('click', '.btnComplete', function (e) {
             e.preventDefault();
             var b = $(this).data("id");
-            var g = $(this).attr("id").replace("bt_", ""); var ga = parseInt(g);            
+            var g = $(this).attr("id").replace("bt_", ""); var ga = parseInt(g);
             var docID = '@ViewBag.docID';
-            var dpa = "#dpa_" + b; 
-            var dpb = "#dpb_" + b; 
-            var dpc = "#dpc_" + b; 
-            var dpd = "#dpd_" + b; 
+            var dpa = "#dpa_" + b;
+            var dpb = "#dpb_" + b;
+            var dpc = "#dpc_" + b;
+            var dpd = "#dpd_" + b;
             var txa = "#txa_" + b; var txaf = $(txa).data("id"); var txav = $(txa).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txb = "#txb_" + b; var txbf = $(txb).data("id"); var txbv = $(txb).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txc = "#txc_" + b; var txcf = $(txc).data("id"); var txcv = $(txc).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
@@ -925,7 +939,7 @@
                         }
                     }
                 });
-            }   
+            }
         });
     </script>
 </body>

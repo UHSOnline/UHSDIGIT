@@ -305,9 +305,9 @@ namespace TRIZMA.Controllers
                 List<AGLINVMDL1pgDb> data02 = new List<AGLINVMDL1pgDb>();
                 foreach (var item in pgnr)
                 {
-                    var dta = opa.AGLINVMDL1Dbs.Where(s => s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == false).Count();
-                    var dtb = opa.AGLINVMDL1Dbs.Where(s => s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == true).Count();
-                    var dtc = opa.AGLINVMDL1Dbs.Where(s => s.impTypeID == item.impTypeID && s.matchConfrm == false).Count();
+                    var dta = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == false).Count();
+                    var dtb = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == true).Count();
+                    var dtc = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == false).Count();
 
                     AGLINVMDL1pgDb List1 = new AGLINVMDL1pgDb();
                     List1.Device_Category = item.Device_Category;            
@@ -665,6 +665,63 @@ namespace TRIZMA.Controllers
             return Json(data, JsonRequestBehavior.AllowGet);
 
         }
+
+        public ActionResult docOverview(string ID)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            {
+                var lista = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).Select(s => new { Device_Category = s.Device_Category, impTypeID = s.impTypeID }).Distinct().ToList();
+                List<AGLINVMDL1pgDb> data02 = new List<AGLINVMDL1pgDb>();
+                foreach (var item in lista)
+                {
+                    var dta = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == false).Count();
+                    var dtb = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == true).Count();
+                    var dtc = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == false).Count();
+
+                    AGLINVMDL1pgDb List1 = new AGLINVMDL1pgDb();
+                    List1.Device_Category = item.Device_Category;
+                    List1.impTypeID = item.impTypeID;
+                    List1.cnta = dta;
+                    List1.cntb = dtb;
+                    List1.cntc = dtc;
+                    data02.Add(List1);
+                }
+
+                ViewBag.accountID = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctid).First();
+                ViewBag.account = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctName).First();
+                ViewBag.date = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.docDate).First();
+                ViewBag.docID = ID;
+                ViewBag.matccon = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.matchConfrm == true && s.manualInput == false).Count();
+                ViewBag.matcnew = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.matchConfrm == true && s.manualInput == true).Count();
+                ViewBag.matcnot = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.matchConfrm == false).Count();
+                ViewBag.data02 = data02;
+
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+        }
+
 
         public ActionResult Delete(string IDc)
         {

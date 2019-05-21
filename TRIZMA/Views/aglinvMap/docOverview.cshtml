@@ -1,0 +1,359 @@
+﻿
+@{
+    Layout = null;
+}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Agiliti: Customer Inventory Mapping</title>
+        <link href="~/css/w3.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="~/css/bootstrap.min.css" rel="stylesheet">
+        <!-- MetisMenu CSS -->
+        <link href="~/css/metisMenu.min.css" rel="stylesheet">
+        <!-- DataTables CSS -->
+        <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+        <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+        <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+        <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+        <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+        <!-- Timeline CSS -->
+        <link href="~/css/timeline.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="~/css/startmin.css" rel="stylesheet">
+        <!-- Morris Charts CSS -->
+        @*<link href="~/css/morris.css" rel="stylesheet">*@
+        <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+        <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+        <!-- Custom Fonts -->
+        <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+        <link rel="stylesheet" href="~/css/jquery-ui.css">
+        <link rel="stylesheet" href="~/css/leaflet.css" />
+
+        <style>
+            footer {
+                display: none;
+            }
+
+            .buttonb {
+                margin: 0 auto;
+                font-size: 2.0rem;
+                padding: 1.25rem 2.5rem;
+                display: block;
+                background-color: #ffffff;
+                border: 1px solid;
+                border-color: #009ac9;
+                color: #009ac9;
+                font-weight: bold;
+                min-height: 200px;
+                min-width: 220px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                -webkit-transition: all 0.3s ease-in-out;
+                -moz-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .buttonb:hover {
+                    background-color: #009ac9;
+                    color: #ffffff;
+                    border-color: #009ac9;
+                }
+
+            .responsiveimg {
+                width: 100%;
+                height: auto;
+            }
+
+            .startbtn {
+                display: none;
+            }
+
+            .loadDiv {
+                display: block;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 0.5;
+                z-index: 6000;
+                text-align: center;
+            }
+        </style>
+    </head><!--/head-->
+    <body id="home" class="homepage">
+
+
+        <div class="lckbckscr">
+
+            <div id="wrapper">
+
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <h4 class="page-header" style="color:#0076A8">
+                                Document Overview:
+                                <span class="pull-right">
+                                    <span style="color:#F69240; font-size:13px"> DocID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.docID</span>
+                                    <span style="color:#F69240; font-size:13px"> AccountID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.accountID</span>
+                                    <span style="color:#F69240; font-size:13px"> Customer Name: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.account</span>
+                                    <span style="color:#F69240; font-size:13px"> Date: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.date</span>
+                                </span>
+                            </h4>
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="MyPopup" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title">
+                                        Equipment Model Info:
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <thead>
+
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Manufacturer:</span></td>
+                                                <td><span id="modLnA" style="color:#0076A8">Manufacturer</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Equipment Type:</span></td>
+                                                <td><span id="modLnB" style="color:#0076A8">Equipment Type</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Model Description:</span></td>
+                                                <td><span id="modLnC" style="color:#0076A8">Model Description</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Model:</span></td>
+                                                <td><span id="modLnD" style="color:#0076A8"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Model ID2:</span></td>
+                                                <td><span id="modLnE" style="color:#0076A8">Model ID2</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240">Status:</span></td>
+                                                <td><span id="modLnF" style="color:#0076A8"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-lg-12" align="center">
+                                            <span style="color:#F69240">Model NK:</span>
+                                            <br>
+                                            <span id="modLnG" style="color:#0076A8; font-size:16px"><b></b></span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="button" id="btnClosePopup" value="Close" class="btn btn-danger" data-dismiss="modal" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding-top:74px">
+                                <div class="row">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" style="background-color:white !important">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <i class="fa fa-check fa-3x" style="color:forestgreen"></i>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div class="huge" style="color:#0076A8">@ViewBag.matccon</div>
+                                                    <div style="color:forestgreen">Match Confirmed!</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" style="background-color:white !important">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <i class="fa fa-pencil-square-o fa-3x" style="color:forestgreen"></i>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div class="huge" style="color:#0076A8">@ViewBag.matcnew</div>
+                                                    <div style="color:forestgreen">New Models!</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" style="background-color:white !important">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <i class="fa fa-close fa-3x" style="color:lightpink"></i>
+                                                </div>
+                                                <div class="col-xs-9 text-right">
+                                                    <div class="huge" style="color:#0076A8">@ViewBag.matcnot</div>
+                                                    <div style="color:red">Not Matched!</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" style="padding-left:28px">
+                                <div class="row">
+                                    <table class="data table table-responsive" id="dt1">
+                                        <thead>
+                                            <tr style="color:#0076A8; font-size:13px">
+                                                <th>Device Category</th>
+                                                <th>Matched</th>
+                                                <th>New!</th>
+                                                <th>Not Matched</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <!--/# data handler java script-->
+        <!--/# data handler java script-->
+        <script src="~/js/uhsHome/jquery.js"></script>
+        <script src="~/js/uhsHome/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="~/vendors/iCheck/icheck.min.js"></script>
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="~/js/metisMenu.min.js"></script>
+        <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+        <script src="~/js/uhsHome/mousescroll.js"></script>
+        <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+        <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+        <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+        <script src="~/js/uhsHome/wow.min.js"></script>
+        <!-- Datatables -->
+        <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <!-- iCheck -->
+        <script src="~/js/jquery-confirm.min.js"></script>
+        <script src="~/js/metisMenu.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="~/js/startmin.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var data02 = @Html.Raw(Json.Encode(@ViewBag.data02));
+                var cnta = [];
+                var cntb = [];
+                var cntc = [];
+                $.each(data02, function (ID, data02) {
+                    if (data02.cnta == 0) {
+                        cnta = "";
+                    }
+                    else {
+                        cnta = "<span style='padding-right:8px'><i class='fa fa-check' style='color:forestgreen'></i></span><span>" + data02.cnta + "</span>";
+                    }
+                    if (data02.cntb == 0) {
+                        cntb = "";
+                    }
+                    else {
+                        cntb = "<span style='padding-right:8px'><i class='fa fa-pencil-square-o' style='color:forestgreen'></i></span><span>" + data02.cntb + "</span>";
+                    }
+                    if (data02.cntc == 0) {
+                        cntc = "";
+                    }
+                    else {
+                        cntc = "<span style='padding-right:8px'><i class='fa fa-close' style='color:lightpink'></i></span><span>" + data02.cntc + "</span>";
+                    }
+                    $("#dt1 tbody").append("<tr style='background-color:white; color:#0076A8'><td>" + data02.Device_Category + "</td><td>" + cnta + "</td><td>" + cntb + "</td><td>" + cntc + "</td></tr>");
+
+                });
+                $('#dt1').dataTable({
+                    "order": [[0, "asc"]]
+                });
+            });
+        </script>
+        <script>
+        function getNK(a) {
+            $.ajax({
+                url: '/aglinvMap/getSingle',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a },
+                success: function (resp) {
+                    $.each(resp, function (ID, resp) {
+
+                        $("#modLnA").val("").html("");
+                        $("#modLnB").val("").html("");
+                        $("#modLnC").val("").html("");
+                        $("#modLnD").val("").html("");
+                        $("#modLnE").val("").html("");
+                        $("#modLnF").val("").html("");
+                        $("#modLnG").val("").html("");
+
+                        $("#modLnA").val(resp.manufacturer).html(resp.manufacturer);
+                        $("#modLnB").val(resp.manufacturer).html(resp.equipmentType);
+                        $("#modLnC").val(resp.manufacturer).html(resp.ModelDescription);
+                        $("#modLnD").val(resp.manufacturer).html(resp.modelID1);
+                        $("#modLnE").val(resp.manufacturer).html(resp.ModelID2);
+                        $("#modLnF").val(resp.manufacturer).html(resp.Status);
+                        $("#modLnG").val(resp.manufacturer).html(resp.ModelNK);
+
+                    });
+                }
+            });
+            $("#MyPopup").modal("show");
+            return false;
+
+        };
+
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover()
+        </script>
+
+    </body>
+</html>
