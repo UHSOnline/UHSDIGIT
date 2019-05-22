@@ -253,6 +253,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Models\AGLINVIND1.cs" />
+    <Compile Include="Models\AGLINVMDLDATA.cs" />
     <Compile Include="Models\AGLINVMDL1pg.cs" />
     <Compile Include="Models\AGLINVMDL1sh.cs" />
     <Compile Include="Models\AGLINVMFC2.cs" />
@@ -7968,6 +7969,7 @@
     <Content Include="Views\aglinvMap\equipManuf.cshtml" />
     <Content Include="Views\aglinvMap\editDocument.cshtml" />
     <Content Include="Views\aglinvMap\docOverview.cshtml" />
+    <Content Include="Views\aglinvMap\invCheckUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />

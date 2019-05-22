@@ -176,50 +176,61 @@
                                     <img src="~/images/customers/L_@item.acctImage" class="responsiveimg" />
                                 </div>
                             </div>
-                            <div class="col-lg-4" style="padding-left:32px">
-                                <label style="color:#0076A8; font-size:24px;"><u>@item.acctName</u></label>
-                                <br /><br />
-                                <table>
-                                    <thead>
+                            <div class="col-lg-4">
+                                <div class="row" style="padding-left:32px">
+                                    <label style="color:#0076A8; font-size:24px;"><u>@item.acctName</u></label>
+                                    <br />
+                                    <table>
+                                        <thead>
 
-                                    </thead>
-                                    <tbody>
+                                        </thead>
+                                        <tbody>
 
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Address: </span></td>
-                                            <td><span style="color:#0076A8; font-size:16px;"> @item.acctAddress</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Hours: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctHours</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
-                                        </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Address: </span></td>
+                                                <td><span style="color:#0076A8; font-size:16px;"> @item.acctAddress</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Hours: </span></td>
+                                                <td><span style="color:#0076A8; font-size:14px;"> @item.acctHours</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
+                                                <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
+                                            </tr>
 
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> @item.acctid</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Doc.ID: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> @item.ID</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Date: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> @item.docDate</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Owner: </span></td>
-                                            <td><span style="color:#0076A8; font-size:14px;"> Admin</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <br />
-                                <button class="btn btn-default col-lg-12" style="min-height:42px" onclick="PopupCenterDualb('@ViewBag.docID')"><span style="color:#0076A8">Document </span><span style="color:#F69240"> Overview</span></button>
-
-
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
+                                                <td><span style="color:#0076A8; font-size:14px;"> @item.acctid</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Doc.ID: </span></td>
+                                                <td><span style="color:#0076A8; font-size:14px;"> @item.ID</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Date: </span></td>
+                                                <td><span style="color:#0076A8; font-size:14px;"> @item.docDate</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row" style="padding-left:32px; padding-top:20px">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item" onclick="PopupCenterDualb('@ViewBag.docID')">
+                                            <span style="padding-right:12px"><i class="glyphicon glyphicon-list-alt"></i></span><span style="color:#0076A8">Document </span><span style="color:#F69240"> Overview</span>
+                                            <span class="pull-right text-muted small">
+                                                <em><span style="color:#0076A8">html </span><span style="color:#F69240"> Report</span></em>
+                                            </span>
+                                        </a>
+                                        <a href="#" class="list-group-item" onclick="PopupCenterDualc('@ViewBag.docID')">
+                                            <span style="padding-right:12px"><i class="fa fa-pencil-square-o"></i></span><span style="color:#0076A8">Equipment </span><span style="color:#F69240"> CheckUp</span>
+                                            <span class="pull-right text-muted small">
+                                                <em><span style="color:#0076A8">App </span><span style="color:#F69240"> Module</span></em>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <!-- /.list-group -->
+                                </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="row">
@@ -433,12 +444,29 @@
                 newWindow.focus();
             }
         }
-    </script>
-    <script type="text/javascript">
         function PopupCenterDualb(a) {
             var url = '/aglinvMap/docOverview?ID=' + a;
             var w = 1086; var h = 640;
             var title = 'Inventory Mapping: Document Overview';
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+        function PopupCenterDualc(a) {
+            var url = '/aglinvMap/invCheckUp?IDC=1&ID=' + a;
+            var w = 1386; var h = 828;
+            var title = 'Inventory Mapping: Equipment CheckUp';
             // Fixes dual-screen position Most browsers Firefox
             var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
             var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;

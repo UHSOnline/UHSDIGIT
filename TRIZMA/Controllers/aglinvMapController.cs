@@ -723,6 +723,141 @@ namespace TRIZMA.Controllers
         }
 
 
+        public ActionResult invCheckUp(int IDC, string ID)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+            ViewBag.userID = userIDselectInt;
+            ViewBag.userTypeb = userTypeInt;
+
+            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            {
+                ViewBag.accountID = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctid).First();
+                ViewBag.account = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctName).First();
+                ViewBag.date = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.docDate).First();
+                ViewBag.docID = ID;
+
+                return View();
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+        public ActionResult checkFind(int IDC, string ID, string stra)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            {
+                if(IDC == 11)
+                {
+                    var data = opa.AGLINVMDLDATADbs.Where(s => s.extDocID == ID && s.ModelDescription.Contains(stra))
+                                                   .OrderBy(s => s.ModelDescription)
+                                                   .Select(s => new { ID = s.ID
+                                                                    , DA = s.Device_Category
+                                                                    , MA = s.Model
+                                                                    , TA = s.Device_Category
+                                                                    , FA = s.Manufacturer
+                                                                    , DB = s.ModelDescription
+                                                                    , MB = s.modelID1 + "  (" + s.modelID2 + ")"
+                                                                    , TB = s.equipmentType
+                                                                    , FB = s.manufacturerName
+                                                                    , CH = s.checkUp
+                                                                    } ).ToList();
+
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+                else if(IDC == 12)
+                {
+                    var data = opa.AGLINVMDLDATADbs.Where(s => s.ModelDescription.Contains(stra));
+
+                    return Json(data, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+        }
+        public ActionResult checkSingle(int IDC, string ID)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            {
+
+              
+                    int ddID = 5;
+
+                    return Json(ddID, JsonRequestBehavior.AllowGet);
+                
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+        }
+
+
+
+
+
         public ActionResult Delete(string IDc)
         {
             //System.Diagnostics.Debug.WriteLine(item2);
