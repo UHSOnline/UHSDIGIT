@@ -55,7 +55,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
 
                 ViewBag.custNo = opa.AGLINVIND1Dbs.Select(s => s.acctid).Distinct().Count();
@@ -94,7 +94,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 
                 if (ID == 1)
@@ -153,7 +153,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
 
 
@@ -216,7 +216,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 var resp = opd.appEquipmentModelsDbs.Where(s => s.ModelNK == a).ToList();
                 return Json(resp, JsonRequestBehavior.AllowGet);
@@ -250,7 +250,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 ViewBag.manuNo = opa.AGLINVMFC1Dbs.Where(s => s.extDocID == ID).Count();               
                 ViewBag.modlNo = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).Count();
@@ -405,7 +405,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(CS))
@@ -685,7 +685,7 @@ namespace TRIZMA.Controllers
             var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
             int userTypeInt = userTypeSelect.First();
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 var lista = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).Select(s => new { Device_Category = s.Device_Category, impTypeID = s.impTypeID }).Distinct().ToList();
                 List<AGLINVMDL1pgDb> data02 = new List<AGLINVMDL1pgDb>();
@@ -744,7 +744,7 @@ namespace TRIZMA.Controllers
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
                 ViewBag.accountID = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctid).First();
                 ViewBag.account = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).Select(s => s.acctName).First();
@@ -759,7 +759,7 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
-        public ActionResult checkFind(int IDC, string ID, string stra)
+        public ActionResult checkFind(string ID, string a, string b, string c, string d, string e, string f, string g)
         {
             //System.Diagnostics.Debug.WriteLine(item2);
             string CurrentLoginID = User.Identity.GetUserId().ToString();
@@ -778,37 +778,120 @@ namespace TRIZMA.Controllers
             var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
             int userTypeInt = userTypeSelect.First();
 
-            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
-                if(IDC == 11)
-                {
-                    var data = opa.AGLINVMDLDATADbs.Where(s => s.extDocID == ID && s.ModelDescription.Contains(stra))
-                                                   .OrderBy(s => s.ModelDescription)
-                                                   .Select(s => new { ID = s.ID
-                                                                    , DA = s.Device_Category
-                                                                    , MA = s.Model
-                                                                    , TA = s.Device_Category
-                                                                    , FA = s.Manufacturer
-                                                                    , DB = s.ModelDescription
-                                                                    , MB = s.modelID1 + "  (" + s.modelID2 + ")"
-                                                                    , TB = s.equipmentType
-                                                                    , FB = s.manufacturerName
-                                                                    , CH = s.checkUp
-                                                                    } ).ToList();
 
-                    return Json(data, JsonRequestBehavior.AllowGet);
-                }
-                else if(IDC == 12)
-                {
-                    var data = opa.AGLINVMDLDATADbs.Where(s => s.ModelDescription.Contains(stra));
+                var parta = "select ID, Device_Category, Model, Manufacturer, ModelDescription, modelID1, modelID2, equipmentType, manufacturerName, checkUp, Control_Number, Owner_Department, Scheduling_Department, Serial_Number, SN_Modified, STATUS2, Risk_Group, Asset_Center from AGLINVMDLDATA where extDocID = '" + ID + "'";
+                var partb = "";
+                var seprt = " and ";
 
-                    return Json(data, JsonRequestBehavior.AllowGet);
+                
+               
+                
+                if (a == null || a == "" || a == " ")
+                {
+                    seprt = " and ";
                 }
                 else
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    partb = seprt + "(Model like '%" + a + "%' or modelID1 like '%" + a + "%' or modelID2 like '%" + a + "%')";
+                }
+                
+                if (b == null || b == "" || b == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Device_Category like '%" + b + "%' or ModelDescription like '%" + b + "%')";
+                }
+                
+                if (c == null || c == "" || c == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Manufacturer like '%" + c + "%' or manufacturerName like '%" + c + "%')";
+                }
+                
+                if (d == null || d == "" || d == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Owner_Department like '%" + d + "%')";
+                }
+                
+                if (e == null || e == "" || e == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Scheduling_Department like '%" + e + "%')";
+                }
+                
+                if (f == null || f == "" || f == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Control_Number like '%" + f + "%')";
+                }
+                
+                if (g == null || g == "" || g == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Serial_Number like '%" + g + "%' or SN_Modified like '%" + g + "%')";
                 }
 
+                string sqlStatment = parta + partb;
+                string constr = System.Configuration.ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constr))
+                {
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(sqlStatment, con))
+                    {
+                        cmd.Connection.Open();
+                        System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader();
+                        List<AGLINVMDLDATApg> data = new List<AGLINVMDLDATApg>();
+                        while (reader.Read())
+                        {
+                            AGLINVMDLDATApg fill = new AGLINVMDLDATApg();
+                            fill.ID = reader.GetValue(0).ToString();
+                            fill.DA = reader.GetValue(1).ToString();
+                            fill.MA = reader.GetValue(2).ToString();
+                            fill.TA = reader.GetValue(1).ToString();
+                            fill.FA = reader.GetValue(3).ToString();
+                            fill.DB = reader.GetValue(4).ToString();
+                            fill.MB = reader.GetValue(5).ToString() + "  (" + reader.GetValue(6).ToString() + ")";
+                            fill.TB = reader.GetValue(7).ToString();
+                            fill.FB = reader.GetValue(8).ToString();
+                            fill.CH = Convert.ToBoolean(reader.GetValue(9));
+                            fill.RA = reader.GetValue(10).ToString();
+                            fill.RB = reader.GetValue(11).ToString();
+                            fill.RC = reader.GetValue(12).ToString();
+                            fill.RD = reader.GetValue(13).ToString();
+                            fill.RE = reader.GetValue(14).ToString();
+                            fill.RF = reader.GetValue(15).ToString();
+                            fill.RG = reader.GetValue(16).ToString();
+                            fill.RH = reader.GetValue(17).ToString();
+                            
+                            data.Add(fill);
+                        }
+
+                        reader.Close();
+                        cmd.Connection.Close();
+
+                        //ViewBag.data = data.ToList();
+                        return Json(data.ToList(), JsonRequestBehavior.AllowGet);
+                    }
+                }
 
 
             }
@@ -816,9 +899,8 @@ namespace TRIZMA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
         }
-        public ActionResult checkSingle(int IDC, string ID)
+        public ActionResult checkSingle(int IDC, string IDA)
         {
             //System.Diagnostics.Debug.WriteLine(item2);
             string CurrentLoginID = User.Identity.GetUserId().ToString();
@@ -839,13 +921,29 @@ namespace TRIZMA.Controllers
 
             if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
             {
+                string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(CS))
+                {
+                    SqlCommand cmd = new SqlCommand("procAGLINVCHK", con);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-              
-                    int ddID = 5;
+                    cmd.Parameters.AddWithValue("@IDC", IDC);
+                    cmd.Parameters.AddWithValue("@IDA", IDA);
+
+                    SqlParameter outputParameter = new SqlParameter();
+                    outputParameter.ParameterName = "@ID";
+                    outputParameter.SqlDbType = System.Data.SqlDbType.Int;
+                    outputParameter.Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParameter);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+
+                    string conID = outputParameter.Value.ToString();
+                    int ddID = Int32.Parse(conID);
 
                     return Json(ddID, JsonRequestBehavior.AllowGet);
-                
-
+                }
             }
             else
             {
@@ -853,8 +951,70 @@ namespace TRIZMA.Controllers
             }
 
         }
+        
+        public ActionResult searchUnit(int id, string ida, string idb, string idc, string idd, string ide, string idf, string idg)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+            ViewBag.userID = userIDselectInt;
+            ViewBag.userTypeb = userTypeInt;
+
+            if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66))
+            {
 
 
+                //if (ida == 1)
+                //{
+                //    var resp = opd.appEquipmentModelsDbs.Where(s => s.modelID1.Contains(idb) || s.ModelID2.Contains(idb)).OrderBy(s => s.ModelDescription).ToList();
+                //    return Json(resp, JsonRequestBehavior.AllowGet);
+                //}
+                //else 
+                //if (ida == 2)
+                //{
+                //    var resp = opd.appEquipmentModelsDbs.Where(s => s.ModelDescription.Contains(idb)).OrderBy(s => s.ModelDescription).ToList();
+                //    return Json(resp, JsonRequestBehavior.AllowGet);
+                //}
+                //else
+                //{
+                //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //}
+                if ((ida == null || ida == "" || ida == " ") && (idb != null && idb != "" && idb != " "))
+                {
+                    var resp = opd.appEquipmentModelsDbs.Where(s => s.ModelDescription.Contains(idb)).OrderBy(s => s.ModelDescription).ToList();
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else
+                    if ((idb == null || idb == "" || idb == " ") && (ida != null && ida != "" && ida != " "))
+                {
+                    var resp = opd.appEquipmentModelsDbs.Where(s => s.modelID1.Contains(ida) || s.ModelID2.Contains(ida)).OrderBy(s => s.ModelDescription).ToList();
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    var resp = opd.appEquipmentModelsDbs.Where(s => (s.modelID1.Contains(ida) || s.ModelID2.Contains(ida)) && s.ModelDescription.Contains(idb)).OrderBy(s => s.ModelDescription).ToList();
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
 
 
 

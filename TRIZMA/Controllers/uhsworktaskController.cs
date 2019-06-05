@@ -448,7 +448,7 @@ namespace TRIZMA.Controllers
             return View();
         }
 
-        public ActionResult athreeform(string ID, int IDK)
+        public ActionResult athreeform(string ID, int IDK, int IDF)
         {
             //System.Diagnostics.Debug.WriteLine(item2);
             string CurrentLoginID = User.Identity.GetUserId().ToString();
@@ -623,17 +623,23 @@ namespace TRIZMA.Controllers
 
                     ViewBag.mnth = data1.Select(s => s.yyyymm).First();
                     ViewBag.crdate = data1.Select(s => s.crdate).First();
+                    ViewBag.datest = data1.Select(s => s.datest).First();
+                    ViewBag.dateex = data1.Select(s => s.dateex).First();
+
                     ViewBag.comboDistrict = data1.Select(s => s.distnm).First();
                     ViewBag.IDK = IDK;
-                    ViewBag.distid = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.distid).First();
+                    ViewBag.comboDistrict = data1.Select(s => s.distnm).First();
+
                     ViewBag.docmid = null;
                     ViewBag.dimgid = 0;
+
                     ViewBag.userID = userIDselectInt;
                     ViewBag.userTypeID = userTypeInt;
                     ViewBag.docID = ID;
                     ViewBag.svctr = 1;
                     ViewBag.stepTable = opb.UHSWOP01vDbs.Where(c => c.IDT == ID);
                     ViewBag.cntSteps = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.tskcnt).First();
+                    ViewBag.IDF = IDF;
                     return View();
                 }
                 else

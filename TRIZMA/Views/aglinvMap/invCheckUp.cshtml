@@ -116,115 +116,49 @@
                                 <span style="color:#F69240; font-size:13px"> Customer Name: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.account</span>
                                 <span style="color:#F69240; font-size:13px"> Date: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.date</span>
                             </span>
-                        </h4>    
+                        </h4>
                     </div>
                 </div>
-                <div id="MyPopup" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">
-                                    &times;
-                                </button>
-                                <h4 class="modal-title">
-                                    Equipment Model Info:
-                                </h4>
-                            </div>
-                            <div class="modal-body">
-                                <table>
-                                    <thead></thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Manufacturer:</span></td>
-                                            <td><span id="modLnA" style="color:#0076A8">Manufacturer</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Equipment Type:</span></td>
-                                            <td><span id="modLnB" style="color:#0076A8">Equipment Type</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Model Description:</span></td>
-                                            <td><span id="modLnC" style="color:#0076A8">Model Description</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Model:</span></td>
-                                            <td><span id="modLnD" style="color:#0076A8"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Model ID2:</span></td>
-                                            <td><span id="modLnE" style="color:#0076A8">Model ID2</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding-right:8px"><span style="color:#F69240">Status:</span></td>
-                                            <td><span id="modLnF" style="color:#0076A8"></span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <hr />
-                                <div class="row">
-                                    <div class="col-lg-12" align="center">
-                                        <span style="color:#F69240">Model NK:</span>
-                                        <br>
-                                        <span id="modLnG" style="color:#0076A8; font-size:16px"><b></b></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" id="btnClosePopup" value="Close" class="btn btn-danger" data-dismiss="modal" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="row">
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <div class="row" style="padding-bottom:2px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Model:</span></label>
+                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xmodel" name="model" placeholder="... type 2 or more characters" />
+                                            
                                         </div>
+                                        
                                         <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            @Html.DropDownList("dpmodel", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name"), new { id = "dpmodel", @class = "col-lg-12 inputb" })
-                                        </div>
-
-                                        <div class="row" style="padding-bottom:2px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Model Description:</span></label>
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Description:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xdescr" name="descr" placeholder="... type 2 or more characters" />
                                         </div>
+                                        
                                         <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            @Html.DropDownList("dpdescr", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name"), new { id = "dpdescr", @class = "col-lg-12 inputb" })
-                                        </div>
-
-                                        <div class="row" style="padding-bottom:2px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Model Manufacturer:</span></label>
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Manufacturer:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xmanuf" name="manuf" placeholder="... type 2 or more characters" />
                                         </div>
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            @Html.DropDownList("dpmanuf", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name"), new { id = "dpmanuf", @class = "col-lg-12 inputb" })
-                                        </div>
+                                        
 
-                                        <div class="row" style="padding-bottom:2px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Owner Department:</span></label>
+                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Owner Department:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xowdep" name="owdep" placeholder="... type 2 or more characters" />
                                         </div>
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            @Html.DropDownList("dpowdep", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name"), new { id = "owdep", @class = "col-lg-12 inputb" })
-                                        </div>
+                                        
 
-                                        <div class="row" style="padding-bottom:2px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Scheduling Department:</span></label>
+                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Scheduling Department:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xscdep" name="scdep" placeholder="... type 2 or more characters" />
                                         </div>
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            @Html.DropDownList("dpscdep", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name"), new { id = "scdep", @class = "col-lg-12 inputb" })
-                                        </div>
+                                        
 
                                     </div>
                                 </div>
@@ -232,96 +166,38 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="row" style="padding-bottom:8px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Control Number:</span></label>
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Control Number:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xconnb" name="connb" placeholder="... type 2 or more characters" />
                                         </div>
                                         <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">Search by </span><span style="color:#0076A8"> Serial Number:</span></label>
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Serial Number:</span></label>
                                             <br>
                                             <input type="text" class="col-lg-12 inputb inputs" id="xsernb" name="sernb" placeholder="... type 2 or more characters" />
                                         </div>
 
-                                        
+
 
                                     </div>
                                 </div>
-                                <button class="btn btn-warning col-lg-12"><i class="fa fa-refresh"></i> Reset All </button>
+                                <button class="btn btn-warning col-lg-12" id="btnReset"><i class="fa fa-refresh"></i> Reset All </button>
                             </div>
-                            <div class="col-lg-9">
+                            <div class="col-lg-10">
                                 <table class="data table table-responsive" id="dt1">
                                     <thead>
-                                        <tr style="color:#0076A8">
+                                        <tr style="color:#0076A8; font-size:11px">
                                             <th><span style="color:#0076A8">Customer </span><span style="color:#F69240"> Data:</span></th>
                                             <th><span style="color:#0076A8">InService </span><span style="color:#F69240"> Data:</span></th>
+                                            <th><span style="color:#0076A8">Device </span><span style="color:#F69240"> Info:</span></th>
+                                            <th><span style="color:white">.</span></th>
                                             <th><span style="color:#0076A8">CheckUp </span><span style="color:#F69240"> Unit:</span></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr style="background-color:white !important">
-                                            <td>
-                                                <table>
-                                                    <thead></thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Device:</span></td>
-                                                            <td><span style="color:#0076A8; padding-left:4px"><b>Infusion Pump, SingleChanel</b></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Model:</span></td>
-                                                            <td><span style="color:#0076A8; padding-left:4px"><b>DC-1200</b></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Type:</span></td>
-                                                            <td><span style="color:#0076A8; padding-left:4px">Infusion Pump, SingleChanel</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Manuf.:</span></td>
-                                                            <td><span style="color:#0076A8; padding-left:4px">B.Birer Siemane</span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                            <td>
-                                                <table>
-                                                    <thead></thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Device:</span></td>
-                                                            <td><span style="color:cadetblue; padding-left:4px"><b>Infusion Pump, SingleChanel</b></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Model:</span></td>
-                                                            <td><span style="color:cadetblue; padding-left:4px"><b>DC-1200</b></span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Type:</span></td>
-                                                            <td><span style="color:cadetblue; padding-left:4px">Infusion Pump, SingleChanel</span></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span style="color:#F69240; font-size:13px">Manuf.:</span></td>
-                                                            <td><span style="color:cadetblue; padding-left:4px">B.Birer Siemane</span></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                            <td>
-                                                <div style="padding-top:8px; padding-bottom:8px">
-                                                    <span style="padding-left:6px"><i class="fa fa-check" style="color:forestgreen; transform:scale(2.4)"></i></span>
-                                                    <span style="padding-left:12px; color:forestgreen; font-size:18px"><b>Checked IN!</b></span>
-                                                </div>
-                                                <div>
-                                                    <button class="btn btn-sm btn-default col-lg-12 btnConfrm">Check OUT <i class="fa fa-forward" style="color:red"></i></button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -363,48 +239,36 @@
     <script src="~/js/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="~/js/startmin.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#dt1').dataTable({
-                //"order": [[1, "asc"]]
-                //"order": [[0, "desc"]]
-            });
+    @*<script type="text/javascript">
+            $(document).ready(function () {
+                $('#dt1').dataTable({
+                    //"order": [[1, "asc"]]
+                    //"order": [[0, "desc"]]
+                });
 
-        });
-    </script>
-    <script type="text/javascript">
-        $('.inputs').on('keyup paste', function () {
-            //var a = $("#xmodel").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
-            //var b = $("#xdescr").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
-            //var ac = a.length;
-            //var bc = b.lenght;
-            //if (((a == null || a == '' || a == ' ') && (b == null || b == '' || b == ' ')) || (ac < 2 && bc < 2)) {
-            //    $('#dt2').find('tbody').detach();
-            //    return;
-            //}
-            //$('#dt2').find('tbody').detach();
-            //$('#dt2').append($('<tbody>').css('background-color', 'white'));
-            $.ajax({
-                url: '/aglinvMap/checkFind',
-                type: "GET",
-                dataType: "JSON",
-                data: { IDC: 11, ID: '@ViewBag.docID', stra: "hovermat" },
-                success: function (data) {
-                    console.log(data);
-                    //$.each(resp, function (ID, resp) {
-                    //    $("#dt2 tbody").append("<tr><td><a href='#' onclick='getNK(\"" + resp.ModelNK + "\")'>" + resp.ModelDescription + "</a></td><td style='color:#0076A8'>" + resp.modelID1 + "</td><td style='color:#0076A8'>" + resp.ModelID2 + "</td><td>" + resp.Status + "</td><td style='color:darkgray'>" + resp.manufacturer + "</td><td style='color:darkgray'>" + resp.equipmentType + "</td></tr>");
-
-                    //});
-                }
             });
-        });
-    </script>
+        </script>*@
+
     <script>
-        $('.btnConfrm').on('click', function () {
-
-
+        function btnConfirm(a, b) {
+            var idc = [];
+            var title = [];
+            var parta = [];
+            var diva = "#div_" + a;
+            if (b == false) {
+                b = true;
+                idc = 1;
+                title = "Check IN!";
+                parta = "<div style='padding-top:8px; padding-bottom:8px' id='div_" + a + "'><span style='padding-left:6px'><i class='fa fa-check' style='color:forestgreen; transform:scale(2.4)'></i></span><span style='padding-left:12px; color:forestgreen; font-size:18px'><b>Checked IN!</b></span></div><div><button class='btn btn-sm btn-default col-lg-12' onclick='btnConfirm(\"" + a + "\"," + b + ")'>Check OUT <i class='fa fa-forward' style='color:red'></i></button></div>";
+            }
+            else {
+                b = false;
+                idc = 0;
+                title = "Check OUT!";
+                parta = "<div style='padding-top:8px; padding-bottom:8px' id='div_" + a + "'><span style='padding-left:6px'><i class='fa fa-close' style='color:lightpink; transform:scale(2.2)'></i></span><span style='padding-left:12px; color:lightpink; font-size:18px'><b>NOT Checked!</b></span></div><div><button class='btn btn-sm btn-default col-lg-12' onclick='btnConfirm(\"" + a + "\"," + b + ")'>Check IN <i class='fa fa-backward' style='color:forestgreen'></i></button></div>";
+            }
             $.confirm({
-                title: 'Check In!',
+                title: title,
                 content: 'Please Confirm?',
                 buttons: {
                     confirm: function () {
@@ -412,10 +276,11 @@
                             url: '/aglinvMap/checkSingle',
                             type: "GET",
                             dataType: "JSON",
-                            data: { IDC: 1, ID: singleID },
-                            success: function (response) {
-                                if (response == 1) {
-                                    location.reload();
+                            data: { IDC: idc, IDA: a },
+                            success: function (ddID) {
+                                if (ddID == 1) {
+                                    $(diva).empty();
+                                    $(diva).append(parta);
                                 }
                                 else {
                                     alert("Error: Failed to delete document!");
@@ -425,62 +290,59 @@
                     },
                     cancel: function () {
                     }
-                    //,
-                    //somethingElse: {
-                    //    text: 'Something else',
-                    //    btnClass: 'btn-blue',
-                    //    keys: ['enter', 'shift'],
-                    //    action: function(){
-                    //        $.alert('Something else?');
-                    //    }
-                    //}
+
                 }
             });
-        });
-        
+        }
     </script>
-    <script>
-        function getNK(a) {
+    
+    <script type="text/javascript">
+        $('.inputs').on('keyup', function () {
+            var a = $("#xmodel").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var al = a.length;
+            var b = $("#xdescr").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var bl = b.length;
+            var c = $("#xmanuf").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var cl = c.length;
+            var d = $("#xowdep").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var dl = d.length;
+            var e = $("#xscdep").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var el = e.length;
+            var f = $("#xconnb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var fl = f.length;
+            var g = $("#xsernb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var gl = g.length;          
+            if (((a == null || a == '' || a == ' ') && (b == null || b == '' || b == ' ') && (c == null || c == '' || c == ' ') && (d == null || d == '' || d == ' ') && (e == null || e == '' || e == ' ') && (f == null || f == '' || f == ' ') && (g == null || g == '' || g == ' ')) || (al < 2 && bl < 3 && cl < 2 && dl < 2 && el < 2 && fl < 2 && gl < 2)) {
+                $('#dt1').find('tbody').detach();
+                return;
+            }
+            $('#dt1').find('tbody').detach();
+            $('#dt1').append($('<tbody>').css('background-color', 'white'));
             $.ajax({
-                url: '/aglinvMap/getSingle',
+                url: '/aglinvMap/checkFind',
                 type: "GET",
                 dataType: "JSON",
-                data: { a: a },
-                success: function (resp) {
-                    $.each(resp, function (ID, resp) {
-
-                        $("#modLnA").val("").html("");
-                        $("#modLnB").val("").html("");
-                        $("#modLnC").val("").html("");
-                        $("#modLnD").val("").html("");
-                        $("#modLnE").val("").html("");
-                        $("#modLnF").val("").html("");
-                        $("#modLnG").val("").html("");
-
-                        $("#modLnA").val(resp.manufacturer).html(resp.manufacturer);
-                        $("#modLnB").val(resp.manufacturer).html(resp.equipmentType);
-                        $("#modLnC").val(resp.manufacturer).html(resp.ModelDescription);
-                        $("#modLnD").val(resp.manufacturer).html(resp.modelID1);
-                        $("#modLnE").val(resp.manufacturer).html(resp.ModelID2);
-                        $("#modLnF").val(resp.manufacturer).html(resp.Status);
-                        $("#modLnG").val(resp.manufacturer).html(resp.ModelNK);
-
+                data: { ID: '@ViewBag.docID', a: a, b: b, c: c, d: d, e: e, f: f, g: g  },
+                success: function (data) {
+                    $.each(data, function (ID, data) {
+                        var parta = [];
+                        var b = data.CH;
+                        if (data.CH == true) {
+                            parta = "<div id='div_" + data.ID + "'><div style='padding-top:8px; padding-bottom:8px'><span style='padding-left:6px'><i class='fa fa-check' style='color:forestgreen; transform:scale(2.4)'></i></span><span style='padding-left:12px; color:forestgreen; font-size:18px'><b>Checked IN!</b></span></div><div><button class='btn btn-sm btn-default col-lg-12' onclick='btnConfirm(\"" + data.ID + "\"," + b + ")'>Check OUT <i class='fa fa-forward' style='color:red'></i></button></div></div>";
+                        }
+                        else {
+                            parta = "<div id='div_" + data.ID + "'><div style='padding-top:8px; padding-bottom:8px'><span style='padding-left:6px'><i class='fa fa-close' style='color:lightpink; transform:scale(2.2)'></i></span><span style='padding-left:12px; color:lightpink; font-size:18px'><b>NOT Checked!</b></span></div><div><button class='btn btn-sm btn-default col-lg-12' onclick='btnConfirm(\"" + data.ID + "\"," + b + ")'>Check IN <i class='fa fa-backward' style='color:forestgreen'></i></button></div></div>";
+                        }
+                        $("#dt1 tbody").append("<tr style='background-color:white !important'><td><span style='color:#F69240; font-size:11px'>Device:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.DA + "</span><br><span style='color:#F69240; font-size:11px'>Model:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.MA + "</span><br><span style='color:#F69240; font-size:11px'>Type:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.TA + "</span><br><span style='color:#F69240; font-size:11px'>Manuf.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.FA + "</span></td><td><span style='color:#F69240; font-size:11px'>Device:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.DB + "</span><br><span style='color:#F69240; font-size:11px'>Model:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.MB + "</span><br><span style='color:#F69240; font-size:11px'>Type:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.TB + "</span><br><span style='color:#F69240; font-size:11px'>Manuf.:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.FB + "</span></td><td><span style='color:#F69240; font-size:11px'>Control#:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RA + "</span><br><span style='color:#F69240; font-size:11px'>Owner Dept.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RB + "</span><br><span style='color:#F69240; font-size:11px'>Sched. Dept.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RC + "</span><br><span style='color:#F69240; font-size:11px'>Status:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RF + "</span></td><td><span style='color:#F69240; font-size:11px'>Serial#:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RD + "</span><br><span style='color:#F69240; font-size:11px'>SN Modif.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RE + "</span><br><span style='color:#F69240; font-size:11px'>Risk Group:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RG + "</span><br><span style='color:#F69240; font-size:11px'>Asset Cnt.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RH + "</span></td><td>" + parta + "</td></tr>");
                     });
                 }
             });
-            $("#MyPopup").modal("show");
-            return false;
-
-        };
-
-        // tooltip demo
-        $('.tooltip-demo').tooltip({
-            selector: "[data-toggle=tooltip]",
-            container: "body"
         });
-        // popover demo
-        $("[data-toggle=popover]").popover()
+        $("#btnReset").on('click', function () {
+            $("#xmodel").val("").html("");
+            $("#xdescr").val("").html("");
+            $("#xmanuf").val("").html("");
+            $("#xowdep").val("").html("");
+            $("#xscdep").val("").html("");
+            $("#xconnb").val("").html("");
+            $("#xsernb").val("").html("");
+            $('#dt1').find('tbody').detach();
+        });
     </script>
+    
 
 </body>
 </html>

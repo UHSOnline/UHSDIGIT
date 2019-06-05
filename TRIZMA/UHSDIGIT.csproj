@@ -253,6 +253,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
     <Compile Include="Models\AGLINVIND1.cs" />
+    <Compile Include="Models\AGLINVMDLDATApg.cs" />
     <Compile Include="Models\AGLINVMDLDATA.cs" />
     <Compile Include="Models\AGLINVMDL1pg.cs" />
     <Compile Include="Models\AGLINVMDL1sh.cs" />
@@ -7409,7 +7410,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\formsCRUD\_CreateAgents.cshtml" />
     <Content Include="Views\formsCRUD\_tableIndexAgents.cshtml" />
-    <Content Include="Views\View.cshtml" />
     <Content Include="Views\formsCRUD\_sidebarFooter.cshtml" />
     <Content Include="Views\formsCRUD\_upperRightMenu.cshtml" />
     <Content Include="Views\formsCRUD\_upperMessages.cshtml" />

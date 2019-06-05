@@ -1,8 +1,3 @@
-/**
- * @author zhixin wen <wenzhixin2010@gmail.com>
- * version: 1.11.1
- * https://github.com/wenzhixin/bootstrap-table/
- */
 
 (function ($) {
     'use strict';
@@ -55,7 +50,7 @@
         return index;
     };
 
-    // http://jsfiddle.net/wenyi/47nz7ez9/3/
+    
     var setFieldIndex = function (columns) {
         var i, j, k,
             totalCol = 0,

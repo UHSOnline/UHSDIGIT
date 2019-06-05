@@ -160,7 +160,9 @@
                         <div class="startbtn" id="Sa3form" style="display: inline-block; padding-bottom:4px">
                             <button onclick="location.href = '/uhsworktask/Index?projectID=13&taskOrderID=65&Int1=1'" class="buttonb">A3 Form<br><span style="color:#F69240">Document</span></button>
                         </div>
-                        
+                        <div class="startbtn" id="SinvMap" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="location.href = '/aglinvMap?projectID=15&taskOrderID=66&Int1=1'" class="buttonb">Inventory<br><span style="color:#F69240">Mapping</span></button>
+                        </div>
                     </div>
                     <div class="row">
                         <hr />
@@ -233,6 +235,8 @@
                     $("#sscyclecount").show();
                 } else if (it1 == 65) {
                     $("#Sa3form").show();  
+                } else if (it1 == 66) {
+                    $("#SinvMap").show();
                 }
             });
         });

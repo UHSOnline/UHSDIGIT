@@ -68,7 +68,8 @@ namespace TRIZMA.Controllers
                                                                                           || c.taskOrderID == 57
                                                                                           || c.taskOrderID == 58
                                                                                           || c.taskOrderID == 64
-                                                                                          || c.taskOrderID == 65)).Select(c => new { ID = c.taskOrderID }).ToList();
+                                                                                          || c.taskOrderID == 65
+                                                                                          || c.taskOrderID == 66)).Select(c => new { ID = c.taskOrderID }).ToList();
             ViewBag.daynbr = daynbr;
             return View();
         }

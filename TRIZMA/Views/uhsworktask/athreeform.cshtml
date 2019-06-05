@@ -72,7 +72,7 @@
     <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
 
     <link rel="stylesheet" href="~/main/css/editor/select2.css">
-    @*<link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">*@
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
     <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
     <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
     <!-- normalize CSS
@@ -81,7 +81,7 @@
     <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">
     <!-- modals CSS
         ============================================ -->
-
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
     <link rel="stylesheet" href="~/main/css/modals.css">
     <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
 
@@ -91,7 +91,7 @@
     <!-- responsive CSS
         ============================================ -->
     <link rel="stylesheet" href="~/main/css/responsive.css">
-    <link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
     <!-- modernizr JS
         ============================================ -->
     <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -147,6 +147,13 @@
             opacity: 0.5;
             z-index: 1030;
             text-align: center;
+        }
+        .textMod {
+            border: solid;
+            border-color: #E0E0E0;
+            border-width: thin;
+            padding-top: 8px;
+            padding-left: 8px;
         }
     </style>
 </head>
@@ -238,131 +245,225 @@
 
                                             <div class="row">
                                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
-                                                        <div class="main-sparkline12-hd">
-                                                            <h1><span style="color:#0076A8">Basic Info:</span></h1>
+
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#0076A8">Project Name:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" class="form-control" id="project" placeholder="Type Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#F69240">Oper. Manager:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" class="form-control" id="oprmngr" placeholder="Type Name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#F69240">Kaizen Leader:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" class="form-control" id="kznlead" placeholder="Type Name">
+                                                        </div>
+                                                    </div>
+                                                    <hr style="border:solid; border-color:#F5F5F5; border-width:thin" />
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#F69240">App Module:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="appmodule"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#0076A8">Area:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="apparea"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#0076A8">Task:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="apptask"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#0076A8">Standard:</label>
+                                                        </div>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="l3id"></select>
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#0076A8">Project Name:</label>
-                                                        <input type="text" class="form-control" id="project" placeholder="Type Name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#F69240">Operations Manager:</label>
-                                                        <input type="text" class="form-control" id="oprmngr" placeholder="Type Name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#F69240">Kaizen Leader:</label>
-                                                        <input type="text" class="form-control" id="kznlead" placeholder="Type Name">
-                                                    </div>
-                                                    <br />
-                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
-                                                        <div class="main-sparkline12-hd">
-                                                            <h1><span style="color:#0076A8">App Module:</span></h1>
+
+                                                    <hr style="border:solid; border-color:#F5F5F5; border-width:thin" />
+                                                    <div class="row" style="padding-top:2px">
+                                                        <div class="col-lg-3" style="padding-top:8px">
+                                                            <label style="font-size:12px; color:#0076A8">District:</label>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#F69240">App Module:</label>
-                                                        <select class="form-control" id="appmodule"></select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#0076A8">Area:</label>
-                                                        <select class="form-control" id="apparea"></select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#0076A8">Task:</label>
-                                                        <select class="form-control" id="apptask"></select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#0076A8">Standard:</label>
-                                                        <select class="form-control" id="l3id"></select>
-                                                    </div>
-                                                    <br />
-                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
-                                                        <div class="main-sparkline12-hd">
-                                                            <h1><span style="color:#0076A8">Location:</span></h1>
+                                                        <div class="col-lg-9">
+                                                            <select class="form-control" id="district"></select>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label style="font-size:12px; color:#0076A8">District:</label>
-                                                        <select class="form-control" id="district"></select>
                                                     </div>
                                                     @if (ViewBag.tskoid == 52 || ViewBag.IDK == 52 || ViewBag.tskoid == 53 || ViewBag.IDK == 53 || ViewBag.tskoid == 57 || ViewBag.IDK == 57 || ViewBag.tskoid == 58 || ViewBag.IDK == 58)
-                                            {
-                                                @Html.Hidden("account", new { Value = 0 })
-                                    }
-                                    else if (ViewBag.tskoid == 55 || ViewBag.IDK == 55 || ViewBag.tskoid == 56 || ViewBag.IDK == 56)
-                                    {
-                                        <div class="form-group">
-                                            <label style="font-size:12px; color:#0076A8">Account:</label>
-                                            <select class="form-control" id="account"></select>
-                                        </div>
-                            }
+                                                    {
+                                                        @Html.Hidden("account", new { Value = 0 })
+                                                    }
+                                                    else if (ViewBag.tskoid == 55 || ViewBag.IDK == 55 || ViewBag.tskoid == 56 || ViewBag.IDK == 56)
+                                                    {
+                                                        <div class="row" style="padding-top:2px">
+                                                            <div class="col-lg-3" style="padding-top:8px">
+                                                                <label style="font-size:12px; color:#0076A8">Account:</label>
+                                                            </div>
+                                                            <div class="col-lg-9">
+                                                                <select class="form-control" id="account"></select>
+                                                            </div>
+                                                        </div>
+                                                    }
                                                 </div>
-
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                                                    <div class="sparkline12-hd" style="padding-bottom:2px">
-                                                        <div class="main-sparkline12-hd">
-                                                            <h1><span style="color:#0076A8">Description:</span></h1>
-                                                        </div>
-                                                    </div>
+
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#0076A8">Problem Statement:</label>
-                                                                <textarea id="problem" placeholder="Description"></textarea>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#0076A8">Problem Statement:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="problem" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2">
+                                                                    <label style="font-size:12px; color:#0076A8">Scope, Obj. & Goal:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="scpobjc" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#F69240">In Scope:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="scopein" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#0076A8">Current State:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="statecr" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="padding-top:18px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#F69240">Process Owner:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <input type="text" class="form-control" id="prOwner" value="@ViewBag.usrnm" readonly="readonly">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#6399AE">Communicate Results To:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <input type="text" class="form-control" id="commres">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#F69240">Team Members:</label>
-                                                                <textarea id="teammbr" placeholder="Type Name"></textarea>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#F69240">Team Members:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="teammbr" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#0076A8">Objective:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="objectv" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#F69240">Out of Scope:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="scopeot" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                    <label style="font-size:12px; color:#0076A8">Future State:</label>
+                                                                </div>
+                                                                <div class="col-lg-10">
+                                                                    <textarea id="stateft" class="form-control" rows="2" cols="57"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div style="padding-top:18px">
+
+                                                                <div class="analysis-progrebar-content">
+                                                                    <h5 style="color:darkgray">Progress:</h5>
+                                                                    <h2 class="storage-right"><span class="counter" id="mainProgPerc"></span></h2>
+                                                                    <div class="progress progress-mini ug-1">
+                                                                        <div class="progress-bar" id="mainProg"></div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <br />
+                                                                <div class="analysis-progrebar-content">
+                                                                    <h5 style="color:darkgray">Timeline:</h5>
+                                                                    <h2 class="storage-right"><span class="counter" id="mainTimePerc"></span></h2>
+                                                                    <div class="progress progress-mini ug-1">
+                                                                        <div class="progress-bar" id="mainTime"></div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12" style="padding-top:8px">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="alert alert-success alert-st-one alert-st-bg" role="alert">
+                                                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
+                                                                        <p class="message-mg-rt" style="padding-left:22px"><input type="checkbox" id="complda" onchange="complda()" style="transform:scale(2)" /><span style="padding-left:22px"><strong>NOT </strong> Completed!</span></p>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="alert alert-success alert-st-one alert-st-bg alert-st-bg11" role="alert">
+                                                                        <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1 admin-check-pro-clr12" aria-hidden="true"></i>
+
+                                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> Champ!</strong> Signoff</p>
+                                                                    </div>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#0076A8">Scope, Objectives and Goal:</label>
-                                                                <textarea id="scpobjc" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#0076A8">Objective:</label>
-                                                                <textarea id="objectv" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#F69240">In Scope:</label>
-                                                                <textarea id="scopein" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#F69240">Out of Scope:</label>
-                                                                <textarea id="scopeot" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#0076A8">Current State:</label>
-                                                                <textarea id="statecr" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group res-mg-t-15">
-                                                                <label style="font-size:12px; color:#0076A8">Future State:</label>
-                                                                <textarea id="stateft" placeholder="Type"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -375,95 +476,14 @@
                     </div>
                 </div>
             </div>
-            <!-- Single pro tab review Start-->
-            <div class="single-pro-review-area mt-t-30 mg-b-15">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="product-payment-inner-st">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
 
-
-
-
-
-
-                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                                                <div class="row">
-                                                    <div class="alert-title">
-                                                        <h2><span style="color:#0076A8">Completion:</span></h2>
-
-                                                    </div>
-                                                    <div class="alert alert-success alert-st-one alert-st-bg alert-st-bg11" role="alert">
-                                                        <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1 admin-check-pro-clr12" aria-hidden="true"></i>
-
-                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="complda" onchange="complda()" style="transform:scale(2)" /></span><strong> Completed!</strong> Document</p>
-                                                    </div>
-                                                    <div class="alert alert-success alert-st-one alert-st-bg alert-st-bg11" role="alert">
-                                                        <i class="fa fa-info-circle edu-inform admin-check-pro admin-check-pro-clr1 admin-check-pro-clr12" aria-hidden="true"></i>
-
-                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> Champ!</strong> Signoff</p>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" style="padding-top:6px">
-                                                <div class="form-group">
-                                                    <label style="font-size:12px; color:#F69240">Process Owner:</label>
-                                                    <input type="text" class="form-control" id="prOwner" value="@ViewBag.usrnm" readonly="readonly">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label style="font-size:12px; color:#6399AE">Communicate Results To:</label>
-                                                    <input type="text" class="form-control" id="commres" placeholder="Type Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12" style="padding-top:6px">
-                                                <div class="analysis-progrebar-content" style="padding-bottom:20px">
-                                                    <h5>Progress</h5>
-                                                    <h2 class="storage-right"><span class="counter" id="mainProgPerc"></span>%</h2>
-                                                    <div class="progress progress-mini ug-1">
-                                                        <div class="progress-bar" id="mainProg"></div>
-                                                    </div>
-                                                    <div class="m-t-sm small">
-                                                        <p>Overall Project Progress, average value.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="analysis-progrebar-content">
-                                                    <h5>Timeline</h5>
-                                                    <h2 class="storage-right"><span class="counter" id="mainTimePerc"></span>%</h2>
-                                                    <div class="progress progress-mini ug-1">
-                                                        <div class="progress-bar" id="mainTime"></div>
-                                                    </div>
-                                                    <div class="m-t-sm small">
-                                                        <p>Overall Project Timeline, average value.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single pro tab review End-->
             <!-- Static Table Start -->
             <div class="data-table-area mg-b-15">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="sparkline13-list">
-                                <div class="sparkline13-hd">
-                                    <div class="main-sparkline13-hd">
-                                        <h1><span style="color:#0076A8">A3 Form</span><span style="color:#F69240"> Step </span><span style="color:#0076A8"> List</span></h1>
-                                    </div>
-                                </div>
+
                                 <div class="sparkline13-graph">
                                     <div class="datatable-dashv1-list custom-datatable-overright">
                                         <div id="toolbar">
@@ -489,142 +509,81 @@
                                             </thead>
                                             <tbody>
                                                 @foreach (var item in ViewBag.stepTable)
-                                        {
-                                            <tr style="color:#0076A8">
-                                                <td style="text-align:center"><a href="#" class="delStep" onclick="delStep('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.4)" title="delete"></i></a></td>
-                                                <td><a href="#" onclick="stepModal('@item.ID')">@item.stepnm</a></td>
-
-                                                <td style="text-align:center">@item.datest</td>
-                                                <td style="text-align:center">@item.dateex</td>
-                                                <td style="text-align:center">
-                                                    @if (item.compld == true)
-                                            {
-                                                if (item.succes >= 100)
                                                 {
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-info" role="progressbar"
-                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                                                            Completed!
-                                                        </div>
-                                                    </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-info" role="progressbar"
-                                                     aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
-                                                    @item.succes%
-                                                </div>
-                                            </div>
-                                }
+                                                    <tr style="color:#0076A8">
+                                                        <td style="text-align:center"><a href="#" class="delStep" onclick="delStep('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.4)" title="delete"></i></a></td>
+                                                        <td><a href="#" onclick="stepModal('@item.ID')" style="color:dodgerblue"><u>@item.stepnm</u></a></td>
 
-                            }
-                            else if (item.succes >= 100)
-                            {
+                                                        <td style="text-align:center"><span style="color:darkgreen">@item.datest</span></td>
+                                                        <td style="text-align:center"><span style="color:gray">@item.dateex</span></td>
+                                                        <td style="text-align:center">
+                                                            @if (item.succes >= 100)
+                                                            {
 
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
-                                         aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
-                                        @item.succes%
-                                    </div>
-                                </div>
-                    }
-                    else
-                    {
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-success" role="progressbar"
-                                 aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%">
-                                @item.succes%
-                            </div>
-                        </div>
-            }
-                                                </td>
-                                                <td style="text-align:center">
-                                                    @if (item.timsucce >= 100)
-                                            {
-                                                if (item.compld == true)
-                                                {
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-danger" role="progressbar"
-                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                                                            Overdue!
-                                                        </div>
-                                                    </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
-                                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                                                    Overdue!
-                                                </div>
-                                            </div>
-                                }
+                                                                <span class="text-success">100 </span><span class="text-info"> %</span>
+                                                                <div class="progress m-b-0" style="height:4px">
+                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
+                                                                </div>
 
-                            }
-                            else if (item.timsucce >= 80 && item.timsucce < 100)
-                            {
-                                if (item.compld == true)
-                                {
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar"
-                                             aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
-                                            @item.timsucsb
 
-                                        </div>
-                                    </div>
-                        }
-                        else
-                        {
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
-                                     aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
-                                    @item.timsucsb
-                                </div>
-                            </div>
-                }
-            }
-            else
-            {
-                if (item.compld == true)
-                {
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar"
-                             aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
-                            @item.timsucsb
-                        </div>
-                    </div>
-        }
-        else
-        {
-            <div class="progress">
-                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
-                     aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb">
-                    @item.timsucsb
-                </div>
-            </div>
-}
-}
-                                                </td>
-                                                @if (item.priohg == true)
-                                        {
-                                            <td style="text-align:center"><i class="fa fa-flag" style="color:red; transform:scale(1.6)" title="high priority"></i></td>
-                                }
-                                else
-                                {
-                                    <td style="text-align:center"><span style="color:white">.</span></td>
-                        }
-                                                @if (item.compld == true)
-                                        {
-                                            <td style="text-align:center"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.8)" title="completed"></i></td>
-                                }
-                                else
-                                {
-                                    <td style="text-align:center"><i class="fa fa-close" style="color:#F69240; transform:scale(1.8)" title="not completed"></i></td>
-                        }
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="text-info">@item.succes %</span>
+                                                                <div class="progress m-b-0" style="height:4px">
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
+                                                                </div>
+                                                            }
 
-                                            </tr>
-                                }
+
+
+
+                                                        </td>
+                                                        <td style="text-align:center">
+                                                            @if (item.timsucce >= 100)
+                                                            {
+
+                                                                <span class="text-success">Overdue </span><span class="text-info"> !</span>
+                                                                <div class="progress m-b-0" style="height:4px">
+                                                                    <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
+                                                                </div>
+                                                            }
+                                                            else if (item.timsucce >= 80 && item.timsucce < 100)
+                                                            {
+                                                                <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
+                                                                <div class="progress m-b-0" style="height:4px">
+                                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
+                                                                </div>
+
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
+                                                                <div class="progress m-b-0" style="height:4px">
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
+                                                                </div>
+                                                            }
+                                                        </td>
+                                                        @if (item.priohg == true)
+                                                        {
+                                                            <td style="text-align:center"><i class="fa fa-flag" style="color:red; transform:scale(1.6)" title="high priority"></i></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="text-align:center"><span style="color:white">.</span></td>
+                                                        }
+                                                        @if (item.compld == true)
+                                                        {
+                                                            <td style="text-align:center"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.8)" title="completed"></i></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="text-align:center"><i class="fa fa-close" style="color:#F69240; transform:scale(1.8)" title="not completed"></i></td>
+                                                        }
+
+                                                    </tr>
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -639,7 +598,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-outline btn-default btn-sm col-lg-12 newStep" style="font-size:14px">Add New Step!</button>
+                            <button type="button" class="btn btn-outline btn-default btn-sm col-lg-12 newStep" style="font-size:14px; min-height:52px">Add New Step!</button>
                         </div>
 
                     </div>
@@ -691,6 +650,8 @@
                                     <div class="col-lg-4">
                                         <div class="form-group" align="center">
                                             <label style="color:#6399AE">Start date:</label>
+
+                                            <a href="#" id="meeting_start" data-type="datetime" data-pk="1" data-url="/post" data-placement="right" title="Set date & time">15/03/2013 12:45</a>
                                             <input type="text" class="datepicker-here form-control" id="datest" data-timepicker="true" style="max-width:264px; border:solid; border-width:thin; border-color:lightgray; text-align:center" />
                                         </div>
                                         <div class="form-group" align="center">
@@ -930,7 +891,7 @@
     <script src="~/main/js/editable/mock-active.js"></script>
     <script src="~/main/js/editable/select2.js"></script>
     <script src="~/main/js/editable/moment.min.js"></script>
-    @*<script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>*@
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
     <script src="~/main/js/editable/bootstrap-editable.js"></script>
     <script src="~/main/js/editable/xediable-active.js"></script>
     <!-- Chart JS
@@ -951,9 +912,10 @@
         ============================================ -->
     <script src="~/main/js/dropzone/dropzone.js"></script>
     <!-- confirm JS
+
         ============================================ -->
     <script src="~/js/jquery-confirm.min.js"></script>
-    <script src="~/dist/js/datepicker.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
 
     <!-- plugins JS
         ============================================ -->
@@ -962,7 +924,7 @@
         ============================================ -->
     <script src="~/main/js/main.js"></script>
 
-    
+
     <!-- tawk chat JS
         ============================================ -->
     <!--<script src="/main/js/tawk-chat.js"></script>-->
@@ -970,6 +932,14 @@
         $(document).ready(function () {
             $('.loadimage').hide();
 
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#table").bootstrapTable({
+                sortOrder: [2, 'asc']
+            });
+            
         });
     </script>
     <script type="text/javascript">
@@ -1206,7 +1176,7 @@
 
             });
             function complda() {
-                alert("test");
+                //alert("test");
                 var project = $("#project").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
                 var appmodule = $("#appmodule").val();
                 var apparea = $("#apparea").val();
@@ -1673,6 +1643,8 @@
             var dist = @Html.Raw(Json.Encode(ViewBag.districts));
             var acct = @Html.Raw(Json.Encode(ViewBag.accts));
             var inquries = @Html.Raw(Json.Encode(ViewBag.inquries));
+            $('.complDoc').css("display", "none");
+            $('.champDoc').css("display", "none");
             $.each(data1, function (ID, data1) {
                 $("#project").val(data1.project);
                 if (data1.project != null && data1.project != "" && data1.project != " ") {
@@ -1680,7 +1652,16 @@
                 }
                 $("#complda").prop("checked", data1.compld);
                 $("#chck").prop("checked", data1.chck);
-
+                if (data1.compld == true) {
+                    $("#complDocb").css("display", "block");
+                } else {
+                    $("#complDoca").css("display", "block");
+                }
+                if (data1.chck == true) {
+                    $("#champDocb").css("display", "block");
+                } else {
+                    $("#champDoca").css("display", "block");
+                }
                 $("#problem").val(data1.problem);
                 $("#oprmngr").val(data1.oprmngr);
                 $("#kznlead").val(data1.kznlead);
@@ -1742,31 +1723,35 @@
                     $("#incOther").attr('disabled', 'disabled');
                     $("#incOthDs").attr('readonly', true);
                     $('.SaveStep').css({ "visibility": "hidden" });
-                }
-                $("#mainProg").attr('aria-valuenow', data1.avgsucsa).css('width', data1.avgsucsb).html("progress: " + data1.avgsucsb);
-                    $("#mainProgPerc").val(data1.avgsucsa).html(data1.avgsucsa);
-                    if (data1.avgsucce == 100) {
 
-                        $("#mainProg").addClass("progress-bar-info").css('width', data1.avgsucsb);
-                    }
-                    else {
-
-                        $("#mainProg").addClass("progress-bar-success").css('width', data1.avgsucsb);
-                    }
-
-                $("#mainTimePerc").val(data1.prgsucsa).html(data1.prgsucsa);
-                if (data1.prgsucce > 100) {
-                    $("#mainTime").addClass("progress-bar-danger").css('width', data1.prgsucsb);
                 }
-                else if (data1.prgsucce == 100) {
-                    $("#mainTime").addClass("progress-bar-info").css('width', data1.prgsucsb);
-                }
-                else if (data1.prgsucce >= 80 && data1.prgsucce < 100) {
-                    $("#mainTime").addClass("progress-bar-warning").css('width', data1.prgsucsb);
+                if (data1.avgsucce == 100) {
+                    $("#mainProg").removeClass("progress-bar-success").addClass("progress-bar-info").attr('aria-valuenow', '100').css('width', '100%');
+                    $("#mainProgPerc").html("").html('Success!');
                 }
                 else {
-                    $("#mainTime").addClass("progress-bar-success").css('width', data1.prgsucsb);
+                    $("#mainProg").removeClass("progress-bar-info").addClass("progress-bar-success").attr('aria-valuenow', data1.avgsucsa).css('width', data1.avgsucsb);
+                    $("#mainProgPerc").html("").html(data1.avgsucsb);
                 }
+
+                if (data1.prgsucce > 100) {
+                    $("#mainTime").removeClass("progress-bar-success").addClass("progress-bar-inverse").attr('aria-valuenow', '100').css('width', '100%');
+                    $("#mainTimePerc").html("").html('Overdue!');
+                }
+                else if (data1.prgsucce == 100) {
+                    $("#mainTime").removeClass("progress-bar-success").addClass("progress-bar-info").attr('aria-valuenow', '100').css('width', '100%');
+                    $("#mainTimePerc").html("").html('On Time!');
+                }
+                else if (data1.prgsucce >= 80 && data1.prgsucce < 100) {
+                    $("#mainTime").removeClass("progress-bar-success").addClass("progress-bar-warning").attr('aria-valuenow', data1.prgsucsa).css('width', data1.prgsucsb);
+                    $("#mainTimePerc").html("").html(data1.prgsucsb);
+                }
+                else {
+                    $("#mainTime").addClass("progress-bar-success").attr('aria-valuenow', data1.prgsucsa).css('width', data1.prgsucsb);
+                    $("#mainTimePerc").html("").html(data1.prgsucsb);
+                }
+
+
                 if (data1.L3ID != 0) {
                     $.each(inquries, function (ID, inquries) {
                         if (inquries.ID != data1.L3ID) {
