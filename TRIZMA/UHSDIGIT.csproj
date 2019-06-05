@@ -530,6 +530,7 @@
     <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap-social.css" />
     <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\jquery.datetimepicker.min.css" />
     <Content Include="css\jquery.inputpicker.css" />
     <Content Include="css\Modal1440.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -899,6 +900,7 @@
     <Content Include="js\jquery-1.12.4.js" />
     <Content Include="js\jquery-confirm.min.js" />
     <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.datetimepicker.js" />
     <Content Include="js\jquery.fileupload-angular.js" />
     <Content Include="js\jquery.fileupload-audio.js" />
     <Content Include="js\jquery.fileupload-image.js" />
