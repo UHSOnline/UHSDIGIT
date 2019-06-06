@@ -62,7 +62,7 @@ namespace TRIZMA.Controllers
                 ViewBag.manuNo = opc.fctEquipmentManufacturersDbs.Where(s => s.sourceCD == 5).Count();
                 ViewBag.typeNo = opc.fctEquipmentTypesDbs.Where(s => s.sourceCD == 5).Count();
                 ViewBag.modlNo = opc.fctEquipmentModelsDbs.Where(s => s.sourceCD == 5).Count();
-
+                ViewBag.svctr = 0;
                 ViewBag.docList = opa.AGLINVIND1Dbs.ToList();
                 return View();
             }
@@ -71,7 +71,7 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
-
+        
         public ActionResult equipManuf(int ID)
         {
 
@@ -363,6 +363,145 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
+
+        public ActionResult editDocumentb(string ID)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+            ViewBag.userID = userIDselectInt;
+            ViewBag.userTypeb = userTypeInt;
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
+            {
+                ViewBag.manuNo = opa.AGLINVMFC1Dbs.Where(s => s.extDocID == ID).Count();
+                ViewBag.modlNo = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).Count();
+
+                ViewBag.docList = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).ToList();
+                ViewBag.manuf = opa.AGLINVMFC1Dbs.Where(s => s.extDocID == ID).OrderBy(s => s.impID).ToList();
+
+                var data = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).OrderBy(s => s.Device_Category).Select(s => new
+                {
+                    modelImpID = s.modelImpID
+                                                                                                                     ,
+                    Device_Category = s.Device_Category
+                                                                                                                     ,
+                    Model = s.Model
+                                                                                                                     ,
+                    Manufacturer = s.Manufacturer
+                                                                                                                     ,
+                    matchSingle = s.matchSingle
+                                                                                                                     ,
+                    matchMultip = s.matchMultip
+                                                                                                                     ,
+                    matchConfrm = s.matchConfrm
+                                                                                                                     ,
+                    manualInput = s.manualInput
+                                                                                                                     ,
+                    Cnt = s.Cnt
+                                                                                                                     ,
+                    impTypeID = s.impTypeID
+                }).ToList();
+
+                var pgnr = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).OrderBy(s => s.impTypeID).Select(s => new {
+                    Device_Category = s.Device_Category
+                                                                                                                     ,
+                    impTypeID = s.impTypeID
+                }).Distinct().ToList();
+
+                List<AGLINVMDL1shDb> data01 = new List<AGLINVMDL1shDb>();
+                foreach (var item in data)
+                {
+                    AGLINVMDL1shDb List1 = new AGLINVMDL1shDb();
+
+                    List1.Device_Category = item.Device_Category;
+                    List1.Model = item.Model;
+                    List1.Manufacturer = item.Manufacturer;
+                    List1.modelImpID = item.modelImpID;
+                    List1.matchSingle = item.matchSingle;
+                    List1.matchMultip = item.matchMultip;
+                    List1.matchConfrm = item.matchConfrm;
+                    List1.manualInput = item.manualInput;
+                    List1.Cnt = item.Cnt;
+                    List1.impTypeID = item.impTypeID;
+
+                    data01.Add(List1);
+                }
+                List<AGLINVMDL1pgDb> data02 = new List<AGLINVMDL1pgDb>();
+                foreach (var item in pgnr)
+                {
+                    var dta = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == false).Count();
+                    var dtb = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == true && s.manualInput == true).Count();
+                    var dtc = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == false).Count();
+
+                    AGLINVMDL1pgDb List1 = new AGLINVMDL1pgDb();
+                    List1.Device_Category = item.Device_Category;
+                    List1.impTypeID = item.impTypeID;
+                    List1.cnta = dta;
+                    List1.cntb = dtb;
+                    List1.cntc = dtc;
+                    data02.Add(List1);
+                }
+
+
+
+                //string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                //using (SqlConnection connection = new SqlConnection(CS))
+                //{ 
+                //    SqlCommand cmd = new SqlCommand();
+                //    cmd.CommandType = System.Data.CommandType.Text;
+                //    string textc = "SELECT Device_Category, Model, Manufacturer, modelImpID, matchSingle, matchMultip, matchConfrm, Cnt, impTypeID FROM AGLINVMDL1 where extDocID = '" + ID + "' ORDER BY modelImpID";
+                //    cmd.CommandText = textc;                   
+                //    connection.Open();                   
+                //    using (SqlDataReader reader = cmd.ExecuteReader())
+                //    {
+
+                //        while (reader.Read())
+                //        {
+                //            AGLINVMDL1shDb item = new AGLINVMDL1shDb();
+                //            item.Device_Category = reader.GetString(0);
+                //            item.Model = reader.GetString(1);
+                //            item.Manufacturer = reader.GetString(2);
+                //            item.modelImpID = reader.GetInt32(3);
+                //            item.matchSingle = reader.GetBoolean(4);
+                //            item.matchMultip = reader.GetBoolean(5);
+                //            item.matchConfrm = reader.GetBoolean(6);
+                //            item.Cnt = reader.GetInt32(7);
+                //            item.impTypeID = reader.GetInt32(8);
+
+                //            data01.Add(item);
+                //        }
+                //    }
+                //    connection.Close();
+
+                //}
+
+                ViewBag.docID = ID;
+                ViewBag.svctr = 0;
+                ViewBag.datab = data01.ToList();
+                ViewBag.dataa = data02.ToList();
+                //System.Diagnostics.Trace.WriteLine("OVDE BI TREBALO DA SE POJAVI");
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
         public ActionResult findSingle(string a)
         {
             var tpank = opc.fctEquipmentModelsDbs.Where(s => s.sourceCD == 5 && s.ModelNK == a).Select(s => s.equipmentTypeNK).First();

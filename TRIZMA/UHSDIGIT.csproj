@@ -7972,8 +7972,10 @@
     <Content Include="Views\aglinvMap\editDocument.cshtml" />
     <Content Include="Views\aglinvMap\docOverview.cshtml" />
     <Content Include="Views\aglinvMap\invCheckUp.cshtml" />
-    <Content Include="Views\uhsworktask\WorkTask - Copy.cshtml" />
-    <Content Include="Views\uhsworktask\Indexb.cshtml" />
+    <Content Include="backup\Views\A3form\WorkTask - Copy.cshtml" />
+    <Content Include="backup\Views\A3form\Index - Copy.cshtml" />
+    <Content Include="backup\Views\aglinvMap\Indexb.cshtml" />
+    <Content Include="Views\aglinvMap\editDocumentb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />
