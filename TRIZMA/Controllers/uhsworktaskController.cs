@@ -120,7 +120,7 @@ namespace TRIZMA.Controllers
 
                     var data1 = opb.UHSWOT01vDbs.Where(s => userTypeInt == 2 || s.crusid == userIDselectInt).ToList();
                     ViewBag.pageData = data1;
-                    
+                    ViewBag.svctr = 0;
                     ViewBag.btnSel = 1;
                     return View();
                 }
@@ -128,6 +128,111 @@ namespace TRIZMA.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }              
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+        public ActionResult Indexb(int projectID, int taskOrderID, int Int1)
+        {
+            //System.Diagnostics.Debug.WriteLine("test over date");
+            
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+            var dtt = DateTime.Now.ToString("yyyyMM");
+            int dtt1 = int.Parse(dtt);
+            var dts = DateTime.Now.ToString("yyyyMMdd");
+            int dt1 = int.Parse(dts);
+            int dis = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.distid).First();
+            int week = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == dt1).Select(s => s.WNumber).First();
+            int daynbr = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == dt1).Select(s => s.daywnm).First();
+            List<int> agentP = new List<int>(db.agentsProjDistDbs.OrderBy(c => c.ID).Where(c => c.userID == CurrentLoginID && c.projectID != 6 && c.projectID != 7).Select(c => c.projectID).ToList());
+
+            var ch01 = opb.UHSUSAC1A360Dbs.Where(s => s.MGRID == userIDselectInt).Count();
+            var ch02 = opb.UHSUSAC1B360Dbs.Where(s => s.MGRID == userIDselectInt).Count();
+            var ch03 = opb.UHSUSAC1DISTRICTDbs.Where(s => s.MGRID == userIDselectInt).Count();
+            var ch04 = opb.UHSUSAC1SURSERVDbs.Where(s => s.MGRID == userIDselectInt).Count();
+            var ch05 = opb.UHSUSAC1COEDbs.Where(s => s.MGRID == userIDselectInt).Count();
+
+            ViewBag.preAgentT = db.agentsTODistDbs.Where(c => c.userID == CurrentLoginID && (((c.taskOrderID == 52 || c.taskOrderID == 53) && ch03 >= 1)
+                                                                                          || (c.taskOrderID == 55 && ch01 >= 1)
+                                                                                          || (c.taskOrderID == 56 && ch02 >= 1)
+                                                                                          || (c.taskOrderID == 57 && ch04 >= 1)
+                                                                                          || (c.taskOrderID == 58 && ch05 >= 1))).Select(c => new { ID = c.taskOrderID }).ToList();
+            ViewBag.daynbr = daynbr;
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13) && returnTaskOrdersIDlist.Contains(65)))
+            {
+
+                List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
+
+                string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(CS))
+                {
+                    SqlCommand cmd = new SqlCommand("procUHSWOT01refresh", con);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+
+                    cmd.Parameters.AddWithValue("@IDT", userIDselectInt);
+                    cmd.Parameters.AddWithValue("@IDC", 1);
+                    SqlParameter outputParameter = new SqlParameter();
+                    outputParameter.ParameterName = "@ID";
+                    outputParameter.SqlDbType = System.Data.SqlDbType.Int;
+                    outputParameter.Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParameter);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+
+                    string resp = outputParameter.Value.ToString();
+                    int res = Int32.Parse(resp);
+
+                    uhspageitemsDb List1 = new uhspageitemsDb();
+                    List1.modInt01 = res;
+                    pageModel.Add(List1);
+
+                    con.Close();
+                }
+
+                int respint = pageModel.Select(s => s.modInt01).First();
+
+                if (respint == 1)
+                {
+                    ViewBag.userID = userIDselectInt;
+                    ViewBag.dat = 0;
+                    ViewBag.wek = 0;
+                    ViewBag.per = 0;
+                    ViewBag.dis = dis;
+                    ViewBag.act = 0;
+                    ViewBag.dcg = 0;
+                    ViewBag.dct = 0;
+
+                    var data1 = opb.UHSWOT01vDbs.Where(s => userTypeInt == 2 || s.crusid == userIDselectInt).ToList();
+                    ViewBag.pageData = data1;
+                    ViewBag.svctr = 0;
+                    ViewBag.btnSel = 1;
+                    //System.Diagnostics.Trace.WriteLine("************************ OVDE OVDE OVDE OVDE OVDE OVDE ************************");
+                    return View();
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
             }
             else
             {
@@ -263,11 +368,13 @@ namespace TRIZMA.Controllers
             int dt1 = int.Parse(dts);
             ViewBag.usrnm = dbv.agentsViewDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.agentName).First();
 
+
+
             if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13) && returnTaskOrdersIDlist.Contains(65)))
             {
 
                 List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
-                //System.Diagnostics.Trace.WriteLine("whatever ho ho ho");
+
                 string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(CS))
                 {
@@ -296,18 +403,18 @@ namespace TRIZMA.Controllers
                 }
 
                 int respint = pageModel.Select(s => s.modInt01).First();
-                
+
                 if (respint == 1)
                 {
                     var tskoid = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.eXtskoid).First();
                     var distid = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.distid).First();
                     var acctid = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.acctid).First();
-                    
+
                     if (tskoid == 0)
                     {
                         ViewBag.tskoid = IDK;
 
-                        if(IDK == 52)
+                        if (IDK == 52)
                         {
                             ViewBag.mode = opb.UHSinquriesDbs.Where(s => s.tskoid == IDK).Select(s => new { tskoid = s.tskoid, taskOrder = s.taskOrder }).Distinct();
                             ViewBag.task = opb.UHSinquriesDbs.Where(s => s.ID == 0 || s.tskoid == IDK).OrderBy(s => s.ID).Select(s => new { tskoid = s.tskoid, L1ID = s.L1ID, L1DS = s.L1DS }).Distinct();
@@ -325,14 +432,14 @@ namespace TRIZMA.Controllers
                             ViewBag.task = opb.UHSinquriesDbs.Where(s => s.ID == 0 || s.tskoid == IDK).OrderBy(s => s.ID).Select(s => new { tskoid = s.tskoid, L1ID = s.L1ID, L1DS = s.L1DS }).Distinct();
                             ViewBag.inquries = opb.UHSinquriesDbs.Where(s => s.ID == 0 || s.tskoid == IDK).Select(s => new { ID = s.ID, tskoid = s.tskoid, L1ID = s.L1ID, L1DS = s.L1DS, L2ID = s.L2ID, L2DS = s.L2DS, L3DS = s.L3DS, taskOrder = s.taskOrder }).OrderBy(s => s.ID);
 
-                            if(IDK == 53)
+                            if (IDK == 53)
                             {
                                 List<int> dis1 = opb.UHSUSAC1DISTRICTDbs.Where(s => s.MGRID == userIDselectInt)
                                                                         .Select(s => s.DISTID)
                                                                         .ToList();
                                 ViewBag.districts = opb.UHSDISTDP1Dbs.Where(s => s.ID == 0 || dis1.Contains(s.ID)).OrderBy(s => s.ID);
                             }
-                            else if(IDK == 57)
+                            else if (IDK == 57)
                             {
                                 List<int> dis1 = opb.UHSUSAC1SURSERVDbs.Where(s => s.MGRID == userIDselectInt)
                                                                            .Select(s => s.DISTID)
@@ -354,7 +461,7 @@ namespace TRIZMA.Controllers
                             ViewBag.task = opb.UHSinquriesDbs.Where(s => s.ID == 0 || s.tskoid == IDK).OrderBy(s => s.ID).Select(s => new { tskoid = s.tskoid, L1ID = s.L1ID, L1DS = s.L1DS }).Distinct();
                             ViewBag.inquries = opb.UHSinquriesDbs.Where(s => s.ID == 0 || s.tskoid == IDK).Select(s => new { ID = s.ID, tskoid = s.tskoid, L1ID = s.L1ID, L1DS = s.L1DS, L2ID = s.L2ID, L2DS = s.L2DS, L3DS = s.L3DS, taskOrder = s.taskOrder }).OrderBy(s => s.ID);
 
-                            if(IDK == 55)
+                            if (IDK == 55)
                             {
                                 List<int> acc1 = opb.UHSUSAC1A360Dbs.Where(s => s.MGRID == userIDselectInt)
                                                                            .Select(s => s.IDc)
@@ -380,7 +487,7 @@ namespace TRIZMA.Controllers
                             }
                         }
                     }
-                    else if(tskoid == 52)
+                    else if (tskoid == 52)
                     {
                         ViewBag.tskoid = tskoid;
                         ViewBag.mode = new SelectList(opb.UHSinquriesDbs.Where(s => s.tskoid == tskoid).OrderBy(s => s.ID).Select(s => new { tskoid = s.tskoid, taskOrder = s.taskOrder }).Distinct(), "tskoid", "taskOrder");
@@ -414,15 +521,20 @@ namespace TRIZMA.Controllers
                     ViewBag.crdate = data1.Select(s => s.crdate).First();
                     ViewBag.datest = data1.Select(s => s.datest).First();
                     ViewBag.dateex = data1.Select(s => s.dateex).First();
+
                     ViewBag.comboDistrict = data1.Select(s => s.distnm).First();
                     ViewBag.IDK = IDK;
-                    ViewBag.distid = data1.Select(s => s.distid).First();
+                    ViewBag.comboDistrict = data1.Select(s => s.distnm).First();
+
                     ViewBag.docmid = null;
                     ViewBag.dimgid = 0;
+
                     ViewBag.userID = userIDselectInt;
+                    ViewBag.userTypeID = userTypeInt;
                     ViewBag.docID = ID;
+                    ViewBag.svctr = 1;
                     ViewBag.stepTable = opb.UHSWOP01vDbs.Where(c => c.IDT == ID);
-                    ViewBag.cntSteps = data1.Select(s => s.tskcnt).First();
+                    ViewBag.cntSteps = opb.UHSWOT01vDbs.Where(s => s.ID == ID).Select(s => s.tskcnt).First();
                     ViewBag.IDF = IDF;
                     return View();
                 }
@@ -431,7 +543,7 @@ namespace TRIZMA.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                
+
             }
             else
             {

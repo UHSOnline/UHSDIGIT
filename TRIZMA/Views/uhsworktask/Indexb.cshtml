@@ -1,0 +1,631 @@
+﻿
+
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Agility: A3 Form</title>
+    <link href="~/css/w3.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- DataTables Responsive CSS -->
+    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    @*<link href="~/css/morris.css" rel="stylesheet">*@
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+
+    <style>
+        footer {
+            display: none;
+        }
+
+        .buttonb {
+            margin: 0 auto;
+            font-size: 16px;
+            padding: 1.25rem 2.5rem;
+            display: block;
+            background-color: #ffffff;
+            border: 1px solid;
+            border-color: #009ac9;
+            color: #009ac9;
+            font-weight: bold;
+            max-height: 80px;
+            min-width: 220px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .buttonb:hover {
+                background-color: #009ac9;
+                color: #ffffff;
+                border-color: #009ac9;
+            }
+
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        .thinBorder {
+            border: solid;
+            border-width: thin;
+            border-color: #F0FFFF;
+        }
+
+        .thinBorderb {
+            border: solid;
+            border-width: thin;
+            border-color: #85CDDB;
+        }
+
+        .loadDiv {
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 6000;
+            text-align: center;
+        }
+    </style>
+</head><!--/head-->
+<body id="home" class="homepage">
+
+
+    <div class="lckbckscr">
+
+        <div id="wrapper">
+            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
+                <div class="navbar-header">
+                    <div style="padding-top:4px; padding-left:32px">
+                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Action("_navbartop", "uhsCH")
+                }
+
+                <!-- /.navbar-top-links -->
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <!-- /input-group -->
+                            </li>
+                            <li>
+                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
+                            </li>
+                            @Html.Action("SBagPr", "uhsCH")
+                            @if (ViewBag.userTypeID == 2)
+                            {
+                                <li style="padding-left:3px">
+                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:#0076A8 !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <br />
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <h4 class="page-header"><span style="color:#0076A8">A3 Form: </span><span style="color:#F69240"> Create </span><span style="color:#0076A8"> & </span><span style="color:#F69240"> Edit</span></h4>
+                    </div>
+                    <div class="row">
+                        <div class="startbtn" id="Sdistrict" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(53)" class="buttonb">District<br><span style="color:#F69240">Cadence</span></button>
+                        </div>
+                        <div class="startbtn" id="Sa360" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(55)" href="javascript:void(0);" class="buttonb">Asset360<br><span style="color:#F69240">Cadence</span></button>
+                        </div>
+                        <div class="startbtn" id="Sb360" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(56)" href="javascript:void(0);" class="buttonb">BioMed360<br><span style="color:#F69240">Cadence</span></button>
+                        </div>
+                        <div class="startbtn" id="Scoe" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(58)" href="javascript:void(0);" class="buttonb">COE Operations<br><span style="color:#F69240">Cadence</span></button>
+                        </div>
+                        <div class="startbtn" id="Ssurserv" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(57)" href="javascript:void(0);" class="buttonb">Surgical Services<br><span style="color:#F69240">Cadence</span></button>
+                        </div>
+                        <div class="startbtn" id="Sstandards" style="display: inline-block; padding-bottom:4px">
+                            <button onclick="newProject(52)" href="javascript:void(0);" class="buttonb">VWP<br><span style="color:#F69240">Standards</span></button>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <table id="dt1" class="multidatatables table table-hover table-responsive">
+                            <thead>
+                                <tr style="color:#A4BCC2; font-size:11px">
+                                    <th style="color:white">.</th>
+                                    <th>Project:</th>
+                                    <th>District:</th>
+                                    <th>Account:</th>
+                                    <th>App Module:</th>
+                                    <th>Task:</th>
+
+                                    <th style="text-align:center; max-width:54px">St:</th>
+                                    <th style="text-align:center; max-width:54px">Ex:</th>
+                                    <th style="text-align:center; min-width:24px">S#:</th>
+                                    <th style="text-align:center; min-width:72px">Prg:</th>
+                                    <th style="text-align:center; min-width:72px">Time:</th>
+                                    <th style="text-align:center; min-width:28px">CP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.pageData)
+                                {
+                                    if (item.compld == true)
+                                    {
+                                        <tr style="color:#0076A8; background-color:#F5F5F5">
+                                            <td style="text-align:center; min-width:24px"><a href="#" class="delClick" onclick="delDoc('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.3)" title="delete"></i></a></td>
+                                            <td style="max-width:100%; white-space:nowrap;"><a href="#" onclick="editProject('@item.ID', @item.eXtskoid)" style="color:darkred;font-size:14px">@item.project</a></td>
+                                            <td style="max-width:100%; white-space:nowrap;"><span style="font-size:13px; color:#6399AE">@item.distnm</span></td>
+                                            <td><span style="font-size:13px; color:#6399AE">@item.CSTNM</span></td>
+                                            <td><span style="font-size:13px">@item.L1DS</span></td>
+                                            <td><span style="font-size:13px">@item.L2DS</span></td>
+
+                                            <td style="text-align:center; max-width:54px; font-size:13px; color:#6399AE">@item.datest</td>
+                                            <td style="text-align:center; max-width:54px; font-size:13px">@item.dateex</td>
+                                            <td style="text-align:center; min-width:24px; font-size:13px; color:darkred">@item.tskcnt</td>
+                                            <td style="text-align:center">
+                                                @if (item.compld == true)
+                                                {
+                                                    if (item.avgsucce >= 100)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">100%</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info" role="progressbar"
+                                                                 aria-valuenow="@item.avgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.avgsucsb">
+                                                                <span style="color:white">@item.avgsucsb</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                                else if (item.avgsucce >= 100)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                            <span style="color:white">100%</span>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                                                             aria-valuenow="@item.avgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.avgsucsb">
+                                                            <span style="color:white">@item.avgsucsb</span>
+
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            </td>
+
+                                            <td style="text-align:center">
+                                                @if (item.prgsucce >= 100)
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-danger" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">Overdue!</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">Overdue!</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                }
+                                                else if (item.prgsucce >= 80 && item.prgsucce < 100)
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </td>
+
+                                            @if (item.compld == true)
+                                            {
+                                                <td style="text-align:center; min-width:24px"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.3)" title="completed"></i></td>
+                                            }
+                                            else
+                                            {
+                                                <td style="color:white">.</td>
+                                            }
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        <tr style="color:#0076A8">
+                                            <td style="text-align:center; min-width:24px"><a href="#" class="delClick" onclick="delDoc('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.3)" title="delete"></i></a></td>
+                                            <td style="max-width:100%; white-space:nowrap;"><a href="#" onclick="editProject('@item.ID', @item.eXtskoid)" style="color:darkred;font-size:14px">@item.project</a></td>
+                                            <td style="max-width:100%; white-space:nowrap;"><span style="font-size:13px; color:#6399AE">@item.distnm</span></td>
+                                            <td><span style="font-size:13px; color:#6399AE">@item.CSTNM</span></td>
+                                            <td><span style="font-size:13px">@item.L1DS</span></td>
+                                            <td><span style="font-size:13px">@item.L2DS</span></td>
+
+                                            <td style="text-align:center; max-width:54px; font-size:13px; color:#6399AE">@item.datest</td>
+                                            <td style="text-align:center; max-width:54px; font-size:13px">@item.dateex</td>
+                                            <td style="text-align:center; min-width:24px; font-size:13px; color:darkred">@item.tskcnt</td>
+                                            <td style="text-align:center">
+                                                @if (item.compld == true)
+                                                {
+                                                    if (item.avgsucce >= 100)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">100%</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info" role="progressbar"
+                                                                 aria-valuenow="@item.avgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.avgsucsb">
+                                                                <span style="color:white">@item.avgsucsb</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                                else if (item.avgsucce >= 100)
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                            <span style="color:white">100%</span>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                                                             aria-valuenow="@item.avgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.avgsucsb">
+                                                            <span style="color:white">@item.avgsucsb</span>
+
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            </td>
+
+                                            <td style="text-align:center">
+                                                @if (item.prgsucce >= 100)
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-danger" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">Overdue!</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                                                <span style="color:white">Overdue!</span>
+                                                            </div>
+                                                        </div>
+                                                    }
+
+                                                }
+                                                else if (item.prgsucce >= 80 && item.prgsucce < 100)
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (item.compld == true)
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar"
+                                                                 aria-valuenow="@item.prgsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.prgsucsb">
+                                                                <span style="color:white">@item.prgsucsb</span>
+
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </td>
+
+                                            @if (item.compld == true)
+                                            {
+                                                <td style="text-align:center; min-width:24px"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.3)" title="completed"></i></td>
+                                            }
+                                            else
+                                            {
+                                                <td style="color:white">.</td>
+                                            }
+                                        </tr>
+                                    }
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!--/# data handler java script-->
+    <!--/# data handler java script-->
+    <script src="~/js/uhsHome/jquery.js"></script>
+    <script src="~/js/uhsHome/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/vendors/iCheck/icheck.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
+    <script src="~/js/uhsHome/mousescroll.js"></script>
+    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
+    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
+    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
+    <script src="~/js/uhsHome/wow.min.js"></script>
+    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".startbtn").hide();
+            var data1 = @Html.Raw(Json.Encode(@ViewBag.preAgentT));
+            $.each(data1, function (ID, data1) {
+                var it1 = data1.ID;
+                if(it1 == 53){
+                    $("#Sdistrict").show();
+                    $("#Sstandards").show();
+                    //$("#SQuality").show();
+                } else if(it1 == 55){
+                    $("#Sa360").show();
+                } else if(it1 == 56){
+                    $("#Sb360").show();
+                } else if(it1 == 57){
+                    $("#Ssurserv").show();
+                } else if(it1 == 58){
+                    $("#Scoe").show();
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.multidatatables').DataTable({
+                "order": [[11, "desc"], [10, "desc"]]
+                //"order": [[0, "desc"]]
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function newProject(a) {
+            $("head").addClass("loadDiv");
+            $('.loadimage').show();
+            var url = '/uhsworktask/insertDoc?tskoid=' + a + '&L3IDc=0&dat=@ViewBag.dat&wek=@ViewBag.wek&per=@ViewBag.per&dis=@ViewBag.dis&act=@ViewBag.act&dcg=@ViewBag.dcg&dct=@ViewBag.dct&IDR=null';
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "JSON",
+                success: function (response) {
+                    var urlb = '/uhsworktask/workTask?ID=' + response + '&IDK=' + a + '&IDF=1';
+                    window.location = urlb;
+                }
+            });
+        };
+        function editProject(a, b) {
+            $("head").addClass("loadDiv");
+            $('.loadimage').show();
+            var urlb = '/uhsworktask/workTask?ID=' + a + '&IDK=' + b + '&IDF=1';
+            window.location = urlb;
+        };
+    </script>
+    <script type="text/javascript">
+        function delDoc(a) {
+            $.confirm({
+                title: 'Delete!',
+                content: 'Are you sure?',
+                buttons: {
+                    confirm: function () {
+                        $.ajax({
+                            url: '/uhsCH/delDoc3010001',
+                            type: "GET",
+                            dataType: "JSON",
+                            data: { id: a },
+                            success: function (response) {
+                                if (response == 1) {
+                                    location.reload();
+                                }
+                                else {
+                                    alert("Error: Failed to delete document!");
+                                }
+                            }
+                        });
+                    },
+                    cancel: function () {
+                    }
+                    //,
+                    //somethingElse: {
+                    //    text: 'Something else',
+                    //    btnClass: 'btn-blue',
+                    //    keys: ['enter', 'shift'],
+                    //    action: function(){
+                    //        $.alert('Something else?');
+                    //    }
+                    //}
+                }
+            })
+        };
+
+    </script>
+</body>
+</html>

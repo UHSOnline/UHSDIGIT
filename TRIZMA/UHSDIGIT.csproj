@@ -7972,6 +7972,8 @@
     <Content Include="Views\aglinvMap\editDocument.cshtml" />
     <Content Include="Views\aglinvMap\docOverview.cshtml" />
     <Content Include="Views\aglinvMap\invCheckUp.cshtml" />
+    <Content Include="Views\uhsworktask\WorkTask - Copy.cshtml" />
+    <Content Include="Views\uhsworktask\Indexb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />
