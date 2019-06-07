@@ -231,6 +231,9 @@ namespace TRIZMA.Controllers
           
         public ActionResult editDocument(string ID)
         {
+
+
+
             //System.Diagnostics.Debug.WriteLine(item2);
             string CurrentLoginID = User.Identity.GetUserId().ToString();
 
@@ -252,7 +255,7 @@ namespace TRIZMA.Controllers
 
             if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
-                ViewBag.manuNo = opa.AGLINVMFC1Dbs.Where(s => s.extDocID == ID).Count();               
+                ViewBag.manuNo = opa.AGLINVMFC1Dbs.Where(s => s.extDocID == ID).Count();
                 ViewBag.modlNo = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).Count();
 
                 ViewBag.docList = opa.AGLINVIND1Dbs.Where(s => s.ID == ID).ToList();
@@ -281,8 +284,11 @@ namespace TRIZMA.Controllers
                     impTypeID = s.impTypeID
                 }).ToList();
 
-                var pgnr = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).OrderBy(s => s.impTypeID).Select(s => new { Device_Category = s.Device_Category
-                                                                                                                     , impTypeID = s.impTypeID }).Distinct().ToList();
+                var pgnr = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID).OrderBy(s => s.impTypeID).Select(s => new {
+                    Device_Category = s.Device_Category
+                                                                                                                     ,
+                    impTypeID = s.impTypeID
+                }).Distinct().ToList();
 
                 List<AGLINVMDL1shDb> data01 = new List<AGLINVMDL1shDb>();
                 foreach (var item in data)
@@ -310,7 +316,7 @@ namespace TRIZMA.Controllers
                     var dtc = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == ID && s.impTypeID == item.impTypeID && s.matchConfrm == false).Count();
 
                     AGLINVMDL1pgDb List1 = new AGLINVMDL1pgDb();
-                    List1.Device_Category = item.Device_Category;            
+                    List1.Device_Category = item.Device_Category;
                     List1.impTypeID = item.impTypeID;
                     List1.cnta = dta;
                     List1.cntb = dtb;
@@ -318,7 +324,7 @@ namespace TRIZMA.Controllers
                     data02.Add(List1);
                 }
 
-                
+
 
                 //string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
                 //using (SqlConnection connection = new SqlConnection(CS))
@@ -330,7 +336,7 @@ namespace TRIZMA.Controllers
                 //    connection.Open();                   
                 //    using (SqlDataReader reader = cmd.ExecuteReader())
                 //    {
-                        
+
                 //        while (reader.Read())
                 //        {
                 //            AGLINVMDL1shDb item = new AGLINVMDL1shDb();
@@ -348,11 +354,11 @@ namespace TRIZMA.Controllers
                 //        }
                 //    }
                 //    connection.Close();
-                    
+
                 //}
 
                 ViewBag.docID = ID;
-                
+                ViewBag.svctr = 0;
                 ViewBag.datab = data01.ToList();
                 ViewBag.dataa = data02.ToList();
                 //System.Diagnostics.Trace.WriteLine("OVDE BI TREBALO DA SE POJAVI");
@@ -490,7 +496,7 @@ namespace TRIZMA.Controllers
                 //}
 
                 ViewBag.docID = ID;
-                ViewBag.svctr = 0;
+
                 ViewBag.datab = data01.ToList();
                 ViewBag.dataa = data02.ToList();
                 //System.Diagnostics.Trace.WriteLine("OVDE BI TREBALO DA SE POJAVI");
