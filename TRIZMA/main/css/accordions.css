@@ -12,16 +12,16 @@
 .edu-custon-design .panel-collapse .panel-body{
 	border-top:none ;
 }
-.edu-custon-design .panel-heading{
-	border-top-left-radius:0px;
-	border-top-right-radius:0px;
-	background:#006DF0;
-	color:#fff;
-	font-size:20px;
-	padding: 15px 20px;
+.edu-custon-design .panel-heading {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background: #E8E8E8;
+    color: #0076A8;
+    font-size: 16px;
+    padding: 15px 20px;
 }
 .edu-custon-design .admin-panel-content{
-	background:#f5f5f5;
+	background:#fff;
 }
 .edu-custon-design .admin-panel-content p{
 	font-size:14px;
@@ -29,10 +29,14 @@
 	line-height:24px;
 }
 .panel-group.edu-custon-design .accordion-head a:hover, .panel-group.edu-custon-design .accordion-head a:focus, .panel-group.edu-custon-design .accordion-head a:active{
-	color:#03a9f4;
+	color:darkred;
 }
-.panel-group.edu-custon-design{
-	margin-bottom:30px;
+a:hover, a:focus, a:active {
+    color: darkred;
+}
+
+.panel-group.edu-custon-design {
+    margin-bottom: 30px;
 }
 .panel-group.edu-custon-design.edu-ad-mg-bt{
 	margin-bottom:40px;

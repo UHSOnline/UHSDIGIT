@@ -23,6 +23,7 @@ namespace TRIZMA.Models
         public int sourceCD { get; set; }
         public int Rnm { get; set; }
         public string ModelApp { get; set; }
-
+        public string ManufacturerNK { get; set; }
+        public string equipmentTypeNK { get; set; }
     }
 }

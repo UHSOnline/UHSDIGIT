@@ -195,6 +195,62 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
+        public ActionResult SearchList(int id, string ida)
+        {
+           
+
+
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+            ViewBag.userID = userIDselectInt;
+            ViewBag.userTypeb = userTypeInt;
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
+            {
+
+                if (id == 1)
+                {
+                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.ManufacturerNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };                   
+                    //System.Diagnostics.Trace.WriteLine(ida);
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else
+                    if (id == 2)
+                {
+                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.equipmentTypeNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
+                    //System.Diagnostics.Trace.WriteLine(ida);
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else if(id == 3 || id == 4)
+                {
+                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.ModelNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
+                    //System.Diagnostics.Trace.WriteLine(ida);
+                    return Json(resp, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
         public ActionResult getSingle(string a)
         {
             //System.Diagnostics.Debug.WriteLine(item2);
