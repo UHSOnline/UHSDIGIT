@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
         ============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="~/main/img/favicon.ico">
     <!-- Google Fonts
         ============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -51,6 +51,9 @@
     <!-- dropzone CSS
         ============================================ -->
     <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- select2 CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/select2/select2.min.css">
     <!-- style CSS
         ============================================ -->
     <link rel="stylesheet" href="~/main/css/alerts.css">
@@ -89,6 +92,7 @@
     <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+    <link href="~/main/css/chosen/bootstrap-chosen.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
         <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
     <!-- modals CSS
@@ -463,73 +467,56 @@
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12" style="text-align:left !important">
 
-                                                    <h5 class="page-header"><span style="color:#0076A8">Select </span><span style="color:#F69240"> option:</span></h5>
+                                                    <h5 class="page-header"><span style="color:#0076A8">Select </span><span style="color:#F69240"> option:</span><span style="color:#F69240">: In</span><span style="color:#0076A8">Service</span></h5>
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:6px">
                                                                     <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Manuf:</label>
                                                                 </div>
-                                                                <div class="col-lg-8">
-                                                                    <select class="form-control col-lg-12" id="dpa_" style="max-height:28px !important; font-size:12px; color:#0076A8" onchange="dpSelect(1)"></select>
+                                                                <div class="col-lg-10" id="diva_">
+                                                                    <select id="dpa_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(1)"></select>
                                                                 </div>
-                                                                <div class="col-lg-2">
-                                                                    <div class="row">
-                                                                        <a href="#" class="btn btn-sm btn-default linkAll" id="x1" style="font-size:11px; max-height:28px; color:#0076A8"> All <span style="padding-left:6px"><i class="fa fa-forward"></i></span></a>
-                                                                    </div>
-                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
+                                                                <div class="col-lg-2" style="padding-top:6px">
                                                                     <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Type:</label>
                                                                 </div>
-                                                                <div class="col-lg-8">
-                                                                    <select class="form-control col-lg-12" id="dpb_" style="max-height:28px !important; font-size:12px; color:#0076A8" onchange="dpSelect(2)"></select>
+                                                                <div class="col-lg-10" id="divb_">
+                                                                    <select id="dpb_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(2)"></select>
+                                                                    
                                                                 </div>
-                                                                <div class="col-lg-2">
-                                                                    <div class="row">
-                                                                        <a href="#" class="btn btn-sm btn-default linkAll" id="x2" style="font-size:11px; max-height:28px; color:#0076A8"> All <span style="padding-left:6px"><i class="fa fa-forward"></i></span></a>
-                                                                    </div>
-                                                                </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Descr:</label>
+                                                                <div class="col-lg-2" style="padding-top:6px">
+                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Model:</label>
                                                                 </div>
-                                                                <div class="col-lg-10">
-                                                                    <select class="form-control col-lg-12" id="dpc_" style="max-height:28px !important; font-size:12px; color:#0076A8" onchange="dpSelect(3)"></select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row" style="padding-bottom:2px">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Model:</label>
-                                                                </div>
-                                                                <div class="col-lg-10">
-                                                                    <select class="form-control col-lg-12" id="dpd_" style="max-height:28px !important; font-size:12px; color:#0076A8" onchange="dpSelect(4)"></select>
+                                                                <div class="col-lg-10" id="divc_">
+                                                                    <select id="dpc_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(3)"></select>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align:left !important">
                                                     <h5 class="page-header"><span style="color:#0076A8">Result </span><span style="color:#F69240"> Data:</span></h5>
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Manuf:</label>
+                                                                <div class="col-lg-2" style="padding-top:2px" id="lb1">
+                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Manuf</label>
                                                                 </div>
                                                                 <div class="col-lg-10">
                                                                     <input type="text" class="form-control col-lg-12" id="txa_" style="max-height:28px !important; font-size:12px; color:#0076A8" />
@@ -540,8 +527,8 @@
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Type:</label>
+                                                                <div class="col-lg-2" style="padding-top:2px" id="lb2">
+                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Type</label>
                                                                 </div>
                                                                 <div class="col-lg-10">
                                                                     <input type="text" class="form-control col-lg-12" id="txb_" style="max-height:28px !important; font-size:12px; color:#0076A8" />
@@ -552,8 +539,8 @@
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Eq.Descr:</label>
+                                                                <div class="col-lg-2" style="padding-top:2px" id="lb3">
+                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Device</label>
                                                                 </div>
                                                                 <div class="col-lg-10">
                                                                     <input type="text" class="form-control col-lg-12" id="txc_" style="max-height:28px !important; font-size:12px; color:#0076A8" />
@@ -564,8 +551,8 @@
                                                     <div class="row" style="padding-bottom:2px">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <div class="row">
-                                                                <div class="col-lg-2" style="padding-top:2px">
-                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Model:</label>
+                                                                <div class="col-lg-2" style="padding-top:2px" id="lb4">
+                                                                    <label style="font-size:11px; color:#F69240; padding-top:4px">Model</label>
                                                                 </div>
                                                                 <div class="col-lg-10">
                                                                     <input type="text" class="form-control col-lg-12" id="txd_" onkeyup="dpreset()" style="max-height:28px !important; font-size:12px; color:#0076A8" />
@@ -582,17 +569,19 @@
                                                     <button class="btn btn-sm btn-warning col-lg-12 btnReset" style="max-height:32px !important"><i class="fa fa-refresh" style="transform:scale(1.2)"></i><span style="padding-left:12px">Reset Selection!</span></button>
                                                 </div>
                                             </div>
+                                            
+
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="col-lg-12" style="padding-top:6px">
                                                     <table id="dt2" class="table table-hover table-responsive" style="font-size:11px">
                                                         <thead>
                                                             <tr style="color:#0076A8">
-                                                                <th>ModelDescription</th>
-                                                                <th>modelID1</th>
-                                                                <th>ModelID2</th>
+                                                                <th>Model Description</th>
+                                                                <th>Model ID1</th>
+                                                                <th>Model ID2</th>
                                                                 <th>Status</th>
                                                                 <th>Manufacturer</th>
-                                                                <th>Equipment Type</th>
+                                                                <th>Eq.Type</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody style="background-color:white"></tbody>
@@ -704,7 +693,6 @@
         ============================================ -->
     <script src="~/main/js/editable/jquery.mockjax.js"></script>
     <script src="~/main/js/editable/mock-active.js"></script>
-    <script src="~/main/js/editable/select2.js"></script>
     <script src="~/main/js/editable/moment.min.js"></script>
     <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
     <script src="~/main/js/editable/bootstrap-editable.js"></script>
@@ -723,6 +711,7 @@
     <script src="~/main/js/form-validation/jquery.form.min.js"></script>
     <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
     <script src="~/main/js/form-validation/form-active.js"></script>
+    
     <!-- dropzone JS
         ============================================ -->
     <script src="~/main/js/dropzone/dropzone.js"></script>
@@ -747,16 +736,12 @@
             $("#cnsl").val(0);
             $("#impid").val(0);
             $("#typid").val(0);
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
             var dataa = @Html.Raw(Json.Encode(@ViewBag.dataa));
             var datab = @Html.Raw(Json.Encode(@ViewBag.datab));
             //console.log(datab);
             var partc = "</tbody></table></div></div></div>";
             $.each(dataa, function (ID, dataa) {
-                var parta = "<div class='panel panel-default'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-forward'></i><span> " + dataa.Device_Category + " </span></a><span class='pull-right'><i class='fa fa-check' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:lightpink; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:lightpink; font-size:16px' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Data:</th><th>Edit:</th></tr></thead><tbody>";
+                var parta = "<div class='panel panel-default'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-plus'></i><span style='padding-left:12px'> " + dataa.Device_Category + " </span></a><span class='pull-right'><i class='fa fa-check' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:lightpink; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:lightpink; font-size:16px' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Data:</th><th>Edit:</th></tr></thead><tbody>";
                 var partb = [];
                 $.each(datab, function (ID, datab) {
                     if (dataa.impTypeID == datab.impTypeID) {
@@ -791,20 +776,14 @@
                 $("#accordion").append(html);
             });
         });
-    </script>
-    <script type="text/javascript">
         function dpreset(a) {
-            var dpc = "#dpc_" + a;
-            var dpd = "#dpd_" + a;
+            var dpc = "#dpc_" + a;   
             var txc = "#txc_" + a;
             var txd = "#txd_" + a;
-            $(dpc).val(0);
-            $(dpd).val(0);
+            $(dpc).val(0);           
             $(txc).val("").html("").data("id", 0);
             $(txd).data("id", 0);
         };
-    </script>
-    <script type="text/javascript">
         function PopupCenterDual(a) {
             var url = '/aglinvMap/equipManuf?ID=' + a;
             var w = 1640; var h = 736;
@@ -814,7 +793,6 @@
             var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
             width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
             height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
             var left = ((width / 2) - (w / 2)) + dualScreenLeft;
             var top = ((height / 2) - (h / 2)) + dualScreenTop;
             var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
@@ -833,11 +811,9 @@
             var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
             width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
             height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
             var left = ((width / 2) - (w / 2)) + dualScreenLeft;
             var top = ((height / 2) - (h / 2)) + dualScreenTop;
             var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
             // Puts focus on the newWindow
             if (window.focus) {
                 newWindow.focus();
@@ -852,18 +828,14 @@
             var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
             width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
             height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
             var left = ((width / 2) - (w / 2)) + dualScreenLeft;
             var top = ((height / 2) - (h / 2)) + dualScreenTop;
             var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
             // Puts focus on the newWindow
             if (window.focus) {
                 newWindow.focus();
             }
         }
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.btnactive', function () {
             var btnf = $(this).attr("id").replace("bte_", "");
             $('#dt2').find('tbody').detach();
@@ -878,96 +850,102 @@
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             var txa = "#txa_";
             var txb = "#txb_";
             var txc = "#txc_";
             var txd = "#txd_";
             var docid = '@ViewBag.docID';
+            var datag = @Html.Raw(Json.Encode(@ViewBag.datag));
+            //alert("test");
+            $("#diva_").empty();
+            $("#divb_").empty();
+            $("#divc_").empty();
+            $("#divd_").empty();
+            $("#diva_").append("<select id='dpa_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(1)'></select>");
+            $("#divb_").append("<select id='dpb_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(2)'></select>");
+            $("#divc_").append("<select id='dpc_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(3)'></select>");
+            $(dpa).append($('<option></option>').val(0).html("-"));
+            $(dpb).append($('<option></option>').val(0).html("-"));
+            $(dpc).append($('<option></option>').val(0).html("-"));
+            $.each(datag, function (ID, datag) {
+                if (datag.ID == 1) {
+                    $(dpa).append(
+                        $('<option></option>').val(datag.IDNK).html(datag.Desc));
+                } else {
+                    return;
+                }
+            });
            $.ajax({
                url: '/aglinvMap/popDrop',
                type: "GET",
                dataType: "JSON",
                data: { a: docid, b: btn },
                success: function (data) {
-                   $(dpa).html("");
-                   $(dpb).html("");
                    $(dpc).html("");
-                   $(dpd).html("");
-                   $(dpa).append($('<option></option>').val(0).html("-"));
-                   $(dpb).append($('<option></option>').val(0).html("-"));
                    $(dpc).append($('<option></option>').val(0).html("-"));
-                   $(dpd).append($('<option></option>').val(0).html("-"));
                    $.each(data, function (ID, data) {
-                       if (data.ID == 1) {
-                           $(dpa).append(
-                               $('<option></option>').val(data.IDNK).html(data.Desc));
-                       }
-                       else
-                           if (data.ID == 2) {
+                       if (data.ID == 11) {
+                           $("#lb1").empty();
+                           if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "" || data.IDNK == "0") {
+                               $(txa).val(data.Desc).html(data.Desc).data("id", 0);
+                               $("#lb1").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Manuf</label>");
+                                   }
+                                   else {
+                                       $(dpa).val(data.IDNK).attr("selected", "selected");
+                               $(txa).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                               $("#lb1").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Manuf</b></span></i></label>");
+                                   }
+                       } else if (data.ID == 12) {
+                           $("#lb2").empty();
+                           if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "" || data.IDNK == "0") {
+                               $(txb).val(data.Desc).html(data.Desc).data("id", 0);
+                               $("#lb2").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Type</label>");
+                                   }
+                                   else {
                                $(dpb).append(
                                    $('<option></option>').val(data.IDNK).html(data.Desc));
-                           }
-                           else
-                               if (data.ID == 3) {
-                                   $(dpc).append(
-                                       $('<option></option>').val(data.IDNK).html(data.Desc));
-                               }
-                               else if (data.ID == 4) {
-                                   $(dpd).append(
-                                       $('<option></option>').val(data.IDNK).html(data.Desc));
-                               } else if (data.ID == 11) {
-                                   if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
-                                       $(txa).val(data.Desc).html(data.Desc).data("id", 0);
+                               $(dpb).val(data.IDNK).attr("selected", "selected");
+                               $(txb).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                               $("#lb2").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Type</b></span></i></label>");
+                                   }
+                       } else if (data.ID == 13) {
+                           $("#lb3").empty();
+                           if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "" || data.IDNK == "0") {
+                               $(txc).val(data.Desc).html(data.Desc).data("id", 0);
+                               $("#lb3").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Device</label>");
                                    }
                                    else {
-                                       $(dpa).val(data.IDNK);
-                                       $(txa).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                                       $(dpc).append(
+                                           $('<option></option>').val(data.IDNK).html(data.Desc));
+                                       $(dpc).val(data.IDNK).attr("selected", "selected");
+                               $(txc).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                               $("#lb3").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Device</b></span></i></label>");
                                    }
-
-                               } else if (data.ID == 12) {
-                                   if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
-                                       $(txb).val(data.Desc).html(data.Desc).data("id", 0);
-                                   }
-                                   else {
-                                       $(dpb).val(data.IDNK);
-                                       $(txb).val(data.Desc).html(data.Desc).data("id", data.IDNK);
-                                   }
-
-                               } else if (data.ID == 13) {
-                                   if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
-                                       $(txc).val(data.Desc).html(data.Desc).data("id", 0);
+                       } else if (data.ID == 14) {
+                           $("#lb4").empty();
+                           if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "" || data.IDNK == "0") {
+                               $(txd).val(data.Desc).html(data.Desc).data("id", 0);
+                               $("#lb4").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Model</label>");
                                    }
                                    else {
-                                       $(dpc).val(data.IDNK);
-                                       $(txc).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                               $(txd).val(data.Desc).html(data.Desc).data("id", data.IDNK);
+                               $("#lb4").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Model</b></span></i></label>");
                                    }
-
-                               } else if (data.ID == 14) {
-                                   if (data.IDNK == null || data.IDNK == 0 || data.IDNK == "") {
-                                       $(txd).val(data.Desc).html(data.Desc).data("id", 0);
-                                   }
-                                   else {
-                                       $(dpd).val(data.IDNK);
-                                       $(txd).val(data.Desc).html(data.Desc).data("id", data.IDNK);
-                                   }
-
-                               }
-                               else {
+                       }
+                       else {
                                    return;
                                }
                    });
                    $("#modHd1a").val(spDev).html(spDev);
                    $("#modHd2a").val(spMod).html(spMod);
                    $("#modHd3a").val(spMan).html(spMan);
+                   $.getScript("/main/js/chosen/chosen.jquery.min.js");
+                   $.getScript("/main/js/chosen/chosen-active.js");                                  
                    $("#impid").val(btn);
                    $('#PrimaryModalhdbgcl').modal('toggle');
                }
            });
-
         });
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.linkAll', function (e) {
             e.preventDefault();
             var dt = $("#impid").val();
@@ -976,7 +954,6 @@
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             var txm = "#txm_";
             $.ajax({
                 url: '/aglinvMap/getAll',
@@ -985,10 +962,8 @@
                 data: { a: a },
                 success: function (data) {
                     if (a == 1) {
-                        $(dpa).html("");
                         $(dpb).html("");
                         $(dpc).html("");
-                        $(dpd).html("");
                         $(dpa).append($('<option></option>').val(0).html("-"));
                         $.each(data, function (ID, data) {
                             $(dpa).append(
@@ -999,160 +974,235 @@
                         if (a == 2) {
                             $(dpb).html("");
                             $(dpc).html("");
-                            $(dpd).html("");
                             $(dpb).append($('<option></option>').val(0).html("-"));
                             $.each(data, function (ID, data) {
                                 $(dpb).append(
                                     $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentTypeDescr));
                             });
-
                         }
                         else
                             if (a == 3) {
                                 $(dpc).html("");
-                                $(dpd).html("");
+                                
                                 $(dpc).append($('<option></option>').val(0).html("-"));
                                 $.each(data, function (ID, data) {
                                     $(dpc).append(
                                         $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
                                 });
-
                             }
                 }
             });
+            $.getScript("/main/js/chosen/chosen.jquery.min.js");
+            $.getScript("/main/js/chosen/chosen-active.js");
             $(txm).val("").html("");
             $("#cnsl").val(1);
         });
-    </script>
-    <script type="text/javascript">
-        function dpSelect(a, b) {
+        function clearDetail() {
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
+            $("#diva_").empty();
+            $("#divb_").empty();
+            $("#divc_").empty();
+            $("#diva_").append("<select id='dpa_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(1)'></select>");
+            $("#divb_").append("<select id='dpb_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(2)'></select>");
+            $("#divc_").append("<select id='dpc_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(3)'></select>");
+            $(dpa).append($('<option></option>').val(0).html("-"));
+            $(dpb).append($('<option></option>').val(0).html("-"));
+            $(dpc).append($('<option></option>').val(0).html("-"));
+            $("#lb1").empty();
+            $("#lb2").empty();
+            $("#lb3").empty();
+            $("#lb4").empty();
+        }
+        function setLabels(a, b, c) {
+            if (a == "0" || a == null || a == "") {
+                $("#lb1").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Manuf</label>");
+            }
+            else {
+                $("#lb1").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Manuf</b></span></i></label>");
+            }
+            if (b == "0" || b == null || b == "") {
+                $("#lb2").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Type</label>");
+            }
+            else {
+                $("#lb2").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Type</b></span></i></label>");
+            }
+            if (c == "0" || c == null || c == "") {
+                $("#lb3").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Device</label>");
+                $("#lb4").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Model</label>");
+            }
+            else {
+                $("#lb3").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Device</b></span></i></label>");
+                $("#lb4").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Model</b></span></i></label>");
+            }
+        }
+        function getMod(a, b, c, d) {
+            var datag = @Html.Raw(Json.Encode(@ViewBag.datag));
+            var dpa = "#dpa_";
+            var dpb = "#dpb_";
+            var dpc = "#dpc_";
+            $.ajax({
+                url: '/aglinvMap/getModels',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a, b: b, c: c, d: d },
+                success: function (data) {
+                    if (d == 1 || d == 2 || (d == 4 && (c == "0" || c == null || c == ""))) {
+                        $.each(datag, function (ID, datag) {
+                            if (datag.ID == 1) {
+                                $(dpa).append(
+                                    $('<option></option>').val(datag.IDNK).html(datag.Desc));
+                            } else {
+                                return;
+                            }
+                        });
+                        $.each(data, function (ID, data) {
+                            if (data.ID == 2) {
+                                    $(dpb).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                } else if (data.ID == 3) {
+                                    $(dpc).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                }
+                        });
+                    }
+                    else {
+                        $.each(data, function (ID, data) {
+                            if (data.ID == 1) {
+                                $(dpa).append(
+                                    $('<option></option>').val(data.IDNK).html(data.Desc));
+                            } else
+                                if (data.ID == 2) {
+                                    $(dpb).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                } else if (data.ID == 3) {
+                                    $(dpc).append(
+                                        $('<option></option>').val(data.IDNK).html(data.Desc));
+                                }
+                        });
+                    }
+                    $(dpa).val(a).attr("selected", "selected");
+                    alert(b);
+                    $(dpb).val(b).attr("selected", "selected");
+                    if (a == "0" || a == null || a == "" || b == "0" || b == null || b == "" || c == "0" || c == null || c == "") {
+                        $(dpc).val("0").attr("selected", "selected");
+                    }
+                    else {
+                        $(dpc).val(c).attr("selected", "selected");
+                    }
+                }
+            });
+        }
+        function dpSelect(a) {
+            var dpa = "#dpa_";
+            var dpb = "#dpb_";
+            var dpc = "#dpc_";
             var txa = "#txa_";
             var txb = "#txb_";
             var txc = "#txc_";
             var txd = "#txd_";
-            var txm = "#txm_";
-            var cnsl = $("#cnsl").val();
-            if (a == 1) {
-                if (cnsl == 0) {
-                    var dpah = $('option:selected', dpa).text();
-                    var dpag = $('option:selected', dpa).val();
-                    $(txa).val(dpah).html(dpah).data("id", dpag);
-                    $("#cnsl").val(0);
+            var txm = "#txm_";           
+            var dpah = $('option:selected', dpa).text();
+            var dpag = $('option:selected', dpa).val();
+            var dpbh = $('option:selected', dpb).text();
+            var dpbg = $('option:selected', dpb).val();
+            var dpch = $('option:selected', dpc).text();
+            var dpcg = $('option:selected', dpc).val();           
+            var iden = []; var ka = []; var kb = []; var kc = [];
+            if (dpcg == "0" || dpcg == null || dpcg == "") {
+                kc = 0;
+                if (dpbg == "0" || dpbg == null || dpbg == "") {
+                    kb = 0;
+                    if (dpag == "0" || dpag == null || dpag == "") {
+                        ka = 0;
+                        clearDetail();
+                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0 
+                    } else {
+                        ka = 1;
+                        clearDetail();
+                        iden = 2; // da vrati sve manufacturer i setuje odabrani, vrati sve typove setuj 0, vrati 0 models
+                    }
+                } else {
+                    kb = 1;
+                    if (dpag == "0" || dpag == null || dpag == "") {
+                        ka = 0;
+                        clearDetail();
+                        iden = 3; // da vrati sve type-ove i sve proizvodjace, fill all manufacturers, fill all types and set, fill 0 models set to 0
+                    } else {
+                        ka = 1;
+                        clearDetail();
+                        iden = 4; // da vrati sve od oba matchovana, ako nema modela od kombinacije ostavi modele prazno else popuni modele od kombinacije.
+                    }
+                }
+            } else {
+                kc = 1;
+                if (dpbg == "0" || dpbg == null || dpbg == "") {
+                    kb = 0;
+                    if (dpag == "0" || dpag == null || dpag == "") {
+                        ka = 0;
+                        clearDetail();
+                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0 
+                    } else {
+                        ka = 1;
+                        clearDetail();
+                        iden = 2; // da vrati sve manufacturer i setuje odabrani, vrati sve typove setuj 0, vrati 0 models
+                    }
                 }
                 else {
-                    var dpah = $('option:selected', dpa).text();
-                    var dpag = $('option:selected', dpa).val();
-                    $(txa).val(dpah).html(dpah).data("id", dpag);
-                    $.ajax({
-                        url: '/aglinvMap/getModels',
-                        type: "GET",
-                        dataType: "JSON",
-                        data: { b: dpag, c: 1 },
-                        success: function (data) {
-                            //console.log(data);
-                            $(dpb).html("");
-                            $(dpc).html("");
-                            $(dpd).html("");
-                            $(dpb).append($('<option></option>').val(0).html("-"));
-                            $(dpc).append($('<option></option>').val(0).html("-"));
-                            $(dpd).append($('<option></option>').val(0).html("-"));
-                            $.each(data, function (ID, data) {
-                                $(dpb).append(
-                                    $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentTypeDescr));
-                            });
-                        }
-                    });
-                    $("#cnsl").val(1);
+                    kb = 1;
+                    if (dpag == "0" || dpag == null || dpag == "") {
+                        ka = 0;
+                        clearDetail();
+                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0 , vrati 0 models
+                    } else {
+                        ka = 1;
+                        clearDetail();
+                        iden = 5; // svi odabrani, proveri 
+                    }
                 }
-                popTable(1, dpag);
             }
-            else
-                if (a == 2) {
-                    if (cnsl == 0) {
-                        var dpbh = $('option:selected', dpb).text();
-                        var dpbg = $('option:selected', dpb).val();
-                        $(txb).val(dpbh).html(dpbh).data("id", dpbg);
-                        $("#cnsl").val(0);
-                    }
-                    else {
-
-                        var dpbh = $('option:selected', dpb).text();
-                        var dpbg = $('option:selected', dpb).val();
-                        $(txb).val(dpbh).html(dpbh).data("id", dpbg);
-                        $.ajax({
-                            url: '/aglinvMap/getModels',
-                            type: "GET",
-                            dataType: "JSON",
-                            data: { b: dpbg, c: 2 },
-                            success: function (data) {
-                                $(dpc).html("");
-                                $(dpd).html("");
-                                $(dpc).append($('<option></option>').val(0).html("-"));
-                                $(dpd).append($('<option></option>').val(0).html("-"));
-                                $.each(data, function (ID, data) {
-                                    $(dpc).append(
-                                        $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
-                                });
-                            }
-                        });
-                        $("#cnsl").val(1);
-                    }
-                    popTable(2, dpbg);
-                }
-                else
-                    if (a == 3) {
-                        if (cnsl == 0) {
-                            var dpch = $('option:selected', dpc).text();
-                            var dpcg = $('option:selected', dpc).val();
-                            $(txc).val(dpch).html(dpch).data("id", dpcg);
-                            $("#cnsl").val(0);
-                        }
-                        else {
-                            var dpch = $('option:selected', dpc).text();
-                            var dpcg = $('option:selected', dpc).val();
-                            $(txc).val(dpch).html(dpch).data("id", dpcg);
-                            $.ajax({
-                                url: '/aglinvMap/getModels',
-                                type: "GET",
-                                dataType: "JSON",
-                                data: { b: dpcg, c: 3 },
-                                success: function (data) {
-                                    $(dpd).html("");
-                                    $.each(data, function (ID, data) {
-                                        $(dpd).append(
-                                            $('<option></option>').val(data.ModelNK).html(data.modelID1));
-                                        $(txd).val(data.modelID1).html(data.modelID1);
-                                    });
-                                }
-                            });
-                            $("#cnsl").val(1);
-                        }
-                        popTable(3, dpcg);
-                    }
-                    else
-                        if (a == 4) {
-                            var dpdh = $('option:selected', dpd).text();
-                            var dpdg = $('option:selected', dpd).val();
-                            $(dpc).val(dpdg);
-                            var dpch = $('option:selected', dpc).text();
-                            $(txc).val(dpch).html(dpch).data("id", dpdg);
-                            $(txd).val(dpdh).html(dpdh).data("id", dpdg);
-                            popTable(4, dpdg);
-                        }
+            setLabels(ka, kb, kc);        
+            getMod(dpag, dpbg, dpcg, iden);   
+            if (iden == 1) {
+                $(txa).val("").html("").data("id", 0);
+                $(txb).val("").html("").data("id", 0);
+                $(txc).val("").html("").data("id", 0);
+                $(txd).val("").html("").data("id", 0);
+            } else if (iden == 2) {
+                $(txa).val(dpah).html(dpah).data("id", dpag);
+                $(txb).val("").html("").data("id", 0);
+                $(txc).val("").html("").data("id", 0);
+                $(txd).val("").html("").data("id", 0);
+            } else if (iden == 3) {
+                $(txa).val("").html("").data("id", 0);
+                $(txb).val(dpbh).html(dpbh).data("id", dpbg);
+                $(txc).val("").html("").data("id", 0);
+                $(txd).val("").html("").data("id", 0);
+            } else if (iden == 4) {
+                $(txa).val(dpah).html(dpah).data("id", dpag);
+                $(txb).val(dpbh).html(dpbh).data("id", dpbg);
+                $(txc).val("").html("").data("id", 0);
+                $(txd).val("").html("").data("id", 0);
+            } else if (iden == 5) {
+                $(txa).val(dpah).html(dpah).data("id", dpag);
+                $(txb).val(dpbh).html(dpbh).data("id", dpbg);
+                $(txc).val(dpch).html(dpch).data("id", dpcg);
+                $(txd).val(dpch).html(dpch).data("id", dpcg);
+            }       
+            $.getScript("/main/js/chosen/chosen.jquery.min.js");
+            $.getScript("/main/js/chosen/chosen-active.js");
             $(txm).val("").html("");
+            popTable(dpag, dpbg, dpcg);
         };
-        function popTable(a, b) {           
+        function popTable(a, b, c) {
             $('#dt2').find('tbody').detach();
-            $('#dt2').append($('<tbody>').css('background-color', 'white'));          
-            $.ajax({ 
+            $('#dt2').append($('<tbody>').css('background-color', 'white'));
+            $.ajax({
                 url: '/aglinvMap/SearchList',
                 type: "GET",
                 dataType: "JSON",
-                data: { id: a, ida: b },
+                data: { ida: a, idb: b, idc: c },
                 success: function (resp) {
                     $.each(resp, function (ID, resp) {
                         $("#dt2 tbody").append("<tr><td style='text-align:left; max-width:100%; white-space:nowrap'><a href='#' onclick='getNK(\"" + resp.ModelNK + "\")'>" + resp.ModelDescription + "</a></a></td><td style='color:#0076A8; text-align:left; max-width:100%; white-space:nowrap'>" + resp.modelID1 + "</td><td style='color:#0076A8; text-align:left; max-width:100%; white-space:nowrap'>" + resp.ModelID2 + "</td><td style='text-align:left'>" + resp.Status + "</td><td style='text-align:left; max-width:100%; white-space:nowrap'>" + resp.manufacturer + "</td><td style='text-align:left; max-width:100%; white-space:nowrap'>" + resp.equipmentType + "</td></tr>");
@@ -1162,11 +1212,8 @@
                         "order": [[0, "asc"]]
                     });
                 }
-
             });
         };
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.btnReset', function (e) {
             e.preventDefault();
             var b = $("#impid").val();
@@ -1174,62 +1221,39 @@
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             var txa = "#txa_"; $(txa).val("").html("");
             var txb = "#txb_"; $(txb).val("").html("");
             var txc = "#txc_"; $(txc).val("").html("");
             var txd = "#txd_"; $(txd).val("").html("");
             var txm = "#txm_"; $(txm).val("").html("");
-            $(dpa).html("");
-            $(dpb).html("");
-            $(dpc).html("");
-            $(dpd).html("");
+            $("#diva_").empty();
+            $("#divb_").empty();
+            $("#divc_").empty();
+            $("#diva_").append("<select id='dpa_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(1)'></select>");
+            $("#divb_").append("<select id='dpb_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(2)'></select>");
+            $("#divc_").append("<select id='dpc_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(3)'></select>");
             $(dpa).append($('<option></option>').val(0).html("-"));
             $(dpb).append($('<option></option>').val(0).html("-"));
-            $(dpc).append($('<option></option>').val(0).html("-"));
-            $(dpd).append($('<option></option>').val(0).html("-"));
-            $.ajax({
-                url: '/aglinvMap/popDrop',
-                type: "GET",
-                dataType: "JSON",
-                data: { a: docID, b: b },
-                success: function (data) {
-                    $.each(data, function (ID, data) {
-                        if (data.ID == 1) {
-
-                            $(dpa).append(
-                                $('<option></option>').val(data.IDNK).html(data.Desc));
-                        }
-                        else
-                            if (data.ID == 2) {
-                                $(dpb).append(
-                                    $('<option></option>').val(data.IDNK).html(data.Desc));
-                            }
-                            else
-                                if (data.ID == 3) {
-                                    $(dpc).append(
-                                        $('<option></option>').val(data.IDNK).html(data.Desc));
-                                } else
-                                    if (data.ID == 4) {
-                                        $(dpd).append(
-                                            $('<option></option>').val(data.IDNK).html(data.Desc));
-                                    }
-                                else {
-                                    return;
-                                }
-                    });
+            $(dpc).append($('<option></option>').val(0).html("-"));           
+            var datag = @Html.Raw(Json.Encode(@ViewBag.datag));
+            $.each(datag, function (ID, datag) {
+                if (datag.ID == 1) {
+                    $(dpa).append(
+                        $('<option></option>').val(datag.IDNK).html(datag.Desc));
+                } else {
+                    return;
                 }
             });
+            $.getScript("/main/js/chosen/chosen.jquery.min.js");
+            $.getScript("/main/js/chosen/chosen-active.js");
             $(txa).data("id", 0);
             $(txb).data("id", 0);
             $(txc).data("id", 0);
             $(txd).data("id", 0);
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
-            $("#cnsl").val(0);
+            clearLabels();
         });
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.btnCust', function (e) {
             e.preventDefault();
             var b = $("#impid").val();
@@ -1246,27 +1270,23 @@
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             $(txa).val(spMan).html(spMan);
             $(txc).val(spDev).html(spDev);
             $(txd).val(spMod).html(spMod);
             $(dpa).val(0);
             $(dpb).val(0);
             $(dpc).val(0);
-            $(dpd).val(0);
             $(txa).data("id", 0);
             $(txc).data("id", 0);
             $(txd).data("id", 0);
+            clearLabels();
         });
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.findSingle', function (e) {
             e.preventDefault();
             var b = $(this).data("id");
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             var txa = "#txa_";
             var txb = "#txb_";
             var txc = "#txc_";
@@ -1282,7 +1302,6 @@
                     $(dpa).html("");
                     $(dpb).html("");
                     $(dpc).html("");
-                    $(dpd).html("");
                     $(txa).val("").html("");
                     $(txb).val("").html("");
                     $(txc).val("").html("");
@@ -1298,25 +1317,20 @@
                             $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentType));
                         $(dpc).append(
                             $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
-                        $(dpd).append(
-                            $('<option></option>').val(data.ModelNK).html(data.modelID1));
                     });
                     $(txm).val("").html("");
+                    setLabele();
                 }
             });
         });
-    </script>
-    <script type="text/javascript">
         $(document).on('click', '.btnCompl', function (e) {
             e.preventDefault();
-
             var b = $("#impid").val();
             var g = $("#typid").val(); var ga = parseInt(g);
             var docID = '@ViewBag.docID';
             var dpa = "#dpa_";
             var dpb = "#dpb_";
-            var dpc = "#dpc_";
-            var dpd = "#dpd_";
+            var dpc = "#dpc_";  
             var txa = "#txa_"; var txaf = $(txa).data("id"); var txav = $(txa).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txb = "#txb_"; var txbf = $(txb).data("id"); var txbv = $(txb).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txc = "#txc_"; var txcf = $(txc).data("id"); var txcv = $(txc).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
@@ -1368,16 +1382,13 @@
             $('#PrimaryModalhdbgcl').modal('hide');
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
-        });
-    </script>
-    <script type="text/javascript">
+        });   
         $(document).on('click', '.btnQuit', function (e) {
             e.preventDefault();
             $('#PrimaryModalhdbgcl').modal('hide');
             $("#dpa_").html("");
             $("#dpb_").html("");
             $("#dpc_").html("");
-            $("#dpd_").html("");
             $("#txa_").val("").html("");
             $("#txb_").val("").html("");
             $("#txc_").val("").html("");
@@ -1385,20 +1396,16 @@
             $("#txm_").val("").html("");
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
-        });
-    </script>
-
-    <script type="text/javascript">
+        });   
         function getNK(a) {
             var dpa = "#dpa_";
             var dpb = "#dpb_";
             var dpc = "#dpc_";
-            var dpd = "#dpd_";
             var txa = "#txa_";
             var txb = "#txb_";
             var txc = "#txc_";
             var txd = "#txd_";
-            var txm = "#txm_";        
+            var txm = "#txm_";
             $.ajax({
                 url: '/aglinvMap/findSingle',
                 type: "GET",
@@ -1408,7 +1415,6 @@
                     $(dpa).html("");
                     $(dpb).html("");
                     $(dpc).html("");
-                    $(dpd).html("");
                     $(txa).val("").html("");
                     $(txb).val("").html("");
                     $(txc).val("").html("");
@@ -1420,17 +1426,38 @@
                         $(txd).val(data.modelID1).html(data.modelID1).data("id", data.ModelNK);
                         $(dpa).append(
                             $('<option></option>').val(data.ManufacturerNK).html(data.Manufacturer));
+                        $(dpa).val(dpag).attr("selected", "selected");
                         $(dpb).append(
                             $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentType));
+                        $(dpb).val(dpbg).attr("selected", "selected");
                         $(dpc).append(
                             $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
-                        $(dpd).append(
-                            $('<option></option>').val(data.ModelNK).html(data.modelID1));
+                        $(dpc).val(dpcg).attr("selected", "selected");
                     });
                     $(txm).val("").html("");
                 }
             });
-            
+            setLabele();
+        };
+        function clearLabels() {
+            $("#lb1").empty();
+            $("#lb1").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Manuf</label>");
+            $("#lb2").empty();
+            $("#lb2").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Eq.Type</label>");
+            $("#lb3").empty();
+            $("#lb3").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Device</label>");
+            $("#lb4").empty();
+            $("#lb4").append("<label style='font-size:11px; color:#F69240; padding-top:4px'>Model</label>");
+        };
+        function setLabele() {
+            $("#lb1").empty();
+            $("#lb1").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Manuf</b></span></i></label>");
+            $("#lb2").empty();
+            $("#lb2").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Eq.Type</b></span></i></label>");
+            $("#lb3").empty();
+            $("#lb3").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Device</b></span></i></label>");
+            $("#lb4").empty();
+            $("#lb4").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Model</b></span></i></label>");
         };
     </script>
 

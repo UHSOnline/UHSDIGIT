@@ -269,6 +269,7 @@
     <Compile Include="Models\fctEquipmentTypes.cs" />
     <Compile Include="Models\fctEquipmentManufacturers.cs" />
     <Compile Include="Models\fctEquipmentModels.cs" />
+    <Compile Include="Models\mapDocPagr.cs" />
     <Compile Include="Models\mapDocPage.cs" />
     <Compile Include="Models\UHSinquries.cs" />
     <Compile Include="Models\uhsBIrepsucc02.cs" />

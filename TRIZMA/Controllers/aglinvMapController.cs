@@ -195,11 +195,8 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
-        public ActionResult SearchList(int id, string ida)
+        public ActionResult SearchList(string ida, string idb, string idc)
         {
-           
-
-
             string CurrentLoginID = User.Identity.GetUserId().ToString();
 
             var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
@@ -220,29 +217,18 @@ namespace TRIZMA.Controllers
 
             if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
             {
-
-                if (id == 1)
+                var cnta = opd.appEquipmentModelsDbs.Where(s => s.sourceCD == 5 && s.ManufacturerNK == ida && s.equipmentTypeNK == idb && s.ModelNK == idc);
+                if(idc == "0" || idc == null || idc == "" || idc == " ")
                 {
-                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.ManufacturerNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };                   
-                    //System.Diagnostics.Trace.WriteLine(ida);
-                    return Json(resp, JsonRequestBehavior.AllowGet);
-                }
-                else
-                    if (id == 2)
-                {
-                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.equipmentTypeNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
-                    //System.Diagnostics.Trace.WriteLine(ida);
-                    return Json(resp, JsonRequestBehavior.AllowGet);
-                }
-                else if(id == 3 || id == 4)
-                {
-                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.ModelNK == ida select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
+                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && (s.ManufacturerNK == ida || s.equipmentTypeNK == idb) select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
                     //System.Diagnostics.Trace.WriteLine(ida);
                     return Json(resp, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    var resp = from s in opd.appEquipmentModelsDbs where s.sourceCD == 5 && s.ModelNK == idc select new { s.ModelNK, s.ModelDescription, s.modelID1, s.ModelID2, s.Status, s.equipmentType, s.manufacturer };
+                    //System.Diagnostics.Trace.WriteLine(ida);
+                    return Json(resp, JsonRequestBehavior.AllowGet);
                 }
             }
             else
@@ -287,7 +273,6 @@ namespace TRIZMA.Controllers
           
         public ActionResult editDocument(string ID)
         {
-
 
 
             //System.Diagnostics.Debug.WriteLine(item2);
@@ -380,43 +365,34 @@ namespace TRIZMA.Controllers
                     data02.Add(List1);
                 }
 
+                List<mapDocPageDb> datag = new List<mapDocPageDb>();
 
+                
 
-                //string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
-                //using (SqlConnection connection = new SqlConnection(CS))
-                //{ 
-                //    SqlCommand cmd = new SqlCommand();
-                //    cmd.CommandType = System.Data.CommandType.Text;
-                //    string textc = "SELECT Device_Category, Model, Manufacturer, modelImpID, matchSingle, matchMultip, matchConfrm, Cnt, impTypeID FROM AGLINVMDL1 where extDocID = '" + ID + "' ORDER BY modelImpID";
-                //    cmd.CommandText = textc;                   
-                //    connection.Open();                   
-                //    using (SqlDataReader reader = cmd.ExecuteReader())
-                //    {
+                var man = opd.appEquipmentModelsDbs.Where(s => s.sourceCD == 5)
+                                           .Select(s => new {
+                                               ManufacturerNK = s.ManufacturerNK
+                                                            ,
+                                               manufacturer = s.manufacturer
+                                           }).Distinct().OrderBy(s => s.manufacturer).ToList();
 
-                //        while (reader.Read())
-                //        {
-                //            AGLINVMDL1shDb item = new AGLINVMDL1shDb();
-                //            item.Device_Category = reader.GetString(0);
-                //            item.Model = reader.GetString(1);
-                //            item.Manufacturer = reader.GetString(2);
-                //            item.modelImpID = reader.GetInt32(3);
-                //            item.matchSingle = reader.GetBoolean(4);
-                //            item.matchMultip = reader.GetBoolean(5);
-                //            item.matchConfrm = reader.GetBoolean(6);
-                //            item.Cnt = reader.GetInt32(7);
-                //            item.impTypeID = reader.GetInt32(8);
+                
+                foreach (var item in man)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
 
-                //            data01.Add(item);
-                //        }
-                //    }
-                //    connection.Close();
-
-                //}
-
+                    List1.ID = 1;
+                    List1.IDNK = item.ManufacturerNK;
+                    List1.Desc = item.manufacturer;
+                    
+                    datag.Add(List1);
+                }
+                
                 ViewBag.docID = ID;
                 ViewBag.svctr = 0;
                 ViewBag.datab = data01.ToList();
                 ViewBag.dataa = data02.ToList();
+                ViewBag.datag = datag.ToList();
                 //System.Diagnostics.Trace.WriteLine("OVDE BI TREBALO DA SE POJAVI");
                 return View();
             }
@@ -644,38 +620,6 @@ namespace TRIZMA.Controllers
             
             List<mapDocPageDb> data = new List<mapDocPageDb>();
 
-                    var datab = opa.AGLINVMDL2Dbs.OrderBy(s => s.equipmentTypeDescr).Where(s => s.extDocID == a && s.impID == b)
-                                                                      .Select(s => new { modelNK = s.modelNK
-                                                                                       , dpDesc = s.dpDesc}).ToList();
-
-                    var man = opa.AGLINVMDL2Dbs.Where(s => s.extDocID == a && s.impID == b)
-                                               .Select(s => new { manufacturerNK = s.manufacturerNK
-                                                                , ManufacturerName = s.ManufacturerName }).Distinct().OrderBy(s => s.ManufacturerName).ToList();
-
-                    var typ = opa.AGLINVMDL2Dbs.OrderBy(s => s.equipmentTypeDescr)
-                                               .Where(s => s.extDocID == a && s.impID == b)
-                                               .Select(s => new { equipmentTypeNK = s.equipmentTypeNK
-                                                                , equipmentTypeDescr = s.equipmentTypeDescr }).Distinct().ToList();
-
-                    var mdd = opa.AGLINVMDL2Dbs.OrderBy(s => s.ModelDescription)
-                                               .Where(s => s.extDocID == a && s.impID == b)
-                                               .Select(s => new { modelNK = s.modelNK
-                                                                , ModelDescription = s.ModelDescription + "     Model: " + s.modelID1
-                                               }).ToList();
-
-                    var dss = opa.AGLINVMDL2Dbs.OrderBy(s => s.ModelDescription)
-                                               .Where(s => s.extDocID == a && s.impID == b)
-                                               .Select(s => s.modelNK).ToList();
-
-                    var mdl = opd.appEquipmentModelsDbs.OrderBy(s => s.modelID1)
-                                               .Where(s => dss.Contains(s.ModelNK))
-                                               .Select(s => new {
-                                                   modelNK = s.ModelNK,
-                                                   modelID1 = s.modelID1 + "   (" + s.ModelID2 + ")"
-                                               }).ToList();
-
-            
-
             var ch = opa.AGLINVMDL1Dbs.Where(s => s.extDocID == a && s.modelImpID == b)
                                       .Select(s => new {
                                           modelNK = s.modelNK,
@@ -684,52 +628,12 @@ namespace TRIZMA.Controllers
                                           manufacturerName = s.manufacturerName,
                                           equipmentTypeNK = s.equipmentTypeNK,
                                           equipmentType = s.equipmentType,
-                                          modelID1 = s.modelID1
+                                          modelID1 = s.modelID1,
+                                          matchConfrm = s.matchConfrm
                                       }).ToList();
 
             
-            foreach (var item in man)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
-
-                        List1.ID = 1;
-                        List1.IDNK = item.manufacturerNK;
-                        List1.Desc = item.ManufacturerName;
-                        
-                        data.Add(List1);
-                    }
-                    foreach (var item in typ)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
-
-                        List1.ID = 2;
-                        List1.IDNK = item.equipmentTypeNK;
-                        List1.Desc = item.equipmentTypeDescr;
-
-                        data.Add(List1);
-                    }
-                    foreach (var item in mdd)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
-
-                        List1.ID = 3;
-                        List1.IDNK = item.modelNK;
-                        List1.Desc = item.ModelDescription;
-
-                        data.Add(List1);
-                    }
-                    foreach (var item in mdl)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
-
-                        List1.ID = 4;
-                        List1.IDNK = item.modelNK;
-                        List1.Desc = item.modelID1;
-
-                        data.Add(List1);
-                    }
             
-
             foreach (var item in ch)
                     {
                         mapDocPageDb List1 = new mapDocPageDb();
@@ -739,35 +643,45 @@ namespace TRIZMA.Controllers
                         List1.Desc = item.manufacturerName;
                         data.Add(List1);
                     }
-            
+
             foreach (var item in ch)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
+            {
+                mapDocPageDb List1 = new mapDocPageDb();
 
-                        List1.ID = 12;
-                        List1.IDNK = item.equipmentTypeNK;
-                        List1.Desc = item.equipmentType;
-                        data.Add(List1);
-                    }
-                    foreach(var item in ch)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
+                List1.ID = 12;
+                List1.IDNK = item.equipmentTypeNK;
+                List1.Desc = item.equipmentType;
+                data.Add(List1);
+            }
+            foreach (var item in ch)
+            {
+                mapDocPageDb List1 = new mapDocPageDb();
 
-                        List1.ID = 13;
-                        List1.IDNK = item.modelNK;
-                        List1.Desc = item.ModelDescription;
-                        data.Add(List1);
-                    }
-                    foreach(var item in ch)
-                    {
-                        mapDocPageDb List1 = new mapDocPageDb();
+                List1.ID = 13;
+                List1.IDNK = item.modelNK;
+                List1.Desc = item.ModelDescription;
+                data.Add(List1);
+            }
+            foreach (var item in ch)
+            {
+                mapDocPageDb List1 = new mapDocPageDb();
 
-                        List1.ID = 14;
-                        List1.IDNK = item.modelNK;
-                        List1.Desc = item.modelID1;
-                        data.Add(List1);
-                    }
-            
+                List1.ID = 14;
+                List1.IDNK = item.modelNK;
+                List1.Desc = item.modelID1;
+                data.Add(List1);
+            }
+            foreach (var item in ch)
+            {
+                mapDocPageDb List1 = new mapDocPageDb();
+
+                List1.ID = 15;
+                List1.IDNK = null;
+                List1.Desc = null;
+                List1.chck = item.matchConfrm;
+                data.Add(List1);
+            }
+
             return Json(data, JsonRequestBehavior.AllowGet);
             
         }
@@ -814,37 +728,218 @@ namespace TRIZMA.Controllers
             }
         }
 
-        public ActionResult getModels(string b, int c)
+        public ActionResult getModels(string a, string b, string c, int d)
         {
 
-            if(c == 1)
-            {
-                var mani = opc.fctEquipmentModelsDbs.Where(s => s.sourceCD == 5 && s.ManufacturerNK == b).Select(s => s.equipmentTypeNK).Distinct().ToList();
-                var data = opc.fctEquipmentTypesDbs.Where(s => s.sourceCD == 5 && mani.Contains(s.equipmentTypeNK) && s.equipmentTypeDescr != null && s.equipmentTypeDescr != "")
-                                                          .Select(s => new {
-                                                              equipmentTypeNK = s.equipmentTypeNK
-                                                           ,  equipmentTypeDescr = s.equipmentTypeDescr
-                                       }).OrderBy(s => s.equipmentTypeDescr).ToList();
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-            else if(c == 2)
-            {
-                var data = opc.fctEquipmentModelsDbs.Where(s => s.sourceCD == 5 && s.equipmentTypeNK == b && s.ModelDescription != null && s.ModelDescription != "")
-                                                          .Select(s => new {
-                                                              ModelNK = s.ModelNK
-                                                           ,  ModelDescription = s.ModelDescription + "     Model: " + s.modelID1 + "  (" + s.ModelID2 + ")"
-                                                          }).Distinct().OrderBy(s => s.ModelDescription).ToList();
+            //System.Diagnostics.Trace.WriteLine(b);
 
+
+            List<mapDocPageDb> data = new List<mapDocPageDb>();
+            if (d == 1)
+            {
+                var typ = opd.appEquipmentModelsDbs
+                                           .Where(s => s.sourceCD == 5 && s.equipmentType != null && s.equipmentType != "")
+                                           .Select(s => new {
+                                               equipmentTypeNK = s.equipmentTypeNK
+                                                            ,
+                                               equipmentType = s.equipmentType
+                                           }).Distinct().OrderBy(s => s.equipmentType).ToList();
+
+                foreach (var item in typ)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 2;
+                    List1.IDNK = item.equipmentTypeNK;
+                    List1.Desc = item.equipmentType;
+
+                    data.Add(List1);
+                }
+                
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
-            else if (c == 3)
+            else if (d == 2)
             {
-                var data = opc.fctEquipmentModelsDbs.Where(s => s.sourceCD == 5 && s.ModelNK == b)
-                                                          .Select(s => new {
-                                                              ModelNK = s.ModelNK
-                                                           ,  ModelDescription = s.ModelDescription
-                                                           ,  modelID1 = s.modelID1 + "   (" + s.ModelID2 + ")"
-                                                          }).Distinct().OrderBy(s => s.ModelDescription).ToList();
+                
+                var typ = opd.appEquipmentModelsDbs
+                                           .Where(s => s.sourceCD == 5 && s.equipmentType != null && s.equipmentType != "")
+                                           .Select(s => new {
+                                               equipmentTypeNK = s.equipmentTypeNK
+                                                            ,
+                                               equipmentType = s.equipmentType
+                                           }).Distinct().OrderBy(s => s.equipmentType).ToList();
+
+                //var mdl = opd.appEquipmentModelsDbs
+                //                           .Where(s => s.sourceCD == 5 && s.equipmentTypeNK == b && s.equipmentType != null && s.equipmentType != "")
+                //                           .Select(s => new {
+                //                               ModelNK = s.ModelNK
+                //                                           ,
+                //                               ModelDescription = s.ModelDescription + "     Model: " + s.modelID1 + "  (" + s.ModelID2 + ")"
+                //                           }).Distinct().OrderBy(s => s.ModelDescription).ToList();
+
+               
+                foreach (var item in typ)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 2;
+                    List1.IDNK = item.equipmentTypeNK;
+                    List1.Desc = item.equipmentType;
+
+                    data.Add(List1);
+                }
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (d == 3)
+            {
+                var man = opd.appEquipmentModelsDbs
+                                           .Where(s => s.sourceCD == 5 && s.equipmentTypeNK == b)
+                                           .Select(s => new {
+                                               ManufacturerNK = s.ManufacturerNK
+                                                            ,
+                                               manufacturer = s.manufacturer
+                                           }).ToList();
+                var typ = opd.appEquipmentModelsDbs
+                                           .Where(s => s.sourceCD == 5 && s.equipmentType != null && s.equipmentType != "")
+                                           .Select(s => new {
+                                               equipmentTypeNK = s.equipmentTypeNK
+                                                            ,
+                                               equipmentType = s.equipmentType
+                                           }).Distinct().OrderBy(s => s.equipmentType).ToList();
+
+
+                foreach (var item in man)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 1;
+                    List1.IDNK = item.ManufacturerNK;
+                    List1.Desc = item.manufacturer;
+
+                    data.Add(List1);
+                }
+                foreach (var item in typ)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 2;
+                    List1.IDNK = item.equipmentTypeNK;
+                    List1.Desc = item.equipmentType;
+
+                    data.Add(List1);
+                }
+               
+                return Json(data, JsonRequestBehavior.AllowGet);
+            } else 
+            if (d == 4)
+            {
+                var man = opd.appEquipmentModelsDbs
+                                            .Where(s => s.sourceCD == 5 && s.equipmentType == b)
+                                            .Select(s => new {
+                                                ManufacturerNK = s.ManufacturerNK
+                                                             ,
+                                                manufacturer = s.manufacturer
+                                            }).Distinct().OrderBy(s => s.manufacturer).ToList();
+                var typ = opd.appEquipmentModelsDbs
+                                            .Where(s => s.sourceCD == 5 && s.equipmentType != null && s.equipmentType != "")
+                                            .Select(s => new {
+                                                equipmentTypeNK = s.equipmentTypeNK
+                                                             ,
+                                                equipmentType = s.equipmentType
+                                            }).Distinct().OrderBy(s => s.equipmentType).ToList();
+                var mod = opd.appEquipmentModelsDbs
+                                       .Where(s => s.sourceCD == 5 && s.ManufacturerNK == a && s.equipmentTypeNK == b && s.ModelDescription != null && s.ModelDescription != "")
+                                       .Select(s => new {
+                                           ModelNK = s.ModelNK
+                                                       ,
+                                           ModelDescription = s.ModelDescription + "     Model: " + s.modelID1 + "  (" + s.ModelID2 + ")"
+                                       }).Distinct().OrderBy(s => s.ModelDescription).ToList();
+                foreach (var item in man)
+                    {
+                        mapDocPageDb List1 = new mapDocPageDb();
+
+                        List1.ID = 1;
+                        List1.IDNK = item.ManufacturerNK;
+                        List1.Desc = item.manufacturer;
+
+                        data.Add(List1);
+                    }
+                    foreach (var item in typ)
+                    {
+                        mapDocPageDb List1 = new mapDocPageDb();
+
+                        List1.ID = 2;
+                        List1.IDNK = item.equipmentTypeNK;
+                        List1.Desc = item.equipmentType;
+
+                        data.Add(List1);
+                    }
+                foreach (var item in mod)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 3;
+                    List1.IDNK = item.ModelNK;
+                    List1.Desc = item.ModelDescription;
+
+                    data.Add(List1);
+                }
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else if(d == 5)
+            {
+                var man = opd.appEquipmentModelsDbs
+                                            .Where(s => s.sourceCD == 5 && s.ModelNK == c)
+                                            .Select(s => new {
+                                                ManufacturerNK = s.ManufacturerNK
+                                                             ,
+                                                manufacturer = s.manufacturer
+                                            }).Distinct().OrderBy(s => s.manufacturer).ToList();
+                var typ = opd.appEquipmentModelsDbs
+                                            .Where(s => s.sourceCD == 5 && s.ModelNK == c)
+                                            .Select(s => new {
+                                                equipmentTypeNK = s.equipmentTypeNK
+                                                             ,
+                                                equipmentType = s.equipmentType
+                                            }).Distinct().OrderBy(s => s.equipmentType).ToList();
+                var mod = opd.appEquipmentModelsDbs
+                                       .Where(s => s.sourceCD == 5 && s.ModelNK == c)
+                                       .Select(s => new {
+                                           ModelNK = s.ModelNK
+                                                       ,
+                                           ModelDescription = s.ModelDescription + "     Model: " + s.modelID1 + "  (" + s.ModelID2 + ")"
+                                       }).Distinct().OrderBy(s => s.ModelDescription).ToList();
+                foreach (var item in man)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 1;
+                    List1.IDNK = item.ManufacturerNK;
+                    List1.Desc = item.manufacturer;
+
+                    data.Add(List1);
+                }
+                foreach (var item in typ)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 2;
+                    List1.IDNK = item.equipmentTypeNK;
+                    List1.Desc = item.equipmentType;
+
+                    data.Add(List1);
+                }
+                foreach (var item in mod)
+                {
+                    mapDocPageDb List1 = new mapDocPageDb();
+
+                    List1.ID = 3;
+                    List1.IDNK = item.ModelNK;
+                    List1.Desc = item.ModelDescription;
+
+                    data.Add(List1);
+                }
 
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
