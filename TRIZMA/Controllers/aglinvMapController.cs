@@ -1196,6 +1196,118 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
+        public ActionResult findTypeId(string ID, string a, string b, string c, string d, string e, string f)
+        {
+            //System.Diagnostics.Debug.WriteLine(item2);
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(15) && returnTaskOrdersIDlist.Contains(66)))
+            {
+                var parta = "select distinct impTypeID from AGLINVMDLDATA where extDocID = '" + ID + "'";
+                var partb = "";
+                var seprt = " and ";
+
+
+
+
+                if (a == null || a == "" || a == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = seprt + "(Model like '%" + a + "%')";
+                }
+
+                if (b == null || b == "" || b == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Device_Category like '%" + b + "%')";
+                }
+
+                if (c == null || c == "" || c == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Manufacturer like '%" + c + "%')";
+                }
+
+                if (d == null || d == "" || d == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Owner_Department like '%" + d + "%' or Scheduling_Department like '%" + d + "%')";
+                }
+
+                if (e == null || e == "" || e == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Control_Number like '%" + e + "%')";
+                }
+
+                if (f == null || f == "" || f == " ")
+                {
+                    seprt = " and ";
+                }
+                else
+                {
+                    partb = partb + seprt + "(Serial_Number like '%" + f + "%' or SN_Modified like '%" + f + "%')";
+                }
+
+                string sqlStatment = parta + partb + " order by impTypeID";
+                string constr = System.Configuration.ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(constr))
+                {
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand(sqlStatment, con))
+                    {
+                        cmd.Connection.Open();
+                        System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader();
+                        List<AGLINVMDL1pgDb> data = new List<AGLINVMDL1pgDb>();
+                        while (reader.Read())
+                        {
+                            AGLINVMDL1pgDb fill = new AGLINVMDL1pgDb();
+                            fill.impTypeID = Convert.ToInt32(reader.GetValue(0));
+                            
+                            data.Add(fill);
+                        }
+
+                        reader.Close();
+                        cmd.Connection.Close();
+
+                        //ViewBag.data = data.ToList();
+                        return Json(data.ToList(), JsonRequestBehavior.AllowGet);
+                    }
+                }
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
         public ActionResult checkSingle(int IDC, string IDA)
         {
             //System.Diagnostics.Debug.WriteLine(item2);

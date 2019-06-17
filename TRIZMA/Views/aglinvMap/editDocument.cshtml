@@ -194,6 +194,15 @@
             padding-top: 8px;
             padding-left: 8px;
         }
+        .inputb {
+            color: #0076A8;
+            font-size: 12px;
+            min-height: 28px;
+            padding-left: 6px;
+            border: solid;
+            border-width: thin;
+            border-color: lightsteelblue;
+        }
     </style>
 </head>
 
@@ -419,27 +428,72 @@
                     </div>
                 </div>
             </div>
-            <!-- Static Table Start -->
+
             <div class="single-pro-review-area mt-t-30 mg-b-15">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-payment-inner-st">
                                 <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
+                                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                                        <div style="padding-bottom:36px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xmodel" name="model" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div style="padding-bottom:36px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Description:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xdescr" name="descr" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div style="padding-bottom:36px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Manufacturer:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xmanuf" name="manuf" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div style="padding-bottom:36px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Department:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xowdep" name="owdep" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div style="padding-bottom:36px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Control Number:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xconnb" name="connb" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div style="padding-bottom:48px">
+                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Serial Number:</span></label>
+                                            <br>
+                                            <input type="text" class="col-lg-12 inputb inputs" id="xsernb" name="sernb" placeholder="... type 2 or more characters" />
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-warning col-lg-12" id="btnReset"><i class="fa fa-refresh"></i> Reset All </button>
+                                        </div>
+                                        
 
-                                            <div class="admin-pro-accordion-wrap shadow-inner responsive-mg-b-30">
-                                                <div class="panel-group edu-custon-design" id="accordion">
-                                                </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                        <div class="admin-pro-accordion-wrap shadow-inner responsive-mg-b-30">
+                                            <div class="panel-group edu-custon-design" id="accordion">
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Static Table Start -->
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            
 
                             <div id="PrimaryModalhdbgcl" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                                 <div class="modal-dialog">
@@ -477,7 +531,7 @@
                                                                 <div class="col-lg-10" id="diva_">
                                                                     <select id="dpa_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(1)"></select>
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -489,9 +543,9 @@
                                                                 </div>
                                                                 <div class="col-lg-10" id="divb_">
                                                                     <select id="dpb_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(2)"></select>
-                                                                    
+
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -503,12 +557,12 @@
                                                                 </div>
                                                                 <div class="col-lg-10" id="divc_">
                                                                     <select id="dpc_" class="chosen-select" tabindex="-1" style="color:#0076A8" onchange="dpSelect(3)"></select>
-                                                                    
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="text-align:left !important">
                                                     <h5 class="page-header"><span style="color:#0076A8">Result </span><span style="color:#F69240"> Data:</span></h5>
@@ -569,7 +623,7 @@
                                                     <button class="btn btn-sm btn-warning col-lg-12 btnReset" style="max-height:32px !important"><i class="fa fa-refresh" style="transform:scale(1.2)"></i><span style="padding-left:12px">Reset Selection!</span></button>
                                                 </div>
                                             </div>
-                                            
+
 
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="col-lg-12" style="padding-top:6px">
@@ -711,7 +765,7 @@
     <script src="~/main/js/form-validation/jquery.form.min.js"></script>
     <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
     <script src="~/main/js/form-validation/form-active.js"></script>
-    
+
     <!-- dropzone JS
         ============================================ -->
     <script src="~/main/js/dropzone/dropzone.js"></script>
@@ -741,7 +795,25 @@
             //console.log(datab);
             var partc = "</tbody></table></div></div></div>";
             $.each(dataa, function (ID, dataa) {
-                var parta = "<div class='panel panel-default'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-plus'></i><span style='padding-left:12px'> " + dataa.Device_Category + " </span></a><span class='pull-right'><i class='fa fa-check' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:lightgreen; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:lightgreen; font-size:16px; padding-right:60px' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:lightpink; transform:scale(1.3)'></i><span style='padding-left:8px; font-size:12px'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:lightpink; font-size:16px' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Edit:</th></tr></thead><tbody>";
+                var paca = [];
+                var pacb = [];
+                var pacc = [];
+                if (dataa.cnta > 0) {
+                    paca = "";
+                } else {
+                    paca = "; display: none"
+                }
+                if (dataa.cntb > 0) {
+                    pacb = "";
+                } else {
+                    pacb = "; display: none"
+                }
+                if (dataa.cntc > 0) {
+                    pacc = "";
+                } else {
+                    pacc = "; display: none"
+                }
+                var parta = "<div class='panel panel-default panelgr' id='p" + dataa.impTypeID + "'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-plus'></i><span style='padding-left:12px'> " + dataa.Device_Category + " </span></a><span class='pull-right' style='text-align: right'><i class='fa fa-check' style='color:green; transform:scale(1.3)" + paca + "' id='paa" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + paca + "' id='pab" + dataa.impTypeID + "'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + paca + "' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:green; transform:scale(1.3)" + pacb + "' id='pba" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacb + "' id='pbb" + dataa.impTypeID + "'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + pacb + "' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:red; transform:scale(1.3)" + pacc + "' id='pca" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacc + "' id='pcb" + dataa.impTypeID + "'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:red; font-size:16px" + pacc + "' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Edit:</th></tr></thead><tbody>";
                 var partb = [];
                 $.each(datab, function (ID, datab) {
                     if (dataa.impTypeID == datab.impTypeID) {
@@ -777,10 +849,10 @@
             });
         });
         function dpreset(a) {
-            var dpc = "#dpc_" + a;   
+            var dpc = "#dpc_" + a;
             var txc = "#txc_" + a;
             var txd = "#txd_" + a;
-            $(dpc).val(0);           
+            $(dpc).val(0);
             $(txc).val("").html("").data("id", 0);
             $(txd).data("id", 0);
         };
@@ -940,62 +1012,11 @@
                    $("#modHd2a").val(spMod).html(spMod);
                    $("#modHd3a").val(spMan).html(spMan);
                    $.getScript("/main/js/chosen/chosen.jquery.min.js");
-                   $.getScript("/main/js/chosen/chosen-active.js");                                  
+                   $.getScript("/main/js/chosen/chosen-active.js");
                    $("#impid").val(btn);
                    $('#PrimaryModalhdbgcl').modal('toggle');
                }
            });
-        });
-        $(document).on('click', '.linkAll', function (e) {
-            e.preventDefault();
-            var dt = $("#impid").val();
-            var b = $(this).attr("id").replace("x", "");
-            var a = parseInt(b);
-            var dpa = "#dpa_";
-            var dpb = "#dpb_";
-            var dpc = "#dpc_";
-            var txm = "#txm_";
-            $.ajax({
-                url: '/aglinvMap/getAll',
-                type: "GET",
-                dataType: "JSON",
-                data: { a: a },
-                success: function (data) {
-                    if (a == 1) {
-                        $(dpb).html("");
-                        $(dpc).html("");
-                        $(dpa).append($('<option></option>').val(0).html("-"));
-                        $.each(data, function (ID, data) {
-                            $(dpa).append(
-                                $('<option></option>').val(data.ManufacturerNK).html(data.ManufacturerName));
-                        });
-                    }
-                    else
-                        if (a == 2) {
-                            $(dpb).html("");
-                            $(dpc).html("");
-                            $(dpb).append($('<option></option>').val(0).html("-"));
-                            $.each(data, function (ID, data) {
-                                $(dpb).append(
-                                    $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentTypeDescr));
-                            });
-                        }
-                        else
-                            if (a == 3) {
-                                $(dpc).html("");
-                                
-                                $(dpc).append($('<option></option>').val(0).html("-"));
-                                $.each(data, function (ID, data) {
-                                    $(dpc).append(
-                                        $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
-                                });
-                            }
-                }
-            });
-            $.getScript("/main/js/chosen/chosen.jquery.min.js");
-            $.getScript("/main/js/chosen/chosen-active.js");
-            $(txm).val("").html("");
-            $("#cnsl").val(1);
         });
         function clearDetail() {
             var dpa = "#dpa_";
@@ -1101,13 +1122,13 @@
             var txb = "#txb_";
             var txc = "#txc_";
             var txd = "#txd_";
-            var txm = "#txm_";           
+            var txm = "#txm_";
             var dpah = $('option:selected', dpa).text();
             var dpag = $('option:selected', dpa).val();
             var dpbh = $('option:selected', dpb).text();
             var dpbg = $('option:selected', dpb).val();
             var dpch = $('option:selected', dpc).text();
-            var dpcg = $('option:selected', dpc).val();           
+            var dpcg = $('option:selected', dpc).val();
             var iden = []; var ka = []; var kb = []; var kc = [];
             if (dpcg == "0" || dpcg == null || dpcg == "") {
                 kc = 0;
@@ -1116,7 +1137,7 @@
                     if (dpag == "0" || dpag == null || dpag == "") {
                         ka = 0;
                         clearDetail();
-                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0 
+                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0
                     } else {
                         ka = 1;
                         clearDetail();
@@ -1141,7 +1162,7 @@
                     if (dpag == "0" || dpag == null || dpag == "") {
                         ka = 0;
                         clearDetail();
-                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0 
+                        iden = 1; // da vrati sve manufacturer i typove i setuje oba 0
                     } else {
                         ka = 1;
                         clearDetail();
@@ -1157,12 +1178,12 @@
                     } else {
                         ka = 1;
                         clearDetail();
-                        iden = 5; // svi odabrani, proveri 
+                        iden = 5; // svi odabrani, proveri
                     }
                 }
             }
-            setLabels(ka, kb, kc);        
-            getMod(dpag, dpbg, dpcg, iden);   
+            setLabels(ka, kb, kc);
+            getMod(dpag, dpbg, dpcg, iden);
             if (iden == 1) {
                 $(txa).val("").html("").data("id", 0);
                 $(txb).val("").html("").data("id", 0);
@@ -1188,7 +1209,7 @@
                 $(txb).val(dpbh).html(dpbh).data("id", dpbg);
                 $(txc).val(dpch).html(dpch).data("id", dpcg);
                 $(txd).val(dpch).html(dpch).data("id", dpcg);
-            }       
+            }
             $.getScript("/main/js/chosen/chosen.jquery.min.js");
             $.getScript("/main/js/chosen/chosen-active.js");
             $(txm).val("").html("");
@@ -1233,7 +1254,7 @@
             $("#divc_").append("<select id='dpc_' class='chosen-select' tabindex='-1' style='color:#0076A8' onchange='dpSelect(3)'></select>");
             $(dpa).append($('<option></option>').val(0).html("-"));
             $(dpb).append($('<option></option>').val(0).html("-"));
-            $(dpc).append($('<option></option>').val(0).html("-"));           
+            $(dpc).append($('<option></option>').val(0).html("-"));
             var datag = @Html.Raw(Json.Encode(@ViewBag.datag));
             $.each(datag, function (ID, datag) {
                 if (datag.ID == 1) {
@@ -1329,7 +1350,7 @@
             var docID = '@ViewBag.docID';
             var dpa = "#dpa_";
             var dpb = "#dpb_";
-            var dpc = "#dpc_";  
+            var dpc = "#dpc_";
             var txa = "#txa_"; var txaf = $(txa).data("id"); var txav = $(txa).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txb = "#txb_"; var txbf = $(txb).data("id"); var txbv = $(txb).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var txc = "#txc_"; var txcf = $(txc).data("id"); var txcv = $(txc).val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
@@ -1338,6 +1359,12 @@
             var cnta = "#cnta_" + ga; var cntaf = $(cnta).data("id");
             var cntb = "#cntb_" + ga; var cntbf = $(cntb).data("id");
             var cntc = "#cntc_" + ga; var cntcf = $(cntc).data("id");
+            var paa = "#paa" + ga;
+            var pab = "#pab" + ga;
+            var pba = "#pba" + ga;
+            var pbb = "#pbb" + ga;
+            var pca = "#pca" + ga;
+            var pcb = "#pcb" + ga;
             if (txdf == 0) {
                 var stra = docID + "<|>" + b + "<|>" + txaf + "<|>" + txbf + "<|>" + txcf + "<|>" + txdf + "<|>" + txav + "<|>" + txbv + "<|>" + txcv + "<|>" + txdv;
                 $.ajax({
@@ -1348,12 +1375,18 @@
                     success: function (ddID) {
                         alert("Success!");
                         $(ch).removeClass('fa-close').addClass('fa-check').css('color', 'forestgreen');
-                        if (ch == true) {
+                        if (chf == true) {
                             return;
                         }
                         else {
                             $(cntb).val(cntbf + 1).html(cntbf + 1).data("id", cntbf + 1).css('font-weight','bold');
-                            $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight','bold');
+                            $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight', 'bold');
+                            alert(cntcf);
+                            if ((cntcf - 1) < 1) {
+                                $(pca).hide();
+                                $(pcb).hide();
+                                $(cntc).hide();
+                            }
                         }
                     }
                 });
@@ -1368,12 +1401,17 @@
                     success: function (ddID) {
                         alert("Success!");
                         $(ch).removeClass('fa-close').addClass('fa-check').css('color', 'forestgreen').css('transform', 'scale(2)');
-                        if (ch == true) {
+                        if (chf == true) {
                             return;
                         }
                         else {
                             $(cnta).val(cntaf + 1).html(cntaf + 1).data("id", cntaf + 1).css('font-weight', 'bold');
                             $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight', 'bold');
+                            if ((cntcf - 1) < 1) {
+                                $(pca).hide();
+                                $(pcb).hide();
+                                $(cntc).hide();
+                            }
                         }
                     }
                 });
@@ -1381,7 +1419,7 @@
             $('#PrimaryModalhdbgcl').modal('hide');
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
-        });   
+        });
         $(document).on('click', '.btnQuit', function (e) {
             e.preventDefault();
             $('#PrimaryModalhdbgcl').modal('hide');
@@ -1395,7 +1433,7 @@
             $("#txm_").val("").html("");
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
-        });   
+        });
         function getNK(a) {
             var dpa = "#dpa_";
             var dpb = "#dpb_";
@@ -1405,6 +1443,7 @@
             var txc = "#txc_";
             var txd = "#txd_";
             var txm = "#txm_";
+            
             $.ajax({
                 url: '/aglinvMap/findSingle',
                 type: "GET",
@@ -1425,13 +1464,13 @@
                         $(txd).val(data.modelID1).html(data.modelID1).data("id", data.ModelNK);
                         $(dpa).append(
                             $('<option></option>').val(data.ManufacturerNK).html(data.Manufacturer));
-                        $(dpa).val(dpag).attr("selected", "selected");
+                        $(dpa).val(data.ManufacturerNK).attr("selected", "selected");
                         $(dpb).append(
                             $('<option></option>').val(data.equipmentTypeNK).html(data.equipmentType));
-                        $(dpb).val(dpbg).attr("selected", "selected");
+                        $(dpb).val(data.equipmentTypeNK).attr("selected", "selected");
                         $(dpc).append(
                             $('<option></option>').val(data.ModelNK).html(data.ModelDescription));
-                        $(dpc).val(dpcg).attr("selected", "selected");
+                        $(dpc).val(data.ModelNK).attr("selected", "selected");
                     });
                     $(txm).val("").html("");
                 }
@@ -1458,8 +1497,42 @@
             $("#lb4").empty();
             $("#lb4").append("<label style='font-size:11px; color:green; padding-top:4px'><i class='fa fa-check'><span style='padding-left=8px; font-size: 12px'><b>Model</b></span></i></label>");
         };
+        $('.inputs').on('keyup', function () {
+            var a = $("#xmodel").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var al = a.length;
+            var b = $("#xdescr").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var bl = b.length;
+            var c = $("#xmanuf").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var cl = c.length;
+            var d = $("#xowdep").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var dl = d.length;
+            var e = $("#xconnb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var el = e.length;
+            var f = $("#xsernb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var fl = f.length;         
+            if (((a == null || a == '' || a == ' ') && (b == null || b == '' || b == ' ') && (c == null || c == '' || c == ' ') && (d == null || d == '' || d == ' ') && (e == null || e == '' || e == ' ') && (f == null || f == '' || f == ' ')) || (al < 2 && bl < 3 && cl < 2 && dl < 2 && el < 2 && fl < 2)) {
+                $('.panelgr').show();
+                return;
+            }
+            $.ajax({
+                url: '/aglinvMap/findTypeId',
+                type: "GET",
+                dataType: "JSON",
+                data: { ID: '@ViewBag.docID', a: a, b: b, c: c, d: d, e: e, f: f  },
+                success: function (data) {
+                    $('.panelgr').hide();
+                    $.each(data, function (ID, data) {
+                        var elem = "#p" + data.impTypeID;
+                        $(elem).show();
+                    });
+                }
+            });
+        });
+        $("#btnReset").on('click', function () {
+            $("#xmodel").val("").html("");
+            $("#xdescr").val("").html("");
+            $("#xmanuf").val("").html("");
+            $("#xowdep").val("").html("");
+            $("#xconnb").val("").html("");
+            $("#xsernb").val("").html("");
+            $('.panelgr').hide();
+            $('.panelgr').show();
+        });
     </script>
-
 </body>
 
 </html>
