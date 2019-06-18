@@ -702,6 +702,679 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
+        public ActionResult Districtb(int projectID, int taskOrderID, int Int1)
+        {
+            // get user logged ID string
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            // get user logged ID int
+            int userid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.ID).First();
+
+            // get userTypeid integer
+            int userTypeid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.userType).First();
+            ViewBag.userTypeID = userTypeid;
+
+            int userTitle = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.titlid).First();
+            ViewBag.userTitleID = userTitle;
+
+            string userName = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.agentName).First();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userid)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            List<int> returnTaskOrdersIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userid)
+                             .Select(s => s.taskOrderID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            ViewBag.eChart1010001 = opb.UHSWEBAVG01vDbs.Where(s => s.dctpid == 1010001).ToList();
+            ViewBag.eChart1010008 = opb.UHSWEBAVG01vDbs.Where(s => s.dctpid == 1010008).ToList();
+            ViewBag.eChart1019901 = opb.UHSWEBAVG01vDbs.Where(s => s.dctpid == 1019901).ToList();
+            ViewBag.eChart1010003 = opb.UHSWEBAVG01vDbs.Where(s => s.dctpid == 1010003).ToList();
+            ViewBag.svctr = 0;
+            var dos = DateTime.Now.ToString("yyyyMMdd");
+            var yr = DateTime.Now.ToString("yyyy");
+            int curdtymd = int.Parse(dos);
+            int yer = int.Parse(yr);
+            int qtr = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == curdtymd).Select(s => s.Quarter).First();
+
+            ViewBag.curdtymd = curdtymd;
+            var dateh = DateTime.Now;
+            ViewBag.dateh = dateh.Hour;
+            ViewBag.chkInt = Int1;
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13)
+                                                                                            && returnTaskOrdersIDlist.Contains(53)))
+            {
+                ViewBag.ItemSelect = 5;
+
+                ViewBag.districts = new SelectList(opa.DISTRICTSDbs.Where(s => s.ID == 0 || (s.divID != 0 && s.compid == 1)).OrderBy(s => s.ID), "ID", "district");
+                var dtt = DateTime.Now.ToString("yyyyMM");
+                int dtt1 = int.Parse(dtt);
+                var dts = DateTime.Now.ToString("yyyyMMdd");
+                int dt1 = int.Parse(dts);
+                int week = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == dt1).Select(s => s.WNumber).First();
+                int daynbr = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == dt1).Select(s => s.daywnm).First();
+                ViewBag.daynbr = daynbr;
+
+                ViewBag.daNeOption200 = new SelectList(new[] {
+                                                            new { Id = "1", Name = "-" },
+                                                            new { Id = "2", Name = "DA" },
+                                                            new { Id = "3", Name = "NE" }
+                                                          }, "Id", "Name");
+
+                ViewBag.satGrade = new SelectList(new[] {
+                                                            new { Id = "0", Name = "0" },
+                                                            new { Id = "1", Name = "1" },
+                                                            new { Id = "2", Name = "2" }
+                                                          }, "Id", "Name");
+
+                ViewBag.verify = new SelectList(new[] {
+                                                            new { Id = "0", Name = "No" },
+                                                            new { Id = "1", Name = "Yes" }
+                                                          }, "Id", "Name");
+
+                int daychk = opa.DATAOPATIME_FRAMEDbs.Where(s => s.YYYYMM == dtt1 && s.daywnm == 5).OrderByDescending(s => s.dateYMD).Select(s => s.dateYMD).First();
+                int qtrchk = opa.DATAOPATIME_FRAMEDbs.Where(s => s.YYYY == yer && s.Quarter == qtr && s.daywnm == 5).OrderByDescending(s => s.dateYMD).Select(s => s.dateYMD).First();
+
+
+                if (daychk == dt1)
+                {
+                    ViewBag.daychk = 1;
+                }
+                else if (daychk != dt1)
+                {
+                    ViewBag.daychk = 0;
+                }
+
+                if (qtrchk == dt1)
+                {
+                    ViewBag.qtrchk = 1;
+                }
+                else if (qtrchk != dt1)
+                {
+                    ViewBag.qtrchk = 0;
+                }
+
+                int dych1 = opa.DATAOPATIME_FRAMEDbs.Where(s => s.dateYMD == dt1).Select(s => s.daywnm).First();
+
+                int distid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.distid).First();
+                int usertitle = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.titlid).First();
+
+                int calc01 = 50;
+                int calc02 = 28;
+                int calc03 = 44;
+                int calc04 = 42;
+                int calc05 = 50;
+                int calc06 = 22;
+                int calc07 = 62;
+                int calc08 = 26;
+                int calcTO = calc01 + calc02 + calc03 + calc04 + calc05 + calc06 + calc07 + calc08;
+
+                if (userTypeid == 2)
+                {
+                    List<int> list1 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.divID).Distinct());
+                    ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => s.ID == 0 || list1.Contains(s.ID)).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
+                    //ViewBag.division = new SelectList(opa.DISTRICTSDbs.Where(s => s.ID == 0).OrderBy(s => s.ID).Select(s => new { ID = s.divID, divisionName = s.divisionName} ).Distinct(), "ID", "divisionName");
+                    ViewBag.headdef1 = "All UHS";
+                    ViewBag.headdef2 = "Administration Level";
+                    int countTotal = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Count(); ViewBag.countTotal = countTotal;
+
+                    if (qtrchk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1 && s.omdch4 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0 || s.omdch4 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (daychk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 2)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 3)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.S6WEE == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.S6WEE == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 4)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.GWWEE == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.GWWEE == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 5)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (dych1 == 6 || dych1 == 7)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.wchk == 1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.wchk == 1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    int gwd1 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 1 && list1.Contains(s.divID)).Count();
+                    int gwd0 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 0 && list1.Contains(s.divID)).Count();
+                    int gww1 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 1 && list1.Contains(s.divID)).Count();
+                    int gww0 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 0 && list1.Contains(s.divID)).Count();
+                    int s6d1 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 1 && list1.Contains(s.divID)).Count();
+                    int s6d0 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 0 && list1.Contains(s.divID)).Count();
+                    int s6w1 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 1 && list1.Contains(s.divID)).Count();
+                    int s6w0 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 0 && list1.Contains(s.divID)).Count();
+                    int omd1 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 1 && list1.Contains(s.divID)).Count();
+                    int omd0 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 0 && list1.Contains(s.divID)).Count();
+                    int omw1 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 1 && list1.Contains(s.divID)).Count();
+                    int omw0 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 0 && list1.Contains(s.divID)).Count();
+                    int omm1 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 1 && list1.Contains(s.divID)).Count();
+                    int omm0 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 0 && list1.Contains(s.divID)).Count();
+                    int omq1 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 1 && list1.Contains(s.divID)).Count();
+                    int omq0 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 0 && list1.Contains(s.divID)).Count();
+                    var as01 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS01).Average(); var aas01 = string.Format("{0:n2}", ((float)(int)as01 / (float)(int)calc01) * 100); var ad01 = string.Format("{0:n2}", as01);
+                    var as02 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS02).Average(); var aas02 = string.Format("{0:n2}", ((float)(int)as02 / (float)(int)calc02) * 100); var ad02 = string.Format("{0:n2}", as02);
+                    var as03 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS03).Average(); var aas03 = string.Format("{0:n2}", ((float)(int)as03 / (float)(int)calc03) * 100); var ad03 = string.Format("{0:n2}", as03);
+                    var as04 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS04).Average(); var aas04 = string.Format("{0:n2}", ((float)(int)as04 / (float)(int)calc04) * 100); var ad04 = string.Format("{0:n2}", as04);
+                    var as05 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS05).Average(); var aas05 = string.Format("{0:n2}", ((float)(int)as05 / (float)(int)calc05) * 100); var ad05 = string.Format("{0:n2}", as05);
+                    var as06 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS06).Average(); var aas06 = string.Format("{0:n2}", ((float)(int)as06 / (float)(int)calc06) * 100); var ad06 = string.Format("{0:n2}", as06);
+                    var as07 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS07).Average(); var aas07 = string.Format("{0:n2}", ((float)(int)as07 / (float)(int)calc07) * 100); var ad07 = string.Format("{0:n2}", as07);
+                    var as08 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS08).Average(); var aas08 = string.Format("{0:n2}", ((float)(int)as08 / (float)(int)calc08) * 100); var ad08 = string.Format("{0:n2}", as08);
+                    var as09 = string.Format("{0:n2}", ((float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS01).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS02).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS03).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS04).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS05).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS06).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS07).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS08).Sum()) / (float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Count() * calcTO)) * 100);
+
+                    List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
+                    uhspageitemsDb List1 = new uhspageitemsDb();
+
+                    List1.modInt01 = gwd1;
+                    List1.modInt02 = gwd0;
+                    List1.modInt03 = gww1;
+                    List1.modInt04 = gww0;
+                    List1.modInt05 = s6d1;
+                    List1.modInt06 = s6d0;
+                    List1.modInt07 = s6w1;
+                    List1.modInt08 = s6w0;
+                    List1.modInt09 = omd1;
+                    List1.modInt10 = omd0;
+                    List1.modInt11 = omw1;
+                    List1.modInt12 = omw0;
+                    List1.modInt13 = omm1;
+                    List1.modInt14 = omm0;
+                    List1.modItm1 = omq1;
+                    List1.modItm2 = omq0;
+
+                    List1.modStr1 = ad01;
+                    List1.modStr2 = ad02;
+                    List1.modStr3 = ad03;
+                    List1.modStr4 = ad04;
+                    List1.modStr5 = ad05;
+                    List1.modStr6 = ad06;
+                    List1.modStr7 = ad07;
+                    List1.modStr8 = ad08;
+                    List1.modTxt01 = aas01;
+                    List1.modTxt02 = aas02;
+                    List1.modTxt03 = aas03;
+                    List1.modTxt04 = aas04;
+                    List1.modTxt05 = aas05;
+                    List1.modTxt06 = aas06;
+                    List1.modTxt07 = aas07;
+                    List1.modTxt08 = aas08;
+                    List1.modTxt09 = as09;
+
+                    pageModel.Add(List1);
+
+                    ViewBag.pageData = pageModel.ToList();
+                }
+                else if (usertitle == 1)
+                {
+                    int itn1 = db.agentsDbs.Where(s => s.ID == userid).Select(s => s.divid).First();
+                    List<int> list1 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1 && s.divID == itn1).Select(s => s.ID).Distinct().ToList());
+                    List<int> list2 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1 && list1.Contains(s.ID)).Select(s => s.divID).Distinct().ToList());
+                    ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => s.ID == 0 || s.ID == itn1).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
+                    ViewBag.headdef1 = opb.dimDivisionDbs.Where(s => s.ID == itn1).Select(s => s.DivisionName).First();
+                    ViewBag.headdef2 = "Division Level";
+                    int countTotal = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Count(); ViewBag.countTotal = countTotal;
+                    if (qtrchk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1 && s.omdch4 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0 || s.omdch4 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (daychk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 2)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 3)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.S6WEE == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.S6WEE == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 4)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.GWWEE == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.GWWEE == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 5)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 6 || dych1 == 7)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.wchk == 1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1 && s.wchk == 1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    int gwd1 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 1 && s.divID == itn1).Count();
+                    int gwd0 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 0 && s.divID == itn1).Count();
+                    int gww1 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 1 && s.divID == itn1).Count();
+                    int gww0 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 0 && s.divID == itn1).Count();
+                    int s6d1 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 1 && s.divID == itn1).Count();
+                    int s6d0 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 0 && s.divID == itn1).Count();
+                    int s6w1 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 1 && s.divID == itn1).Count();
+                    int s6w0 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 0 && s.divID == itn1).Count();
+                    int omd1 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 1 && s.divID == itn1).Count();
+                    int omd0 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 0 && s.divID == itn1).Count();
+                    int omw1 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 1 && s.divID == itn1).Count();
+                    int omw0 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 0 && s.divID == itn1).Count();
+                    int omm1 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 1 && s.divID == itn1).Count();
+                    int omm0 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 0 && s.divID == itn1).Count();
+                    int omq1 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 1 && s.divID == itn1).Count();
+                    int omq0 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 0 && s.divID == itn1).Count();
+                    var as01 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS01).Average(); var aas01 = string.Format("{0:n2}", ((float)(int)as01 / (float)(int)calc01) * 100); var ad01 = string.Format("{0:n2}", as01);
+                    var as02 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS02).Average(); var aas02 = string.Format("{0:n2}", ((float)(int)as02 / (float)(int)calc02) * 100); var ad02 = string.Format("{0:n2}", as02);
+                    var as03 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS03).Average(); var aas03 = string.Format("{0:n2}", ((float)(int)as03 / (float)(int)calc03) * 100); var ad03 = string.Format("{0:n2}", as03);
+                    var as04 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS04).Average(); var aas04 = string.Format("{0:n2}", ((float)(int)as04 / (float)(int)calc04) * 100); var ad04 = string.Format("{0:n2}", as04);
+                    var as05 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS05).Average(); var aas05 = string.Format("{0:n2}", ((float)(int)as05 / (float)(int)calc05) * 100); var ad05 = string.Format("{0:n2}", as05);
+                    var as06 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS06).Average(); var aas06 = string.Format("{0:n2}", ((float)(int)as06 / (float)(int)calc06) * 100); var ad06 = string.Format("{0:n2}", as06);
+                    var as07 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS07).Average(); var aas07 = string.Format("{0:n2}", ((float)(int)as07 / (float)(int)calc07) * 100); var ad07 = string.Format("{0:n2}", as07);
+                    var as08 = opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS08).Average(); var aas08 = string.Format("{0:n2}", ((float)(int)as08 / (float)(int)calc08) * 100); var ad08 = string.Format("{0:n2}", as08);
+                    var as09 = string.Format("{0:n2}", ((float)(int)(opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS01).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS02).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS03).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS04).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS05).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS06).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS07).Sum() + opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Select(s => s.AAS08).Sum()) / (float)(int)(opb.UHSWEBAABvDbs.Where(s => s.divID == itn1).Count() * calcTO)) * 100);
+                    List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
+                    uhspageitemsDb List1 = new uhspageitemsDb();
+                    List1.modInt01 = gwd1;
+                    List1.modInt02 = gwd0;
+                    List1.modInt03 = gww1;
+                    List1.modInt04 = gww0;
+                    List1.modInt05 = s6d1;
+                    List1.modInt06 = s6d0;
+                    List1.modInt07 = s6w1;
+                    List1.modInt08 = s6w0;
+                    List1.modInt09 = omd1;
+                    List1.modInt10 = omd0;
+                    List1.modInt11 = omw1;
+                    List1.modInt12 = omw0;
+                    List1.modInt13 = omm1;
+                    List1.modInt14 = omm0;
+                    List1.modItm1 = omq1;
+                    List1.modItm2 = omq0;
+                    List1.modStr1 = ad01;
+                    List1.modStr2 = ad02;
+                    List1.modStr3 = ad03;
+                    List1.modStr4 = ad04;
+                    List1.modStr5 = ad05;
+                    List1.modStr6 = ad06;
+                    List1.modStr7 = ad07;
+                    List1.modStr8 = ad08;
+                    List1.modTxt01 = aas01;
+                    List1.modTxt02 = aas02;
+                    List1.modTxt03 = aas03;
+                    List1.modTxt04 = aas04;
+                    List1.modTxt05 = aas05;
+                    List1.modTxt06 = aas06;
+                    List1.modTxt07 = aas07;
+                    List1.modTxt08 = aas08;
+                    List1.modTxt09 = as09;
+
+                    pageModel.Add(List1);
+
+                    ViewBag.pageData = pageModel.ToList();
+                }
+                else if (usertitle == 2 || usertitle == 3)
+                {
+                    List<int> list1 = new List<int>(opb.UHSUSAC1DISTRICTDbs.Where(s => s.MGRID == userid).Select(s => s.DISTID).Distinct().ToList());
+                    List<int> list2 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1 && list1.Contains(s.ID)).Select(s => s.divID).Distinct().ToList());
+                    ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => s.ID == 0 || list2.Contains(s.ID)).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
+                    var pre01 = db.agentsDbs.Where(s => s.ID == userid).Select(s => s.distid).First();
+                    ViewBag.headdef1 = opa.DISTRICTSDbs.Where(s => s.compid == 1 && s.ID == pre01).Select(s => s.district).First();
+                    ViewBag.headdef2 = "District Level";
+                    int countTotal = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Count(); ViewBag.countTotal = countTotal;
+                    if (qtrchk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1 && s.omdch4 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0 || s.omdch4 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (daychk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 2)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 3)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.S6WEE == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.S6WEE == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 4)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.GWWEE == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.GWWEE == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 5)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+            if (dych1 == 6 || dych1 == 7)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.wchk == 1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID) && s.wchk == 1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    int gwd1 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 1 && list1.Contains(s.ID)).Count();
+                    int gwd0 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 0 && list1.Contains(s.ID)).Count();
+                    int gww1 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 1 && list1.Contains(s.ID)).Count();
+                    int gww0 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 0 && list1.Contains(s.ID)).Count();
+                    int s6d1 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 1 && list1.Contains(s.ID)).Count();
+                    int s6d0 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 0 && list1.Contains(s.ID)).Count();
+                    int s6w1 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 1 && list1.Contains(s.ID)).Count();
+                    int s6w0 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 0 && list1.Contains(s.ID)).Count();
+                    int omd1 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 1 && list1.Contains(s.ID)).Count();
+                    int omd0 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 0 && list1.Contains(s.ID)).Count();
+                    int omw1 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 1 && list1.Contains(s.ID)).Count();
+                    int omw0 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 0 && list1.Contains(s.ID)).Count();
+                    int omm1 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 1 && list1.Contains(s.ID)).Count();
+                    int omm0 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 0 && list1.Contains(s.ID)).Count();
+                    int omq1 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 1 && list1.Contains(s.ID)).Count();
+                    int omq0 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 0 && list1.Contains(s.ID)).Count();
+                    var as01 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS01).Average(); var aas01 = string.Format("{0:n2}", ((float)(int)as01 / (float)(int)calc01) * 100); var ad01 = string.Format("{0:n2}", as01);
+                    var as02 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS02).Average(); var aas02 = string.Format("{0:n2}", ((float)(int)as02 / (float)(int)calc02) * 100); var ad02 = string.Format("{0:n2}", as02);
+                    var as03 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS03).Average(); var aas03 = string.Format("{0:n2}", ((float)(int)as03 / (float)(int)calc03) * 100); var ad03 = string.Format("{0:n2}", as03);
+                    var as04 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS04).Average(); var aas04 = string.Format("{0:n2}", ((float)(int)as04 / (float)(int)calc04) * 100); var ad04 = string.Format("{0:n2}", as04);
+                    var as05 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS05).Average(); var aas05 = string.Format("{0:n2}", ((float)(int)as05 / (float)(int)calc05) * 100); var ad05 = string.Format("{0:n2}", as05);
+                    var as06 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS06).Average(); var aas06 = string.Format("{0:n2}", ((float)(int)as06 / (float)(int)calc06) * 100); var ad06 = string.Format("{0:n2}", as06);
+                    var as07 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS07).Average(); var aas07 = string.Format("{0:n2}", ((float)(int)as07 / (float)(int)calc07) * 100); var ad07 = string.Format("{0:n2}", as07);
+                    var as08 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS08).Average(); var aas08 = string.Format("{0:n2}", ((float)(int)as08 / (float)(int)calc08) * 100); var ad08 = string.Format("{0:n2}", as08);
+
+                    var as09 = string.Format("{0:n2}", ((float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS01).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS02).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS03).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS04).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS05).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS06).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS07).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Select(s => s.AAS08).Sum()) / (float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.ID)).Count() * calcTO)) * 100);
+
+                    List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
+                    uhspageitemsDb List1 = new uhspageitemsDb();
+
+                    List1.modInt01 = gwd1;
+                    List1.modInt02 = gwd0;
+                    List1.modInt03 = gww1;
+                    List1.modInt04 = gww0;
+                    List1.modInt05 = s6d1;
+                    List1.modInt06 = s6d0;
+                    List1.modInt07 = s6w1;
+                    List1.modInt08 = s6w0;
+                    List1.modInt09 = omd1;
+                    List1.modInt10 = omd0;
+                    List1.modInt11 = omw1;
+                    List1.modInt12 = omw0;
+                    List1.modInt13 = omm1;
+                    List1.modInt14 = omm0;
+                    List1.modItm1 = omq1;
+                    List1.modItm2 = omq0;
+                    List1.modStr1 = ad01;
+                    List1.modStr2 = ad02;
+                    List1.modStr3 = ad03;
+                    List1.modStr4 = ad04;
+                    List1.modStr5 = ad05;
+                    List1.modStr6 = ad06;
+                    List1.modStr7 = ad07;
+                    List1.modStr8 = ad08;
+                    List1.modTxt01 = aas01;
+                    List1.modTxt02 = aas02;
+                    List1.modTxt03 = aas03;
+                    List1.modTxt04 = aas04;
+                    List1.modTxt05 = aas05;
+                    List1.modTxt06 = aas06;
+                    List1.modTxt07 = aas07;
+                    List1.modTxt08 = aas08;
+                    List1.modTxt09 = as09;
+
+                    pageModel.Add(List1);
+
+                    ViewBag.pageData = pageModel.ToList();
+                }
+                else
+                {
+                    List<int> list1 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.divID).Distinct());
+                    ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => s.ID == 0 || list1.Contains(s.ID)).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
+                    int countTotal = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Count(); ViewBag.countTotal = countTotal;
+
+                    if (qtrchk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1 && s.omdch4 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0 || s.omdch4 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                    if (daychk == dt1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1 && s.omdch3 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0 || s.omdch3 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 1)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 2)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 3)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.S6WEE == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.S6WEE == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 4)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.GWWEE == 1 && s.S6DAY == 1 && s.omdch1 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.GWWEE == 0 || s.S6DAY == 0 || s.omdch1 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 5)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    else
+                if (dych1 == 6 || dych1 == 7)
+                    {
+                        int countGood = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.wchk == 1 && s.GWDAY == 1 && s.S6DAY == 1 && s.omdch1 == 1 && s.omdch2 == 1).Count(); ViewBag.countGood = countGood;
+                        int countBad = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID) && s.wchk == 1 && (s.GWDAY == 0 || s.S6DAY == 0 || s.omdch1 == 0 || s.omdch2 == 0)).Count(); ViewBag.countBad = countBad;
+                        var cntperc = string.Format("{0:n2}", ((float)(int)countGood / (float)(int)countTotal) * 100); ViewBag.cntperc = cntperc;
+                        var cntperc2 = string.Format("{0:n2}", ((float)(int)countBad / (float)(int)countTotal) * 100); ViewBag.cntperc2 = cntperc2;
+                    }
+                    int gwd1 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 1 && list1.Contains(s.divID)).Count();
+                    int gwd0 = opb.UHSWEBAABvDbs.Where(s => s.GWDAY == 0 && list1.Contains(s.divID)).Count();
+                    int gww1 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 1 && list1.Contains(s.divID)).Count();
+                    int gww0 = opb.UHSWEBAABvDbs.Where(s => s.GWWEE == 0 && list1.Contains(s.divID)).Count();
+                    int s6d1 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 1 && list1.Contains(s.divID)).Count();
+                    int s6d0 = opb.UHSWEBAABvDbs.Where(s => s.S6DAY == 0 && list1.Contains(s.divID)).Count();
+                    int s6w1 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 1 && list1.Contains(s.divID)).Count();
+                    int s6w0 = opb.UHSWEBAABvDbs.Where(s => s.S6WEE == 0 && list1.Contains(s.divID)).Count();
+                    int omd1 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 1 && list1.Contains(s.divID)).Count();
+                    int omd0 = opb.UHSWEBAABvDbs.Where(s => s.omdch1 == 0 && list1.Contains(s.divID)).Count();
+                    int omw1 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 1 && list1.Contains(s.divID)).Count();
+                    int omw0 = opb.UHSWEBAABvDbs.Where(s => s.omdch2 == 0 && list1.Contains(s.divID)).Count();
+                    int omm1 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 1 && list1.Contains(s.divID)).Count();
+                    int omm0 = opb.UHSWEBAABvDbs.Where(s => s.omdch3 == 0 && list1.Contains(s.divID)).Count();
+                    int omq1 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 1 && list1.Contains(s.divID)).Count();
+                    int omq0 = opb.UHSWEBAABvDbs.Where(s => s.omdch4 == 0 && list1.Contains(s.divID)).Count();
+                    var as01 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS01).Average(); var aas01 = string.Format("{0:n2}", ((float)(int)as01 / (float)(int)calc01) * 100); var ad01 = string.Format("{0:n2}", as01);
+                    var as02 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS02).Average(); var aas02 = string.Format("{0:n2}", ((float)(int)as02 / (float)(int)calc02) * 100); var ad02 = string.Format("{0:n2}", as02);
+                    var as03 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS03).Average(); var aas03 = string.Format("{0:n2}", ((float)(int)as03 / (float)(int)calc03) * 100); var ad03 = string.Format("{0:n2}", as03);
+                    var as04 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS04).Average(); var aas04 = string.Format("{0:n2}", ((float)(int)as04 / (float)(int)calc04) * 100); var ad04 = string.Format("{0:n2}", as04);
+                    var as05 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS05).Average(); var aas05 = string.Format("{0:n2}", ((float)(int)as05 / (float)(int)calc05) * 100); var ad05 = string.Format("{0:n2}", as05);
+                    var as06 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS06).Average(); var aas06 = string.Format("{0:n2}", ((float)(int)as06 / (float)(int)calc06) * 100); var ad06 = string.Format("{0:n2}", as06);
+                    var as07 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS07).Average(); var aas07 = string.Format("{0:n2}", ((float)(int)as07 / (float)(int)calc07) * 100); var ad07 = string.Format("{0:n2}", as07);
+                    var as08 = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS08).Average(); var aas08 = string.Format("{0:n2}", ((float)(int)as08 / (float)(int)calc08) * 100); var ad08 = string.Format("{0:n2}", as08);
+
+                    var as09 = string.Format("{0:n2}", ((float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS01).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS02).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS03).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS04).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS05).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS06).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS07).Sum() + opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Select(s => s.AAS08).Sum()) / (float)(int)(opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Count() * calcTO)) * 100);
+
+                    List<uhspageitemsDb> pageModel = new List<uhspageitemsDb>();
+                    uhspageitemsDb List1 = new uhspageitemsDb();
+
+                    List1.modInt01 = gwd1;
+                    List1.modInt02 = gwd0;
+                    List1.modInt03 = gww1;
+                    List1.modInt04 = gww0;
+                    List1.modInt05 = s6d1;
+                    List1.modInt06 = s6d0;
+                    List1.modInt07 = s6w1;
+                    List1.modInt08 = s6w0;
+                    List1.modInt09 = omd1;
+                    List1.modInt10 = omd0;
+                    List1.modInt11 = omw1;
+                    List1.modInt12 = omw0;
+                    List1.modInt13 = omm1;
+                    List1.modInt14 = omm0;
+                    List1.modItm1 = omq1;
+                    List1.modItm2 = omq0;
+                    List1.modStr1 = ad01;
+                    List1.modStr2 = ad02;
+                    List1.modStr3 = ad03;
+                    List1.modStr4 = ad04;
+                    List1.modStr5 = ad05;
+                    List1.modStr6 = ad06;
+                    List1.modStr7 = ad07;
+                    List1.modStr8 = ad08;
+                    List1.modTxt01 = aas01;
+                    List1.modTxt02 = aas02;
+                    List1.modTxt03 = aas03;
+                    List1.modTxt04 = aas04;
+                    List1.modTxt05 = aas05;
+                    List1.modTxt06 = aas06;
+                    List1.modTxt07 = aas07;
+                    List1.modTxt08 = aas08;
+                    List1.modTxt09 = as09;
+
+                    pageModel.Add(List1);
+
+                    ViewBag.pageData = pageModel.ToList();
+                }
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
         public ActionResult _bck1010008()
         {
             string CurrentLoginID = User.Identity.GetUserId().ToString();

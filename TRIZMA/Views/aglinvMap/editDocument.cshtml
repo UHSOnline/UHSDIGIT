@@ -289,146 +289,137 @@
                                         <div class="review-content-section">
                                             <div class="row">
                                                 @foreach (var item in ViewBag.docList)
-                                                {
-                                                    <div class="col-lg-4">
-                                                        <div class="row" style="padding-left:14px">
-                                                            <img src="~/images/customers/L_@item.acctImage" class="responsiveimg" />
-                                                        </div>
+                                            {
+                                                <div class="col-lg-4">
+                                                    <div class="row" style="padding-left:14px">
+                                                        <img src="~/images/customers/L_@item.acctImage" class="responsiveimg" />
                                                     </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="row" style="padding-left:32px">
-                                                            <label style="color:#0076A8; font-size:24px;"><u>@item.acctName</u></label>
-                                                            <br />
-                                                            <table>
-                                                                <thead>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="row" style="padding-left:32px">
+                                                        <label style="color:#0076A8; font-size:24px;"><u>@item.acctName</u></label>
+                                                        <br />
+                                                        <table>
+                                                            <thead>
 
-                                                                </thead>
-                                                                <tbody>
+                                                            </thead>
+                                                            <tbody>
 
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Address: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:16px;"> @item.acctAddress</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Hours: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:14px;"> @item.acctHours</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
-                                                                    </tr>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Address: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:16px;"> @item.acctAddress</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Hours: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:14px;"> @item.acctHours</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Phone: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:14px;"> @item.acctPhone</span></td>
+                                                                </tr>
 
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:14px;"> @item.acctid</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Doc.ID: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:14px;"> @item.ID</span></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Date: </span></td>
-                                                                        <td><span style="color:#0076A8; font-size:14px;"> @item.docDate</span></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Account#: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:14px;"> @item.acctid</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Doc.ID: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:14px;"> @item.ID</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding-right:8px"><span style="color:#F69240; font-size:14px;">Date: </span></td>
+                                                                    <td><span style="color:#0076A8; font-size:14px;"> @item.docDate</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row" style="padding-left:32px; padding-top:14px">
+                                                        <div class="list-group">
+                                                            <a href="#" class="list-group-item" onclick="PopupCenterDualb('@ViewBag.docID')">
+                                                                <span style="padding-right:12px"><i class="glyphicon glyphicon-list-alt"></i></span><span style="color:#0076A8">Document </span><span style="color:#F69240"> Overview</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em><span style="color:#0076A8">html </span><span style="color:#F69240"> Report</span></em>
+                                                                </span>
+                                                            </a>
+                                                            <a href="#" class="list-group-item" onclick="PopupCenterDualc('@ViewBag.docID')">
+                                                                <span style="padding-right:12px"><i class="fa fa-pencil-square-o"></i></span><span style="color:#0076A8">Equipment </span><span style="color:#F69240"> CheckUp</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em><span style="color:#0076A8">App </span><span style="color:#F69240"> Module</span></em>
+                                                                </span>
+                                                            </a>
                                                         </div>
-                                                        <div class="row" style="padding-left:32px; padding-top:14px">
+                                                        <!-- /.list-group -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" style="background-color:white !important">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-3">
+                                                                            <i class="fa fa-gears fa-3x" style="color:darkgray"></i>
+                                                                        </div>
+                                                                        <div class="col-xs-9 text-right">
+                                                                            <div style="color:#0076A8; font-size:36px"><b>@ViewBag.manuNo</b></div>
+                                                                            <div style="color:#F69240">Manufacturers!</div>
+                                                                            <div style="color:#0076A8">Match Confirmed: @item.manMacConf</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" style="background-color:white !important">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-3">
+                                                                            <i class="fa fa-server fa-3x" style="color:darkgray"></i>
+                                                                        </div>
+                                                                        <div class="col-xs-9 text-right">
+                                                                            <div style="color:#0076A8; font-size:36px"><b>@ViewBag.modlNo</b></div>
+                                                                            <div style="color:#F69240">Equip. Models!</div>
+                                                                            <div style="color:#0076A8">Match Confirmed: @item.modMacConf</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12">
                                                             <div class="list-group">
-                                                                <a href="#" class="list-group-item" onclick="PopupCenterDualb('@ViewBag.docID')">
-                                                                    <span style="padding-right:12px"><i class="glyphicon glyphicon-list-alt"></i></span><span style="color:#0076A8">Document </span><span style="color:#F69240"> Overview</span>
+                                                                <a href="#" class="list-group-item" onclick="PopupCenterDual(1)">
+                                                                    <i class="fa fa-gears fa-fw"></i><span style="padding-left:8px"> Equipment Manufacturers</span>
                                                                     <span class="pull-right text-muted small">
-                                                                        <em><span style="color:#0076A8">html </span><span style="color:#F69240"> Report</span></em>
+                                                                        <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
                                                                     </span>
                                                                 </a>
-                                                                <a href="#" class="list-group-item" onclick="PopupCenterDualc('@ViewBag.docID')">
-                                                                    <span style="padding-right:12px"><i class="fa fa-pencil-square-o"></i></span><span style="color:#0076A8">Equipment </span><span style="color:#F69240"> CheckUp</span>
+                                                                <a href="#" class="list-group-item" onclick="PopupCenterDual(2)">
+                                                                    <i class="fa fa-sliders fa-fw"></i><span style="padding-left:8px"> Equipment Types</span>
                                                                     <span class="pull-right text-muted small">
-                                                                        <em><span style="color:#0076A8">App </span><span style="color:#F69240"> Module</span></em>
+                                                                        <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
+                                                                    </span>
+                                                                </a>
+                                                                <a href="#" class="list-group-item" onclick="PopupCenterDual(3)">
+                                                                    <i class="fa fa-server fa-fw"></i><span style="padding-left:8px"> Equipment Models</span>
+                                                                    <span class="pull-right text-muted small">
+                                                                        <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service </span></em>
                                                                     </span>
                                                                 </a>
                                                             </div>
                                                             <!-- /.list-group -->
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="row">
-                                                            <div class="col-lg-6 col-md-6">
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading" style="background-color:white !important">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-3">
-                                                                                <i class="fa fa-gears fa-3x" style="color:darkgray"></i>
-                                                                            </div>
-                                                                            <div class="col-xs-9 text-right">
-                                                                                <div style="color:#0076A8; font-size:36px"><b>@ViewBag.manuNo</b></div>
-                                                                                <div style="color:#F69240">Manufacturers!</div>
-                                                                                <div style="color:#0076A8">Match Confirmed: @item.manMacConf</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6 col-md-6">
-                                                                <div class="panel panel-default">
-                                                                    <div class="panel-heading" style="background-color:white !important">
-                                                                        <div class="row">
-                                                                            <div class="col-xs-3">
-                                                                                <i class="fa fa-server fa-3x" style="color:darkgray"></i>
-                                                                            </div>
-                                                                            <div class="col-xs-9 text-right">
-                                                                                <div style="color:#0076A8; font-size:36px"><b>@ViewBag.modlNo</b></div>
-                                                                                <div style="color:#F69240">Equip. Models!</div>
-                                                                                <div style="color:#0076A8">Match Confirmed: @item.modMacConf</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <div class="list-group">
-                                                                    <a href="#" class="list-group-item" onclick="PopupCenterDual(1)">
-                                                                        <i class="fa fa-gears fa-fw"></i><span style="padding-left:8px"> Equipment Manufacturers</span>
-                                                                        <span class="pull-right text-muted small">
-                                                                            <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a href="#" class="list-group-item" onclick="PopupCenterDual(2)">
-                                                                        <i class="fa fa-sliders fa-fw"></i><span style="padding-left:8px"> Equipment Types</span>
-                                                                        <span class="pull-right text-muted small">
-                                                                            <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service</span></em>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a href="#" class="list-group-item" onclick="PopupCenterDual(3)">
-                                                                        <i class="fa fa-server fa-fw"></i><span style="padding-left:8px"> Equipment Models</span>
-                                                                        <span class="pull-right text-muted small">
-                                                                            <em><span style="color:#0076A8">In</span><span style="color:#F69240">Service </span></em>
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <!-- /.list-group -->
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                }
+                                                </div>
+                                        }
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="single-pro-review-area mt-t-30 mg-b-15">
                 <div class="container-fluid">
                     <div class="row">
@@ -467,46 +458,36 @@
                                             <input type="text" class="col-lg-12 inputb inputs" id="xsernb" name="sernb" placeholder="... type 2 or more characters" />
                                         </div>
                                         <div>
-                                            <button class="btn btn-warning col-lg-12" id="btnReset"><i class="fa fa-refresh"></i> Reset All </button>
+                                            <button class="btn btn-warning col-lg-12" id="btnReseta"><i class="fa fa-refresh"></i> Reset All </button>
                                         </div>
-                                        
-
                                     </div>
-                                    
-                                    
-                                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" style="min-height:1200px">
                                         <div class="admin-pro-accordion-wrap shadow-inner responsive-mg-b-30">
                                             <div class="panel-group edu-custon-design" id="accordion">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- Static Table Start -->
             <div class="single-pro-review-area mt-t-30 mg-b-15">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            
-
                             <div id="PrimaryModalhdbgcl" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header header-color-modal bg-color-1">
                                             <span class="modal-title" style="padding-left:44px; padding-top:12px; padding-right:16px; font-size:18px"><strong>Map Equipment Model:</strong></span>
-
                                             <b>
                                                 <span style="color:#F69240; padding-right:6px">Device:</span><span style="color:white" id="modHd1a"></span>
                                                 <span style="color:#F69240; padding-right:6px">Model:</span><span style="color:white" id="modHd2a"></span>
                                                 <span style="color:#F69240; padding-right:6px">Manufacturer:</span><span style="color:white" id="modHd3a"></span>
                                             </b>
-
                                             <span class="pull-right" style="padding-right:44px">
                                                 <button class="btn btn-success btnCompl" id="btm_"><i class="fa fa-save" style="transform:scale(1.4)"></i><span style="padding-left:12px">Complete Mapping!</span></button>
                                                 <button class="btn btn-danger btnQuit" id="btq_"><i class="fa fa-close" style="transform:scale(1.4)"></i><span style="padding-left:12px">Quit!</span></button>
@@ -623,8 +604,6 @@
                                                     <button class="btn btn-sm btn-warning col-lg-12 btnReset" style="max-height:32px !important"><i class="fa fa-refresh" style="transform:scale(1.2)"></i><span style="padding-left:12px">Reset Selection!</span></button>
                                                 </div>
                                             </div>
-
-
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="col-lg-12" style="padding-top:6px">
                                                     <table id="dt2" class="table table-hover table-responsive" style="font-size:11px">
@@ -641,11 +620,7 @@
                                                         <tbody style="background-color:white"></tbody>
                                                     </table>
                                                 </div>
-
                                             </div>
-
-
-
                                         </div>
                                         <div class="modal-footer">
                                             <div class="col-lg-12" style="color:white; padding-bottom:2px">.</div>
@@ -653,19 +628,10 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="loadimage">
                 <div class="loadmeRect">
                     <div class="loadmeRectChild loadmeRect1"></div>
@@ -680,6 +646,7 @@
         @Html.Hidden("cntr")
         @Html.Hidden("cnsl")
         @Html.Hidden("impid")
+        @Html.Hidden("typid")
         <!-- lckbckscr End -->
     </div>
     <!-- allpagewraper End -->
@@ -813,7 +780,7 @@
                 } else {
                     pacc = "; display: none"
                 }
-                var parta = "<div class='panel panel-default panelgr' id='p" + dataa.impTypeID + "'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-plus'></i><span style='padding-left:12px'> " + dataa.Device_Category + " </span></a><span class='pull-right' style='text-align: right'><i class='fa fa-check' style='color:green; transform:scale(1.3)" + paca + "' id='paa" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + paca + "' id='pab" + dataa.impTypeID + "'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + paca + "' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:green; transform:scale(1.3)" + pacb + "' id='pba" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacb + "' id='pbb" + dataa.impTypeID + "'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + pacb + "' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:red; transform:scale(1.3)" + pacc + "' id='pca" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacc + "' id='pcb" + dataa.impTypeID + "'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:red; font-size:16px" + pacc + "' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th>Edit:</th></tr></thead><tbody>";
+                var parta = "<div class='panel panel-default panelgr' id='p" + dataa.impTypeID + "'><div class='panel-heading accordion-head'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#T_" + dataa.impTypeID + "'><i class='fa fa-plus'></i><span style='padding-left:12px'> " + dataa.Device_Category + " </span></a><span class='pull-right' style='text-align: right'><i class='fa fa-check' style='color:green; transform:scale(1.3)" + paca + "' id='paa" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + paca + "' id='pab" + dataa.impTypeID + "'>Matched: </span><span id='cnta_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + paca + "' data-id='" + dataa.cnta + "'><b> " + dataa.cnta + " </b></span><i class='fa fa-pencil-square-o' style='color:green; transform:scale(1.3)" + pacb + "' id='pba" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacb + "' id='pbb" + dataa.impTypeID + "'>New: </span><span id='cntb_" + dataa.impTypeID + "' style='color:green; font-size:16px; padding-right:60px" + pacb + "' data-id='" + dataa.cntb + "'><b> " + dataa.cntb + " </b></span><i class='fa fa-close' style='color:red; transform:scale(1.3)" + pacc + "' id='pca" + dataa.impTypeID + "'></i><span style='padding-left:8px; font-size:12px" + pacc + "' id='pcb" + dataa.impTypeID + "'>Not Matched: </span><span id='cntc_" + dataa.impTypeID + "' style='color:red; font-size:16px" + pacc + "' data-id='" + dataa.cntc + "'><b> " + dataa.cntc + " </b></span></span></h4></div><div id='T_" + dataa.impTypeID + "' class='panel-collapse panel-ic collapse'><div class='panel-body admin-panel-content animated bounce'><table class='table table-responsive'><thead><tr style='color:#A4BCC2; font-size:11px'><th>Model:</th><th>Found:</th><th>Matched:</th><th>New:</th><th style='text-align: right'>Edit:</th></tr></thead><tbody>";
                 var partb = [];
                 $.each(datab, function (ID, datab) {
                     if (dataa.impTypeID == datab.impTypeID) {
@@ -910,10 +877,11 @@
         }
         $(document).on('click', '.btnactive', function () {
             var btnf = $(this).attr("id").replace("bte_", "");
+            var tpida = $(this).data("id");
             $('#dt2').find('tbody').detach();
             $("#dt2").dataTable().fnDestroy();
             var btn = parseInt(btnf);
-            var tpid = $(this).data("id");
+            var tpid = parseInt(tpida);
             $("#impid").val(btn);
             $("#typid").val(tpid);
             var spDevb = "#spDev_" + btn; var spDev = $(spDevb).data("id");
@@ -1347,6 +1315,7 @@
             e.preventDefault();
             var b = $("#impid").val();
             var g = $("#typid").val(); var ga = parseInt(g);
+            
             var docID = '@ViewBag.docID';
             var dpa = "#dpa_";
             var dpb = "#dpb_";
@@ -1365,7 +1334,8 @@
             var pbb = "#pbb" + ga;
             var pca = "#pca" + ga;
             var pcb = "#pcb" + ga;
-            if (txdf == 0) {
+            var nw = "#nw_" + b;
+            if (txdf == 0 || txdf == "0" || txdf == null) {
                 var stra = docID + "<|>" + b + "<|>" + txaf + "<|>" + txbf + "<|>" + txcf + "<|>" + txdf + "<|>" + txav + "<|>" + txbv + "<|>" + txcv + "<|>" + txdv;
                 $.ajax({
                     url: '/aglinvMap/comMap',
@@ -1379,9 +1349,12 @@
                             return;
                         }
                         else {
-                            $(cntb).val(cntbf + 1).html(cntbf + 1).data("id", cntbf + 1).css('font-weight','bold');
+                            $(cntb).val(cntbf + 1).html(cntbf + 1).data("id", cntbf + 1).css('font-weight', 'bold');
+                            $(pba).show();
+                            $(pbb).show();
+                            $(cntb).show();
                             $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight', 'bold');
-                            alert(cntcf);
+                            $(nw).html("").val("NEW").html("NEW").css('color', 'forestgreen').css('transform', 'scale(2)');
                             if ((cntcf - 1) < 1) {
                                 $(pca).hide();
                                 $(pcb).hide();
@@ -1406,6 +1379,9 @@
                         }
                         else {
                             $(cnta).val(cntaf + 1).html(cntaf + 1).data("id", cntaf + 1).css('font-weight', 'bold');
+                            $(paa).show();
+                            $(pab).show();
+                            $(cnta).show();
                             $(cntc).val(cntcf - 1).html(cntcf - 1).data("id", cntcf - 1).css('font-weight', 'bold');
                             if ((cntcf - 1) < 1) {
                                 $(pca).hide();
@@ -1443,7 +1419,6 @@
             var txc = "#txc_";
             var txd = "#txd_";
             var txm = "#txm_";
-            
             $.ajax({
                 url: '/aglinvMap/findSingle',
                 type: "GET",
@@ -1522,7 +1497,7 @@
                 }
             });
         });
-        $("#btnReset").on('click', function () {
+        $("#btnReseta").on('click', function () {
             $("#xmodel").val("").html("");
             $("#xdescr").val("").html("");
             $("#xmanuf").val("").html("");
