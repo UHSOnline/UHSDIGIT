@@ -7977,7 +7977,8 @@
     <Content Include="backup\Views\A3form\Index - Copy.cshtml" />
     <Content Include="backup\Views\aglinvMap\Indexb.cshtml" />
     <Content Include="Views\aglinvMap\editDocumentb.cshtml" />
-    <Content Include="Views\uhsdistrict\Districtb.cshtml" />
+    <Content Include="backup\Views\uhsdistrict\Districtb.cshtml" />
+    <Content Include="backup\Views\uhsdistrict\getEditPar1010008b.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />

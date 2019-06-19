@@ -3,41 +3,123 @@
 @{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: District Cadence</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>District Cadence</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
-    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="~/css/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
     <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
-       
+
         canvas {
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
+        }
+
+        .responsiveb {
+            width: 100%;
+            height: auto;
         }
 
         .docidstore {
@@ -233,570 +315,706 @@
             display: none;
         }
     </style>
-</head><!--/head-->
+</head>
+
 <body>
     <!-- COMMON IDENTIFIERS -->
     @Html.Hidden("deldctpid")
     @Html.Hidden("mod1010005")
 
-    <div class="lckbckscr">
-        <div id="wrapper">
-            <!-- Navigation -->
-            <!-- Navigation -->
-            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-                <div class="navbar-header">
-                    <div style="padding-top:4px; padding-left:32px">
-                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
+
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-            {
-                    @Html.AntiForgeryToken()
-                    @Html.Action("_navbartop", "uhsCH")
-                }
-
-                <!-- /.navbar-top-links -->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
                                 </div>
-                                <!-- /input-group -->
-                            </li>
-                            <li>
-                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                            </li>
-                            @Html.Action("SBagPr", "uhsCH")
-                            @if (ViewBag.userTypeID == 2)
-                            {
-                                <li style="padding-left:3px">
-                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:#6399AE !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- Page Content -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <br />
-                            <h4 class="page-header"><span class="itcac">District </span><span class="itcak"> Cadence </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef1 </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef2</span></h4>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-blue.png" /></a>    
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="cnuptot" style="color:#0076A8; font-size:22px">@ViewBag.countTotal</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <span class="pull-left" id="cntAll" style="color:#0076A8">Total Districts</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-green.png" /></a>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="cnupgod" style="color:forestgreen; font-size:22px">@ViewBag.countGood</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                @*<a href="#">*@
-                                <div class="panel-footer">
-                                    <span class="pull-left" style="color:forestgreen" id="cntGood">Districts Completed!</span>
-                                    <span id="pcngod" class="pull-right">@ViewBag.cntperc%</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                                @*</a>*@
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-red.png" /></a>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div id="cnupbad" style="color:red; font-size:22px">@ViewBag.countBad</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                @*<a href="#">*@
-                                <div class="panel-footer">
-                                    <span class="pull-left" style="color:red" id="cntBad">Districts Due!</span>
-                                    <span id="pcnbad" class="pull-right">@ViewBag.cntperc2%</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                                @*</a>*@
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="itcak">Districts </span><span class="itcac"> Map</span>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div id="mapid" style="width:100%; height: 560px; position: relative"></div>
-                                </div>
-
-                                <!-- /.panel-body -->
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    @if (ViewBag.userTypeID == 2)
-                                            {
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <span class="itcak">District </span><span class="itcac"> Location</span>
-                                                    </div>
-                                                    <!-- /.panel-heading -->
-                                                    <div class="panel-body" style="padding-top:29px; padding-bottom:28px">
-                                                        <div class="row" style="padding-bottom:8px">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
-                                                            </div>
-                                                        </div>
-                                                            
-                                                        <div class="row">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop2", @class = "form-control", @onchange = "Filldd2()" })
-                                                            </div>
-                                                        </div>
-                                                            
-                                                        
-
-                                                    </div>
-                                                </div>
-                                            }
-                                            else if (ViewBag.userTitleID == 1)
-                                            {
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <span class="itcak">District </span><span class="itcac"> Location</span>
-                                                    </div>
-                                                    <!-- /.panel-heading -->
-                                                    <div class="panel-body">
-
-                                                        <div style="padding-bottom:20px">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
-                                                            </div>
-                                                        </div>
-
-                                                        <div>
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop2", @class = "form-control", @onchange = "Filldd2()" })
-                                                            </div>
-                                                        </div>
-                                                            
-                                                        
-                                                    </div>
-                                                </div>
-                                            }
-                                            else if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
-                                            {
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <span class="itcak">District </span><span class="itcac"> Location</span>
-                                                    </div>
-                                                    <!-- /.panel-heading -->
-                                                    <div class="panel-body" style="padding-top:29px; padding-bottom:28px">
-                                                        <div class="row" style="padding-bottom:8px">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("Division", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "division"), new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-
-
-
-                                                    </div>
-                                                </div>
-                                            }
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <i class="fa fa-archive fa-fw" style="color:#0076A8"></i><span style="color:#F69240"> Documents </span><span style="color:#0076A8"> Panel</span>
-                                        </div>
-                                        <!-- /.panel-heading -->
-                                        <div class="panel-body">
-                                            <div class="list-group">
-
-                                                <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                                    <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> District Monthly Report</span>
-                                                    <span class="pull-right text-muted small">
-                                                        <em>06/28/2018</em>
-                                                    </span>
-                                                </a>
-                                                <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiZTYzYjY2NTMtNmQ5NS00OGFhLTg2YzMtNzYzMDBhNjA4YjY5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                                    <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> District Monthly Report</span>
-                                                    <span class="pull-right text-muted small">
-                                                        <em>06/28/2018</em>
-                                                    </span>
-                                                </a>
-                                                
-                                            </div>
-                                        </div>
-                                        <!-- /.panel-body -->
-                                    </div>
-                                </div>
-                            </div>
-                                               
-                        </div>
-                        <!-- /.col-lg-8 -->
-                        <div class="col-lg-3">
-                            @foreach (var item in ViewBag.pageData)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" style="color:forestgreen">
-                                        <span style="color:#F69240">Districts </span><span style="color:#0076A8"> Daily Numbers</span>
-                                    </div>
-                                    <!-- /.panel-heading -->
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <i class="fa fa-tasks fa-2x" style="color:forestgreen"></i>
-                                            </div>
-                                            <div class="col-xs-9 text-right">
-                                                <div style="color:forestgreen; font-size:24px">@ViewBag.countGood</div>
-                                            </div>
-
-                                            <div class="col-xs-12">
-                                                <table class="table table-responsive table-hover" style="font-size:12px">
-                                                    <thead>
-                                                        <tr style="background-color:#F5F5F5">
-                                                            <th>Task:</th>
-                                                            <th>D:</th>
-                                                            <th>W:</th>
-                                                            <th>M:</th>
-                                                            <th>Q:</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>District Cadence</td>
-                                                            <td>@item.modInt09</td>
-                                                            <td>@item.modInt11</td>
-                                                            <td>@item.modInt13</td>
-                                                            <td>@item.modItm1</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Gemba Walk:</td>
-                                                            <td>@item.modInt01</td>
-                                                            <td>@item.modInt03</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>6S List:</td>
-                                                            <td>@item.modInt05</td>
-                                                            <td>@item.modInt07</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <i class="fa fa-tasks fa-2x" style="color:red"></i>
-                                            </div>
-                                            <div class="col-xs-9 text-right">
-                                                <div style="color:red; font-size:24px">@ViewBag.countBad</div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <table class="table table-responsive table-hover" style="font-size:12px">
-                                                    <thead>
-                                                        <tr style="background-color:#F5F5F5">
-                                                            <th>Task:</th>
-                                                            <th>D:</th>
-                                                            <th>W:</th>
-                                                            <th>M:</th>
-                                                            <th>Q:</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>District Cadence</td>
-                                                            <td>@item.modInt10</td>
-                                                            <td>@item.modInt12</td>
-                                                            <td>@item.modInt14</td>
-                                                            <td>@item.modItm2</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Gemba Walk:</td>
-                                                            <td>@item.modInt02</td>
-                                                            <td>@item.modInt04</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>6S List:</td>
-                                                            <td>@item.modInt06</td>
-                                                            <td>@item.modInt08</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- /.panel-body -->
-                                </div>
-                            <!-- /.panel -->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" style="color:forestgreen">
-                                        <span style="color:#F69240">VWP </span><span style="color:#0076A8"> Bi-Annual Assessment</span>
-                                    </div>
-                                    <!-- /.panel-heading -->
-                                    <div class="panel-body">
-
-                                        <table class="table-responsive table-hover table-striped" style="font-size:12px; min-width:100%">
-                                            <thead>
-                                                <tr style="background-color:#E8F7F9">
-                                                    <th>Area:</th>
-                                                    <th style="text-align:right">Avg:</th>
-                                                    <th style="text-align:right">Max:</th>
-                                                    <th style="text-align:right">Perc:</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Cleaning Station</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr1</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">50</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt01%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Inspection / Testing Station</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr2</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">28</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt02%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Biomed Department BERD</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr3</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">44</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt03%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Patient Ready Area</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr4</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">42</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt04%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Surgical Services</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr5</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">50</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt05%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Shipping / Receiving</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr6</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">22</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt06%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Overall Building</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr7</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">62</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt07%</td>
-                                                </tr>
-                                                <tr height="30px">
-                                                    <td style="padding-top:3px">Other</td>
-                                                    <td align="right" style="padding-top:3px">@item.modStr8</td>
-                                                    <td align="right" style="color:#0076A8; padding-top:3px">26</td>
-                                                    <td align="right" style="padding-top:3px">@item.modTxt08%</td>
-                                                </tr>
-                                                <tr height="26px" style="background-color:#FAFBFB">
-                                                    <td align="right" style="border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB; color:#0076A8">Overall Quality Level:</td>
-                                                    <td style="color:white; border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB">.</td>
-                                                    <td style="color:white; border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB">.</td>
-                                                    <td align="right" style="border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB"><b>@item.modTxt09%</b></td>
-                                                </tr>
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-
-                                    <!-- /.panel-body -->
-                                </div>
-                            }
-                            
-
-                        </div>
-                        <div class="col-lg-12">
-                            <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#tab01" data-toggle="tab">Historical Data</a>
-                                    </li>
-                                    <li>
-                                        <a href="#tab02" data-toggle="tab">Score Cards</a>
-                                    </li>
-                                </ul>
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane fade in active" id="tab01" style="padding-bottom:440px">
-                                        <br />
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <span class="itcak">Districts </span><span class="itcac"> Historical Data</span>
-                                            </div>
-                                            <!-- /.panel-heading -->
-                                            <div class="panel-body">
-                                                <table id="" class="multidatatables table table-hover table-striped" style="font-size:12px; font-family:sans-serif">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Date:</th>
-                                                            <th>Period:</th>
-                                                            <th>District:</th>
-                                                            <th>Edit</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @Html.Action("_bck1010008", "uhsdistrict")
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- /.panel-body -->
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab02" style="padding-bottom:120px">
-                                       <br />
-                                       <div class="row">
-                                           @Html.Action("_getDistrictdata", "uhsdistrict", new { IDa = 0, IDb = 0 })
-                                       </div>       
-                                    </div>
-                                </div> 
-                        </div>
-                    </div>
-                    <!-- /.row -->                 
-                    <!-- /.row -->
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/js/bootstrap.min.js"></script>
-    <!-- DataTables JavaScript -->
-    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
-    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
-    <script type="text/javascript">
-function Filldd1() {
-    var It0 = $('#drop1').val();
-    if(It0 == 0){
-        $("#drop2").html(""); // clear
-        $('.showdist').show();
-    }
-    else {
-        $.ajax({
-            url: '/uhsdistrict/getdddist',
-            type: "GET",
-            dataType: "JSON",
-            data: { ID: It0 },
-            success: function (datatable) {
-                $("#drop2").html(""); // clear before appending new list
-                $('.showdist').hide();
-                $.each(datatable, function (ID, datatable) {
-                    //console.log(datatable);
-                    $("#drop2").append(
-                        $('<option></option>').val(datatable.ID).html(datatable.district));
-                    var item1 = "#" + datatable.ID;
-                    $(item1).show();
-                });
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Single pro tab review Start-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">District </span><span class="itcak"> Cadence </span></h4>
+                                    <span class="itcac" style="font-size:13px">@ViewBag.headdef1 </span><span class="itcac" style="font-size:13px">: @ViewBag.headdef2</span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
+                                            <div id="cnuptot" style="color:#0076A8; font-size:22px">@ViewBag.countTotal</div>
+                                        </div>
 
-            }
-        });
-    }
-}
-function Filldd2(){
-    var It2 = $('#drop2').val();
-    if(It2 == 0){
-        Filldd1();
-    } else {
-        $('.showdist').hide();
-        var item1 = "#" + It2;
-        $(item1).show();
-    }
-}
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('table.multidatatables').DataTable({
-                "order": [[0, "desc"],[2, "asc"],[3, "asc"]]
-                //"order": [[0, "desc"]]
-            });
-        });
-    </script>
+                                    </div>
+                                    <div class="income-range">
+                                        <span class="pull-left" id="cntAll">Total Districts</span>
+                                        <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-green">
+                                                <span id="cnuptot" class="counter">100</span>% <i class="fa fa-bolt"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
+                                            <div id="cnupgod" style="color:forestgreen; font-size:22px">@ViewBag.countGood</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="income-range visitor-cl">
+                                        <span id="cntGood">Districts Completed!</span>
+                                        <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-blue">
+                                                <span id="pcngod" class="counter">@ViewBag.cntperc%</span><i class="fa fa-level-up"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total res-mg-t-30 dk-res-t-pro-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
+                                            <div id="cnupbad" style="color:red; font-size:22px">@ViewBag.countBad</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="income-range low-value-cl">
+                                        <span id="cntBad">Districts Due!</span>
+                                        <a href="/uhsdistrict/District?projectID=13&taskOrderID=53&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-purple">
+                                                <span id="pcnbad" class="counter">@ViewBag.cntperc2%</span><i class="fa fa-level-down"></i>
+                                            </span>
+                                        </a>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- income order visit user End -->
+            <br />
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveb">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">Map: </span><span class="itcak"> District Locations </span></h5>
+
+                                                    </div>
+                                                </div>
+                                                <div class="sparkline8-graph">
+                                                    <div class="google-map-single responsiveb">
+                                                        <div id="mapid" style="width:100%; height: 560px; position: relative; z-index:0"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="google-maps-area mg-b-15">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                                <div class="sparkline8-hd">
+
+                                                                    <div class="main-sparkline8-hd">
+                                                                        <h5><span class="itcac">District: </span><span class="itcak"> Locations </span></h5>
+                                                                    </div>
+
+                                                                    @if (ViewBag.userTypeID == 2)
+                                                                    {
+
+
+
+
+                                                                        <!-- /.panel-heading -->
+                                                                        <br />
+                                                                        <div class="row" style="padding-bottom:2px">
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top:8px">
+                                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top:5px">
+                                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop2", @class = "form-control", @onchange = "Filldd2()" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                    }
+                                                                    else if (ViewBag.userTitleID == 1)
+                                                                    {
+
+
+
+                                                                        <div style="padding-bottom:20px">
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top:5px">
+                                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding-top:5px">
+                                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop2", @class = "form-control", @onchange = "Filldd2()" })
+                                                                            </div>
+                                                                        </div>
+
+
+
+
+                                                                    }
+                                                                    else if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
+                                                                    {
+
+
+
+                                                                        <div class="row" style="padding-bottom:8px">
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
+                                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("Division", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "division"), new { @class = "form-control" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
+                                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                                            </div>
+                                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { @class = "form-control" })
+                                                                            </div>
+                                                                        </div>
+
+                                                                    }
+
+                                                                    <br />
+                                                                    <div class="clear"></div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                        <div class="row">
+                                            <div class="google-maps-area mg-b-15">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                                <div class="sparkline8-hd">
+
+                                                                    <div class="main-sparkline8-hd">
+                                                                        <h5><span class="itcac">Documents: </span><span class="itcak"> Panel </span></h5>
+                                                                    </div>
+                                                                    <br />
+
+                                                                    <div class="list-group">
+
+                                                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> District Monthly Report</span>
+                                                                            <span class="pull-right text-muted small">
+                                                                                <em>06/28/2018</em>
+                                                                            </span>
+                                                                        </a>
+                                                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiZTYzYjY2NTMtNmQ5NS00OGFhLTg2YzMtNzYzMDBhNjA4YjY5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> District Monthly Report</span>
+                                                                            <span class="pull-right text-muted small">
+                                                                                <em>06/28/2018</em>
+                                                                            </span>
+                                                                        </a>
+
+                                                                    </div>
+                                                                    <div class="clear"></div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="row">
+
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">Stats </span><span class="itcak"> Numbers: </span></h5>
+                                                        @foreach (var item in ViewBag.pageData)
+                                                        {
+                                                            <div class="table-responsive wd-tb-cr">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Task</th>
+                                                                            <th>D:</th>
+                                                                            <th>W:</th>
+                                                                            <th>M:</th>
+                                                                            <th>Q:</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody style="font-size:12px">
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:forestgreen; transform:scale(1.2)"></i><span style="padding-left:12px">District Cadence</span></td>
+                                                                            <td>@item.modInt09</td>
+                                                                            <td>@item.modInt11</td>
+                                                                            <td>@item.modInt13</td>
+                                                                            <td>@item.modItm1</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:forestgreen; transform:scale(1.2)"></i><span style="padding-left:12px">Gemba Walk</span></td>
+                                                                            <td>@item.modInt01</td>
+                                                                            <td>@item.modInt03</td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:forestgreen; transform:scale(1.2)"></i><span style="padding-left:12px">6S List</span></td>
+                                                                            <td>@item.modInt05</td>
+                                                                            <td>@item.modInt07</td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="table-responsive wd-tb-cr">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Task</th>
+                                                                            <th>D:</th>
+                                                                            <th>W:</th>
+                                                                            <th>M:</th>
+                                                                            <th>Q:</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody style="font-size:12px">
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:red; transform:scale(1.2)"></i><span style="padding-left:12px">District Cadence</span></td>
+                                                                            <td>@item.modInt10</td>
+                                                                            <td>@item.modInt12</td>
+                                                                            <td>@item.modInt14</td>
+                                                                            <td>@item.modItm2</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:red; transform:scale(1.2)"></i><span style="padding-left:12px">Gemba Walk</span></td>
+                                                                            <td>@item.modInt02</td>
+                                                                            <td>@item.modInt04</td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:red; transform:scale(1.2)"></i><span style="padding-left:12px">6S List</span></td>
+                                                                            <td>@item.modInt06</td>
+                                                                            <td>@item.modInt08</td>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">WVP </span><span class="itcak"> Bi-Annual </span><span class="itcac"> Assessment </span></h5>
+
+                                                        <div class="table-responsive wd-tb-cr">
+                                                            <table class="table table-striped">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Area:</th>
+                                                                        <th style="text-align:right">Avg:</th>
+                                                                        <th style="text-align:right">Max:</th>
+                                                                        <th style="text-align:right">Perc:</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody style="font-size:12px">
+                                                                    @foreach (var item in ViewBag.pageData)
+                                                                    {
+                                                                        <tr>
+                                                                            <td>Cleaning Station</td>
+                                                                            <td align="right">@item.modStr1</td>
+                                                                            <td align="right" style="color:#0076A8">50</td>
+                                                                            <td align="right">@item.modTxt01%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Inspection / Testing Station</td>
+                                                                            <td align="right">@item.modStr2</td>
+                                                                            <td align="right" style="color:#0076A8">28</td>
+                                                                            <td align="right">@item.modTxt02%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Biomed Department BERD</td>
+                                                                            <td align="right">@item.modStr3</td>
+                                                                            <td align="right" style="color:#0076A8">44</td>
+                                                                            <td align="right">@item.modTxt03%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Patient Ready Area</td>
+                                                                            <td align="right">@item.modStr4</td>
+                                                                            <td align="right" style="color:#0076A8">42</td>
+                                                                            <td align="right">@item.modTxt04%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Surgical Services</td>
+                                                                            <td align="right">@item.modStr5</td>
+                                                                            <td align="right" style="color:#0076A8">50</td>
+                                                                            <td align="right">@item.modTxt05%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Shipping / Receiving</td>
+                                                                            <td align="right">@item.modStr6</td>
+                                                                            <td align="right" style="color:#0076A8">22</td>
+                                                                            <td align="right">@item.modTxt06%</td>
+                                                                        </tr>
+                                                                        <tr height="30px">
+                                                                            <td>Overall Building</td>
+                                                                            <td align="right">@item.modStr7</td>
+                                                                            <td align="right" style="color:#0076A8">62</td>
+                                                                            <td align="right">@item.modTxt07%</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Other</td>
+                                                                            <td align="right">@item.modStr8</td>
+                                                                            <td align="right" style="color:#0076A8">26</td>
+                                                                            <td align="right">@item.modTxt08%</td>
+                                                                        </tr>
+                                                                        <tr height="26px" style="background-color:#FAFBFB">
+                                                                            <td align="right" style="border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB; color:#0076A8">Overall Quality Level:</td>
+                                                                            <td style="color:white; border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB">.</td>
+                                                                            <td style="color:white; border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB">.</td>
+                                                                            <td align="right" style="border-top-style:solid; border-top-width:thin; border-top-color:#85CDDB"><b>@item.modTxt09%</b></td>
+                                                                        </tr>
+                                                                    }
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- tabs start-->
+            <div class="admintab-area mg-b-15">
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="admintab-wrap edu-tab1 mg-t-30">
+                                <ul class="nav nav-tabs custom-menu-wrap custon-tab-menu-style1">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tab01"><span class="edu-icon edu-analytics tab-custon-ic"></span>Historical Data</a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab02"><span class="edu-icon edu-analytics-arrow tab-custon-ic"></span>Score Cards</a>
+                                    </li>
+
+                                </ul>
+                                <div class="tab-content" style="padding-bottom:440px">
+                                    <div id="tab01" class="tab-pane in active animated flipInX custon-tab-style1">
+                                        <div class="datatable-dashv1-list custom-datatable-overright">
+                                            <table class="table table-responsive table-hover" id="tablea">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date:</th>
+                                                        <th>Period:</th>
+                                                        <th>District:</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @Html.Action("_bck1010008", "uhsdistrict")
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div id="tab02" class="tab-pane animated flipInX custon-tab-style1">
+                                        <br />
+                                        <div class="row">
+                                            @Html.Action("_getDistrictdata", "uhsdistrict", new { IDa = 0, IDb = 0 })
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- tabs End-->
+            
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+        </div>
+        <!-- lckbckscr End -->
+    </div>
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    <script src="~/js/jquery.datetimepicker.js"></script>
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+
+
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
     <script src="~/lib/highlightjs/highlight.pack.js"></script>
     <script src="~/lib/chart.js/Chart.js"></script>
     <script type="text/javascript">
@@ -954,7 +1172,7 @@ function Filldd2(){
             }
         });
     </script>
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="~/js/leaflet.js"></script>
     <script type="text/javascript">
             // map objekat originalno ovde
             $(window).load(function (e) {
@@ -1015,12 +1233,12 @@ function Filldd2(){
                 }
                     var dalc = dal;
                 var dar = da.getMonth() + 1;
-                
+
                 if (dar < 10) {
                     var dab = "0" + dar.toString();
                 } else {
                     var dab = dar.toString();
-                }        
+                }
                 var dabc = dab;
                 var dac = da.getFullYear();
                 var daat = dac.toString() + dabc.toString() + dalc.toString();
@@ -1032,7 +1250,7 @@ function Filldd2(){
                     } else
                         {
                             var da1 = 24 + dateh;
-                        } 
+                        }
                     $.ajax({
                         url: '/uhsdistrict/getDistrictmap',
                         type: "GET",
@@ -1105,7 +1323,7 @@ function Filldd2(){
                                 var omdch2 = datatable.omdch2;
                                 var omdch3 = datatable.omdch3;
                                 var omdch4 = datatable.omdch4;
-                                var utco = datatable.utco;         
+                                var utco = datatable.utco;
                                 var popsec1 = "<span style='color: #F69240'>District: </span><span style='color: #0076A8'>" + dist + "</span><br><span style='color: #F69240'>Region: </span><span style='color: #0076A8'>" + region + "</span><br><span style='color: #F69240'>Division: </span><span style='color: #0076A8'>" + divNm + "</span><br><span style='color: #F69240'>DOD: </span><span style='color: #0076A8'>" + DOD + "</span><br><span style='color: #F69240'>OMD: </span><span style='color: #0076A8'>" + OMD + "</span>";
                                 if (aschk == 0) {
                                     var popass0 = "<br /><a href='/uhsvwpassessment/getCrPar1010003?distid=" + distid + "&acctid=0&actype=3&docid=null'> Bi-Annual Assessment </a><span> Date: </span><a> " + asdate + " </a><br>";
@@ -1130,7 +1348,7 @@ function Filldd2(){
                                 else if (omdch1 == 1) { sign1 = iconb1; mess1 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
                                 if (omdch2 == 0) { sign2 = iconb2; mess2 = "<span style='color:red; padding-left:5px'>Due: " + dtby3 + "</span>"; }
                                 else if (omdch2 == 1) { sign2 = iconb1; mess2 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
-                                if (omdch3 == 0) { sign3 = iconb2; mess3 = "<span style='color:red; padding-left:5px'>Due: " + dtby4 + "</span>"; } 
+                                if (omdch3 == 0) { sign3 = iconb2; mess3 = "<span style='color:red; padding-left:5px'>Due: " + dtby4 + "</span>"; }
                                 else if (omdch3 == 1) { sign3 = iconb1; mess3 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
                                 if (omdch4 == 0) { sign4 = iconb2; mess4 = "<span style='color:red; padding-left:5px'>Due: " + dtby5 + "</span>"; }
                                 else if (omdch4 == 1) { sign4 = iconb1; mess4 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
@@ -1180,7 +1398,7 @@ function Filldd2(){
                                     else {
                                         markeri.push(L.marker([aclat, aclng], { icon: redIcon, id: distid }).bindPopup(html1).openPopup());
                                     }
-                                }            
+                                }
                             });
                             var fgroup = new L.featureGroup(markeri);
                             fgroup.addTo(mymap).bringToFront();
@@ -1200,7 +1418,7 @@ function Filldd2(){
                 }
             });
     </script>
-    <script>
+    <script type="text/javascript">
         var lckbck = document.getElementsByClassName("lckbckscr")[0];
         var mnpart = document.getElementsByClassName("mainpart")[0];
         function btna(diid) {
@@ -1211,8 +1429,8 @@ function Filldd2(){
                 data:
                     {
                         diid: disid
-                      , mnt: mnt
-                      , tpch: 2
+                        , mnt: mnt
+                        , tpch: 2
                     },
                 url: '/uhsCH/sendmailnotif',
                 dataType: "JSON",
@@ -1223,32 +1441,13 @@ function Filldd2(){
             })
         };
     </script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
-            $("#datepicker").datepicker();
+            $('.loadimage').hide();
+            $("#tablea").DataTable({
+                "order": [[3, "desc"]]
+            });
         });
-    </script>
-    <!-- iCheck -->
-    <script type="text/javascript">
-function PopupCenterDual(url, title, w, h) {
-    // Fixes dual-screen position Most browsers Firefox
-    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
-    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
-    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
-    var top = ((height / 2) - (h / 2)) + dualScreenTop;
-    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-
-    // Puts focus on the newWindow
-    if (window.focus) {
-    newWindow.focus();
-    }
-}
-    </script>
-    <script type="text/javascript">
         function enlargea(a) {
             if (a == 1) { $("#cntAll").css({ 'font-weight': 'bold' }); $("#cnuptot").css({ 'font-weight': 'bold' }); }
             else if (a == 2) { $("#cntGood").css({ 'font-weight': 'bold' }); $("#cnupgod").css({ 'font-weight': 'bold' }); $("#pcngod").css({ 'font-weight': 'bold' }); }
@@ -1259,9 +1458,74 @@ function PopupCenterDual(url, title, w, h) {
             $("#cntGood").css({ 'font-weight': 'normal' }); $("#cnupgod").css({ 'font-weight': 'normal' }); $("#pcngod").css({ 'font-weight': 'normal' });
             $("#cntBad").css({ 'font-weight': 'normal' }); $("#cnupbad").css({ 'font-weight': 'normal' }); $("#pcnbad").css({ 'font-weight': 'normal' });
         };
+
     </script>
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
+    <script type="text/javascript">
+        function PopupCenterDual(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function Filldd1() {
+            var It0 = $('#drop1').val();
+            if (It0 == 0) {
+                $("#drop2").html(""); // clear
+                $('.showdist').show();
+            }
+            else {
+                $.ajax({
+                    url: '/uhsdistrict/getdddist',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { ID: It0 },
+                    success: function (datatable) {
+                        $("#drop2").html(""); // clear before appending new list
+                        $('.showdist').hide();
+                        $.each(datatable, function (ID, datatable) {
+                            //console.log(datatable);
+                            $("#drop2").append(
+                                $('<option></option>').val(datatable.ID).html(datatable.district));
+                            var item1 = "#" + datatable.ID;
+                            $(item1).show();
+                        });
+
+                    }
+                });
+            }
+        }
+        function Filldd2() {
+            var It2 = $('#drop2').val();
+            if (It2 == 0) {
+                Filldd1();
+            } else {
+                $('.showdist').hide();
+                var item1 = "#" + It2;
+                $(item1).show();
+            }
+        }
+    </script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
+    </script>
 </body>
+
 </html>
