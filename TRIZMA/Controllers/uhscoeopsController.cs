@@ -76,6 +76,7 @@ namespace TRIZMA.Controllers
             var dateh = DateTime.Now;
             ViewBag.dateh = dateh.Hour;
             ViewBag.chkInt = Int1;
+            ViewBag.svctr = 0;
 
             var coe1 = opb.UHSbwDates1Dbs.Where(s => dt1 == s.dateYMDwchk0b).Count();
 
@@ -1826,7 +1827,7 @@ namespace TRIZMA.Controllers
             }
 
         }
-
+        
         public ActionResult _bck1010010()
         {
             string CurrentLoginID = User.Identity.GetUserId().ToString();
@@ -1947,7 +1948,7 @@ namespace TRIZMA.Controllers
                              .ToList();
 
             int cnt1 = opb.UHSUSAC1COEDbs.Where(s => s.MGRID == userid && s.DISTID == id1).Count();
-
+            ViewBag.svctr = 1;
             if (userTypeid == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13)
                                                                                 && returnTaskOrdersIDlist.Contains(58)
                                                                                 && cnt1 >= 1))
@@ -4222,6 +4223,7 @@ namespace TRIZMA.Controllers
 
 
         }
+        
         public ActionResult _getCOEdata(int IDa, int IDb)
         {
             string CurrentLoginID = User.Identity.GetUserId().ToString();

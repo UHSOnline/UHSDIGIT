@@ -7981,6 +7981,8 @@
     <Content Include="backup\Views\uhsdistrict\getEditPar1010008b.cshtml" />
     <Content Include="backup\Views\uhsdistrict\getCrPar1010003b.cshtml" />
     <Content Include="backup\Views\uhsdistrict\getCrPar1010001b.cshtml" />
+    <Content Include="backup\Views\uhscoe\coecadenceb.cshtml" />
+    <Content Include="backup\Views\uhscoe\getEditPar1010010b.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />
