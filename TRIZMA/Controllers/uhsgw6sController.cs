@@ -551,6 +551,7 @@ namespace TRIZMA.Controllers
                 };
 
                 ViewBag.getCrPar1010001 = dtcr1010001;
+                ViewBag.svctr = 1;
                 return View();
             }
             else
@@ -560,10 +561,10 @@ namespace TRIZMA.Controllers
 
                 };
                 ViewBag.getCrPar1010001 = dtcr1010001;
+                ViewBag.svctr = 1;
                 return View();
             }
         }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

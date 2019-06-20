@@ -1200,6 +1200,7 @@ namespace TRIZMA.Controllers
                     };
 
                     ViewBag.dtcr1010003 = dtcr1010003;
+                    ViewBag.svctr = 1;
                     return View();
             }
             else
@@ -1209,7 +1210,8 @@ namespace TRIZMA.Controllers
 
                 };
                 ViewBag.dtcr1010003 = dtcr1010003;
-                return View();
+                    ViewBag.svctr = 1;
+                    return View();
             }
 
             }
@@ -1218,12 +1220,6 @@ namespace TRIZMA.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }          
         }
-
-
-
-
-
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)

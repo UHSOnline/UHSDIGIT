@@ -1,0 +1,14 @@
+
+
+
+
+TDMZRDCB.int.uhs.com
+
+Tdmzsql.int.uhs.com
+
+TDMZWEB1.int.uhs.com
+TDMZWEBDEV.int.uhs.com
+
+http://tdmzweb1.int.uhs.com:8083/uhsCH/Index
+http://tdmzwebdev.int.uhs.com:8083/uhsCH/Index
+http://localhost:54519/uhsCH/Index

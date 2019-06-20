@@ -7979,6 +7979,8 @@
     <Content Include="Views\aglinvMap\editDocumentb.cshtml" />
     <Content Include="backup\Views\uhsdistrict\Districtb.cshtml" />
     <Content Include="backup\Views\uhsdistrict\getEditPar1010008b.cshtml" />
+    <Content Include="backup\Views\uhsdistrict\getCrPar1010003b.cshtml" />
+    <Content Include="backup\Views\uhsdistrict\getCrPar1010001b.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />
