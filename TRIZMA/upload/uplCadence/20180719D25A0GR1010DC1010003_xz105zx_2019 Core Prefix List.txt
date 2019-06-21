@@ -1,0 +1,264 @@
+Equipment Type	Equipment Class	Product	ProductLifeCycle	Prefix	rowNo	subTotalGroup	HighPriority	coreProduct
+Infusion	LVP	Sapphire Plus	Grow	SAS	1	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V8	Grow	JQB	2	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	EEU	3	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	EEX	4	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	EFC	5	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	EFG	6	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	FFL	7	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	IAP	8	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	MOD	9	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	MOE	10	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	ZMT	11	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	MOF	12	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley LVP	Mature	MOG	13	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	BRN	14	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EFO	15	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EFZ	16	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EGE	17	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	FFC	18	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	FFP	19	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	IAR	20	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	ZMS	21	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EGF	22	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EGI	23	Infusion Sub Total	Yes	1
+Infusion	LVP	Medley PCU	Mature	EGH	24	Infusion Sub Total	Yes	1
+Infusion	LVP	Plum 360	Grow	EWA	25	Infusion Sub Total	No	1
+Infusion	LVP	Sigma V6	Mature	JKF	26	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JKI	27	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JKJ	28	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JKT	29	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JKX	30	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JNT	31	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JNU	32	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V6	Mature	JNX	33	Infusion Sub Total	Yes	1
+Infusion	LVP	Sigma V8	Grow	JQA	34	Infusion Sub Total	No	1
+Infusion	LVP	Space Pump	Mature	JNE	35	Infusion Sub Total	No	1
+Infusion	LVP	Space Pump	Mature	JNV	36	Infusion Sub Total	No	1
+Infusion	LVP	Space Pump	Mature	JNZ	37	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medfusion 3500	Mature	JNA	38	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medfusion 3500	Mature	JYB	39	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medfusion 3500	Mature	JYD	40	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medfusion 3500	Mature	JYC	41	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medfusion 4000	Grow	JYA	42	Infusion Sub Total	No	1
+Infusion	Syringe Pumps	Medley Syringe	Mature	EFE	43	Infusion Sub Total	Yes	1
+Infusion	Syringe Pumps	Medley Syringe	Mature	FFS	44	Infusion Sub Total	Yes	1
+Infusion	Syringe Pumps	Medley Syringe	Mature	FEF	45	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JND	46	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JNF	47	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JNM	48	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JOJ	49	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JON	50	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JOO	51	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Grow	JOP	52	Infusion Sub Total	Yes	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JOV	53	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JOU	54	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Cadd Solis	Mature	JOT	55	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Medley ETCO2	Mature	EFU	56	Infusion Sub Total	Yes	1
+Infusion	PCA & ETCO2	Medley ETCO2	Mature	EUF	57	Infusion Sub Total	No	1
+Infusion	PCA & ETCO2	Medley PCA	Mature	EFJ	58	Infusion Sub Total	Yes	1
+Infusion	PCA & ETCO2	Medley PCA	Mature	FFA	59	Infusion Sub Total	Yes	1
+Infusion	PCA & ETCO2	Medley PCA	Mature	EJF	60	Infusion Sub Total	Yes	1
+Other	Other Misc	T-Pumps	Grow	FDL	61	Other Sub Total	Yes	1
+Other	Other Misc	T-Pumps	Grow	FDO	62	Other Sub Total	Yes	1
+Other	Other Misc	T-Pumps	Grow	FBJ	63	Other Sub Total	Yes	1
+Other	SCD	Huntleigh SCD	Grow	FDA	64	Other Sub Total	Yes	1
+Other	SCD	Huntleigh SCD	Grow	FDR	65	Other Sub Total	Yes	1
+Other	SCD	Huntleigh SCD	Grow	FBI	66	Other Sub Total	Yes	1
+Other	SCD	Huntleigh SCD	Grow	ZAP	67	Other Sub Total	Yes	1
+Other	Other Misc	Warming/Cooling Units	Grow	MKT	68	Other Sub Total	Yes	1
+Other	Other Misc	Warming/Cooling Units	Grow	MKS	69	Other Sub Total	Yes	1
+Other	SCD	Huntleigh SCD	Grow	FDQ	70	Other Sub Total	No	1
+Other	SCD	Kendall 700 SCD	Grow	FYY	71	Other Sub Total	No	1
+Other	SCD	Kendall Express SCD	Mature	FCY	72	Other Sub Total	No	1
+Other	SCD	Huntleigh SCD	Grow	FDT	73	Other Sub Total	No	1
+Other	SCD	Huntleigh SCD	Grow	FDQ	74	Other Sub Total	No	1
+Other	Feeding Pumps	Covidien Joey & E Pump	Grow	FCZ	75	Other Sub Total	Yes	1
+Other	Feeding Pumps	Covidien Joey & E Pump	Grow	FDK	76	Other Sub Total	Yes	1
+Other	Newborn Care	Cub Crib	Mature	ZRP	77	Other Sub Total	No	1
+Other	Newborn Care	Cub Crib	Mature	ZTK	78	Other Sub Total	No	1
+Other	Newborn Care	Cub Crib	Mature	YRP	79	Other Sub Total	No	1
+Other	Newborn Care	Omni Beds	Mature	ECY	80	Other Sub Total	Yes	1
+Other	Newborn Care	Omni Beds	Mature	EDC	81	Other Sub Total	Yes	1
+Other	NPWT	KCI Rev Share	Grow	YPA	82	Other Sub Total	Yes	1
+Other	NPWT	KCI Rev Share	Grow	YPD	83	Other Sub Total	Yes	1
+Other	NPWT	KCI Rev Share	Grow	YPE	84	Other Sub Total	Yes	1
+Other	NPWT	KCI Rev Share	Grow	YPG	85	Other Sub Total	Yes	1
+Other	NPWT	UHS Owned KCI	Grow	NPD	86	Other Sub Total	Yes	1
+Other	NPWT	UHS Owned KCI	Grow	NPE	87	Other Sub Total	Yes	1
+Other	Misc	Warming/Cooling Units	Grow	FMG	88	Other Sub Total	No	1
+Other	Misc	Warming/Cooling Units	Grow	FMB	89	Other Sub Total	No	1
+Other	Misc	Dialysis	Grow	DMV	90	Other Sub Total	Yes	1
+Other	Misc	Dialysis	Grow	DNB	91	Other Sub Total	Yes	1
+Other	Misc	Dialysis	Grow	DWQ	92	Other Sub Total	Yes	1
+Other	LVP	Plum A+	Mature	EYF	93	Infusion Sub Total	No	1
+Other	LVP	Plum A+	Mature	EYJ	94	Infusion Sub Total	No	1
+Other	LVP	Plum A+	Mature	EYK	95	Infusion Sub Total	No	1
+Other	LVP	Plum A+	Mature	EYL	96	Infusion Sub Total	No	1
+Other	LVP	Plum A+	Mature	EYP	97	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DRX	97	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	EYQ	98	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DTA	98	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	EYR	99	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DTC	99	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	EYY	100	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DTS	100	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	EYZ	101	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DTW	101	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	ZFQ	102	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DVB	102	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	ZFS	103	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DVN	103	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	HEB	104	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DVY	104	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	HBE	105	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DVZ	105	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	HBD	106	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Avea Vent	Mature	DYB	106	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	HAL	107	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Esprit/V200	Phase Out	ACG	107	RT Sub Total	No	0
+Other	LVP	Plum A+	Mature	HAM	108	Infusion Sub Total	No	1
+Respiratory	Invasive Vent	Esprit/V200	Phase Out	ADF	108	RT Sub Total	No	0
+Patient Handling	Beds	Bari 10A	Grow	ZSI	109	PH Sub Total	No	1
+Respiratory	Invasive Vent	Esprit/V200	Phase Out	ADP	109	RT Sub Total	No	0
+Patient Handling	Beds	Bari 10A	Grow	ZTO	110	PH Sub Total	No	1
+Respiratory	Invasive Vent	Esprit/V200	Phase Out	ADQ	110	RT Sub Total	No	0
+Patient Handling	Beds	Caroll Spirit Beds	Mature	THU	111	PH Sub Total	Yes	1
+Patient Handling	Beds	Caroll Spirit Beds	Mature	TIG	112	PH Sub Total	Yes	1
+Patient Handling	Beds	Caroll Spirit Beds	Mature	TLH	113	PH Sub Total	Yes	1
+Patient Handling	Beds	Caroll Spirit Beds	Mature	TQO	114	PH Sub Total	Yes	1
+Patient Handling	Beds	Caroll Spirit Beds	Mature	TSO	115	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	TSE	116	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	TJQ	117	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	TJM	118	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	SJM	119	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	TLC	120	PH Sub Total	Yes	1
+Patient Handling	Beds	Gendron Bari Beds	Grow	TLK	121	PH Sub Total	Yes	1
+Patient Handling	Beds	Harmony Bed	Mature	HLB	122	PH Sub Total	No	1
+Patient Handling	Beds	Secure II & III Beds	Grow	ZNT	123	PH Sub Total	Yes	1
+Patient Handling	Beds	Secure II & III Beds	Grow	ZRI	124	PH Sub Total	Yes	1
+Patient Handling	Beds	Secure II & III Beds	Grow	ZTI	125	PH Sub Total	Yes	1
+Patient Handling	Surfaces	Air 2 Mattress	Mature	ZSY	126	PH Sub Total	Yes	1
+Patient Handling	Surfaces	Arise 1000 Mattress	Mature	ZTG	127	PH Sub Total	Yes	1
+Patient Handling	Surfaces	OnCare Bari Dolphin	Grow	TJT	128	PH Sub Total	Yes	1
+Patient Handling	Surfaces	OnCare Dolphin	Grow	TJR	129	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Dolphin	Grow	TJU	130	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Dolphin	Grow	TOO	131	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Dolphin	Grow	TQL	132	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Dolphin	Grow	TRG	133	PH Sub Total	No	1
+Patient Handling	Surfaces	Skinguard  	Grow	OSG	134	PH Sub Total	No	1
+Patient Handling	Surfaces	Skinguard  	Grow	OSJ	135	PH Sub Total	No	1
+Patient Handling	Surfaces	Skinguard  	Grow	OSM	136	PH Sub Total	No	1
+Patient Handling	Surfaces	Skinguard  	Grow	OSP	137	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQA	138	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQD	139	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQG	140	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQB	141	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQE	142	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQH	143	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQJ	144	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQL	145	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQO	146	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQP	147	PH Sub Total	No	1
+Patient Handling	Surfaces	OnCare Quartet	Grow	OQS	148	PH Sub Total	No	1
+Patient Handling	Surfaces	Sentech 1400 Mattress	Grow	TOD	149	PH Sub Total	No	1
+Patient Handling	Misc	Posey 8070	Grow	TIW	150	PH Sub Total	No	1
+Patient Handling	Misc	Posey 8070	Grow	TQW	151	PH Sub Total	No	1
+Patient Handling	Misc	Stretcher	Mature	ZSE	152	PH Sub Total	Yes	1
+Patient Handling	Misc	Stretcher	Mature	ZNQ	153	PH Sub Total	Yes	1
+Patient Handling	Misc	Stretcher	Mature	ZRR	154	PH Sub Total	Yes	1
+Patient Handling	Misc	Stretcher	Mature	ZRT	155	PH Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	DUY	156	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	DUZ	157	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	DVT	158	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	DVU	159	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	HAV	160	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Evita VN500 & V500	Grow	HAU	161	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	AHD	162	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	AJA	163	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	ANK	164	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	ANS	165	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	ANX	166	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	AOL	167	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNT	168	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNU	169	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNV	170	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNX	171	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNY	172	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BNZ	173	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOK	174	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOL	175	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOM	176	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BON	177	RT Sub Total	Yes	1
+Other	Newborn Care	Cub Crib	Mature	YRP 	177	Other Sub Total	No	0
+Respiratory	Invasive Vent	PB840	Mature	BOO	178	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOP	179	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOQ	180	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOR	181	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOS	182	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOT	183	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOU	184	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BOV	185	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	BUA	186	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	HBR	187	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	HBQ	188	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	HBP	189	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB840	Mature	HBO	190	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	PB980	Grow	BUC	191	RT Sub Total	No	1
+Other	Misc	Pulse Oximeters	Mature	DHY	191	Other Sub Total	Yes	0
+Respiratory	Invasive Vent	PB980	Grow	BUD	192	RT Sub Total	No	1
+Other	Misc	Pulse Oximeters	Mature	MEV	192	Other Sub Total	Yes	0
+Respiratory	Invasive Vent	Servo I	Mature	DSS	193	RT Sub Total	Yes	1
+Other	Misc	Pulse Oximeters	Mature	NSX	193	Other Sub Total	Yes	0
+Respiratory	Invasive Vent	Servo I	Mature	DSX	194	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DTD	195	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DTE	196	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DTJ	197	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DTL	198	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	JAX	199	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	JKA	200	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	RAQ	201	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	RAS	202	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYF	203	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYL	204	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYG	205	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYF	206	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYE	207	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Servo I	Mature	DYD	208	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Vela	Mature	DRT	209	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Vela	Mature	DTB	210	RT Sub Total	Yes	1
+Respiratory	Invasive Vent	Vela	Mature	DTY	211	RT Sub Total	Yes	1
+Respiratory	Non Invasive Vent	V60	Grow	RPX	212	RT Sub Total	Yes	1
+Respiratory	Non Invasive Vent	V60	Grow	RQF	213	RT Sub Total	Yes	1
+Respiratory	Non Invasive Vent	V60	Grow	RRX	214	RT Sub Total	Yes	1
+Respiratory	Transport Vent	Trilogy	Mature	TRL	215	RT Sub Total	Yes	1
+Respiratory	Transport Vent	Trilogy	Mature	TRN	216	RT Sub Total	Yes	1
+Respiratory	Transport Vent	Trilogy	Mature	TTL	217	RT Sub Total	Yes	1
+Respiratory	Transport Vent	Trilogy	Mature	TTM	218	RT Sub Total	Yes	1
+Respiratory	Transport Vent	LTV	Mature	DVA	219	RT Sub Total	Yes	1
+Respiratory	Transport Vent	LTV	Mature	DVG	220	RT Sub Total	Yes	1
+Respiratory	Transport Vent	LTV	Mature	EBR	221	RT Sub Total	Yes	1
+Respiratory	Transport Vent	LTV	Mature	FAO	222	RT Sub Total	Yes	1
+Respiratory	Transport Vent	LTV	Mature	DVA	223	RT Sub Total	Yes	1
+Respiratory	Misc	SmartVest	Grow	FAY	224	RT Sub Total	Yes	1
+Respiratory	Misc	SmartVest	Grow	FDY	225	RT Sub Total	Yes	1
+RT	RT Misc	Cough Assist	Grow	SEF	226	RT Sub Total	Yes	1
+RT	RT Misc	Cough Assist	Grow	SEQ	227	RT Sub Total	Yes	1
+RT	Invasive Vent	G5 Vent	Grow	DVK	228	RT Sub Total	Yes	1
+RT	Invasive Vent	Evita VN500 & V500	Grow	DVS	229	RT Sub Total	Yes	1
+RT	Invasive Vent	Evita VN500 & V500	Grow	DVX	230	RT Sub Total	Yes	1
+SES	Beds	Umano Bed	Grow	TEG	231	PH Sub Total	Yes	1
+SES	SES Misc	Bari Recliners	Grow	TRZ	232	PH Sub Total	Yes	1
+SES	SES Misc	Bari Recliners	Grow	TJG	233	PH Sub Total	Yes	1
+SES	SES Misc	Bari Recliners	Grow	TSA	234	PH Sub Total	Yes	1
+SES	SES Misc	Bari Recliners	Grow	TSV	235	PH Sub Total	Yes	1
+SES	SES Misc	Bari Recliners	Grow	TSW	236	PH Sub Total	Yes	1
+SES	Surfaces	Arise LAL Vmatt	Grow	TPA	237	PH Sub Total	Yes	1
+SES	Beds	Bari 10A	Grow	ZNL	238	PH Sub Total	Yes	1
+SES	Surfaces	Skinguard Float	Grow	OSD	239	PH Sub Total	Yes	1
+SES	Surfaces	Skinguard Float	Grow	OSF	240	PH Sub Total	Yes	1
+SES	Surfaces	Skinguard Float	Grow	OSI	241	PH Sub Total	Yes	1
+SES	Surfaces	Skinguard Float	Grow	OSK	242	PH Sub Total	Yes	1
+SES	Surfaces	OnCare Quartet	Grow	OQK	243	PH Sub Total	Yes	1
+SES	Surfaces	OnCare Quartet	Grow	OQT	244	PH Sub Total	Yes	1
+SES	Surfaces	OnCare Quartet	Grow	OQR	245	PH Sub Total	Yes	1

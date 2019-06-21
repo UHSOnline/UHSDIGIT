@@ -71,6 +71,7 @@ namespace TRIZMA.Controllers
                                                                                           || c.taskOrderID == 65
                                                                                           || c.taskOrderID == 66)).Select(c => new { ID = c.taskOrderID }).ToList();
             ViewBag.daynbr = daynbr;
+            ViewBag.svctr = 0;
             return View();
         }
         public ActionResult SBagPr()
