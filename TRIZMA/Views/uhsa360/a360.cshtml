@@ -1,36 +1,116 @@
-﻿@{
+﻿
+
+@{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: A360 Cadence</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Asset360 Cadence</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
-    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
     <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
 
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
+
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
@@ -368,306 +448,351 @@
                 background: #29a329;
             }
 
-        /* Style The Dropdown Button */
-
-
         footer {
             display: none;
         }
+
+        .responsiveb {
+            width: 100%;
+            height: auto;
+        }
+
+        .docidstore {
+            display: none;
+        }
     </style>
-</head><!--/head-->
-<body id="home" class="homepage">
+</head>
+
+<body>
     <!-- COMMON IDENTIFIERS -->
     @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
 
-    <div id="lckbck1" class="lckbckscr">
-        <div id="wrapper">
-            <!-- Navigation -->
-            <!-- Navigation -->
-            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-                <div class="navbar-header">
-                    <div style="padding-top:4px; padding-left:32px">
-                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
-                    </div>
-                </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Action("_navbartop", "uhsCH")
-                }
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
 
-                <!-- /.navbar-top-links -->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
                                 </div>
-                                <!-- /input-group -->
-                            </li>
-                            <li>
-                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                            </li>
-                            @Html.Action("SBagPr", "uhsCH")
-                            @if (ViewBag.userTypeID == 2)
-                            {
-                                <li style="padding-left:3px">
-                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                                </li>
-                            }
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-            <!-- Page Content -->
-            <div id="page-wrapper">
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Single pro tab review Start-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <br />
-                            <h4 class="page-header"><span class="itcac">Asset360 </span><span class="itcak"> Cadence </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef1 </span><span class="itcac" style="font-size:14px">: @ViewBag.headdef2</span></h4>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Asset360 </span><span class="itcak"> Cadence </span></h4>
+                                    <span class="itcac" style="font-size:13px">@ViewBag.headdef1 </span><span class="itcac" style="font-size:13px">: @ViewBag.headdef2</span>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <!-- /.row -->
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-blue.png" /></a>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
                                             <div id="cnuptot" style="color:#0076A8; font-size:22px">@ViewBag.countTotal</div>
                                         </div>
+
                                     </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <span class="pull-left" id="cntAll" style="color:#0076A8">Total Asset360 Accounts</span>
-                                    <div class="clearfix"></div>
+                                    <div class="income-range">
+                                        <span class="pull-left" id="cntAll">Total Accounts</span>
+                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-green">
+                                                <span id="cnuptot" class="counter">100</span>% <i class="fa fa-bolt"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-green.png" /></a>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
                                             <div id="cnupgod" style="color:forestgreen; font-size:22px">@ViewBag.countGood</div>
-
                                         </div>
+
                                     </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <span class="pull-left" style="color:forestgreen" id="cntGood">Asset360 Accounts Completed!</span>
-                                    <span id="pcngod" class="pull-right">@ViewBag.cntperc%</span>
-                                    <div class="clearfix"></div>
+                                    <div class="income-range visitor-cl">
+                                        <span id="cntGood">Accounts Completed!</span>
+                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-blue">
+                                                <span id="pcngod" class="counter">@ViewBag.cntperc%</span><i class="fa fa-level-up"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()"><img src="/img/marker/marker-icon-red.png" /></a>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="income-dashone-total res-mg-t-30 dk-res-t-pro-30">
+                                <div class="income-dashone-pro">
+                                    <div class="income-rate-total">
+                                        <div class="price-edu-rate">
                                             <div id="cnupbad" style="color:red; font-size:22px">@ViewBag.countBad</div>
-
                                         </div>
+
                                     </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <span class="pull-left" style="color:red" id="cntBad">Asset360 Accounts Due!</span>
-                                    <span id="pcnbad" class="pull-right">@ViewBag.cntperc2%</span>
-                                    <div class="clearfix"></div>
+                                    <div class="income-range low-value-cl">
+                                        <span id="cntBad">Accounts Due!</span>
+                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()">
+                                            <span class="income-percentange bg-purple">
+                                                <span id="pcnbad" class="counter">@ViewBag.cntperc2%</span><i class="fa fa-level-down"></i>
+                                            </span>
+                                        </a>
+
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
+                </div>
+            </div>
+            <!-- income order visit user End -->
+            <br />
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveb">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">Map: </span><span class="itcak"> A360 Locations </span></h5>
 
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="itcak">Asset360 </span><span class="itcac"> Accounts Map</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sparkline8-hd">
+                                                    <div class="google-map-single responsiveb">
+                                                        <div id="mapid2" style="width:100%; height: 560px; position: relative; z-index:0"></div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div id="mapid2" style="width:100%; height: 560px; position: relative"></div>
-                                </div>
-                                <!-- /.panel-body -->
+
                             </div>
-                            <!-- /.panel -->
+
 
                         </div>
-                        <!-- /.col-lg-8 -->
 
-                        <div class="col-lg-3">
-                            @foreach (var item in ViewBag.pageData2)
-                            {
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <span class="itcak">Asset360 </span><span class="itcac"> Daily Numbers</span>
-                                    </div>
-                                    <!-- /.panel-heading -->
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <i class="fa fa-tasks fa-2x" style="color:forestgreen"></i>
-                                            </div>
-                                            <div class="col-xs-9 text-right">
-                                                <div style="color:forestgreen; font-size:24px">@ViewBag.countGood</div>
-                                            </div>
+                    </div>
 
-                                            <div class="col-xs-12">
-                                                <table class="table table-responsive table-hover" style="font-size:12px">
-                                                    <thead>
-                                                        <tr style="background-color:#F5F5F5">
-                                                            <th>Task:</th>
-                                                            <th>D:</th>
-                                                            <th>W:</th>
-                                                            <th>M:</th>
-                                                            <th>Q:</th>
-                                                            <th>Y:</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Asset360 Cadence</td>
-                                                            <td>@item.modInt01</td>
-                                                            <td>@item.modInt02</td>
-                                                            <td>@item.modInt03</td>
-                                                            <td>@item.modInt04</td>
-                                                            <td>@item.modInt05</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-3">
-                                                <i class="fa fa-tasks fa-2x" style="color:red"></i>
-                                            </div>
-                                            <div class="col-xs-9 text-right">
-                                                <div style="color:red; font-size:24px">@ViewBag.countBad</div>
-                                            </div>
-                                            <div class="col-xs-12">
-                                                <table class="table table-responsive table-hover" style="font-size:12px">
-                                                    <thead>
-                                                        <tr style="background-color:#F5F5F5">
-                                                            <th>Task:</th>
-                                                            <th>D:</th>
-                                                            <th>W:</th>
-                                                            <th>M:</th>
-                                                            <th>Q:</th>
-                                                            <th>Y:</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Asset360 Cadence</td>
-                                                            <td>@item.modInt06</td>
-                                                            <td>@item.modInt07</td>
-                                                            <td>@item.modInt08</td>
-                                                            <td>@item.modInt09</td>
-                                                            <td>@item.modInt10</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="row">
+
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">Stats </span><span class="itcak"> Numbers: </span></h5>
+
+                                                        @foreach (var item in ViewBag.pageData2)
+                                                        {
+                                                            <div class="table-responsive wd-tb-cr">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Task:</th>
+                                                                            <th>D:</th>
+                                                                            <th>W:</th>
+                                                                            <th>M:</th>
+                                                                            <th>Q:</th>
+                                                                            <th>Y:</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody style="font-size:12px">
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:forestgreen; transform:scale(1.2)"></i><span style="padding-left:12px">A360 Cadence</span></td>
+                                                                            <td>@item.modInt01</td>
+                                                                            <td>@item.modInt02</td>
+                                                                            <td>@item.modInt03</td>
+                                                                            <td>@item.modInt04</td>
+                                                                            <td>@item.modInt05</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="table-responsive wd-tb-cr">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Task:</th>
+                                                                            <th>D:</th>
+                                                                            <th>W:</th>
+                                                                            <th>M:</th>
+                                                                            <th>Q:</th>
+                                                                            <th>Y:</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody style="font-size:12px">
+                                                                        <tr>
+                                                                            <td><i class="fa fa-tasks" style="color:red; transform:scale(1.2)"></i><span style="padding-left:12px">A360 Cadence</span></td>
+                                                                            <td>@item.modInt06</td>
+                                                                            <td>@item.modInt07</td>
+                                                                            <td>@item.modInt08</td>
+                                                                            <td>@item.modInt09</td>
+                                                                            <td>@item.modInt10</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- /.panel-body -->
                                 </div>
-                                <!-- /.panel -->
-                            }
-                            <!-- /.panel -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <i class="fa fa-archive fa-fw" style="color:#0076A8"></i><span style="color:#F69240"> Documents </span><span style="color:#0076A8"> Panel</span>
-                                </div>
-                                <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div class="list-group">
-                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> Asset360 Monthly Report</span>
-                                            <span class="pull-right text-muted small">
-                                                <em>06/28/2018</em>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> Asset360 Monthly Report</span>
-                                            <span class="pull-right text-muted small">
-                                                <em>06/28/2018</em>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> Asset360 Monthly Report</span>
-                                            <span class="pull-right text-muted small">
-                                                <em>06/28/2018</em>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> Asset360 Monthly Report</span>
-                                            <span class="pull-right text-muted small">
-                                                <em>06/28/2018</em>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
-                                            <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8; font-size:12px"> Asset360 Monthly Report</span>
-                                            <span class="pull-right text-muted small">
-                                                <em>06/28/2018</em>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- /.panel-body -->
                             </div>
+                            <div class="google-maps-area mg-b-15">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="sparkline8-list responsive-mg-b-30">
+                                                <div class="sparkline8-hd">
+                                                    <div class="main-sparkline8-hd">
+                                                        <h5><span class="itcac">Documents </span><span class="itcak"> Panel </span></h5>
+                                                        <br />
+                                                        <div class="list-group">
+
+                                                            <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> COE Operations Monthly Report</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em>06/28/2018</em>
+                                                                </span>
+                                                            </a>
+                                                            <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> Some other report</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em>06/28/2018</em>
+                                                                </span>
+                                                            </a>
+                                                            <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> COE Operations Monthly Report</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em>06/28/2018</em>
+                                                                </span>
+                                                            </a>
+                                                            <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> COE Operations Monthly Report</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em>06/28/2018</em>
+                                                                </span>
+                                                            </a>
+                                                            <a class="list-group-item" onclick="PopupCenterDual('https://app.powerbi.com/view?r=eyJrIjoiM2M4NTAyYTgtYjZlMy00NjYxLWEzNzgtZDhlZDBkMzgxMTM5IiwidCI6IjgzZjdmMGY3LTA5ODktNDNiZS05ODE1LTNhMTIwNTUwY2MwYSIsImMiOjh9','','1200','736');" href="javascript:void(0);">
+                                                                <i class="fa fa-tasks fa-fw" style="color:#F69240"></i><span style="color:#0076A8"> COE Operations Monthly Report</span>
+                                                                <span class="pull-right text-muted small">
+                                                                    <em>06/28/2018</em>
+                                                                </span>
+                                                            </a>
+
+                                                        </div>
+                                                        <div style="color:white; padding-bottom:27px">.</div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <!-- /.row -->
+                </div>
+
+            </div>
+
+
+            <!-- tabs start-->
+            <div class="admintab-area mg-b-15">
+                <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col-lg-12">
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a href="#tab01" data-toggle="tab">Historical Data</a>
-                                </li>
-                                <li>
-                                    <a href="#tab02" data-toggle="tab">Score Cards</a>
-                                </li>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="admintab-wrap edu-tab1 mg-t-30">
+                                <ul class="nav nav-tabs custom-menu-wrap custon-tab-menu-style1">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tab01"><span class="edu-icon edu-analytics tab-custon-ic"></span><i class="fa fa-history" style="transform:scale(1.2)"></i> <span style="padding-left:6px">Historical Data</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab02"><span class="edu-icon edu-analytics-arrow tab-custon-ic"></span><i class="fa fa-line-chart" style="transform:scale(1.2)"></i> <span style="padding-left:6px">Score Cards</span></a>
+                                    </li>
 
-                            </ul>
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="tab01" style="padding-bottom:440px">
-                                    <br />
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <span class="itcak">Asset360 </span><span class="itcac"> Access Historical Data</span>
-                                        </div>
-                                        <!-- /.panel-heading -->
-                                        <div class="panel-body">
-                                            <table id="" class="multidatatables table table-hover table-striped" style="font-size:12px; font-family:sans-serif">
+                                </ul>
+                                <div class="tab-content" style="padding-bottom:440px">
+                                    <div id="tab01" class="tab-pane in active animated flipInX custon-tab-style1">
+                                        <div class="datatable-dashv1-list custom-datatable-overright">
+                                            <table class="table table-responsive table-hover" id="tablea">
                                                 <thead>
                                                     <tr>
                                                         <th>Date:</th>
@@ -681,77 +806,206 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <!-- /.panel-body -->
+
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="tab02" style="padding-bottom:620px">
-                                    <br />
-                                    <div class="col-lg-12">
+                                    <div id="tab02" class="tab-pane animated flipInX custon-tab-style1">
+                                        <br />
                                         <div class="row">
-                                            @if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
-                                            {
-                                                <div></div>
-                                            }
-                                            else
-                                            {
-                                                <div class="panel panel-default">
-                                                    <div class="panel-heading">
-                                                        <span class="itcak">Asset360 </span><span class="itcac"> Account Location</span>
-                                                    </div>
-                                                    <!-- /.panel-heading -->
-                                                    <div class="panel-body">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    @if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
+                                                    {
+                                                        <div></div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="panel panel-default">
 
-                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">Division:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop21", @class = "form-control", @onchange = "Filldd21()" })
+                                                                <!-- /.panel-heading -->
+                                                                <div class="panel-body">
+
+                                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                                            <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                                        </div>
+                                                                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                            @Html.DropDownList("Division", ViewBag.division as IEnumerable<SelectListItem>, new { id = "drop21", @class = "form-control", @onchange = "Filldd21()" })
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                                            <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                                        </div>
+                                                                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                            @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop22", @class = "form-control", @onchange = "Filldd22()" })
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                                            <span style="font-size:smaller; color:#0076A8">Account:</span>
+                                                                        </div>
+                                                                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                            @Html.DropDownList("CSTNM", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "CSTNM"), new { id = "drop23", @class = "form-control", @onchange = "Filldd23()" })
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
                                                             </div>
                                                         </div>
-                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">District:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop22", @class = "form-control", @onchange = "Filldd22()" })
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:5px">
-                                                                <span style="font-size:smaller; color:#0076A8">Account:</span>
-                                                            </div>
-                                                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                @Html.DropDownList("CSTNM", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "CSTNM"), new { id = "drop23", @class = "form-control", @onchange = "Filldd23()" })
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
+                                                    }
                                                 </div>
-                                            }
-                                        </div>
 
-                                        <!-- /.panel -->
-                                    </div>
-                                    <!-- /.col-lg-8 -->
-                                    <div class="row">
-                                        @Html.Action("_geta360data", "uhsa360", new { IDa = 0, IDb = 0 })
+                                                <!-- /.panel -->
+                                            </div>
+                                            <!-- /.col-lg-8 -->
+                                            <div class="row">
+                                                @Html.Action("_geta360data", "uhsa360", new { IDa = 0, IDb = 0 })
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                    <!-- Nav tabs -->
                 </div>
             </div>
+            <!-- tabs End-->
+
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
         </div>
-        <!-- Tab content -->
+        <!-- lckbckscr End -->
     </div>
-    <!-- Page Container -->
-    <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/js/bootstrap.min.js"></script>
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    <script src="~/js/jquery.datetimepicker.js"></script>
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+
+
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
     <script src="~/lib/highlightjs/highlight.pack.js"></script>
     <script src="~/lib/chart.js/Chart.js"></script>
     <script type="text/javascript">
@@ -802,9 +1056,6 @@
             });
         });
     </script>
-    <!-- DataTables JavaScript -->
-    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
-    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function (){
             if(@ViewBag.userTitleID == 2 || @ViewBag.userTitleID == 3){
@@ -987,12 +1238,12 @@
                         var pink6px = "<i class='fa fa-close' style='color:lightpink; padding-left:6px'></i>";
                         var pink = "<i class='fa fa-close' style='color:lightpink'></i>";
                         $.each(populate, function (IDc, datatable) {
-                            var daynbr = @ViewBag.daynbr; 
+                            var daynbr = @ViewBag.daynbr;
                             var wchk = @ViewBag.wchk;
-                            var prchk = @ViewBag.prchk; 
-                            var prchkb = @ViewBag.prchkb; 
-                            var qtchk = @ViewBag.qtchk; 
-                            var yrchk = @ViewBag.yrchk;  
+                            var prchk = @ViewBag.prchk;
+                            var prchkb = @ViewBag.prchkb;
+                            var qtchk = @ViewBag.qtchk;
+                            var yrchk = @ViewBag.yrchk;
                             var acctid = datatable.IDc;
                             var acct = datatable.CUST;
                             var distid = datatable.DISTID;
@@ -1012,13 +1263,13 @@
                             var a360dyd = datatable.a360dyd;
                             var a360wkc = datatable.a360wkc;
                             var a360wkd = datatable.a360wkd;
-                            var a360prc = datatable.a360prc; 
-                            var a360prd = datatable.a360prd; 
-                            var a360qtc = datatable.a360qtc; 
-                            var a360qtd = datatable.a360qtd; 
-                            var a360yrc = datatable.a360yrc;  
-                            var a360yrd = datatable.a360yrd; 
-                            var utco = datatable.utco;                      
+                            var a360prc = datatable.a360prc;
+                            var a360prd = datatable.a360prd;
+                            var a360qtc = datatable.a360qtc;
+                            var a360qtd = datatable.a360qtd;
+                            var a360yrc = datatable.a360yrc;
+                            var a360yrd = datatable.a360yrd;
+                            var utco = datatable.utco;
                             var link1 = "<a href='/uhsa360/getEditPar10100067?dctp=1010006&id1=" + acctid + "&id2=1&id3=null'>Asset360 Cadence</a>";
                             var popsec1 = "<span style='color:#F69240; font-size:12px'>Division:</span><span style='color:#0076A8; font-size:12px'> " + divNm + "</span><br><span style='color:#F69240; font-size:12px'>Account Number:</span><span style='color:#0076A8; font-size:12px'> " + acctid + "</span><br><span style='color:#F69240; font-size:12px'>Customer:</span><span style='color:#0076A8; font-size:12px'>" + acct + "</span><br><span style='color:#F69240; font-size:12px'>District: </span><span style='color:#0076A8; font-size:12px'>" + dist + "</span><br><span style='color:#F69240; font-size:12px'>DOD:</span><span style='color:#0076A8; font-size:12px'> " + DOD + "</span><br><span style='color:#F69240; font-size:12px'>OMH:</span><span style='color:#0076A8; font-size:12px'> " + OMH + "</a>";
                             var popnot1 = "Send e-mail notification:<br><input type='text' id='mailnote' style='padding-left:2px; min-width:206px; min-height:23px' placeholder='write short note' /><span style='padding-left:4px'><a class='btn btn-info' href='#' onClick='btna(" + distid + ")' style='font-size:smaller; max-height:24px'>Send</a></span>";
@@ -1039,7 +1290,7 @@
                                 sign5 = icon2; mess5 = "<span style='color:red; padding-left:5px'>Due: " + a360yrd + "</span>";
                             } else if (a360yrc == 1) { sign5 = icon1; mess5 = "<span style='color:forestgreen; padding-left:5px'>Completed</span>"; }
                             //var infotablb = "<button onclick=location.href='/uhsa360/getEditPar10100067?dctp=1010006&id1=" + acctid + "&id2=1&id3=null' class='w3-button w3-white w3-border col-lg-12 col-md-12 col-sm-12'><span style='color:#F69240'>Asset360 </span><span style='color:#0076A8'> Cadence Checklist</span></button><br><table class='data table table-hover table-responsive' style='font-size:11px'><thead></thead><tbody><tr><td>Daily:</td><td>" + sign1 + "</td><td>" + mess1 + "</td></tr><tr><td>Weekly:</td><td>" + sign2 + "</td><td>" + mess2 + "</td></tr><tr><td>Monthly:</td><td>" + sign3 + "</td><td>" + mess3 + "</td></tr><tr><td>Quarterly:</td><td>" + sign4 + "</td><td>" + mess4 + "</td></tr><tr><td>Annually:</td><td>" + sign5 + "</td><td>" + mess5 + "</td></tr></tbody></table>";
-                            var infotable = "<div class='row' style='padding-top:6px; padding-bottom:6px'><div class='col-lg-7'><table class='table-hover table-striped' style='font-size:12px'><thead></thead><tbody><tr><td>D:</td><td style='padding-right:2px'>" + sign1 + "</td><td>" + mess1 + "</td></tr><tr><td>W:</td><td style='padding-right:2px'>" + sign2 + "</td><td>" + mess2 + "</td></tr><tr><td>M:</td><td style='padding-right:2px'>" + sign3 + "</td><td>" + mess3 + "</td></tr><tr><td>Q:</td><td style='padding-right:2px'>" + sign4 + "</td><td>" + mess4 + "</td></tr><tr><td>A:</td><td style='padding-right:2px'>" + sign5 + "</td><td>" + mess5 + "</td></tr></tbody></table></div><div class='col-lg-5'><button onclick=location.href='/uhsa360/getEditPar10100067?dctp=1010006&id1=" + acctid + "&id2=1&id3=null' class='w3-button w3-white w3-border'><span style='color:#F69240'>Asset360 </span><br><span style='color:#0076A8'>Cadence</span><div style='color:cadetblue; padding-top:6px'><i class='fa fa-arrow-circle-right' style='transform:scale(1.6)'></i></div></button></div></div>";
+                            var infotable = "<div class='row' style='padding-top:6px; padding-bottom:6px'><div class='col-lg-7'><table class='table-hover table-striped' style='font-size:12px'><thead></thead><tbody><tr><td>D:</td><td style='padding-right:2px'>" + sign1 + "</td><td>" + mess1 + "</td></tr><tr><td>W:</td><td style='padding-right:2px'>" + sign2 + "</td><td>" + mess2 + "</td></tr><tr><td>M:</td><td style='padding-right:2px'>" + sign3 + "</td><td>" + mess3 + "</td></tr><tr><td>Q:</td><td style='padding-right:2px'>" + sign4 + "</td><td>" + mess4 + "</td></tr><tr><td>A:</td><td style='padding-right:2px'>" + sign5 + "</td><td>" + mess5 + "</td></tr></tbody></table></div><div class='col-lg-5'><button onclick=location.href='/uhsa360/getEditPar10100067?dctp=1010006&id1=" + acctid + "&id2=1&id3=null' class='btn btn-default'><span style='color:#F69240'>Asset360 </span><br><span style='color:#0076A8'>Cadence</span><div style='color:cadetblue; padding-top:6px'><i class='fa fa-arrow-circle-right' style='transform:scale(1.6)'></i></div></button></div></div>";
                             if (chkInt == 3) {
                                 if ((yrchk == 1 && (a360dyc == 0 || a360wkc == 0 || a360prc == 0 || a360qtc == 0 || a360yrc == 0))
                                     || (yrchk == 0 && qtchk == 1 && (a360dyc == 0 || a360wkc == 0 || a360prc == 0 || a360qtc == 0))
@@ -1079,7 +1330,7 @@
                                     else {
                                         markeri.push(L.marker([aclat, aclng], { icon: redIcon, id: acctid }).bindPopup(popsec1 + infotable + popnot1).openPopup());
                                     }
-                            } 
+                            }
                         });
                         var fgroup = new L.featureGroup(markeri);
                         fgroup.addTo(mymap).bringToFront();
@@ -1099,25 +1350,15 @@
             };
         });
     </script>
-
     <!-- Datatables -->
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('table.multidatatables').DataTable({
-                "order": [[0, "desc"], [2, "asc"], [3, "asc"]]
-                //"order": [[0, "desc"]]
+            $('.loadimage').hide();
+            $("#tablea").DataTable({
+                "order": [[3, "desc"]]
             });
         });
-    </script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".datepick1").datepicker();
-            //$(".datepick1").datepicker("setDate", new Date());
-        });
-    </script>
-    <script type="text/javascript">
         function enlargea(a) {
             if (a == 1) { $("#cntAll").css({ 'font-weight': 'bold' }); $("#cnuptot").css({ 'font-weight': 'bold' }); }
             else if (a == 2) { $("#cntGood").css({ 'font-weight': 'bold' }); $("#cnupgod").css({ 'font-weight': 'bold' }); $("#pcngod").css({ 'font-weight': 'bold' }); }
@@ -1128,6 +1369,7 @@
             $("#cntGood").css({ 'font-weight': 'normal' }); $("#cnupgod").css({ 'font-weight': 'normal' }); $("#pcngod").css({ 'font-weight': 'normal' });
             $("#cntBad").css({ 'font-weight': 'normal' }); $("#cnupbad").css({ 'font-weight': 'normal' }); $("#pcnbad").css({ 'font-weight': 'normal' });
         };
+
     </script>
     <script type="text/javascript">
         function PopupCenterDual(url, title, w, h) {
@@ -1147,10 +1389,15 @@
             }
         }
     </script>
-    <!-- iCheck -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
-    <script src="~/js/chart.chartjs.js"></script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
+    </script>
 </body>
+
 </html>

@@ -4,112 +4,116 @@
 
 @foreach (var item in Model)
 {
-    <div class="showdist col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" id="@item.IDc">
+<div class="showdist col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" id="@item.IDc">
+    <div class="col-lg-12 col-md-12 col-xs-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <span style="color:lightsalmon; font-size:11px">Region: </span><span style="color:#0076A8; font-size:11px"> @item.REG</span><span style="color:#F69240; padding-left:14px"> Account Number: </span><span style="color:#0076A8"> @item.IDc</span><span style="color:#F69240"> Account Name: </span><span style="color:#0076A8"> @item.CUST</span>
+                <span style="color:#F69240"> Account #: </span><span style="color:#0076A8"> @item.IDc</span>
+                <span style="color:white"> .. </span>
+                <span style="color:#F69240"> Customer Name: </span><span style="color:#0076A8"> @item.CUST</span>
+
             </div>
             <!-- /.panel-heading -->
-            <div class="panel-body">
-                <span style="color:lightsalmon; font-size:smaller">Division: </span><span style="color:#0076A8; font-size:smaller"> @item.DIV</span><span style="color:white"> .. </span>
-                <span style="color:lightsalmon; font-size:smaller">District: </span><span style="color:#0076A8; font-size:smaller"> @item.DIST</span><span style="color:white"> .. </span>
-                <span style="color:lightsalmon; font-size:smaller">DOD: </span><span style="color:#0076A8; font-size:smaller"> @item.DOD</span><span style="color:white"> .. </span>
-                <span style="color:lightsalmon; font-size:smaller">OMH: </span><span style="color:#0076A8; font-size:smaller">@item.MGR</span>
-                <div class="row">
-                    
-                    <div class="col-lg-4 col-md-6 col-xs-12" style="padding-top:30px">
-                        <button onclick="location.href='/uhsa360/getEditPar10100067?dctp=1010006&id1=@item.IDc&id2=1&id3=null'" class="w3-button w3-white w3-border col-lg-12 col-md-12 col-sm-12 col-xs-12"><span style="color:#F69240">Asset360 </span><span style="color:#0076A8; padding-right:12px"> Cadence </span><span style="color:#00966C; padding-top:5px"><i class='fa fa-arrow-circle-right' style='transform:scale(1.2)'></i></span></button>
-                        <div class="col-lg-12" align="center">
-                            <br />
-                            <table class="table-hover table-striped" style="font-size:14px">
-                                <tbody>
-                                    <tr>
-                                        @if (item.a360dyc == 0)
-                    {
-                        <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
-                        <td style="font-size:smaller; text-align:right; padding-right:5px">D: </td>
-                        <td style="font-size:smaller; color:red"> Due: Today!</td>
-}
-else if (item.a360dyc == 1)
-{
-                    <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
-                    <td style="font-size:smaller; text-align:right; padding-right:5px">D: </td>
-                    <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
-}
-                                    </tr>
-                                    <tr>
-                                        @if (item.a360wkc == 0)
-                    {
-                        <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
-                        <td style="font-size:smaller; text-align:right; padding-right:5px">W: </td>
-                        <td style="font-size:smaller; color:red"> Due: @item.a360wkd</td>
-}
-else if (item.a360wkc == 1)
-{
-                    <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
-                    <td style="font-size:smaller; text-align:right; padding-right:5px">W: </td>
-                    <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
-}
-                                    </tr>
-                                    <tr>
-                                        @if (item.a360prc == 0)
-                    {
-                        <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
-                        <td style="font-size:smaller; text-align:right; padding-right:5px">M: </td>
-                        <td style="font-size:smaller; color:red"> Due: @item.a360prd</td>
-}
-else if (item.a360prc == 1)
-{
-                    <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
-                    <td style="font-size:smaller; text-align:right; padding-right:5px">M: </td>
-                    <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
-}
-                                    </tr>
-                                    <tr>
-                                        @if (item.a360qtc == 0)
-                    {
-                        <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
-                        <td style="font-size:smaller; text-align:right; padding-right:5px">Q: </td>
-                        <td style="font-size:smaller; color:red"> Due: @item.a360qtd</td>
-}
-else if (item.a360qtc == 1)
-{
-                    <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
-                    <td style="font-size:smaller; text-align:right; padding-right:5px">Q: </td>
-                    <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
-}
-                                    </tr>
-                                    <tr>
-                                        @if (item.a360yrc == 0)
-                    {
-                        <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
-                        <td style="font-size:smaller; text-align:right; padding-right:5px">A: </td>
-                        <td style="font-size:smaller; color:red"> Due: @item.a360yrd</td>
-}
-else if (item.a360yrc == 1)
-{
-                    <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
-                    <td style="font-size:smaller; text-align:right; padding-right:5px">A: </td>
-                    <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
-}
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-8 col-md-6 col-xs-12" style="padding-top:10px">
-                        <div align="center" style="font-size:11px"><span style="color:#F69240">Asset360 </span><span style="color:#0076A8"> Cadence Success by Month</span></div>
-                        <canvas id="@item.IDc MC" height="116"></canvas>
-                        @*<div id="@item.IDc MC" style="max-height:248px"></div>*@
-                    </div>
-                </div>
-            </div>
-            <!-- /.panel-body -->
         </div>
-        <!-- /.panel -->
-
     </div>
+    <div class="col-lg-12 col-md-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <span style="color:lightsalmon; font-size:11px">Region: </span><span style="color:#0076A8; font-size:11px"> @item.REG</span><span style="color:white"> .. </span>
+            <span style="color:lightsalmon; font-size:smaller">Division: </span><span style="color:#0076A8; font-size:smaller"> @item.DIV</span><span style="color:white"> .. </span>
+            <span style="color:lightsalmon; font-size:smaller">District: </span><span style="color:#0076A8; font-size:smaller"> @item.DIST</span><span style="color:white"> .. </span>
+            <span style="color:lightsalmon; font-size:smaller">DOD: </span><span style="color:#0076A8; font-size:smaller"> @item.DOD</span><span style="color:white"> .. </span>
+            <span style="color:lightsalmon; font-size:smaller">OMH: </span><span style="color:#0076A8; font-size:smaller">@item.MGR</span>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-xs-12" style="padding-top:12px">
+        <div class="col-lg-12">
+            <button onclick="location.href='/uhsa360/getEditPar10100067?dctp=1010006&id1=@item.IDc&id2=1&id3=null'" class="btn btn-default col-lg-12" style="min-height:40px"><span style="color:#F69240">Asset360 </span><span style="color:#0076A8; padding-right:12px"> Cadence </span><span style="color:#00966C; padding-top:5px"><i class='fa fa-arrow-circle-right' style='transform:scale(1.2)'></i></span></button>
+
+
+            <table class="table table-hover table-striped" style="font-size:14px">
+                <tbody>
+                    <tr>
+                        @if (item.a360dyc == 0)
+                {
+                    <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
+                    <td style="font-size:smaller; text-align:right; padding-right:5px">D: </td>
+                    <td style="font-size:smaller; color:red"> Due: Today!</td>
+        }
+        else if (item.a360dyc == 1)
+        {
+            <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
+            <td style="font-size:smaller; text-align:right; padding-right:5px">D: </td>
+            <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
+}
+                    </tr>
+                    <tr>
+                        @if (item.a360wkc == 0)
+                {
+                    <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
+                    <td style="font-size:smaller; text-align:right; padding-right:5px">W: </td>
+                    <td style="font-size:smaller; color:red"> Due: @item.a360wkd</td>
+        }
+        else if (item.a360wkc == 1)
+        {
+            <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
+            <td style="font-size:smaller; text-align:right; padding-right:5px">W: </td>
+            <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
+}
+                    </tr>
+                    <tr>
+                        @if (item.a360prc == 0)
+                {
+                    <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
+                    <td style="font-size:smaller; text-align:right; padding-right:5px">M: </td>
+                    <td style="font-size:smaller; color:red"> Due: @item.a360prd</td>
+        }
+        else if (item.a360prc == 1)
+        {
+            <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
+            <td style="font-size:smaller; text-align:right; padding-right:5px">M: </td>
+            <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
+}
+                    </tr>
+                    <tr>
+                        @if (item.a360qtc == 0)
+                {
+                    <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
+                    <td style="font-size:smaller; text-align:right; padding-right:5px">Q: </td>
+                    <td style="font-size:smaller; color:red"> Due: @item.a360qtd</td>
+        }
+        else if (item.a360qtc == 1)
+        {
+            <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
+            <td style="font-size:smaller; text-align:right; padding-right:5px">Q: </td>
+            <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
+}
+                    </tr>
+                    <tr>
+                        @if (item.a360yrc == 0)
+                {
+                    <td style="padding-right:6px"><i class="fa fa-close" style="color:lightpink"></i></td>
+                    <td style="font-size:smaller; text-align:right; padding-right:5px">A: </td>
+                    <td style="font-size:smaller; color:red"> Due: @item.a360yrd</td>
+        }
+        else if (item.a360yrc == 1)
+        {
+            <td style="padding-right:6px"><i class="fa fa-check" style="color:lightseagreen"></i></td>
+            <td style="font-size:smaller; text-align:right; padding-right:5px">A: </td>
+            <td style="font-size:smaller; color:lightseagreen"> Completed!</td>
+}
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-xs-12" style="padding-top:8px">
+        <div align="center" style="font-size:11px"><span style="color:#F69240">Asset360 </span><span style="color:#0076A8"> Cadence Success by Month</span></div>
+        <canvas id="@item.IDc MC" height="128"></canvas>
+        @*<div id="@item.IDc MC" style="max-height:248px"></div>*@
+    </div>
+    
+</div>
 
 
 

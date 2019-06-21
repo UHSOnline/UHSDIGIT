@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Agiliti: COE Cadence</title>
+    <title>Agiliti: COE Ops Cadence</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -751,7 +751,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="income-dashone-total reso-mg-b-30">
                                 <div class="income-dashone-pro">
-                                    <h4><span class="itcac">District</span><span class="itcak"> Cadence</span><span class="pull-right"><button class="btn btn-default" id="refreshDoc"><i class="fa fa-refresh"></i> Refresh</button></span></h4>
+                                    <h4><span class="itcac">COE Ops</span><span class="itcak"> Cadence</span><span class="pull-right"><button class="btn btn-default" id="refreshDoc"><i class="fa fa-refresh"></i> Refresh</button></span></h4>
                                     <span style="font-size:small" class="itcak">District: </span><span id="spn10100101" style="color:#6399AE; font-size:small"></span>
                                     <span style="color:white">.</span>
                                     <span style="font-size:small" class="itcak"> Division: </span><span id="spn10100102" style="color:#6399AE; font-size:small"></span>
@@ -1988,6 +1988,8 @@
         };
 
         $("#refreshDoc").on('click', function () {
+            $("head").addClass("loadDiv");
+            $('.loadimage').show();
             location.reload();
         });
             function newProject(a, b, c) {

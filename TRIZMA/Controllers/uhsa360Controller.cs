@@ -102,6 +102,8 @@ namespace TRIZMA.Controllers
                 var yrch2 = opa.DATAOPATIME_FRAMEDbs.Where(s => s.YYYY == yrch1 && s.daywnm == 5).OrderByDescending(s => s.dateYMD).Select(s => s.dateYMD).First();
                 var yrchk = opa.DATAOPATIME_FRAMEDbs.Where(s => s.YYYY == yrch1 && yrch2 == dt1).Count();
 
+                ViewBag.svctr = 0;
+
                 if (yrchk < 1)
                 {
                     ViewBag.yrchk = 0;
@@ -1706,9 +1708,6 @@ namespace TRIZMA.Controllers
                         ViewBag.pageData2 = pageModel2.ToList();
                     }
                 }
-
-
-
                 return View();
             }
             else
@@ -1717,7 +1716,7 @@ namespace TRIZMA.Controllers
             }
 
         }
-
+        
         public ActionResult _bck10100067()
         {
             string CurrentLoginID = User.Identity.GetUserId().ToString();
@@ -1880,6 +1879,8 @@ namespace TRIZMA.Controllers
                 ViewBag.qqtr = 1;
                 ViewBag.qyer = 1;
                 ViewBag.qwekb = 1;
+
+                ViewBag.svctr = 1;
 
                 var qtrdate = from s in opa.DATAOPATIME_FRAMEDbs where s.YYYY == yer1 && s.Quarter == qtr1 select s.dateID;
                 List<string> qtrdates = qtrdate.ToList();

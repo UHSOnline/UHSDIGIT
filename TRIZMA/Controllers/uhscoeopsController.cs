@@ -4218,10 +4218,7 @@ namespace TRIZMA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            
-
-
+ 
         }
         
         public ActionResult _getCOEdata(int IDa, int IDb)
