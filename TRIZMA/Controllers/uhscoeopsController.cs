@@ -104,7 +104,7 @@ namespace TRIZMA.Controllers
 
                 if (userTypeid == 2)
                 {
-                    ViewBag.headdef1 = "All UHS";
+                    ViewBag.headdef1 = "All Agiliti";
                     ViewBag.headdef2 = "Administration Level";
 
                     if (dych1 == 7)

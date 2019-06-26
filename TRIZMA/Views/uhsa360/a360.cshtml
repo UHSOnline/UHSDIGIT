@@ -541,7 +541,7 @@
                                     </div>
                                     <div class="income-range">
                                         <span class="pull-left" id="cntAll">Total Accounts</span>
-                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()">
+                                        <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=1" onmouseover="enlargea(1)" onmouseout="enlargeb()">
                                             <span class="income-percentange bg-green">
                                                 <span id="cnuptot" class="counter">100</span>% <i class="fa fa-bolt"></i>
                                             </span>
@@ -562,7 +562,7 @@
                                     </div>
                                     <div class="income-range visitor-cl">
                                         <span id="cntGood">Accounts Completed!</span>
-                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()">
+                                        <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=2" onmouseover="enlargea(2)" onmouseout="enlargeb()">
                                             <span class="income-percentange bg-blue">
                                                 <span id="pcngod" class="counter">@ViewBag.cntperc%</span><i class="fa fa-level-up"></i>
                                             </span>
@@ -583,7 +583,7 @@
                                     </div>
                                     <div class="income-range low-value-cl">
                                         <span id="cntBad">Accounts Due!</span>
-                                        <a href="/uhscoeops/coecadence?projectID=13&taskOrderID=58&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()">
+                                        <a href="/uhsa360/a360?projectID=13&taskOrderID=55&Int1=3" onmouseover="enlargea(3)" onmouseout="enlargeb()">
                                             <span class="income-percentange bg-purple">
                                                 <span id="pcnbad" class="counter">@ViewBag.cntperc2%</span><i class="fa fa-level-down"></i>
                                             </span>
@@ -1356,7 +1356,7 @@
         $(document).ready(function () {
             $('.loadimage').hide();
             $("#tablea").DataTable({
-                "order": [[3, "desc"]]
+                "order": [[0, "desc"], [2, "asc"]]
             });
         });
         function enlargea(a) {

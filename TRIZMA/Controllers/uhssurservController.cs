@@ -76,6 +76,7 @@ namespace TRIZMA.Controllers
             var dateh = DateTime.Now;
             ViewBag.dateh = dateh.Hour;
             ViewBag.chkInt = Int1;
+            ViewBag.svctr = 0;
 
             int daychk = opa.DATAOPATIME_FRAMEDbs.Where(s => s.YYYYMM == dtt1 && s.daywnm == 5).OrderByDescending(s => s.dateYMD).Select(s => s.dateYMD).First();
 
@@ -99,7 +100,7 @@ namespace TRIZMA.Controllers
 
                 if (userTypeid == 2)
                 {
-                    ViewBag.headdef1 = "All UHS";
+                    ViewBag.headdef1 = "All Agiliti";
                     ViewBag.headdef2 = "Administration Level";
 
                     if (dych1 == 7)
@@ -1657,7 +1658,8 @@ namespace TRIZMA.Controllers
                              .ToList();
 
             int cnt1 = opb.UHSUSAC1SURSERVDbs.Where(s => s.MGRID == userid && s.DISTID == id1).Count();
-            
+
+            ViewBag.svctr = 1;
 
             if (userTypeid == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13)
                                                                                 && returnTaskOrdersIDlist.Contains(57)

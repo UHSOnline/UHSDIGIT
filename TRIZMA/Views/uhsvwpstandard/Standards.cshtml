@@ -1,39 +1,135 @@
 ﻿
+
 @{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: VWP Standards</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>VWP Standards</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
-    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    @*<link href="~/css/morris.css" rel="stylesheet">*@
-    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
-    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
     <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link href="~/css/skitter.css" rel="stylesheet" />
+
+    @*<link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />*@
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
+        .responsiveimg {
+            width: 100%;
+            height: auto;
+        }
+
+        .startbtn {
+            display: none;
+        }
+
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .docidstore {
+            display: none;
+        }
         .responsiveb {
             width: 100%;
             height: auto;
@@ -78,280 +174,448 @@
             #myBtnb:hover {
                 background-color: #555; /* Add a dark-grey background on hover */
             }
+        .itcad {
+            background-color: lightblue !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: lightblue !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
     </style>
+</head>
 
-</head><!--/head-->
-<body id="home" class="homepage">
-    <div id="wrapper">
-        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-            <div class="navbar-header">
-                <a class="navbar-brand" target="_blank" href="https://www.uhs.com"><img src="~/images/uhsLogoEdit3.png" /></a>
-            </div>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.Action("_navbartop", "uhsCH")
-            }
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
 
-            <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
+
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                        </li>
-                        @Html.Action("SBagPr", "uhsCH")
-                        @if (ViewBag.userTypeID == 2)
-                        {
-                            <li style="padding-left:3px">
-                                <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                            </li>
-                        }
-                    </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="income-order-visit-user-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">VWP Standards </span><span class="itcak"> Guide </span></h4>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
 
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <br />
-                        <h3 class="page-header"><span style="color:darkorange">District VWP </span><span style="color:steelblue"> Visual Work Place Standards</span></h3>
-                    </div>
-                </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading" style="color:steelblue">
-                        Purpose
-                    </div>
-                    <div class="panel-body">
-                        <p>The purpose of the <span style="color:steelblue">District Visual Work Place Standard </span> is to provide the district with visual work place standards that need to be followed to organize a district. District leadership is expected to continually improve the work place to reach the standards specified on this document.</p>
-                    </div>
-                </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading" style="color:steelblue">
-                        Scope
-                    </div>
-                    <div class="panel-body">
-                        <p>These standards apply to all UHS districts. The standards do not apply to A360 accounts, B360 accounts or Centers of Excellence. The goal is that all areas covered in this document will meet the standards specified in each section.</p>
-                    </div>
-                </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading" style="color:steelblue">
-                        Introduction to Visual Work Place
-                    </div>
-                    <div class="panel-body">
-                        <p>Visual Work Place is a Lean concept that focuses on the need for placing critical information at the point of use.</p>
-                        <br />
-                        <span style="color:steelblue"><u>Concept</u></span>
-                        <br>
-                        <p>The concept of visual workplace is to embed critical information in the physical workplace through the use of signs, labels, placards, displays and other markings. These visuals create a safer, more efficient working environment by eliminating the need for repetitive training and constant supervision.</p>
-                        <span style="color:steelblue"><u>Key</u></span>
-                        <br>
-                        <p>In fact, visual workplace serves as the key sustaining force for continuous improvement initiatives, ensuring that Lean Six Sigma improvements remain clearly visible, readily understood and consistently adhered to long after the Kaizen (change) event is over.</p>
-                        <span style="color:steelblue"><u>Improve</u></span>
-                        <br>
-                        <p>Every day, UHS is discovering the benefits of creating visual standards throughout districts. Effective visual communications play a key role to improve profitability, enhance customer satisfaction and maintain a competitive edge in the marketplace.</p>
 
                     </div>
                 </div>
-                <div class="panel panel-info">
-                    <div class="panel-heading" style="color:steelblue">
-                        Benefits of a Visual Workplace include:
-                    </div>
-                    <div class="panel-body">
-                        <span style="color:steelblue"><u>Eliminates waste & information deficits</u></span>
-                        <br>
-                        <p>It is not uncommon that 50% or more of a district's activities are considered waste! In a visual workplace all items are positioned at the point of use and can be easily understood at a glance.</p>
-                        <span style="color:steelblue"><u>Enhanced knowledge acquisition</u></span>
-                        <br>
-                        <p>Reserach shows that people gain 75% of what they know visually, 13% through hearing and 12% through smell, touch, and taste. Because employees tend to learn by seeing, workplace visuals can make it easier for employees to do their jobs on time, with fewer mistakes and less stress.</p>
-                        <span id="contentdiv" style="color:steelblue"><u>Productivity gains</u></span>
-                        <br>
-                        <p>The positive impact that visuals can have on productivity, cost, quality, on-time delivery, inventory and equipment reliability is truly enormous. These improvements not only boost bottom-line profits, but also help to build a sustainable, competitive edge in the marketplace.</p>
-
-                    </div>
-                </div>
-                <div class="col-md-8 col-md-offset-2" align="center" style="padding-bottom:120px">
-                    <br /><br />
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h4 style="color:steelblue">Contents</h4>
-                        <br />
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                        <a href="#" class="contBtns" id="cont001">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:20px">
-                                    <img src="~/images/VWPstandards/AppSelect_01.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>CLEANING STATION</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont002">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:9px">
-                                    <img src="~/images/VWPstandards/AppSelect_02.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>INSPECTION/TESTING STATION</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont003">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:15px">
-                                    <img src="~/images/VWPstandards/AppSelect_03.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>BIOMED EQUIPMENT REPAIR DEPARTMENT (BERD)</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont004">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:13px">
-                                    <img src="~/images/VWPstandards/AppSelect_04.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>PATIENT READY EQUIPMENT</b></span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <br /><br />
-                        <a href="#" class="contBtns" id="cont005">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:20px">
-                                    <img src="~/images/VWPstandards/AppSelect_05.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>SURGICAL SERVICES</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont006">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:16px">
-                                    <img src="~/images/VWPstandards/AppSelect_06.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>SHIPPING/RECEIVING</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont007">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:18px">
-                                    <img src="~/images/VWPstandards/AppSelect_07.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>OVERALL BUILDING</b></span>
-                            </div>
-                        </a>
-                        <a href="#" class="contBtns" id="cont008">
-                            <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div style="padding-bottom:23px">
-                                    <img src="~/images/VWPstandards/AppSelect_08.png" />
-                                </div>
-                                <span style="color:steelblue; font-size:16px"><b>OTHER STANDARDS</b></span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpCleaningStation", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpInspectionTestingStation", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpBERD", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpPatientReadyEquipment", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpSurgicalServices", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpShippingReceiving", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpOverallBuilding", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
-                <!--/# SEGMENT single start-->
-                @Html.Action("_vwpOtherStandards", "uhsvwpstandard")
-                <!--/# SEGMENT single end-->
             </div>
+            <br />
+
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Purpose </span></h4>
+                                    <p>The purpose of the <span style="color:steelblue">District Visual Work Place Standard </span> is to provide the district with visual work place standards that need to be followed to organize a district. District leadership is expected to continually improve the work place to reach the standards specified on this document.</p>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Scope </span></h4>
+                                    <p>These standards apply to all UHS districts. The standards do not apply to A360 accounts, B360 accounts or Centers of Excellence. The goal is that all areas covered in this document will meet the standards specified in each section.</p>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Introduction to Visual Work Place </span></h4>
+                                    <p>Visual Work Place is a Lean concept that focuses on the need for placing critical information at the point of use.</p>
+                                    <br />
+                                    <span style="color:steelblue"><u>Concept</u></span>
+                                    <br>
+                                    <p>The concept of visual workplace is to embed critical information in the physical workplace through the use of signs, labels, placards, displays and other markings. These visuals create a safer, more efficient working environment by eliminating the need for repetitive training and constant supervision.</p>
+                                    <span style="color:steelblue"><u>Key</u></span>
+                                    <br>
+                                    <p>In fact, visual workplace serves as the key sustaining force for continuous improvement initiatives, ensuring that Lean Six Sigma improvements remain clearly visible, readily understood and consistently adhered to long after the Kaizen (change) event is over.</p>
+                                    <span style="color:steelblue"><u>Improve</u></span>
+                                    <br>
+                                    <p>Every day, UHS is discovering the benefits of creating visual standards throughout districts. Effective visual communications play a key role to improve profitability, enhance customer satisfaction and maintain a competitive edge in the marketplace.</p>
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Benefits of a Visual Workplace include: </span></h4>
+                                    <span style="color:steelblue"><u>Eliminates waste & information deficits</u></span>
+                                    <br>
+                                    <p>It is not uncommon that 50% or more of a district's activities are considered waste! In a visual workplace all items are positioned at the point of use and can be easily understood at a glance.</p>
+                                    <span style="color:steelblue"><u>Enhanced knowledge acquisition</u></span>
+                                    <br>
+                                    <p>Reserach shows that people gain 75% of what they know visually, 13% through hearing and 12% through smell, touch, and taste. Because employees tend to learn by seeing, workplace visuals can make it easier for employees to do their jobs on time, with fewer mistakes and less stress.</p>
+                                    <span id="contentdiv" style="color:steelblue"><u>Productivity gains</u></span>
+                                    <br>
+                                    <p>The positive impact that visuals can have on productivity, cost, quality, on-time delivery, inventory and equipment reliability is truly enormous. These improvements not only boost bottom-line profits, but also help to build a sustainable, competitive edge in the marketplace.</p>
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <div class="col-md-8 col-md-offset-2" align="center" style="padding-bottom:120px">
+                                        <br /><br />
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <h4 style="color:steelblue">Contents</h4>
+                                            <br />
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                            <a href="#" class="contBtns" id="cont001">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:20px">
+                                                        <img src="~/images/VWPstandards/AppSelect_01.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>CLEANING STATION</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont002">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:9px">
+                                                        <img src="~/images/VWPstandards/AppSelect_02.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>INSPECTION/TESTING STATION</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont003">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:15px">
+                                                        <img src="~/images/VWPstandards/AppSelect_03.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>BIOMED EQUIPMENT REPAIR DEPARTMENT (BERD)</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont004">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:13px">
+                                                        <img src="~/images/VWPstandards/AppSelect_04.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>PATIENT READY EQUIPMENT</b></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <br /><br />
+                                            <a href="#" class="contBtns" id="cont005">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:20px">
+                                                        <img src="~/images/VWPstandards/AppSelect_05.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>SURGICAL SERVICES</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont006">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:16px">
+                                                        <img src="~/images/VWPstandards/AppSelect_06.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>SHIPPING/RECEIVING</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont007">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:18px">
+                                                        <img src="~/images/VWPstandards/AppSelect_07.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>OVERALL BUILDING</b></span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="contBtns" id="cont008">
+                                                <div class="col-lg-3 col-md-3 col-sm-6">
+                                                    <div style="padding-bottom:23px">
+                                                        <img src="~/images/VWPstandards/AppSelect_08.png" />
+                                                    </div>
+                                                    <span style="color:steelblue; font-size:16px"><b>OTHER STANDARDS</b></span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpCleaningStation", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpInspectionTestingStation", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpBERD", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpPatientReadyEquipment", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpSurgicalServices", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpShippingReceiving", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpOverallBuilding", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    @Html.Action("_vwpOtherStandards", "uhsvwpstandard")
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+            <button onclick="topFunctionb()" id="myBtnb" title="Back to Contents">C</button>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
-        <button onclick="topFunctionb()" id="myBtnb" title="Back to Contents">C</button>
+        <!-- lckbckscr End -->
     </div>
-    <!-- jQuery -->
-    <script src="~/js/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="~/js/bootstrap.min.js"></script>
-    <!-- Morris Charts JavaScript -->
-    <script src="~/js/raphael.min.js"></script>
-    <script src="~/lib/morris.js/morris.js"></script>
-    @*<script src="~/js/morris.min.js"></script>*@
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
     <script src="~/lib/highlightjs/highlight.pack.js"></script>
-    <script src="~/lib/chart.js/Chart.js"></script>
-
-    <!-- DataTables JavaScript -->
-    <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
-    <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- iCheck -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
-    <script src="~/js/chart.chartjs.js"></script>
     <script type="text/javascript">
-            // When the user scrolls down 20px from the top of the document, show the button
-            window.onscroll = function () { scrollFunction() };
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
 
-            function scrollFunction() {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    document.getElementById("myBtn").style.display = "block";
-                    document.getElementById("myBtnb").style.display = "block";
-                } else {
-                    document.getElementById("myBtn").style.display = "none";
-                    document.getElementById("myBtnb").style.display = "none";
-                }
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+                document.getElementById("myBtnb").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+                document.getElementById("myBtnb").style.display = "none";
             }
-            // When the user clicks on the button, scroll to the top of the document
-            function topFunction() {
-                document.body.scrollTop = 0; // For Safari
-                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            }
-            function topFunctionb() {
-                $('html, body').animate({
-                    scrollTop: $("#contentdiv").offset().top
-                }, 700);
-            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+        function topFunctionb() {
+            $('html, body').animate({
+                scrollTop: $("#contentdiv").offset().top
+            }, 700);
+        }
     </script>
     <script type="text/javascript">
         $(document).on('click', '.contBtns', function (e) {
             e.preventDefault();
             var id = $(this).attr('id').toString();
-                      if (id == "cont001") { var idc = "CleaningStation"; }
-                 else if (id == "cont002") { var idc = "InspectionTestingStation"; }
-                 else if (id == "cont003") { var idc = "BERD"; }
-                 else if (id == "cont004") { var idc = "PatientReadyEquipment"; }
-                 else if (id == "cont005") { var idc = "SurgicalServices"; }
-                 else if (id == "cont006") { var idc = "ShippingReceiving"; }
-                 else if (id == "cont007") { var idc = "OverallBuilding"; }
-                 else if (id == "cont008") { var idc = "OtherStandards"; }
+            if (id == "cont001") { var idc = "CleaningStation"; }
+            else if (id == "cont002") { var idc = "InspectionTestingStation"; }
+            else if (id == "cont003") { var idc = "BERD"; }
+            else if (id == "cont004") { var idc = "PatientReadyEquipment"; }
+            else if (id == "cont005") { var idc = "SurgicalServices"; }
+            else if (id == "cont006") { var idc = "ShippingReceiving"; }
+            else if (id == "cont007") { var idc = "OverallBuilding"; }
+            else if (id == "cont008") { var idc = "OtherStandards"; }
             var idt = "#" + idc;
             $('html, body').animate({
                 scrollTop: $(idt).offset().top - 80
@@ -359,5 +623,15 @@
         });
 
     </script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
+    </script>
 </body>
+
 </html>

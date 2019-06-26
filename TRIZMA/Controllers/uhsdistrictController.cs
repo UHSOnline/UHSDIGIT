@@ -147,7 +147,7 @@ namespace TRIZMA.Controllers
                     List<int> list1 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.divID).Distinct());
                     ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => s.ID == 0 || list1.Contains(s.ID)).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
                     //ViewBag.division = new SelectList(opa.DISTRICTSDbs.Where(s => s.ID == 0).OrderBy(s => s.ID).Select(s => new { ID = s.divID, divisionName = s.divisionName} ).Distinct(), "ID", "divisionName");
-                    ViewBag.headdef1 = "All UHS";
+                    ViewBag.headdef1 = "All Agiliti";
                     ViewBag.headdef2 = "Administration Level";
                     int countTotal = opb.UHSWEBAABvDbs.Where(s => list1.Contains(s.divID)).Count(); ViewBag.countTotal = countTotal;
 

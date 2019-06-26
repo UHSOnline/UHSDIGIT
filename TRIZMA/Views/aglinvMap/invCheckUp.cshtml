@@ -1,43 +1,122 @@
-﻿
+﻿@model List<TRIZMA.Models.AGLINVMDL1Db>
+
 @{
     Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: Equipment CheckUp!</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Agiliti: Customer Inventory Mapping</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/main/img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- select2 CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/select2/select2.min.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+
+    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
+
+
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
     <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    @*<link href="~/css/morris.css" rel="stylesheet">*@
-    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
-    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
-    <link rel="stylesheet" href="~/css/jquery-ui.css">
-    <link rel="stylesheet" href="~/css/leaflet.css" />
 
+    <link href="~/main/css/chosen/bootstrap-chosen.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+
+    <!-- style CSS
+
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="~/main/css/accordions.css" rel="stylesheet" />
     <style>
         footer {
             display: none;
@@ -91,136 +170,220 @@
             z-index: 6000;
             text-align: center;
         }
+
         .inputb {
             color: #0076A8;
             font-size: 12px;
-            min-height:28px;
+            min-height: 28px;
             padding-left: 6px;
             border: solid;
             border-width: thin;
             border-color: lightsteelblue;
         }
     </style>
-</head><!--/head-->
-<body id="home" class="homepage">
+</head>
+
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    <!-- End Left menu area -->
+
+
     <div class="lckbckscr">
-        <div id="wrapper">
+
+
+        <div class="breadcome-area">
             <div class="container-fluid">
                 <div class="row">
+
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <h4 class="page-header">
-                            <span style="color:#0076A8">Equipment </span><span style="color:#F69240"> Unit </span><span style="color:#0076A8"> CheckUP: </span>
-                            <span class="pull-right">
-                                <span style="color:#F69240; font-size:13px"> DocID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.docID</span>
-                                <span style="color:#F69240; font-size:13px"> AccountID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.accountID</span>
-                                <span style="color:#F69240; font-size:13px"> Customer Name: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.account</span>
-                                <span style="color:#F69240; font-size:13px"> Date: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.date</span>
-                            </span>
-                        </h4>
+                        <div class="breadcome-list single-page-breadcome">
+                            <div class="sparkline12-hd">
+                                <div class="main-sparkline12-hd">
+                                    <h1>
+                                        <span style="color:#0076A8">Equipment </span><span style="color:#F69240"> Unit </span><span style="color:#0076A8"> CheckUP: </span>
+                                        <span class="pull-right">
+                                            <span style="color:#F69240; font-size:13px"> DocID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.docID</span>
+                                            <span style="color:#F69240; font-size:13px"> AccountID: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.accountID</span>
+                                            <span style="color:#F69240; font-size:13px"> Customer Name: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.account</span>
+                                            <span style="color:#F69240; font-size:13px"> Date: </span><span style="color:#0076A8; font-size:13px"> @ViewBag.date</span>
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
-                
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model:</span></label>
-                                            <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xmodel" name="model" placeholder="... type 2 or more characters" />
-                                            
-                                        </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="review-content-section">
                                         
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Description:</span></label>
-                                            <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xdescr" name="descr" placeholder="... type 2 or more characters" />
-                                        </div>
-                                        
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Manufacturer:</span></label>
-                                            <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xmanuf" name="manuf" placeholder="... type 2 or more characters" />
-                                        </div>
-                                        
+                                            <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                                <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model:</span></label>
+                                                <br>
+                                                <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xmodel" name="model" placeholder="... 2 or more char" />
 
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Owner Department:</span></label>
-                                            <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xowdep" name="owdep" placeholder="... type 2 or more characters" />
-                                        </div>
-                                        
+                                            </div>
 
-                                        <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
-                                            <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Scheduling Department:</span></label>
-                                            <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xscdep" name="scdep" placeholder="... type 2 or more characters" />
-                                        </div>
-                                        
+                                            <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                                <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Description:</span></label>
+                                                <br>
+                                                <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xdescr" name="descr" placeholder="... 2 or more char" />
+                                            </div>
 
+                                            <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                                <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Model Manufacturer:</span></label>
+                                                <br>
+                                                <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xmanuf" name="manuf" placeholder="... 2 or more char" />
+                                            </div>
+
+
+                                            <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                                <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Owner Department:</span></label>
+                                                <br>
+                                                <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xowdep" name="owdep" placeholder="... 2 or more char" />
+                                            </div>
+
+
+                                            <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
+                                                <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Scheduling Department:</span></label>
+                                                <br>
+                                                <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xscdep" name="scdep" placeholder="... 2 or more char" />
+                                            </div>
+
+                                        
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="product-payment-inner-st">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="review-content-section">
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
                                         <div class="row" style="padding-bottom:8px; padding-left:12px; padding-right:12px">
                                             <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Control Number:</span></label>
                                             <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xconnb" name="connb" placeholder="... type 2 or more characters" />
+                                            <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xconnb" name="connb" placeholder="... 2 or more char" />
                                         </div>
                                         <div class="row" style="padding-bottom:12px; padding-left:12px; padding-right:12px">
                                             <label style="font-size:12px"><span style="color:#F69240">by </span><span style="color:#0076A8"> Serial Number:</span></label>
                                             <br>
-                                            <input type="text" class="col-lg-12 inputb inputs" id="xsernb" name="sernb" placeholder="... type 2 or more characters" />
+                                            <input type="text" class="col-lg-12 form-control inputs" style="max-height:32px" id="xsernb" name="sernb" placeholder="... 2 or more char" />
                                         </div>
-
 
 
                                     </div>
                                 </div>
-                                <button class="btn btn-warning col-lg-12" id="btnReset"><i class="fa fa-refresh"></i> Reset All </button>
-                            </div>
-                            <div class="col-lg-10">
-                                <table class="data table table-responsive" id="dt1">
-                                    <thead>
-                                        <tr style="color:#0076A8; font-size:11px">
-                                            <th><span style="color:#0076A8">Customer </span><span style="color:#F69240"> Data:</span></th>
-                                            <th><span style="color:#0076A8">InService </span><span style="color:#F69240"> Data:</span></th>
-                                            <th><span style="color:#0076A8">Device </span><span style="color:#F69240"> Info:</span></th>
-                                            <th><span style="color:white">.</span></th>
-                                            <th><span style="color:#0076A8">CheckUp </span><span style="color:#F69240"> Unit:</span></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <button class="btn btn-warning col-lg-12" id="btnReset"><i class="fa fa-refresh"></i> Reset All </button>
+                                </div>
+                                
                             </div>
                         </div>
-
                     </div>
-
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="review-content-section">
+                                        
+                                            <table class="data table table-responsive" id="dt1">
+                                                <thead>
+                                                    <tr style="color:#0076A8; font-size:11px">
+                                                        <th><span style="color:#0076A8">Customer </span><span style="color:#F69240"> Data:</span></th>
+                                                        <th><span style="color:#0076A8">InService </span><span style="color:#F69240"> Data:</span></th>
+                                                        <th><span style="color:#0076A8">Device </span><span style="color:#F69240"> Info:</span></th>
+                                                        <th><span style="color:white">.</span></th>
+                                                        <th><span style="color:#0076A8">CheckUp </span><span style="color:#F69240"> Unit:</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
 
+
+        <div class="loadimage">
+            <div class="loadmeRect">
+                <div class="loadmeRectChild loadmeRect1"></div>
+                <div class="loadmeRectChild loadmeRect2"></div>
+                <div class="loadmeRectChild loadmeRect3"></div>
+                <div class="loadmeRectChild loadmeRect4"></div>
+                <div class="loadmeRectChild loadmeRect5"></div>
+            </div>
+            @*<div class="loadme-mask"></div>*@
+        </div>
+    </div>
+    @Html.Hidden("cntr")
+    @Html.Hidden("cnsl")
+    @Html.Hidden("impid")
+    @Html.Hidden("typid")
+    <!-- lckbckscr End -->
+    <!-- allpagewraper End -->
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <!--/# data handler java script-->
-    <!--/# data handler java script-->
-    <script src="~/js/uhsHome/jquery.js"></script>
-    <script src="~/js/uhsHome/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="~/vendors/iCheck/icheck.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
-    <script src="~/js/uhsHome/mousescroll.js"></script>
-    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
-    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
-    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
-    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    <script src="~/main/js/charts/Chart.js"></script>
     <!-- Datatables -->
     <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -234,22 +397,66 @@
     <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <!-- iCheck -->
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+
+        ============================================ -->
     <script src="~/js/jquery-confirm.min.js"></script>
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
-    @*<script type="text/javascript">
-            $(document).ready(function () {
-                $('#dt1').dataTable({
-                    //"order": [[1, "asc"]]
-                    //"order": [[0, "desc"]]
-                });
+    <script src="~/js/jquery.datetimepicker.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
 
-            });
-        </script>*@
-
-    <script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+            $("#cntr").val(0);
+            $("#cnsl").val(0);
+            $("#impid").val(0);
+            $("#typid").val(0);
+        });
         function btnConfirm(a, b) {
             var idc = [];
             var title = [];
@@ -295,7 +502,6 @@
             });
         }
     </script>
-    
     <script type="text/javascript">
         $('.inputs').on('keyup', function () {
             var a = $("#xmodel").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var al = a.length;
@@ -304,11 +510,13 @@
             var d = $("#xowdep").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var dl = d.length;
             var e = $("#xscdep").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var el = e.length;
             var f = $("#xconnb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var fl = f.length;
-            var g = $("#xsernb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var gl = g.length;          
+            var g = $("#xsernb").val().replace(/(\r\n\t|\n|\r\t)/gm, " "); var gl = g.length;
             if (((a == null || a == '' || a == ' ') && (b == null || b == '' || b == ' ') && (c == null || c == '' || c == ' ') && (d == null || d == '' || d == ' ') && (e == null || e == '' || e == ' ') && (f == null || f == '' || f == ' ') && (g == null || g == '' || g == ' ')) || (al < 2 && bl < 3 && cl < 2 && dl < 2 && el < 2 && fl < 2 && gl < 2)) {
                 $('#dt1').find('tbody').detach();
+                $("#dt1").dataTable().fnDestroy();
                 return;
             }
+            $("#dt1").dataTable().fnDestroy();
             $('#dt1').find('tbody').detach();
             $('#dt1').append($('<tbody>').css('background-color', 'white'));
             $.ajax({
@@ -328,9 +536,13 @@
                         }
                         $("#dt1 tbody").append("<tr style='background-color:white !important'><td><span style='color:#F69240; font-size:11px'>Device:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.DA + "</span><br><span style='color:#F69240; font-size:11px'>Model:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.MA + "</span><br><span style='color:#F69240; font-size:11px'>Type:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.TA + "</span><br><span style='color:#F69240; font-size:11px'>Manuf.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.FA + "</span></td><td><span style='color:#F69240; font-size:11px'>Device:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.DB + "</span><br><span style='color:#F69240; font-size:11px'>Model:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.MB + "</span><br><span style='color:#F69240; font-size:11px'>Type:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.TB + "</span><br><span style='color:#F69240; font-size:11px'>Manuf.:</span><span style='color:cadetblue; font-size:11px; padding-left:8px'>" + data.FB + "</span></td><td><span style='color:#F69240; font-size:11px'>Control#:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RA + "</span><br><span style='color:#F69240; font-size:11px'>Owner Dept.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RB + "</span><br><span style='color:#F69240; font-size:11px'>Sched. Dept.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RC + "</span><br><span style='color:#F69240; font-size:11px'>Status:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RF + "</span></td><td><span style='color:#F69240; font-size:11px'>Serial#:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RD + "</span><br><span style='color:#F69240; font-size:11px'>SN Modif.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RE + "</span><br><span style='color:#F69240; font-size:11px'>Risk Group:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RG + "</span><br><span style='color:#F69240; font-size:11px'>Asset Cnt.:</span><span style='color:#0076A8; font-size:11px; padding-left:8px'>" + data.RH + "</span></td><td>" + parta + "</td></tr>");
                     });
+                    $("#dt1").DataTable({
+                        "order": [[0, "asc"]]
+                    });
                 }
             });
         });
+        
         $("#btnReset").on('click', function () {
             $("#xmodel").val("").html("");
             $("#xdescr").val("").html("");
@@ -340,9 +552,9 @@
             $("#xconnb").val("").html("");
             $("#xsernb").val("").html("");
             $('#dt1').find('tbody').detach();
+            $("#dt1").dataTable().fnDestroy();
         });
     </script>
-    
-
 </body>
+
 </html>

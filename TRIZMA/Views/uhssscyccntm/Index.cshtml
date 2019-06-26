@@ -1,43 +1,114 @@
 ﻿
+
 @{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: SS Cycle Count</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>UHS: SS Cycle Count Monthly</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
     <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    @*<link href="~/css/morris.css" rel="stylesheet">*@
-    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
-    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
     <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
 
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
         footer {
             display: none;
@@ -91,171 +162,222 @@
             z-index: 6000;
             text-align: center;
         }
+        .itcad {
+            background-color: lightblue !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: lightblue !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
     </style>
-</head><!--/head-->
-<body id="home" class="homepage">
+</head>
 
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
 
-    <div class="lckbckscr">
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
 
-        <div id="wrapper">
-            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-                <div class="navbar-header">
-                    <div style="padding-top:4px; padding-left:32px">
-                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
-                    </div>
-                </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Action("_navbartop", "uhsCH")
-                }
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
 
-                <!-- /.navbar-top-links -->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
                                 </div>
-                                <!-- /input-group -->
-                            </li>
-                            <li>
-                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                            </li>
-                            @Html.Action("SBagPr", "uhsCH")
-                            @if (ViewBag.userTypeID == 2)
-                            {
-                                <li style="padding-left:3px">
-                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                                </li>
-                            }
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-
-            <div id="page-wrapper">
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Single pro tab review Start-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Surgical Services: Cycle Count </span><span class="itcak"> Monthly </span></h4>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
                             <br />
-                            <h4 class="page-header"><span style="color:#0076A8">Surgical Services: Cycle Count </span><span style="color:#F69240"> Monthly</span></h4>
-                        </div>
-
-                    </div>
-                    <div class="row">
-
-
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <span style="color:#0076A8; font-size:12px">District:</span>
-                            @Html.DropDownList("District", ViewBag.districts as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
-                            <script>
-                                function Filldd1() {
-                                    var It0 = $('#drop1').val();
-                                    $.ajax({
-                                        url: '/uhssscyccntm/Filldd1',
-                                        type: "GET",
-                                        dataType: "JSON",
-                                        data: { ID: It0 },
-                                        success: function (populate) {
-                                            $("#drop2").html(""); // clear before appending new list
-                                            $.each(populate, function (ID, datatable) {
-                                                $("#drop2").append(
-                                                    $('<option></option>').val(datatable.ID).html(datatable.Value));
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <span style="color:#0076A8; font-size:12px">District:</span>
+                                            @Html.DropDownList("District", ViewBag.districts as IEnumerable<SelectListItem>, new { id = "drop1", @class = "form-control", @onchange = "Filldd1()" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                            <span style="color:#0076A8; font-size:12px">Tech/Warehouse Location:</span>
+                                            @Html.DropDownList("Warehouse", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Warehouse"), new { id = "drop2", @class = "form-control", @style = "min-width:480px" })
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="padding-top:16px">
+                                            <button type="submit" class="btn btn-default btn-lg col-lg-12 btnNewDoc" id="btnNewDoc"><i class="fa fa-plus" style="padding-right:3px; color:forestgreen"></i><span style="font-size:14px; color:#0076A8"> Create New Document</span></button>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <script>
+                                        function Filldd1() {
+                                            var It0 = $('#drop1').val();
+                                            $.ajax({
+                                                url: '/uhssscyccntm/Filldd1',
+                                                type: "GET",
+                                                dataType: "JSON",
+                                                data: { ID: It0 },
+                                                success: function (populate) {
+                                                    $("#drop2").html(""); // clear before appending new list
+                                                    $.each(populate, function (ID, datatable) {
+                                                        $("#drop2").append(
+                                                            $('<option></option>').val(datatable.ID).html(datatable.Value));
+                                                    });
+                                                }
                                             });
                                         }
-                                    });
-                                }
-                            </script>
-                        </div>
-                        <br />
-                        <br />
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <span style="color:#0076A8; font-size:12px">Tech/Warehouse Location:</span>
-                            @Html.DropDownList("Warehouse", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Warehouse"), new { id = "drop2", @class = "form-control", @style = "min-width:480px" })
+                                    </script>
+                                 
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
                             <br />
-                        </div>
-
-                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
-
-                            <button type="submit" class="btn btn-default btn-lg btnNewDoc" id="btnNewDoc"><i class="fa fa-plus" style="padding-right:3px; color:forestgreen"></i><span style="font-size:14px; color:#0076A8"> Create New Document</span></button>
+                            
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Surgical Services: Cycle Count </span><span class="itcak"> Document List </span></h4>
+                                    <br />
+                                    <table id="dt1" class="table table-hover table-responsive" style="font-size:12px">
+                                        <thead>
+                                            <tr style="color:#0076A8">
+                                                <th>Delete</th>
+                                                <th>Date</th>
+                                                <th>DocID</th>
+                                                <th>District</th>
+                                                <th>Tech/Warehouse</th>
+                                                <th style="color:#F69240">Lock</th>
+                                                <th style="color:#F69240">Export</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @Html.Action("_tableIndexUserCycCnt1", "uhssscyccntm")
+                                        </tbody>
+                                    </table>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                            <h4 class="page-header"><span style="color:#0076A8">Cycle Count </span><span style="color:#F69240"> Document List:</span></h4>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <table id="dt1" class="table table-hover table-responsive" style="font-size:12px">
-                                <thead>
-                                    <tr style="color:#0076A8">
-                                        <th>Delete</th>
-                                        <th>Date</th>
-                                        <th>DocID</th>
-                                        <th>District</th>
-                                        <th>Tech/Warehouse</th>
-                                        <th style="color:#F69240">Lock</th>
-                                        <th style="color:#F69240">Export</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @Html.Action("_tableIndexUserCycCnt1", "uhssscyccntm")
-
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
                 </div>
-
-
             </div>
+            <!-- income order visit user End -->
+            <br />
 
+
+
+            <!-- tabs start-->
+            <!-- tabs End-->
+
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
         </div>
+        <!-- lckbckscr End -->
     </div>
-    <div class="loadimage">
-        <div class="loadmeRect">
-            <div class="loadmeRectChild loadmeRect1"></div>
-            <div class="loadmeRectChild loadmeRect2"></div>
-            <div class="loadmeRectChild loadmeRect3"></div>
-            <div class="loadmeRectChild loadmeRect4"></div>
-            <div class="loadmeRectChild loadmeRect5"></div>
-        </div>
-        @*<div class="loadme-mask"></div>*@
-    </div>
+    <!-- allpagewraper End -->
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <!--/# data handler java script-->
-    <!--/# data handler java script-->
-    <script src="~/js/uhsHome/jquery.js"></script>
-    <script src="~/js/uhsHome/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="~/vendors/iCheck/icheck.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
-    <script src="~/js/uhsHome/mousescroll.js"></script>
-    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
-    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
-    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
-    <script src="~/js/uhsHome/wow.min.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
     <!-- Datatables -->
     <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -269,11 +391,74 @@
     <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <!-- iCheck -->
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
     <script src="~/js/jquery-confirm.min.js"></script>
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    <script src="~/js/jquery.datetimepicker.js"></script>
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+
+
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
+    <script src="~/lib/highlightjs/highlight.pack.js"></script>
+    <script src="~/lib/chart.js/Chart.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#dt1').dataTable({
@@ -458,4 +643,5 @@
         }
     </script>
 </body>
+
 </html>

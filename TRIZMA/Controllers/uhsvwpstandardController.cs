@@ -53,6 +53,8 @@ namespace TRIZMA.Controllers
                                                             new { Id = "2", Name = "DA" },
                                                             new { Id = "3", Name = "NE" }
                                                           }, "Id", "Name");
+
+            ViewBag.svctr = 0;
             return View();
         }
 

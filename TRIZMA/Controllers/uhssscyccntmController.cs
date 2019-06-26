@@ -54,7 +54,7 @@ namespace TRIZMA.Controllers
             int userTypeInt = userTypeSelect.First();
             ViewBag.userID = userIDselectInt;
             ViewBag.userTypeb = userTypeInt;
-
+            ViewBag.svctr = 0;
             if (userTypeInt == 2 || CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(14) && returnTaskOrdersIDlist.Contains(64))
             {
                 ViewBag.districts = new SelectList(opd.dimWhsDistDbs.OrderBy(c => c.WhseDistrictAssignment).Select(c => new { ID = c.WhseDistrictAssignment, Value = c.parentWhsDesc }).Distinct(), "ID", "Value").ToList();

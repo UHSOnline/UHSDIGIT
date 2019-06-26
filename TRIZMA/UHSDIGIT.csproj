@@ -558,6 +558,7 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.transitions.css" />
     <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\skitter.css" />
     <Content Include="css\startmin.css" />
     <Content Include="css\styles.css" />
     <Content Include="css\timeline.css" />
@@ -744,6 +745,23 @@
     <Content Include="images\prettyPhoto\light_square\default_thumbnail.gif" />
     <Content Include="images\prettyPhoto\light_square\loader.gif" />
     <Content Include="images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="images\skitterExemp\001-medium.jpg" />
+    <Content Include="images\skitterExemp\001-small.jpg" />
+    <Content Include="images\skitterExemp\001.jpg" />
+    <Content Include="images\skitterExemp\002-medium.jpg" />
+    <Content Include="images\skitterExemp\002-small.jpg" />
+    <Content Include="images\skitterExemp\002.jpg" />
+    <Content Include="images\skitterExemp\003-medium.jpg" />
+    <Content Include="images\skitterExemp\003-small.jpg" />
+    <Content Include="images\skitterExemp\003.jpg" />
+    <Content Include="images\skitterExemp\004-medium.jpg" />
+    <Content Include="images\skitterExemp\004-small.jpg" />
+    <Content Include="images\skitterExemp\004.jpg" />
+    <Content Include="images\skitter\sprite-clean.png" />
+    <Content Include="images\skitter\sprite-default.png" />
+    <Content Include="images\skitter\sprite-minimalist.png" />
+    <Content Include="images\skitter\sprite-round.png" />
+    <Content Include="images\skitter\sprite-square.png" />
     <Content Include="images\slatHTML.png" />
     <Content Include="images\slatPBI.png" />
     <Content Include="images\slider\._bg1.jpg" />
@@ -899,6 +917,7 @@
     <Content Include="js\flot\jquery.flot.tooltip.min.js" />
     <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.12.4.js" />
+    <Content Include="js\jquery-2.1.1.min.js" />
     <Content Include="js\jquery-confirm.min.js" />
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.datetimepicker.js" />
@@ -914,6 +933,8 @@
     <Content Include="js\jquery.iframe-transport.js" />
     <Content Include="js\jquery.inputpicker.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.skitter.js" />
+    <Content Include="js\jquery.skitter.min.js" />
     <Content Include="js\jquery.vmap.sampledata.js" />
     <Content Include="js\leaflet.js" />
     <Content Include="js\map.apple.js" />
@@ -926,6 +947,7 @@
     <Content Include="js\morris.min.js" />
     <Content Include="js\raphael.min.js" />
     <Content Include="js\ResizeSensor.js" />
+    <Content Include="js\skitterapp.js" />
     <Content Include="js\startmin.js" />
     <Content Include="js\uhsHome\bootstrap.min.js" />
     <Content Include="js\uhsHome\html5shiv.js" />
@@ -2593,6 +2615,11 @@
     <Content Include="main\js\metisMenu\metisMenu.min.js.map" />
     <Content Include="main\pdf\mamunur.pdf" />
     <Content Include="main\README.md" />
+    <Content Include="backup\Views\uhsb360\b360b.cshtml" />
+    <Content Include="backup\Views\uhsb360\getEditPar10100076b.cshtml" />
+    <Content Include="images\skitter\sprite-round" />
+    <Content Include="backup\Views\uhssurserv\sscadenceb.cshtml" />
+    <Content Include="backup\Views\uhssurserv\getEditPar1010009b.cshtml" />
     <None Include="Properties\PublishProfiles\TDMZWEB1.pubxml" />
     <None Include="Properties\PublishProfiles\TDMZWEBDEV.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
@@ -7976,7 +8003,7 @@
     <Content Include="backup\Views\A3form\WorkTask - Copy.cshtml" />
     <Content Include="backup\Views\A3form\Index - Copy.cshtml" />
     <Content Include="backup\Views\aglinvMap\Indexb.cshtml" />
-    <Content Include="Views\aglinvMap\editDocumentb.cshtml" />
+    <Content Include="backup\Views\aglinvMap\editDocumentb.cshtml" />
     <Content Include="backup\Views\uhsdistrict\Districtb.cshtml" />
     <Content Include="backup\Views\uhsdistrict\getEditPar1010008b.cshtml" />
     <Content Include="backup\Views\uhsdistrict\getCrPar1010003b.cshtml" />
@@ -7986,6 +8013,7 @@
     <Content Include="backup\Views\uhsa360\a360b.cshtml" />
     <Content Include="backup\Views\uhsa360\getEditPar10100067b.cshtml" />
     <Content Include="Views\uhsCH\Homeb.cshtml" />
+    <Content Include="Views\uhsCH\Home - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />

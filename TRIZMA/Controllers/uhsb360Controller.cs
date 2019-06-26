@@ -141,13 +141,15 @@ namespace TRIZMA.Controllers
                     ViewBag.wchk = 1;
                 }
 
+                ViewBag.svctr = 0;
+
                 if (userTypeid == 2)
                 {
                     List<int> list1 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.divID).Distinct());
                     List<int> list2 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.ID).Distinct());
                     ViewBag.division = new SelectList(opb.dimDivisionDbs.Where(s => (s.ID == 0 || list1.Contains(s.ID)) && s.ID != 1 && s.ID != 2).OrderBy(s => s.DivisionName), "ID", "DivisionName").ToList();
                     ViewBag.dists = new SelectList(opa.DISTRICTSDbs.Where(s => s.ID == 0 || (s.divID == 1 && s.compid == 1)).Select(s => new { ID = s.ID, district = s.district }).Distinct(), "ID", "district").ToList();
-                    ViewBag.headdef1 = "All UHS";
+                    ViewBag.headdef1 = "All Agiliti";
                     ViewBag.headdef2 = "Administration Level";
                     List<int> list3 = new List<int>(opa.DISTRICTSDbs.Where(s => s.compid == 1).Select(s => s.ID));
                     List<int> list32 = new List<int>(opb.UHSWEBOMD21vDbs.Where(s => list3.Contains(s.DISTID)).Select(s => s.IDc));
@@ -1650,6 +1652,8 @@ namespace TRIZMA.Controllers
                 ViewBag.qqtr = 1;
                 ViewBag.qyer = 1;
                 ViewBag.qwekb = 1;
+
+                ViewBag.svctr = 1;
 
                 var qtrdate = from s in opa.DATAOPATIME_FRAMEDbs where s.YYYY == yer1 && s.Quarter == qtr1 select s.dateID;
                 List<string> qtrdates = qtrdate.ToList();

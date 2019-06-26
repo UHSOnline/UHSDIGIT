@@ -1,41 +1,114 @@
-﻿
-@model List<TRIZMA.Models.uhsA360pagemodelDb>
+﻿@model List<TRIZMA.Models.uhsA360pagemodelDb>
 
 @{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: B360 Cadence</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>BioMed360 Cadence</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    @*<link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">*@
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
     <!-- DataTables CSS -->
-    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
-
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    <link href="~/css/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
     <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
 
+    <link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
         canvas {
             -moz-user-select: none;
@@ -372,11 +445,13 @@
                 background-color: #555; /* Add a dark-grey background on hover */
             }
     </style>
-</head><!--/head-->
+</head>
+
 <body>
     <!-- COMMON IDENTIFIERS -->
     @Html.Hidden("deldctpid")
     @Html.Hidden("mod1010005")
+
     <!-- HIDDEN DOCUMENT 1010005 - 1010006 - 1010007 DATA -->
     @Html.Hidden("doc1010007actype")
     @Html.Hidden("doc1010007id")
@@ -469,798 +544,852 @@
     @Html.Hidden("doc1015007chckid")
     @Html.Hidden("doc1015007chckdt")
 
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
 
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
 
-    <div id="wrapper">
-        <!-- Navigation -->
-        <!-- Navigation -->
-        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-            <div class="navbar-header">
-                <div style="padding-top:4px; padding-left:15px">
-                    <a class="w3-button w3-white w3-border btnSave03" title="Save&Reload"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:#0076A8; transform:scale(1.3)"></i></a>
-                    <a class="w3-button w3-white w3-border btnSave02" title="Save&Close"><i class="fa fa-save" style="padding-left:16px; padding-right:15px; color:forestgreen; transform:scale(1.3)"></i></a>
-                    <a class="w3-button w3-white w3-border" onclick="location.href='/uhsb360/b360?projectID=13&taskOrderID=56&Int1=1'" title="Quit"><i class="fa fa-close" style="padding-left:16px; padding-right:15px; color:red; transform:scale(1.3)"></i></a>
-                    <a target="_blank" href="https://www.agilitihealth.com" style="padding-left:40px"><img src="~/images/logo-header4.png" /></a>
-                </div>
-            </div>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.Action("_navbartop", "uhsCH")
-            }
-
-            <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
+                                </div>
                             </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                        </li>
-                        @Html.Action("SBagPr", "uhsCH")
-                        @if (ViewBag.userTypeID == 2)
-                        {
-                            <li style="padding-left:3px">
-                                <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:#6399AE !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <br />
-                        <h4 class="page-header"><span class="itcac">BioMed360</span><span class="itcak"> Cadence Checklist</span><span class="pull-right"><button class="btn-sm btn-info" id="refreshDoc"><i class="fa fa-refresh"></i> Refresh</button></span></h4>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <span class="itcak" style="font-size:small">Account Number: </span><span id="spn10100071" style="color:#6399AE; font-size:small"></span>
-                        <span style="color:white">.</span>
-                        <span class="itcak" style="font-size:small"> Division: </span><span id="spn10100072" style="color:#6399AE; font-size:small"></span>
-                        <span style="color:white">.</span>
-                        <span class="itcak" style="font-size:small"> District: </span><span id="spn10100075" style="color:#6399AE; font-size:small"></span>
-                        <span style="color:white">.</span>
-                        <span class="itcak" style="font-size:small"> DOD: </span><span id="spn10100074" style="color:#6399AE; font-size:small"></span>
-                        <span style="color:white">.</span>
-                        <span class="itcak" style="font-size:small"> OMD: </span><span id="spn10100073" style="color:#6399AE; font-size:small"></span>
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                        <h4><span class="itcac">Daily Tasks</span></h4>
-                        <span id="duedtday"></span>
-                        <table class="data table table-hover table-bordered table-responsive">
-                            <thead>
-                                <tr class="thStyle5">
-                                    <th>Task</th>
-                                    <th>Task Owner</th>
-                                    <th>Action Item</th>
-                                    <th>Tools Needed</th>
-                                    <th>Metric</th>
-                                    <th>Resources</th>
-                                    <th>Additional Notes</th>
-                                    <th>A3 Form</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Review Daily BioMed360® Quality Indicators (QI) Dashboard</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007111">
-                                        <div class="omdinf" id="dv1010007111" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007111" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007111" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>Review daily BioMed360® Quality Indicators.</td>
-                                    <td style="min-width:140px">Reporting Central</td>
-                                    <td><b>Meet or exceed scheduled maintenance requirements.</b></td>
-                                    <td>
-                                        • Quality Indicators 2014-2016, Daily Dashboards, District Daily Dashboard
-                                        <br>
-                                        • Quality Indicators 2014-2016, Daily Dashboards, Equipment Services Resident Based BioMed360® Daily Dashboard
-                                    </td>
-                                    <td><textarea id="txt1010007111" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB311101">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Check After-Hours/Previous Day Service Call Follow-Up</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007112">
-                                        <div class="omdinf" id="dv1010007112" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007112" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007112" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>Review voicemail/email for all after-hours correspondence.</td>
-                                    <td>• UHS Email<br>• Voicemail</td>
-                                    <td><b>Work Orders opened within 24 hours.</b></td>
-                                    <td></td>
-                                    <td><textarea id="txt1010007112" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB311201">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Rounds</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007113">
-                                        <div class="omdinf" id="dv1010007113" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007113" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007113" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        1. Discuss daily operations with UHS customer.
-                                        <br>
-                                        2. Discuss department service needs.
-                                        <br>
-                                        3. Contact off-site locations as needed.
-                                        <br>
-                                        4. Update Rounds work order in inService™ indicating that rounds were completed.
-                                    </td>
-                                    <td>inService™</td>
-                                    <td><b>One customer rounds work order a day.</b></td>
-                                    <td></td>
-                                    <td><textarea id="txt1010007113" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB311301">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Review Automated Work Order Reports</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007114">
-                                        <div class="omdinf" id="dv1010007114" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007114" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007114" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Establish automated alert for high risk equipment types.
-                                    </td>
-                                    <td>• inService™<br>• UHS Email</td>
-                                    <td>
-                                        <b>
-                                            •Review all Specialty/High-End repair work orders.
-                                            <br>
-                                            •Follow up with service/department as needed.
-                                        </b>
-                                    </td>
-                                    <td>inService™ email subscription</td>
-                                    <td><textarea id="txt1010007114" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB311401">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Review Parts Received and Vendor Repairs Returned</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007115">
-                                        <div class="omdinf" id="dv1010007115" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007115" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007115" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Complete awaiting parts repairs within 24 hours of parts receipt.
-                                        <br>
-                                        • Check-in all vendor repairs and return to service same day.
-                                        <br>
-                                        **As per agreement.
-                                    </td>
-                                    <td>• inService™<br>• Reporting Central</td>
-                                    <td>
-                                        <b>
-                                            Repair Work Orders Opened More Than 3 Days.
-                                        </b>
-                                    </td>
-                                    <td>inService, Work Orders, WorkOrders Opened and Closed excel [BETA]</td>
-                                    <td><textarea id="txt1010007115" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB311501">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <h4><span class="itcac">Weekly Tasks</span></h4>
-                        <span id="duedtweek"></span>
-                        <table class="data table table-hover table-bordered table-responsive">
-                            <thead>
-                                <tr class="thStyle5">
-                                    <th>Task</th>
-                                    <th>Task Owner</th>
-                                    <th>Action Item</th>
-                                    <th>Tools Needed</th>
-                                    <th>Metric</th>
-                                    <th>Resources</th>
-                                    <th>Additional Notes</th>
-                                    <th>A3 Form</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Technician Time Report</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007111">
-                                        <div class="omdinf" id="dv1012007111" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007111" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007111" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>Review Work Order Labor Hours Report.</td>
-                                    <td style="min-width:140px">Reporting Central</td>
-                                    <td>
-                                        <b>
-                                            Dashboard item -
-                                            <br>
-                                            Technicians hours applied to work orders is within 85% of hours worked.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        District Office, Technical Services, Work Order Labor Hours.
-                                    </td>
-                                    <td><textarea id="txt1012007111" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321101">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Team Meeting</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007112">
-                                        <div class="omdinf" id="dv1012007112" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007112" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007112" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>Hold weekly meetings to discuss current operations and upcoming initiatives.</td>
-                                    <td>
-                                        • Conference Call or Group Meeting
-                                        <br>
-                                        • UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Hold meetings weekly.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        BioMed360® Team Meeting Agenda.
-                                    </td>
-                                    <td><textarea id="txt1012007112" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321201">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Work Order Review - Work Completed Work Orders</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007113">
-                                        <div class="omdinf" id="dv1012007113" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007113" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007113" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Review work completed queue in inService™, correct and complete as needed.
-                                    </td>
-                                    <td>
-                                        • inService™
-                                        <br>
-                                        • UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            • Queue reviewed every week.
-                                            <br>
-                                            • Dashboard - call out number of "Work Completed" work orders.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        • Work Orders, Work Orders by Providers, Work Completed
-                                        <br>
-                                        • inService™ email subscription
-                                    </td>
-                                    <td><textarea id="txt1012007113" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321301">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Work Order Review - Billing Review Work Orders</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007114">
-                                        <div class="omdinf" id="dv1012007114" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007114" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007114" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Review billing review queue in inService™, correct and follow-up on.
-                                    </td>
-                                    <td>
-                                        • inService™
-                                        <br>
-                                        • UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            • Queue reviewed every week.
-                                            <br>
-                                            • Dashboard - call out number of "Billing Review" work orders.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        • Work Orders, Work Orders by Providers, Billing Review
-                                        <br>
-                                        • inService™ email subscription
-                                    </td>
-                                    <td><textarea id="txt1012007114" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321401">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Work Order Review - Open Work Orders</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007115">
-                                        <div class="omdinf" id="dv1012007115" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007115" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007115" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Review the status of all open work orders.
-                                    </td>
-                                    <td>
-                                        Reporting Central
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Repairs are trending toward completion within 3 days.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        inService, Work Orders, Open Work Order by Customer (inService)
-                                    </td>
-                                    <td><textarea id="txt1012007115" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321501">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Equipment Adds and Deletes Approvals</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007116">
-                                        <div class="omdinf" id="dv1012007116" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007116" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007116" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Certify that all BioMed360® program equipment profiles are updated.
-                                        <br>
-                                        • Update equipment coverage schedule/date in inService™.
-                                        <br>
-                                        • Verify warranty alert included for each new profile.
-                                        <br>
-                                        • Approve equipment profile.
-                                    </td>
-                                    <td>
-                                        • inService™
-                                        <br>
-                                        • UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Approvals completed within 3 business days.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        • Approvals and Alerts, Equipment Approvals, Equipment Approvals, Select District, Select Customer.
-                                        <br>
-                                        • Approvals and Alerts, Equipment Approvals, Equipment Out of Service, Select District, Select Customer.
-                                    </td>
-                                    <td><textarea id="txt1012007116" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB321601">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321601)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <h4><span class="itcac">Monthly Tasks</span></h4>
-                        <span id="duedtmonth"></span>
-                        <table class="data table table-hover table-bordered table-responsive">
-                            <thead>
-                                <tr class="thStyle5">
-                                    <th>Task</th>
-                                    <th>Task Owner</th>
-                                    <th>Action Item</th>
-                                    <th>Tools Needed</th>
-                                    <th>Metric</th>
-                                    <th>Resources</th>
-                                    <th>Additional Notes</th>
-                                    <th>A3 Form</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Customer Safety Report Review</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007111">
-                                        <div class="omdinf" id="dv1013007111" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007111" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007111" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Review equipment trends.
-                                        <br>
-                                        • Provide Safety Report to EOC Committee.
-                                        <br>
-                                        • Attend the EOC/Safety Committee meeting per customer request.
-                                    </td>
-                                    <td style="min-width:140px">
-                                        • Automated report is sent quarterly: 1st of month, 15th of month
-                                        <br>
-                                        • Reporting Central
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Complete review of Safety Report prior to the 15th day.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        • BioMed360® Safety Report
-                                        <br>
-                                        • EOC Findings Update
-                                    </td>
-                                    <td><textarea id="txt1013007111" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331101">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Warranty Expiration Review</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007112">
-                                        <div class="omdinf" id="dv1013007112" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007112" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007112" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Review all expiring warranties.
-                                        <br>
-                                        • Discuss coverage options with the customer as needed.
-                                    </td>
-                                    <td>
-                                        • inService™
-                                        <br>
-                                        • Reporting Central
-                                    </td>
-                                    <td>
-                                        <b>
-                                            100% compliance with warranties and contracts expiring within 30 days.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        • inService, Inventory, Customer Warranty Expirations (inService)
-                                        <br>
-                                        • inService™ email subscription
-                                    </td>
-                                    <td><textarea id="txt1013007112" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331201">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Customer Profitability Review</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007113">
-                                        <div class="omdinf" id="dv1013007113" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007113" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007113" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Review the Customer Profitability Report.
-                                    </td>
-                                    <td>
-                                        Reporting Central
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Meeting minimum cash/gross margin of 20%.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        District Office, Customer Profitability, Customer Profitability - Detail.
-                                    </td>
-                                    <td><textarea id="txt1013007113" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331301">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Vendor Customer Summary Review</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007114">
-                                        <div class="omdinf" id="dv1013007114" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007114" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007114" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Review all completed, open, and upcoming vendor work orders.
-                                    </td>
-                                    <td>
-                                        UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Zero PM likely completed, missing paperwork-over 45 days.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        This report is automated for monthly delivery and is sent by Vendor Management.
-                                    </td>
-                                    <td><textarea id="txt1013007114" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331401">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>EOC Committee Meetings</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007115">
-                                        <div class="omdinf" id="dv1013007115" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007115" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007115" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Attend customer EOC committee.
-                                        <br>
-                                        ** Per contract.
-                                    </td>
-                                    <td></td>
-                                    <td>
-                                        <b>
-
-                                        </b>
-                                    </td>
-                                    <td>
-                                        Finalized Safety Report - Received via email on the 15th.
-                                    </td>
-                                    <td><textarea id="txt1013007115" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331501">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Expiring Vendor Service Agreement Review</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007116">
-                                        <div class="omdinf" id="dv1013007116" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007116" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007116" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Review all expiring vendor service agreements.
-                                        <br>
-                                        • Discuss coverage options with the customer as needed.
-                                    </td>
-                                    <td>
-                                        UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Communicate service delivery update to Vendor Management 30 days prior to expiration.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        This report is sent to each District Office monthly and should be forwarded to each Site Manager, TSS, and lead technicians as needed.
-                                    </td>
-                                    <td><textarea id="txt1013007116" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB331601">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331601)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <h4><span class="itcac">Quarterly Tasks</span></h4>
-                        <span id="duedtquarter"></span>
-                        <table class="data table table-hover table-bordered table-responsive">
-                            <thead>
-                                <tr class="thStyle5">
-                                    <th>Task</th>
-                                    <th>Task Owner</th>
-                                    <th>Action Item</th>
-                                    <th>Tools Needed</th>
-                                    <th>Metric</th>
-                                    <th>Resources</th>
-                                    <th>Additional Notes</th>
-                                    <th>A3 Form</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="font-size:13px">
-                                    <td style="color:#0076A8"><b>Quarterly BioMed360® Program Adjustment</b></td>
-                                    <td style="min-width:160px">
-                                        <input type="checkbox" class="icheckbox_flat-green omdvrf subqtr" id="vr1014007111">
-                                        <div class="omdinf" id="dv1014007111" style="padding-top:6px">
-                                            <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1014007111" style="color:black !important; font-size:smaller"></a>
-                                            <br>
-                                            <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1014007111" style="color:black !important; font-size:smaller"></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        • Review all coverage updates, ensure all updates are accurate in inService.™
-                                        <br>
-                                        • If required - work with BPS to complete adjustments.
-                                        <br>
-                                        • Send Adjustment to Customer for approval.
-                                    </td>
-                                    <td style="min-width:140px">
-                                        • inService™
-                                        <br>
-                                        • UHS Email
-                                    </td>
-                                    <td>
-                                        <b>
-                                            Customer Approval within 2 weeks.
-                                        </b>
-                                    </td>
-                                    <td>
-                                        Quarterly Adjustment Summary.
-                                    </td>
-                                    <td><textarea id="txt1014007111" rows="2" style="font-size:small"></textarea></td>
-                                    <td style="max-width:100%; white-space:nowrap;">
-                                        <table class="table-responsive table-striped" id="TB341101">
-                                            <thead></thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.qID',341101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="loadimage">
-                            <div class="loadmeRect">
-                                <div class="loadmeRectChild loadmeRect1"></div>
-                                <div class="loadmeRectChild loadmeRect2"></div>
-                                <div class="loadmeRectChild loadmeRect3"></div>
-                                <div class="loadmeRectChild loadmeRect4"></div>
-                                <div class="loadmeRectChild loadmeRect5"></div>
-                            </div>
-                            @*<div class="loadme-mask"></div>*@
                         </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Single pro tab review Start-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">BioMed360 </span><span class="itcak"> Cadence</span><span class="pull-right"><button class="btn btn-default" id="refreshDoc"><i class="fa fa-refresh"></i> Refresh</button></span></h4>
+                                    <span class="itcak" style="font-size:small">Customer Account: </span><span id="spn10100071" style="color:#6399AE; font-size:small"></span>
+                                    <span style="color:white">.</span>
+                                    <span class="itcak" style="font-size:small"> Division: </span><span id="spn10100072" style="color:#6399AE; font-size:small"></span>
+                                    <span style="color:white">.</span>
+                                    <span class="itcak" style="font-size:small"> District: </span><span id="spn10100075" style="color:#6399AE; font-size:small"></span>
+                                    <span style="color:white">.</span>
+                                    <span class="itcak" style="font-size:small"> DOD: </span><span id="spn10100074" style="color:#6399AE; font-size:small"></span>
+                                    <span style="color:white">.</span>
+                                    <span class="itcak" style="font-size:small"> OMD: </span><span id="spn10100073" style="color:#6399AE; font-size:small"></span>
 
-                        <!-- jQuery -->
-                        <script src="~/js/jquery.min.js"></script>
-                        <!-- Bootstrap Core JavaScript -->
-                        <script src="~/js/bootstrap.min.js"></script>
-                        <!-- DataTables JavaScript -->
-                        <script src="~/js/dataTables/jquery.dataTables.min.js"></script>
-                        <script src="~/js/dataTables/dataTables.bootstrap.min.js"></script>
-                        <script src="~/js/jquery-confirm.min.js"></script>
-                        @foreach (var item in Model)
-    {
-                    <script type="text/javascript">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <!-- Static Table Start -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+
+                                    <h4><span class="itcac">Daily Tasks</span></h4>
+                                    <span id="duedtday"></span>
+
+                                    <table class="table table-hover table-bordered table-responsive">
+                                        <thead>
+                                            <tr class="thStyle5">
+                                                <th>Task</th>
+                                                <th>Task Owner</th>
+                                                <th>Action Item</th>
+                                                <th>Tools Needed</th>
+                                                <th>Metric</th>
+                                                <th>Resources</th>
+                                                <th>Additional Notes</th>
+                                                <th>A3 Form</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Review Daily BioMed360® Quality Indicators (QI) Dashboard</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007111">
+                                                    <div class="omdinf" id="dv1010007111" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007111" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007111" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>Review daily BioMed360® Quality Indicators.</td>
+                                                <td style="min-width:140px">Reporting Central</td>
+                                                <td><b>Meet or exceed scheduled maintenance requirements.</b></td>
+                                                <td>
+                                                    • Quality Indicators 2014-2016, Daily Dashboards, District Daily Dashboard
+                                                    <br>
+                                                    • Quality Indicators 2014-2016, Daily Dashboards, Equipment Services Resident Based BioMed360® Daily Dashboard
+                                                </td>
+                                                <td><textarea id="txt1010007111" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB311101">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Check After-Hours/Previous Day Service Call Follow-Up</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007112">
+                                                    <div class="omdinf" id="dv1010007112" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007112" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007112" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>Review voicemail/email for all after-hours correspondence.</td>
+                                                <td>• UHS Email<br>• Voicemail</td>
+                                                <td><b>Work Orders opened within 24 hours.</b></td>
+                                                <td></td>
+                                                <td><textarea id="txt1010007112" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB311201">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Rounds</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007113">
+                                                    <div class="omdinf" id="dv1010007113" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007113" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007113" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    1. Discuss daily operations with UHS customer.
+                                                    <br>
+                                                    2. Discuss department service needs.
+                                                    <br>
+                                                    3. Contact off-site locations as needed.
+                                                    <br>
+                                                    4. Update Rounds work order in inService™ indicating that rounds were completed.
+                                                </td>
+                                                <td>inService™</td>
+                                                <td><b>One customer rounds work order a day.</b></td>
+                                                <td></td>
+                                                <td><textarea id="txt1010007113" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB311301">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Review Automated Work Order Reports</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007114">
+                                                    <div class="omdinf" id="dv1010007114" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007114" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007114" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Establish automated alert for high risk equipment types.
+                                                </td>
+                                                <td>• inService™<br>• UHS Email</td>
+                                                <td>
+                                                    <b>
+                                                        •Review all Specialty/High-End repair work orders.
+                                                        <br>
+                                                        •Follow up with service/department as needed.
+                                                    </b>
+                                                </td>
+                                                <td>inService™ email subscription</td>
+                                                <td><textarea id="txt1010007114" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB311401">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Review Parts Received and Vendor Repairs Returned</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subday" id="vr1010007115">
+                                                    <div class="omdinf" id="dv1010007115" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1010007115" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1010007115" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Complete awaiting parts repairs within 24 hours of parts receipt.
+                                                    <br>
+                                                    • Check-in all vendor repairs and return to service same day.
+                                                    <br>
+                                                    **As per agreement.
+                                                </td>
+                                                <td>• inService™<br>• Reporting Central</td>
+                                                <td>
+                                                    <b>
+                                                        Repair Work Orders Opened More Than 3 Days.
+                                                    </b>
+                                                </td>
+                                                <td>inService, Work Orders, WorkOrders Opened and Closed excel [BETA]</td>
+                                                <td><textarea id="txt1010007115" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB311501">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.dayID',311501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Static Table Start -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+                                    <h4><span class="itcac">Weekly Tasks</span></h4>
+                                    <span id="duedtweek"></span>
+                                    <table class="data table table-hover table-bordered table-responsive">
+                                        <thead>
+                                            <tr class="thStyle5">
+                                                <th>Task</th>
+                                                <th>Task Owner</th>
+                                                <th>Action Item</th>
+                                                <th>Tools Needed</th>
+                                                <th>Metric</th>
+                                                <th>Resources</th>
+                                                <th>Additional Notes</th>
+                                                <th>A3 Form</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Technician Time Report</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007111">
+                                                    <div class="omdinf" id="dv1012007111" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007111" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007111" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>Review Work Order Labor Hours Report.</td>
+                                                <td style="min-width:140px">Reporting Central</td>
+                                                <td>
+                                                    <b>
+                                                        Dashboard item -
+                                                        <br>
+                                                        Technicians hours applied to work orders is within 85% of hours worked.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    District Office, Technical Services, Work Order Labor Hours.
+                                                </td>
+                                                <td><textarea id="txt1012007111" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321101">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Team Meeting</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007112">
+                                                    <div class="omdinf" id="dv1012007112" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007112" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007112" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>Hold weekly meetings to discuss current operations and upcoming initiatives.</td>
+                                                <td>
+                                                    • Conference Call or Group Meeting
+                                                    <br>
+                                                    • UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Hold meetings weekly.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    BioMed360® Team Meeting Agenda.
+                                                </td>
+                                                <td><textarea id="txt1012007112" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321201">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Work Order Review - Work Completed Work Orders</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007113">
+                                                    <div class="omdinf" id="dv1012007113" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007113" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007113" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Review work completed queue in inService™, correct and complete as needed.
+                                                </td>
+                                                <td>
+                                                    • inService™
+                                                    <br>
+                                                    • UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        • Queue reviewed every week.
+                                                        <br>
+                                                        • Dashboard - call out number of "Work Completed" work orders.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    • Work Orders, Work Orders by Providers, Work Completed
+                                                    <br>
+                                                    • inService™ email subscription
+                                                </td>
+                                                <td><textarea id="txt1012007113" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321301">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Work Order Review - Billing Review Work Orders</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007114">
+                                                    <div class="omdinf" id="dv1012007114" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007114" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007114" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Review billing review queue in inService™, correct and follow-up on.
+                                                </td>
+                                                <td>
+                                                    • inService™
+                                                    <br>
+                                                    • UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        • Queue reviewed every week.
+                                                        <br>
+                                                        • Dashboard - call out number of "Billing Review" work orders.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    • Work Orders, Work Orders by Providers, Billing Review
+                                                    <br>
+                                                    • inService™ email subscription
+                                                </td>
+                                                <td><textarea id="txt1012007114" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321401">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Work Order Review - Open Work Orders</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007115">
+                                                    <div class="omdinf" id="dv1012007115" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007115" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007115" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Review the status of all open work orders.
+                                                </td>
+                                                <td>
+                                                    Reporting Central
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Repairs are trending toward completion within 3 days.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    inService, Work Orders, Open Work Order by Customer (inService)
+                                                </td>
+                                                <td><textarea id="txt1012007115" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321501">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Equipment Adds and Deletes Approvals</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subwek" id="vr1012007116">
+                                                    <div class="omdinf" id="dv1012007116" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1012007116" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1012007116" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Certify that all BioMed360® program equipment profiles are updated.
+                                                    <br>
+                                                    • Update equipment coverage schedule/date in inService™.
+                                                    <br>
+                                                    • Verify warranty alert included for each new profile.
+                                                    <br>
+                                                    • Approve equipment profile.
+                                                </td>
+                                                <td>
+                                                    • inService™
+                                                    <br>
+                                                    • UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Approvals completed within 3 business days.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    • Approvals and Alerts, Equipment Approvals, Equipment Approvals, Select District, Select Customer.
+                                                    <br>
+                                                    • Approvals and Alerts, Equipment Approvals, Equipment Out of Service, Select District, Select Customer.
+                                                </td>
+                                                <td><textarea id="txt1012007116" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB321601">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.wID',321601)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Static Table End -->
+            <!-- Static Table Start -->
+            <!-- Static Table End -->
+            <!-- Static Table Start -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+                                    <h4><span class="itcac">Monthly Tasks</span></h4>
+                                    <span id="duedtmonth"></span>
+                                    <table class="data table table-hover table-bordered table-responsive">
+                                        <thead>
+                                            <tr class="thStyle5">
+                                                <th>Task</th>
+                                                <th>Task Owner</th>
+                                                <th>Action Item</th>
+                                                <th>Tools Needed</th>
+                                                <th>Metric</th>
+                                                <th>Resources</th>
+                                                <th>Additional Notes</th>
+                                                <th>A3 Form</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Customer Safety Report Review</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007111">
+                                                    <div class="omdinf" id="dv1013007111" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007111" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007111" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Review equipment trends.
+                                                    <br>
+                                                    • Provide Safety Report to EOC Committee.
+                                                    <br>
+                                                    • Attend the EOC/Safety Committee meeting per customer request.
+                                                </td>
+                                                <td style="min-width:140px">
+                                                    • Automated report is sent quarterly: 1st of month, 15th of month
+                                                    <br>
+                                                    • Reporting Central
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Complete review of Safety Report prior to the 15th day.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    • BioMed360® Safety Report
+                                                    <br>
+                                                    • EOC Findings Update
+                                                </td>
+                                                <td><textarea id="txt1013007111" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331101">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Warranty Expiration Review</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007112">
+                                                    <div class="omdinf" id="dv1013007112" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007112" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007112" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Review all expiring warranties.
+                                                    <br>
+                                                    • Discuss coverage options with the customer as needed.
+                                                </td>
+                                                <td>
+                                                    • inService™
+                                                    <br>
+                                                    • Reporting Central
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        100% compliance with warranties and contracts expiring within 30 days.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    • inService, Inventory, Customer Warranty Expirations (inService)
+                                                    <br>
+                                                    • inService™ email subscription
+                                                </td>
+                                                <td><textarea id="txt1013007112" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331201">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331201)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Customer Profitability Review</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007113">
+                                                    <div class="omdinf" id="dv1013007113" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007113" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007113" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Review the Customer Profitability Report.
+                                                </td>
+                                                <td>
+                                                    Reporting Central
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Meeting minimum cash/gross margin of 20%.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    District Office, Customer Profitability, Customer Profitability - Detail.
+                                                </td>
+                                                <td><textarea id="txt1013007113" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331301">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331301)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Vendor Customer Summary Review</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007114">
+                                                    <div class="omdinf" id="dv1013007114" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007114" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007114" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Review all completed, open, and upcoming vendor work orders.
+                                                </td>
+                                                <td>
+                                                    UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Zero PM likely completed, missing paperwork-over 45 days.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    This report is automated for monthly delivery and is sent by Vendor Management.
+                                                </td>
+                                                <td><textarea id="txt1013007114" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331401">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331401)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>EOC Committee Meetings</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007115">
+                                                    <div class="omdinf" id="dv1013007115" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007115" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007115" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    Attend customer EOC committee.
+                                                    <br>
+                                                    ** Per contract.
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                    <b>
+
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    Finalized Safety Report - Received via email on the 15th.
+                                                </td>
+                                                <td><textarea id="txt1013007115" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331501">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331501)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Expiring Vendor Service Agreement Review</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subper" id="vr1013007116">
+                                                    <div class="omdinf" id="dv1013007116" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1013007116" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1013007116" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Review all expiring vendor service agreements.
+                                                    <br>
+                                                    • Discuss coverage options with the customer as needed.
+                                                </td>
+                                                <td>
+                                                    UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Communicate service delivery update to Vendor Management 30 days prior to expiration.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    This report is sent to each District Office monthly and should be forwarded to each Site Manager, TSS, and lead technicians as needed.
+                                                </td>
+                                                <td><textarea id="txt1013007116" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB331601">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.mID',331601)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Static Table End -->
+            <!-- Static Table Start -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+                                    <h4><span class="itcac">Quarterly Tasks</span></h4>
+                                    <span id="duedtquarter"></span>
+                                    <table class="data table table-hover table-bordered table-responsive">
+                                        <thead>
+                                            <tr class="thStyle5">
+                                                <th>Task</th>
+                                                <th>Task Owner</th>
+                                                <th>Action Item</th>
+                                                <th>Tools Needed</th>
+                                                <th>Metric</th>
+                                                <th>Resources</th>
+                                                <th>Additional Notes</th>
+                                                <th>A3 Form</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="font-size:13px">
+                                                <td style="color:#0076A8"><b>Quarterly BioMed360® Program Adjustment</b></td>
+                                                <td style="min-width:160px">
+                                                    <input type="checkbox" class="icheckbox_flat-green omdvrf subqtr" id="vr1014007111">
+                                                    <div class="omdinf" id="dv1014007111" style="padding-top:6px">
+                                                        <span style="color:#F69240; font-size:smaller">SME: </span><a id="sm1014007111" style="color:black !important; font-size:smaller"></a>
+                                                        <br>
+                                                        <span style="color:#F69240; font-size:smaller">Date: </span><a id="cm1014007111" style="color:black !important; font-size:smaller"></a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    • Review all coverage updates, ensure all updates are accurate in inService.™
+                                                    <br>
+                                                    • If required - work with BPS to complete adjustments.
+                                                    <br>
+                                                    • Send Adjustment to Customer for approval.
+                                                </td>
+                                                <td style="min-width:140px">
+                                                    • inService™
+                                                    <br>
+                                                    • UHS Email
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        Customer Approval within 2 weeks.
+                                                    </b>
+                                                </td>
+                                                <td>
+                                                    Quarterly Adjustment Summary.
+                                                </td>
+                                                <td><textarea id="txt1014007111" rows="2" style="font-size:small"></textarea></td>
+                                                <td style="max-width:100%; white-space:nowrap;">
+                                                    <table class="table-responsive table-striped" id="TB341101">
+                                                        <thead></thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                    <button class="btn-xs btn-default" onclick="newProject(56,'@ViewBag.qID',341101)" title="Create A3 Form"><i class="fa fa-plus" style="color:#00966C"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Static Table End -->
+            <!-- Static Table End -->
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+            <button id="cont002" class="contBtns" title="Quarterly">Q</button>
+            <button id="cont003" class="contBtns" title="Monthly">M</button>
+            <button id="cont004" class="contBtns" title="Weekly">W</button>
+            <button id="cont005" class="contBtns" title="Daily">D</button>
+            @foreach (var item in Model)
+            {
+                <script type="text/javascript">
                                 $(document).ready(function () {
                                     $('.loadimage').hide();
                                     $("#spn10100071").html('@item.zacc');
@@ -1440,21 +1569,128 @@
                                     if (@item.CYverf116 == 1) { $("#dv1013007116").show(); }
                                     if (@item.DYverf111 == 1) { $("#dv1014007111").show(); }
                                 });
-                    </script>
-}
+                </script>
+            }
 
-                        <br />
 
-                    </div>
-                </div>
-            </div>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
-        <button id="cont002" class="contBtns" title="Quarterly">Q</button>
-        <button id="cont003" class="contBtns" title="Monthly">M</button>
-        <button id="cont004" class="contBtns" title="Weekly">W</button>
-        <button id="cont005" class="contBtns" title="Daily">D</button>
+        <!-- lckbckscr End -->
     </div>
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    @*<script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>*@
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    <script src="~/js/jquery.datetimepicker.js"></script>
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
     <script>
         $(document).on('click', '.omdvrf', function () {
             var userId = @ViewBag.userIds;
@@ -1543,7 +1779,7 @@
             } else {
                 $("#duedtquarter").html("");
                 $("#duedtquarter").html("Due: " + model.dtDue4).css("color", "red");
-                }               
+                }
             });
         }
     </script>
@@ -1572,7 +1808,7 @@
         $(document).ready(function () {
             var projList = @Html.Raw(Json.Encode(ViewBag.projList));
             $.each(projList, function (ID, projList) {
-                var tb1 = "TB" + projList.L3ID;                
+                var tb1 = "TB" + projList.L3ID;
                 var it1b = document.getElementById(tb1);
                 if (it1b == null) {
                     return;
@@ -1580,22 +1816,28 @@
                 var docid = projList.ID;
                 var item4 = "#" + tb1 + " tbody";
                 if (projList.compld == true) {
-                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=56&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='padding-right:4px'><i class='fa fa-check' style='color:forestgreen' title='completed'></i></td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");              
+                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=56&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='padding-right:4px'><i class='fa fa-check' style='color:forestgreen' title='completed'></i></td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");
                 } else {
-                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=56&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='color:white'>.</td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");              
+                    $(item4).append("<tr><td style='color:#0076A8; padding-right:6px'><a target='_blank' href='/uhsworktask/workTask?ID=" + docid + "&IDK=56&IDF=2' style='font-size:12px'>" + projList.project + "</a></td><td style='color:white'>.</td><td align=right><a href='#' onClick=delDoc('" + docid + "') title='delete'><i class='fa fa-trash' style='color:red'></i></a></td>");
                 }
             });
         });
-            $(".btnSave02").on('click', function () {
-                var btn = 2;
-                postDoc(btn);
-            });
-            $(".btnSave03").on('click', function () {
-                var btn = 3;
-                postDoc(btn);
-            });
+        function btnSave02() {
+            var btn = 2;
+            postDoc(btn);
+        };
+        function btnSave03() {
+            var btn = 3;
+            postDoc(btn);
+        };
+
+        function closeDoc() {
+            window.location = "/uhsb360/b360?projectID=13&taskOrderID=56&Int1=1";
+        };
 
         $("#refreshDoc").on('click', function () {
+            $("head").addClass("loadDiv");
+            $('.loadimage').show();
             location.reload();
         });
             function newProject(a, b, c) {
@@ -1652,7 +1894,7 @@
                 }
             })
         };
-            
+
         function postDoc(btn){
             $("head").addClass("loadDiv");
             $('.loadimage').show();
@@ -2929,15 +3171,9 @@
                 }
             });
         };
+
+    </script>
     
-    </script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".datepick1").datepicker();
-            //$(".datepick1").datepicker("setDate", new Date());
-        });
-    </script>
     <script type="text/javascript">
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () { scrollFunction() };
@@ -2985,9 +3221,15 @@
         });
 
     </script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
+    </script>
 </body>
+
 </html>
