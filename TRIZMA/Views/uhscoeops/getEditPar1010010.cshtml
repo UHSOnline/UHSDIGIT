@@ -1467,6 +1467,36 @@
                 </div>
             </div>
             <!-- Static Table End -->
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div>
+                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="btnSave03()" title="Save & Reload" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-save edu-checked-pro" aria-hidden="true"></i><i class="fa fa-refresh" style="padding-left:8px"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-success col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="btnSave02()" title="Save & Close" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-save edu-warning-danger" aria-hidden="true"></i><i class="fa fa-close" style="padding-left:8px"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-danger col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="closeDoc()" title="Dismiss" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-times edu-danger-error" aria-hidden="true"></i><i class="fa fa-power-off" style="padding-left:8px"></i></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div class="loadimage">
                 <div class="loadmeRect">
                     <div class="loadmeRectChild loadmeRect1"></div>
@@ -1484,8 +1514,8 @@
             <button id="cont004" class="contBtns" title="Weekly">W</button>
             <button id="cont005" class="contBtns" title="Daily">D</button>
             @foreach (var item in Model)
-            {
-                <script type="text/javascript">
+    {
+        <script type="text/javascript">
                                 $(document).ready(function () {
                                     $('.loadimage').hide();
                                     $("#spn10100101").html('@item.zacc');
@@ -1702,8 +1732,8 @@
                                     if (@item.EYverf113 == 1) { $("#dv1016010113").show(); }
                                     if (@item.EYverf114 == 1) { $("#dv1016010114").show(); }
                                 });
-                </script>
-            }
+        </script>
+}
         </div>
         <!-- lckbckscr End -->
     </div>

@@ -51,6 +51,7 @@ namespace TRIZMA.Controllers
             if (userTypeInt == 2 && CurrentLoginID == User.Identity.GetUserId().ToString() && returnProjectIDlist.Contains(13) && returnTaskOrdersIDlist.Contains(62))
             {
 
+                ViewBag.svctr = 0;
                 ViewBag.data1 = dbv.k2017orgStrL3ViewDbs.Where(s => s.ID > 0).OrderBy(s => s.ID).ToList();
 
 

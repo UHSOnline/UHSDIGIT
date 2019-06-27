@@ -326,20 +326,20 @@
                                                         </div>
                                                     </div>
                                                     @if (ViewBag.tskoid == 52 || ViewBag.IDK == 52 || ViewBag.tskoid == 53 || ViewBag.IDK == 53 || ViewBag.tskoid == 57 || ViewBag.IDK == 57 || ViewBag.tskoid == 58 || ViewBag.IDK == 58)
-                                                    {
-                                                        @Html.Hidden("account", new { Value = 0 })
-                                                    }
-                                                    else if (ViewBag.tskoid == 55 || ViewBag.IDK == 55 || ViewBag.tskoid == 56 || ViewBag.IDK == 56)
-                                                    {
-                                                        <div class="row" style="padding-top:2px">
-                                                            <div class="col-lg-3" style="padding-top:8px">
-                                                                <label style="font-size:12px; color:#0076A8">Account:</label>
-                                                            </div>
-                                                            <div class="col-lg-9">
-                                                                <select class="form-control" id="account"></select>
-                                                            </div>
-                                                        </div>
-                                                    }
+                                            {
+                                                @Html.Hidden("account", new { Value = 0 })
+                                    }
+                                    else if (ViewBag.tskoid == 55 || ViewBag.IDK == 55 || ViewBag.tskoid == 56 || ViewBag.IDK == 56)
+                                    {
+                                        <div class="row" style="padding-top:2px">
+                                            <div class="col-lg-3" style="padding-top:8px">
+                                                <label style="font-size:12px; color:#0076A8">Account:</label>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <select class="form-control" id="account"></select>
+                                            </div>
+                                        </div>
+                            }
                                                 </div>
                                                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
@@ -454,48 +454,48 @@
                                                         <div class="col-lg-12" style="padding-top:8px">
                                                             <div class="row">
                                                                 @foreach (var item in ViewBag.pageData)
-                                                                {
-                                                                    if (item.compld == true)
-                                                                    {
-                                                                        <div class="col-lg-6">
-                                                                            <div class="alert alert-success alert-st-one alert-st-bg" role="alert">
-                                                                                <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
-                                                                                <p class="message-mg-rt" style="padding-left:22px"><input type="checkbox" id="complda" style="transform:scale(2)" /><span style="padding-left:22px"> Completed!</span></p>
-                                                                            </div>
-                                                                        </div>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <div class="col-lg-6">
-                                                                            <div class="alert alert-danger alert-mg-b alert-st-four alert-st-bg3" role="alert">
-                                                                                <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
-                                                                                <p class="message-mg-rt" style="padding-left:22px"><input type="checkbox" id="complda" style="transform:scale(2)" /><span style="padding-left:22px"><strong> NOT </strong> Completed!</span></p>
-                                                                            </div>
+                                                        {
+                                                            if (item.compld == true)
+                                                            {
+                                                                <div class="col-lg-6">
+                                                                    <div class="alert alert-success alert-st-one alert-st-bg" role="alert">
+                                                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
+                                                                        <p class="message-mg-rt" style="padding-left:22px"><input type="checkbox" id="complda" style="transform:scale(2)" /><span style="padding-left:22px"> Completed!</span></p>
+                                                                    </div>
+                                                                </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="col-lg-6">
+                                                            <div class="alert alert-danger alert-mg-b alert-st-four alert-st-bg3" role="alert">
+                                                                <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
+                                                                <p class="message-mg-rt" style="padding-left:22px"><input type="checkbox" id="complda" style="transform:scale(2)" /><span style="padding-left:22px"><strong> NOT </strong> Completed!</span></p>
+                                                            </div>
 
 
-                                                                        </div>
-                                                                    }
-                                                                    if (item.chck == true)
-                                                                    {
-                                                                        <div class="col-lg-6">
-                                                                            <div class="alert alert-success alert-st-one alert-st-bg" role="alert">
-                                                                                <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
-                                                                                <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> Champ </strong> Signoff!</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        <div class="col-lg-6">
-                                                                            <div class="alert alert-danger alert-mg-b alert-st-four alert-st-bg3" role="alert">
-                                                                                <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
-                                                                                <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> NO </strong> Champ Signoff</p>
-                                                                            </div>
+                                                        </div>
+                                            }
+                                            if (item.chck == true)
+                                            {
+                                                <div class="col-lg-6">
+                                                    <div class="alert alert-success alert-st-one alert-st-bg" role="alert">
+                                                        <i class="fa fa-check edu-checked-pro admin-check-pro admin-check-pro-clr" aria-hidden="true"></i>
+                                                        <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> Champ </strong> Signoff!</p>
+                                                    </div>
+                                                </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-lg-6">
+                                            <div class="alert alert-danger alert-mg-b alert-st-four alert-st-bg3" role="alert">
+                                                <i class="fa fa-times edu-danger-error admin-check-pro admin-check-pro-clr3" aria-hidden="true"></i>
+                                                <p class="message-mg-rt" style="color:#0076A8; padding-left:6px"><span style="padding-right:12px"><input type="checkbox" id="chck" style="transform:scale(2)" /></span><strong> NO </strong> Champ Signoff</p>
+                                            </div>
 
 
-                                                                        </div>
-                                                                    }
-                                                                }
+                                        </div>
+                            }
+                        }
 
 
                                                             </div>
@@ -539,81 +539,81 @@
                                             </thead>
                                             <tbody>
                                                 @foreach (var item in ViewBag.stepTable)
-                                                {
-                                                    <tr style="color:#0076A8">
-                                                        <td style="text-align:center; padding-top:18px !important"><a href="#" class="delStep" onclick="delStep('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.4)" title="delete"></i></a></td>
-                                                        <td style="padding-top:18px !important"><a href="#" onclick="stepModal('@item.ID')" style="color:dodgerblue"><u>@item.stepnm</u></a></td>
+                                        {
+                                            <tr style="color:#0076A8">
+                                                <td style="text-align:center; padding-top:18px !important"><a href="#" class="delStep" onclick="delStep('@item.ID')"><i class="fa fa-trash" style="color:red; transform:scale(1.4)" title="delete"></i></a></td>
+                                                <td style="padding-top:18px !important"><a href="#" onclick="stepModal('@item.ID')" style="color:dodgerblue"><u>@item.stepnm</u></a></td>
 
-                                                        <td style="text-align:center; padding-top:18px !important"><span style="color:darkgreen">@item.datest</span></td>
-                                                        <td style="text-align:center; padding-top:18px !important"><span style="color:gray">@item.dateex</span></td>
-                                                        <td style="text-align:center">
-                                                            @if (item.succes >= 100)
-                                                            {
+                                                <td style="text-align:center; padding-top:18px !important"><span style="color:darkgreen">@item.datest</span></td>
+                                                <td style="text-align:center; padding-top:18px !important"><span style="color:gray">@item.dateex</span></td>
+                                                <td style="text-align:center">
+                                                    @if (item.succes >= 100)
+                                            {
 
-                                                                <span class="text-success">100 </span><span class="text-info"> %</span>
-                                                                <div class="progress m-b-0" style="height:4px">
-                                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
-                                                                </div>
-
-
-                                                            }
-                                                            else
-                                                            {
-                                                                <span class="text-info">@item.succes %</span>
-                                                                <div class="progress m-b-0" style="height:4px">
-                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
-                                                                </div>
-                                                            }
+                                                <span class="text-success">100 </span><span class="text-info"> %</span>
+                                                <div class="progress m-b-0" style="height:4px">
+                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
+                                                </div>
 
 
+                                    }
+                                    else
+                                    {
+                                        <span class="text-info">@item.succes %</span>
+                                        <div class="progress m-b-0" style="height:4px">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.succes" aria-valuemin="0" aria-valuemax="100" style="width:@item.succes%"></div>
+                                        </div>
+                            }
 
 
-                                                        </td>
-                                                        <td style="text-align:center">
-                                                            @if (item.timsucce >= 100)
-                                                            {
-
-                                                                <span class="text-success">Overdue </span><span class="text-info"> !</span>
-                                                                <div class="progress m-b-0" style="height:4px">
-                                                                    <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
-                                                                </div>
-                                                            }
-                                                            else if (item.timsucce >= 80 && item.timsucce < 100)
-                                                            {
-                                                                <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
-                                                                <div class="progress m-b-0" style="height:4px">
-                                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
-                                                                </div>
 
 
-                                                            }
-                                                            else
-                                                            {
-                                                                <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
-                                                                <div class="progress m-b-0" style="height:4px">
-                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
-                                                                </div>
-                                                            }
-                                                        </td>
-                                                        @if (item.priohg == true)
-                                                        {
-                                                            <td style="text-align:center; padding-top:20px !important"><i class="fa fa-flag" style="color:red; transform:scale(1.2)" title="high priority"></i></td>
-                                                        }
-                                                        else
-                                                        {
-                                                            <td style="color:white">.</td>
-                                                        }
-                                                        @if (item.compld == true)
-                                                        {
-                                                            <td style="text-align:center; padding-top:18px !important"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.4)" title="completed"></i></td>
-                                                        }
-                                                        else
-                                                        {
-                                                            <td style="color:white">.</td>
-                                                        }
+                                                </td>
+                                                <td style="text-align:center">
+                                                    @if (item.timsucce >= 100)
+                                            {
 
-                                                    </tr>
-                                                }
+                                                <span class="text-success">Overdue </span><span class="text-info"> !</span>
+                                                <div class="progress m-b-0" style="height:4px">
+                                                    <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
+                                                </div>
+                                    }
+                                    else if (item.timsucce >= 80 && item.timsucce < 100)
+                                    {
+                                        <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
+                                        <div class="progress m-b-0" style="height:4px">
+                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
+                                        </div>
+
+
+                            }
+                            else
+                            {
+                                <span class="text-success">@item.timsucsa </span><span class="text-info"> %</span>
+                                <div class="progress m-b-0" style="height:4px">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@item.timsucsa" aria-valuemin="0" aria-valuemax="100" style="width:@item.timsucsb"></div>
+                                </div>
+                    }
+                                                </td>
+                                                @if (item.priohg == true)
+                                        {
+                                            <td style="text-align:center; padding-top:20px !important"><i class="fa fa-flag" style="color:red; transform:scale(1.2)" title="high priority"></i></td>
+                                }
+                                else
+                                {
+                                    <td style="color:white">.</td>
+                        }
+                                                @if (item.compld == true)
+                                        {
+                                            <td style="text-align:center; padding-top:18px !important"><i class="fa fa-check" style="color:forestgreen; transform:scale(1.4)" title="completed"></i></td>
+                                }
+                                else
+                                {
+                                    <td style="color:white">.</td>
+                        }
+
+                                            </tr>
+                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -631,6 +631,33 @@
                             <button type="button" class="btn btn-outline btn-default col-lg-12 newStep" style="min-height:52px"><i class="fa fa-plus" style="transform:scale(1.4); color:lightseagreen"></i><span style="color:#0076A8; padding-left:6px; font-size:16px"> Add New Step!</span></button>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+            <div class="data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="sparkline13-list">
+
+                                <div class="sparkline13-graph">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div>
+                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="btnSave03()" title="Save & Reload" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-save edu-checked-pro" aria-hidden="true"></i><i class="fa fa-refresh" style="padding-left:8px"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-success col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="btnSave02()" title="Save & Close" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-save edu-warning-danger" aria-hidden="true"></i><i class="fa fa-close" style="padding-left:8px"></i></button>
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn btn-danger col-lg-1 col-md-1 col-sm-12 col-xs-12" onclick="closeDoc()" title="Dismiss" style="min-height:32px; border:solid; border-color:#0076A8; border-width:thin"><i class="fa fa-times edu-danger-error" aria-hidden="true"></i><i class="fa fa-power-off" style="padding-left:8px"></i></button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

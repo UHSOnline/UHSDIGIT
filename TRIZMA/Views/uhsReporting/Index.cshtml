@@ -1,71 +1,117 @@
 ﻿
+
 @{
     Layout = null;
 }
+<!doctype html>
+<html class="no-js" lang="en">
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: Reporting Services</title>
     <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Reporting Index</title>
-    <link href="~/css/w3.css" rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="~/css/metisMenu.min.css" rel="stylesheet">
-    <!-- DataTables CSS -->
-    <link href="~/css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <!-- DataTables Responsive CSS -->
-    <link href="~/css/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="~/css/timeline.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="~/css/startmin.css" rel="stylesheet">
-    <!-- Morris Charts CSS -->
-    @*<link href="~/css/morris.css" rel="stylesheet">*@
-    <link href="~/lib/highlightjs/github.css" rel="stylesheet">
-    <link href="~/lib/morris.js/morris.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
 
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <!-- DataTables CSS -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/jquery-ui.css">
     <link rel="stylesheet" href="~/css/leaflet.css" />
-    <link href="~/css/jquery.inputpicker.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
 
+    <link href="~/css/skitter.css" rel="stylesheet" />
+
+    @*<link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />*@
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
     <style>
-        footer {
-            display: none;
-        }
-
-        .buttonb {
-            margin: 0 auto;
-            font-size: 2.0rem;
-            padding: 1.25rem 2.5rem;
-            display: block;
-            background-color: #ffffff;
-            border: 1px solid;
-            border-color: #009ac9;
-            color: #009ac9;
-            font-weight: bold;
-            min-height: 200px;
-            min-width: 220px;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-
-            .buttonb:hover {
-                background-color: #009ac9;
-                color: #ffffff;
-                border-color: #009ac9;
-            }
 
         .responsiveimg {
             width: 100%;
@@ -75,114 +121,173 @@
         .startbtn {
             display: none;
         }
+
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        footer {
+            display: none;
+        }
+
+        .responsiveb {
+            width: 100%;
+            height: auto;
+        }
+
+        .docidstore {
+            display: none;
+        }
+
+        .startbtn {
+            visibility: hidden;
+        }
+        .itcad {
+            background-color: #85CDDB !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: #85CDDB !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
     </style>
-</head><!--/head-->
-<body id="home" class="homepage">
+</head>
 
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
 
-    <div class="lckbckscr">
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
 
-        <div id="wrapper">
-            <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:#F5F5F5 !important">
-                <div class="navbar-header">
-                    <div style="padding-top:4px; padding-left:32px">
-                        <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header4.png" /></a>
-                    </div>
-                </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="font-size:20px">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
-                {
-                    @Html.AntiForgeryToken()
-                    @Html.Action("_navbartop", "uhsCH")
-                }
-
-                <!-- /.navbar-top-links -->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                                <!-- /input-group -->
-                            </li>
-                            <li>
-                                <a href="/uhsCH/Home"><i class="fa fa-home fa-fw"></i> Home</a>
-                            </li>
-                            @Html.Action("SBagPr", "uhsCH")
-                            @if (ViewBag.userTypeID == 2)
-                            {
-                                <li style="padding-left:3px">
-                                    <a target="_blank" href="/formsCRUD/Index?projectID=1&taskOrderID=1&Int1=1" style="color:dodgerblue !important"><i class="fa fa-table"></i><span style="padding-left:1px"> System Administration</span></a>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <br />
-                            <h3 class="page-header"><span style="color:steelblue">Reporting </span><span style="color:darkorange"> Services</span></h3>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                <br />
-                                <h4 class="page-header"><span style="color:steelblue">Activity </span><span style="color:darkorange"> Reports</span></h4>
-                                <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2">
-                                    <img src="~/images/slatHTML.png" />
-                                </div>
-                                <div class="col-lg-11">
-                                    <ul>
-                                        <li>
-                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityDistrict?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
-                                                Activity Report - District
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityA360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
-                                                Activity Report - Asset360
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityB360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
-                                                Activity Report - BioMed360
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivitySS?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
-                                                Activity Report - Surgical Services
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a onclick="PopupCenterDual('/uhsReporting/reportActivityCOE?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
-                                                Activity Report - COE Operations
-                                            </a>
-                                        </li>
-                                    </ul>
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                <br />
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="income-order-visit-user-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4><span class="itcac">Reporting </span><span class="itcak"> Services </span></h4>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
 
-                                <h4 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Reports</span></h4>
-                                <div class="row">
+
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="single-pro-review-area mt-t-30 mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+
+
+                                    <h4 class="page-header"><span style="color:steelblue">Activity </span><span style="color:darkorange"> Reports</span></h4>
+                                    <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2">
+                                        <img src="~/images/slatHTML.png" />
+                                    </div>
+                                    <div class="col-lg-11">
+                                        <ul>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportActivityDistrict?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Activity Report - District
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportActivityA360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Activity Report - Asset360
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportActivityB360?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Activity Report - BioMed360
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportActivitySS?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Activity Report - Surgical Services
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a onclick="PopupCenterDual('/uhsReporting/reportActivityCOE?projectID=13&taskOrderID=62&Int1=1', '', '1200', '736');" href="javascript:void(0);" style="font-size:12px">
+                                                    Activity Report - COE Operations
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <h4 class="page-header"><span style="color:steelblue">Periodical </span><span style="color:darkorange"> Reports</span></h4>
+
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2" style="padding-top:10px">
                                         <img src="~/images/slatPBI.png" />
                                     </div>
@@ -204,10 +309,10 @@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <br />
                                     </div>
-                                </div>
-                                <br />
-                                <div class="row">
+
+                                    <div class="clear"></div>
                                     <div class="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-xs-2">
                                         <img src="~/images/slatHTML.png" />
                                     </div>
@@ -241,58 +346,142 @@
                                         </ul>
                                     </div>
 
+
+
+
+
+                                    <div class="clear"></div>
+
                                 </div>
-
-
                             </div>
 
                         </div>
-
                     </div>
-                    
-
-
-                    <br />
-                    <br />
-
                 </div>
             </div>
-        </div>
-    </div>
 
+
+        </div>
+        <!-- lckbckscr End -->
+    </div>
+    <!-- allpagewraper End -->
     <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <!--/# data handler java script-->
-    <!--/# data handler java script-->
-    <script src="~/js/uhsHome/jquery.js"></script>
-    <script src="~/js/uhsHome/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="~/vendors/iCheck/icheck.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <script src="~/js/uhsHome/owl.carousel.min.js"></script>
-    <script src="~/js/uhsHome/mousescroll.js"></script>
-    <script src="~/js/uhsHome/jquery.prettyPhoto.js"></script>
-    <script src="~/js/uhsHome/jquery.isotope.min.js"></script>
-    <script src="~/js/uhsHome/jquery.inview.min.js"></script>
-    <script src="~/js/uhsHome/wow.min.js"></script>
-    <script src="~/js/jquery.inputpicker.js"></script>
-    <!-- iCheck -->
-    <script src="~/js/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="~/js/startmin.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var tzoffset = (new Date()).getTimezoneOffset() * 60000;
-            var d = (new Date(Date.now() - tzoffset));
-            var eddt = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
-            var yr1 = eddt.slice(0, 4);
-            var mn1 = eddt.slice(5, 7);
-            var dy1 = eddt.slice(8, 10);
-            var tm1 = eddt.slice(11, 16);
-            var eddf = mn1 + "/" + dy1 + "/" + yr1 + " " + tm1;
-            $("#dtpicker1").val(eddf);
-        });
-    </script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    @*<script src="~/js/jquery.datetimepicker.js"></script>*@
+
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
+    <script src="~/lib/highlightjs/highlight.pack.js"></script>
+    
     <script type="text/javascript">
         function PopupCenterDual(url, title, w, h) {
             // Fixes dual-screen position Most browsers Firefox
@@ -311,29 +500,16 @@
             }
         }
     </script>
-    <script type="text/javascript">
-        $(document).on('click', '.btnactive', function () {
-            var data1 = @Html.Raw(Json.Encode(ViewBag.data1));
-            var setall = [];        
-            setall.push({ value: "0", text: "-", description: "", phone: "", address: "", personalnote: "" });
-            $.each(data1, function (ID, data1) {               
-                setall.push({ value: data1.ID, text: data1.project, description: data1.taskOrder, phone: data1.createdDT, address: data1.editedDT, personalnote: data1.createdByUserID });                
-            });            
-            $('#demo').inputpicker({
-                data: setall,
-                fields: [
-                    { name: 'value', text: 'Id' },
-                    { name: 'text', text: 'Title' },
-                    { name: 'description', text: 'Description' },
-                    { name: 'phone', text: 'Phone' },
-                    { name: 'address', text: 'Address' },
-                    { name: 'personalnote', text: 'Personal Note' }
-                ],
-                headShow: true,
-                fieldText: 'text',
-                fieldValue: 'value'
-            });
-        });       
+    
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
     </script>
 </body>
+
 </html>
