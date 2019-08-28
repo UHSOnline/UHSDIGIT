@@ -51,6 +51,7 @@ namespace TRIZMA.Controllers
             int userid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.ID).First();
             // get userTypeid integer
             int userTypeid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.userType).First();
+            ViewBag.userID = userid;
             ViewBag.userTypeID = userTypeid;
             string userName = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.agentName).First();
             ViewBag.ItemSelect = 1;
@@ -71,8 +72,116 @@ namespace TRIZMA.Controllers
                                                                                           || c.taskOrderID == 65
                                                                                           || c.taskOrderID == 66)).Select(c => new { ID = c.taskOrderID }).ToList();
             ViewBag.daynbr = daynbr;
+            ViewBag.modules = opb.UHSinquriesDbs.Select(c => new { dctpid = c.dctpid, taskOrder = c.taskOrder }).Distinct().ToList();
+            ViewBag.msgs = opb.UHSSOC01vDbs.Where(c => c.crusid == userid || c.userid == userid || c.ispubl == true).OrderBy(c => c.crdt  ).Select(c => new { ID = c.ID
+                                                            , IDT = c.IDT
+                                                            , IDK = c.IDK
+                                                            , distid = c.distid
+                                                            , acctid = c.acctid
+                                                            , userid = c.userid
+                                                            , distnm = c.distnm
+                                                            , docmid = c.docmid
+                                                            , L1DS = c.L1DS
+                                                            , acctnm = c.acctnm
+                                                            , ispubl = c.ispubl
+                                                            , isrepl = c.isrepl
+                                                            , isrere = c.isrere
+                                                            , isread = c.isread
+                                                            , islike = c.islike
+                                                            , isrepo = c.isrepo
+                                                            , isdlms = c.isdlms
+                                                            , msgtxt = c.msgtxt 
+                                                            , crusid = c.crusid
+                                                            , crusnm = c.crusnm
+                                                            , viewdt = c.viewdt
+                                                            , usernm = c.usernm }).ToList();
             ViewBag.svctr = 0;
             return View();
+        }
+
+        public ActionResult getLoc(int ID)
+        {
+            if (ID == 1010003 || ID == 1010008)
+            {
+                var locs = opa.UHSUSAT1DISTRICTDbs.Select(s => s.DISTID).Distinct().ToList();
+                var data = opa.DISTRICTSDbs.Where(s => s.compid == 1 && locs.Contains(s.ID)).OrderBy(s => s.ID).Select(s => new { ID = s.ID, Name = s.district }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if(ID == 1010006)
+            {
+                var locs = opa.UHSUSAT1A360Dbs.Select(s => s.IDc).Distinct().ToList();
+                var data = opa.UHSACCTSDbs.Where(s => s.typeid == 1 && locs.Contains(s.IDc)).OrderBy(s => s.ID).Select(s => new { ID = s.IDc, Name = s.CSTNM }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010007)
+            {
+                var locs = opa.UHSUSAT1B360Dbs.Select(s => s.IDc).Distinct().ToList();
+                var data = opa.UHSACCTSDbs.Where(s => s.typeid == 2 && locs.Contains(s.IDc)).OrderBy(s => s.ID).Select(s => new { ID = s.IDc, Name = s.CSTNM }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010009)
+            {
+                var locs = opa.UHSUSAT1SURSERVDbs.Select(s => s.DISTID).Distinct().ToList();
+                var data = opa.DISTRICTSDbs.Where(s => s.compid == 2 && locs.Contains(s.ID)).OrderBy(s => s.ID).Select(s => new { ID = s.ID, Name = s.district }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010010)
+            {
+                var locs = opa.UHSUSAT1COEDbs.Select(s => s.DISTID).Distinct().ToList();
+                var data = opa.DISTCOEDbs.Where(s => s.compid == 1 && locs.Contains(s.ID)).OrderBy(s => s.ID).Select(s => new { ID = s.ID, Name = s.district }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var data = "";
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        public ActionResult getUsr(int ID, int IDb)
+        {
+            if (ID == 1010003 || ID == 1010008)
+            {
+                var locs = opa.UHSUSAT1DISTRICTDbs.Where(s => s.DISTID == IDb).Select(s => s.MGRID).ToList();
+                var data = dbv.agentsViewDbs.Where(s => locs.Contains(s.ID)).OrderBy(s => s.agentName).Select(s => new { ID = s.ID, Name = s.agentName}).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010006)
+            {
+                var locs = opa.UHSUSAT1A360Dbs.Where(s => s.IDc == IDb).Select(s => s.MGRID).ToList();
+                var data = dbv.agentsViewDbs.Where(s => locs.Contains(s.ID)).OrderBy(s => s.agentName).Select(s => new { ID = s.ID, Name = s.agentName }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010007)
+            {
+                var locs = opa.UHSUSAT1B360Dbs.Where(s => s.IDc == IDb).Select(s => s.MGRID).ToList();
+                var data = dbv.agentsViewDbs.Where(s => locs.Contains(s.ID)).OrderBy(s => s.agentName).Select(s => new { ID = s.ID, Name = s.agentName }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010009)
+            {
+                var locs = opa.UHSUSAT1SURSERVDbs.Where(s => s.DISTID == IDb).Select(s => s.MGRID).ToList();
+                var data = dbv.agentsViewDbs.Where(s => locs.Contains(s.ID)).OrderBy(s => s.agentName).Select(s => new { ID = s.ID, Name = s.agentName }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            if (ID == 1010010)
+            {
+                var locs = opa.UHSUSAT1COEDbs.Where(s => s.DISTID == IDb).Select(s => s.MGRID).ToList();
+                var data = dbv.agentsViewDbs.Where(s => locs.Contains(s.ID)).OrderBy(s => s.agentName).Select(s => new { ID = s.ID, Name = s.agentName }).ToList();
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var data = "";
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
         }
         public ActionResult SBagPr()
         {
@@ -1188,8 +1297,82 @@ namespace TRIZMA.Controllers
             }
         }
 
+        // POST: k2017orgStrL1Dbs/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult save9010001(UHSSOC01Db UHSSOC01Db)
+        {
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            var userIDselectVar = from s in db.agentsDbs where s.userID == CurrentLoginID select s.ID;
+            int userIDselectInt = userIDselectVar.Single();
+
+            List<int> returnProjectIDlist = db.agentsTaskOrdersDbs.Where(s => s.agentID == userIDselectInt)
+                             .Select(s => s.projectID)
+                             .ToList();
+
+            var userTypeSelect = from s in db.agentsDbs where s.userID == CurrentLoginID select s.userType;
+            int userTypeInt = userTypeSelect.First();
+
+            if (userTypeInt == 2 || (CurrentLoginID == User.Identity.GetUserId().ToString() && (returnProjectIDlist.Contains(13)
+                                                                                             || returnProjectIDlist.Contains(15)
+                                                                                             || returnProjectIDlist.Contains(16))))
+            {
+                var IDd = UHSSOC01Db.ID;
+
+                if (ModelState.IsValid)
+                {
+                    opa.UHSSOC01Dbs.Add(UHSSOC01Db);
+                    opa.SaveChanges();
+
+                    var msgs = opb.UHSSOC01vDbs.Where(c => c.ID == IDd).Select(c => new { ID = c.ID
+                                                            , IDT = c.IDT
+                                                            , IDK = c.IDK
+                                                            , distid = c.distid
+                                                            , acctid = c.acctid
+                                                            , userid = c.userid
+                                                            , distnm = c.distnm
+                                                            , docmid = c.docmid
+                                                            , L1DS = c.L1DS
+                                                            , acctnm = c.acctnm
+                                                            , ispubl = c.ispubl
+                                                            , isrepl = c.isrepl
+                                                            , isrere = c.isrere
+                                                            , isread = c.isread
+                                                            , islike = c.islike
+                                                            , isrepo = c.isrepo
+                                                            , isdlms = c.isdlms
+                                                            , msgtxt = c.msgtxt 
+                                                            , crusid = c.crusid
+                                                            , crusnm = c.crusnm
+                                                            , viewdt = c.viewdt
+                                                            , usernm = c.usernm }).ToList();
+                    return Json(msgs, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return View(UHSSOC01Db);
+                }
+                
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
+
+
+
+
+
+
+
+
         // POST: 
-        
+
         //[ValidateAntiForgeryToken]
         public ActionResult delDoc3010001(string id)
         {

@@ -284,6 +284,9 @@
     <Compile Include="Models\SSCYCCNTM1ssitstno.cs" />
     <Compile Include="Models\UHSDISTRICTStmp.cs" />
     <Compile Include="Models\dimStructure.cs" />
+    <Compile Include="Models\UHSDOCTPDb.cs" />
+    <Compile Include="Models\UHSSOC01vDb.cs" />
+    <Compile Include="Models\UHSSOC01Db.cs" />
     <Compile Include="Models\UHSWOP01v.cs" />
     <Compile Include="Models\UHSWOT01v.cs" />
     <Compile Include="Models\UHSWOT01.cs" />
@@ -915,6 +918,7 @@
     <Content Include="js\flot\jquery.flot.threshold.js" />
     <Content Include="js\flot\jquery.flot.time.js" />
     <Content Include="js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="js\homePage.js" />
     <Content Include="js\jquery-1.10.2.js" />
     <Content Include="js\jquery-1.12.4.js" />
     <Content Include="js\jquery-2.1.1.min.js" />
@@ -1534,6 +1538,7 @@
     <Content Include="main\img\contact\3.jpg" />
     <Content Include="main\img\contact\4.jpg" />
     <Content Include="main\img\contact\A360.png" />
+    <Content Include="main\img\contact\A360s.png" />
     <Content Include="main\img\courses\1.jpg" />
     <Content Include="main\img\courses\2.jpg" />
     <Content Include="main\img\courses\3.jpg" />

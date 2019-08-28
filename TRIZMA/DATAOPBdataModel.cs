@@ -49,7 +49,7 @@ namespace TRIZMA
         public virtual DbSet<UHSinquriesDb> UHSinquriesDbs { get; set; }
         public virtual DbSet<UHSWOP01vDb> UHSWOP01vDbs { get; set; }
         public virtual DbSet<UHSWOT01vDb> UHSWOT01vDbs { get; set; }
-
+        public virtual DbSet<UHSSOC01vDb> UHSSOC01vDbs { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
