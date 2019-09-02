@@ -402,12 +402,9 @@
     @Html.Hidden("deldctpid")
     @Html.Hidden("mod1010005")
 
-    @Html.Hidden("sID")
-    @Html.Hidden("scrdt")
-    @Html.Hidden("scompid")
-    @Html.Hidden("scrusid")
-    @Html.Hidden("scompld")
-    @Html.Hidden("sdateed")
+    @Html.Hidden("sID", null)
+    @Html.Hidden("isre", null)
+
     <!-- Start Left menu area -->
     @Html.Action("_left_sidebar_pro", "uhsCH")
     <!-- End Left menu area -->
@@ -567,7 +564,7 @@
                             </div>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                            <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn"  style="min-height:844px">
+                            <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn" style="min-height:844px">
                                 <ul id="myTabedu1" class="tab-review-design">
                                     <li class="active"><a href="#description">Activity</a></li>
                                     <li id="commt"><a href="#reviews"> VWP Community</a></li>
@@ -652,71 +649,72 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                <div class="product-tab-list tab-pane fade" id="reviews">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                                            <div class="review-content-section">
-                                                <div class="chat-discussion" id="chatDisc" style="height: 480px; overflow: auto">
-                                                    
-                                                    
-                                                    
-                                                    <div class="clear"></div>
+                                    <div class="product-tab-list tab-pane fade" id="reviews">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                <div class="review-content-section">
+                                                    <div class="chat-discussion" id="chatDisc" style="height: 480px; overflow: auto">
+
+
+
+                                                        <div class="clear"></div>
+                                                    </div>
                                                 </div>
+                                                <br />
+                                                <hr />
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
+                                                                <span style="font-size:12px; color:#0076A8">Module:</span>
+                                                            </div>
+                                                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                <select class="form-control col-lg-12" id="selMod" style="max-height:32px; border-radius:12px"></select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top:2px">
+                                                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
+                                                                <span style="font-size:12px; color:#0076A8">Location:</span>
+                                                            </div>
+                                                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                <select class="form-control col-lg-12" id="selLoc" style="max-height:32px; border-radius:12px">
+                                                                    <option value="0">-</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top:2px">
+                                                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
+                                                                <span style="font-size:12px; color:#0076A8">User:</span>
+                                                            </div>
+                                                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                <select class="form-control col-lg-12" id="selUsr" style="max-height:32px; border-radius:12px">
+                                                                    <option value="0">-</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" id="textPos">
+                                                        
+                                                        <textarea class="form-control col-lg-12" id="txtArea" rows="5" placeholder="Type message (up to 1000 char) ..." style="border-radius:12px"></textarea>
+                                                        <div class="row">
+                                                            <div class="col-lg-12" style="padding-top:6px">
+                                                                <button class="btn btn-success" id="sndbtn"><i class="fa fa-send"></i><span style="padding-left:8px">Send</span></button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+
+
+
                                             </div>
-                                            <br />
-                                            <hr />
-
-                                            <div class="row">
-                                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                                    <div class="row">
-                                                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
-                                                            <span style="font-size:12px; color:#0076A8">Module:</span>
-                                                        </div>
-                                                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                            <select class="form-control col-lg-12" id="selMod" style="max-height:32px; border-radius:12px"></select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row" style="padding-top:2px">
-                                                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
-                                                            <span style="font-size:12px; color:#0076A8">Location:</span>
-                                                        </div>
-                                                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                            <select class="form-control col-lg-12" id="selLoc" style="max-height:32px; border-radius:12px">
-                                                                <option value="0">-</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row" style="padding-top:2px">
-                                                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
-                                                            <span style="font-size:12px; color:#0076A8">User:</span>
-                                                        </div>
-                                                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                            <select class="form-control col-lg-12" id="selUsr" style="max-height:32px; border-radius:12px">
-                                                                <option value="0">-</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                                    <textarea class="form-control col-lg-12" id="txtArea" rows="5" placeholder="Type message (up to 1000 char) ..." style="border-radius:12px"></textarea>
-                                                    <div class="row">
-                                                        <div class="col-lg-12" style="padding-top:6px">
-                                                            <button class="btn btn-success" id="sndbtn"><i class="fa fa-send"></i><span style="padding-left:8px">Send</span></button>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-
-
-
                                         </div>
                                     </div>
-                                </div>
                                     <div class="product-tab-list tab-pane fade" id="INFORMATION">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -924,11 +922,19 @@
                 document.getElementById("sndbtn").click();
             }
         });
-        $(".replBtn").on('click', function () {
-            sendData();
-        });
+
         $("#sndbtn").on('click', function () {
-            sendData();
+            var sID = $("#sID").val();
+            if (sID == null || sID == "") {
+                sendData();
+            } else {
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var d = (new Date(Date.now() - tzoffset));
+                var b = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                var c = @ViewBag.userID;
+                var a = "#btr_" + sID;
+                btsFun(a, sID, 3);
+            }
         });
         function sendData() {
             var tzoffset = (new Date()).getTimezoneOffset() * 60000;
@@ -937,7 +943,6 @@
             var c = @ViewBag.userID;
             var a = b.slice(0, 4) + b.slice(5, 7) + b.slice(8, 10) + b.slice(11, 13) + b.slice(14, 16) + b.slice(17, 19) + b.slice(20, 23) + "T" + c + "U";
             var nul = null;
-
             var docmid = $("#selMod").val();
             var distid = $("#selLoc").val();
             var acctid = $("#selLoc").val();
@@ -951,7 +956,7 @@
             var isdlms = false;
             var isrddt = nul;
             var isrodt = nul;
-            var msgtxt = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");        
+            var msgtxt = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
             var data = {
                   ID: a
                 , IDT: nul
@@ -977,7 +982,7 @@
                 , isrodt: nul
                 , msgtxt: msgtxt
                 , chck: false
-                , chckid: c
+                , chckid: userid
                 , chckdt: nul
                 , crdt: b
                 , eddt: b
@@ -991,35 +996,47 @@
                 url: '/uhsCH/save9010001',
                 dataType: "JSON",
                 success: function (msgs) {
-                    $.each(msgs, function (ID, msgs) {
-                        var acctnm = [];
-                        if (msgs.acctnm != null) {
-                            acctnm = " > " + msgs.acctnm;
-                        }
-                        var msg = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/A360s.png' alt='' title='Asset360'></div><div class='message'><a class='message-author'><span> " + msgs.crusnm + " </span><span style='font-size:12px; color:dodgerblue'> to " + msgs.usernm + "</span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-eye'></i> Seen </a><a class='btn btn-xs btn-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'><a class='btn btn-xs btn-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-arrow-down'></i> Report </a></span></div></div></div></div></div>";
-                        $("#chatDisc").append(msg);
-                    });
-                    $("#chatDisc").animate({ scrollTop: $('#chatDisc').prop("scrollHeight") }, 1000);
+                    readData(msgs);
+                    $("#selMod").val(0).attr("selected", "selected");
+                    $("#selLoc").html("");
+                    $("#selLoc").append(
+                        $('<option></option>').val(0).html("-"));
+                    $("#selUsr").html("");
+                    $("#selUsr").append(
+                        $('<option></option>').val(0).html("-"));
+                    $("#txtArea").val("");
                 }
             });
         }
-        $(document).ready(function () {
+
+        function readData(msgs) {
             var userid = @ViewBag.userID;
-            var mods = @Html.Raw(Json.Encode(@ViewBag.modules));
-            $.each(mods, function (ID, mods) {
-                $("#selMod").append(
-                    $('<option></option>').val(mods.dctpid).html(mods.taskOrder));
-            });
-            var msgs = @Html.Raw(Json.Encode(@ViewBag.msgs));
+            //console.log(msgs);
             $.each(msgs, function (ID, msgs) {
                 if (msgs.isdlms == true) {
                     return;
-                } 
+                }
                 var msg = [];
                 var acctnm = [];
                 var islike = [];
                 var isread = [];
                 var isrepo = [];
+                var avatar = [];
+                if (msgs.docmid == 1010003) {
+                    avatar = "Visus.png' title='VWP Standards'";
+                } else if (msgs.docmid == 1010006) {
+                    avatar = "A360s.png' title='Asset360'";
+                } else if (msgs.docmid == 1010007) {
+                    avatar = "B360s.png' title='BioMed360'";
+                } else if (msgs.docmid == 1010008) {
+                    avatar = "Dists.png' title='District'";
+                } else if (msgs.docmid == 1010009) {
+                    avatar = "Surgs.png' title='Surgical Services'";
+                } else if (msgs.docmid == 1010010) {
+                    avatar = "Coeps.png' title='COE Ops'";
+                } else if (msgs.docmid == 6010001) {
+                    avatar = "Mapps.png' title='Inventory Mapping'";
+                }
                 if (msgs.acctnm != null) {
                     acctnm = " > " + msgs.acctnm;
                 }
@@ -1030,91 +1047,126 @@
                     if (msgs.isread == true) {
                         isread = "";
                     } else {
-                        isread = "<a class='btn btn-xs btn-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-eye'></i> Seen </a>";
+                        isread = "<a class='btn btn-xs lbl-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\",1)'><i class='fa fa-eye'></i> Seen </a>";
                     }
+                    var lik = [];
                     if (msgs.islike == true) {
-                        islike = "<a class='btn btn-xs btn-success' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a>";
+                        lik = "style='color: orange'";
                     } else {
-                        islike = "<a class='btn btn-xs btn-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a>";
+                        lik = "";
                     }
+                    islike = "<a class='btn btn-xs lbl-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\",2)' " + lik + "><i class='fa fa-thumbs-up'></i> Like </a>";
                     if (msgs.isrepo == true) {
-                        if (userid == msgs.crusid) {
-                            isrepo = "<a class='btn btn-xs btn-danger' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"><i class='fa fa-bullhorn'></i> Reported! </a>";
-                        } else {
-                            isrepo = "<a class='btn btn-xs btn-danger' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-bullhorn'></i> Report </a>";
-                        }
-                        
+                        isrepo = "<a class='btn btn-xs lbl-default' style='color: orange'><i class='fa fa-bullhorn'></i> Reported! </a>";
+
                     } else {
-                        isrepo = "<a class='btn btn-xs btn-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-bullhorn'></i> Report </a>";
+                        isrepo = "<a class='btn btn-xs lbl-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\",4)'><i class='fa fa-bullhorn'></i> Report </a>";
                     }
                     if (msgs.isrepl == true) {
                         var col = [];
                         var dirct = [];
+                        var side = "left col-lg-8";
+                        dirct = "from: " + msgs.crusnm;
                         if (userid != msgs.crusid) {
                             col = "hotpink";
-                            dirct = "from: " + msgs.crusnm;
                         } else {
                             col = "forestgreen";
-                            dirct = "to: " + msgs.usernm;
                             isread = "";
                             islike = "";
                             isrepo = "";
                         }
+                        if (userid != msgs.chckid) {
+                            side = "right col-lg-8";
+                        }
                         var inst = "#dld_" + msgs.IDT;
-                        msg = "<div class='pull-left col-lg-8' id='dlm_" + msgs.ID + "'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:" + col + "; font-size:12px'> > reply " + dirct + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete message?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div>";
-                        
+
+                        msg = "<div class='pull-" + side + "' id='dlm_" + msgs.ID + "'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:" + col + "; font-size:12px'> > reply " + dirct + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete for myself?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div>";
                         $(inst).append(msg);
                     } else {
                         if (userid == msgs.crusid) {
                             if (msgs.isrepo == false) {
                                 isrepo = "";
                             }
-                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/A360s.png' alt='' title='Asset360'></div><div class='message' style='background-color:antiquewhite'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> to: </span><span> " + msgs.usernm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
+                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message' style='background-color:antiquewhite'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> to: </span><span> " + msgs.usernm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
                             $("#chatDisc").append(msg);
                         } else {
-                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-10'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/A360s.png' alt='' title='Asset360'></div><div class='message'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> from: </span><span> " + msgs.crusnm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
+                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-10'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> from: </span><span> " + msgs.crusnm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
                             $("#chatDisc").append(msg);
                         }
-                        
                     }
                 }
-                
-               
-                
-                //var msg  = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-10'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/A360s.png' alt='' title='Asset360'></div><div class='message'><a class='message-author'><span> " + msgs.crusnm + " </span><span style='font-size:12px; color:dodgerblue'> to me:</span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-eye'></i> Seen </a><a class='btn btn-xs btn-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'><a class='btn btn-xs btn-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-arrow-down'></i> Report </a></span></div></div></div></div></div>";
-                //var msgba = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-8'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:white'><span style='color:hotpink; font-size:12px'> reply > to " + msgs.usernm + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete message?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a></div></div></div></div></div>";
-                //var msgb = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-8'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:forestgreen; font-size:12px'> reply > from " + msgs.usernm + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete message?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-eye'></i> Seen </a><a class='btn btn-xs btn-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'><a class='btn btn-xs btn-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-arrow-down'></i> Report </a></span></div></div></div></div></div>";
-                
-                //var msgc = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/A360s.png' alt='' title='Asset360'></div><div class='message' style='background-color:antiquewhite'><a class='message-author'><span> me to " + msgs.usernm + "</span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'></span></div></div></div></div></div>";
-                //var msgd = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-8'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:hotpink; font-size:12px'> reply > to " + msgs.usernm + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete message?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs btn-default' id='bts_" + msgs.ID + "' data-id=\"" + msgs.isread + "\" onclick='btsFun(\"#bts_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-eye'></i> Seen </a><a class='btn btn-xs btn-default' id='btl_" + msgs.ID + "' data-id=\"" + msgs.islike + "\" onclick='btsFun(\"#btl_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-thumbs-up'></i> Like </a><a class='btn btn-xs btn-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'><a class='btn btn-xs btn-default' id='btp_" + msgs.ID + "' data-id=\"" + msgs.isrepo + "\"  onclick='btsFun(\"#btp_" + msgs.ID + "\",\"" + msgs.ID + "\")'><i class='fa fa-arrow-down'></i> Report </a></span></div></div></div></div></div>";
-
-                //$("#chatDisc").append(msg);
-                
             });
-            
-        });
-        function btsFun(a, b) {
-            var cln = $(a).hasClass("btn-default");
-            var rd = $(a).attr("data-id");
-            //alert(cln); alert(rd);
-            if (cln == true && rd == "false") {
-                $(a).removeClass("btn-default").addClass("btn-success").attr("data-id", true);
-            } else if (cln == false && rd == "true") {
-                $(a).removeClass("btn-success").addClass("btn-default").attr("data-id", false);
-            } else {
+            $("#chatDisc").animate({ scrollTop: $('#chatDisc').prop("scrollHeight") }, 1000);
+        }
+        $(document).ready(function () {
+            var mods = @Html.Raw(Json.Encode(@ViewBag.modules));
+            $.each(mods, function (ID, mods) {
+                $("#selMod").append(
+                    $('<option></option>').val(mods.dctpid).html(mods.taskOrder));
+            });
+            var msgs = @Html.Raw(Json.Encode(@ViewBag.msgs));
+            readData(msgs);
 
+        });
+        function btsFun(a, b, c) {
+            //alert(a); alert(b); alert(c);
+            var rd = $(a).attr("data-id");
+            var sID = $("#sID").val();
+            if (c == 4 && rd == true) {
+                return;
+            } else if (c == 3 && (sID == null || sID == "")) {
+                $("#sID").val(b); 
+                $("#textPos").prepend("<div id='replyPos'><label class='col-lg-10' style='color:blue'>> Reply to Message ... " + b + "</label><span class='pull-right'><button class='btn btn-xs btn-danger' onclick='discard()'><i class='fa fa-close'></i><span style='padding-left:8px'>discard</span></button></span></div>");
+                $("#txtArea").focus();
+            }
+            else {
+                var txt = [];
+                var userid = @ViewBag.userID;
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var dt = (new Date(Date.now() - tzoffset));
+                var bt = dt.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+                if (c == 3 && sID != null && sID != "") {
+                    var msg = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    txt = "<|>" + msg;
+                }
+                var stra = c + "<|>" + userid + "<|>" + b + "<|>" + bt + txt;
+                $.ajax({
+                    url: '/uhsCH/messEdit',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { b: stra },
+                    success: function (msgs) {
+                        if (msgs == 1) {
+                                $(a).remove();
+                        } else if (msgs == 2) {
+                                if (rd == "false") {
+                                    $(a).css("color", "orange").attr("data-id", true);
+                                } else if (rd == "true") {
+                                    $(a).css("color", "").attr("data-id", false);
+                                }
+                            }
+                        else if (msgs == 4) {
+                                $(a).css("color", "orange").attr("data-id", true);
+                                $(a).html("").html("<i class='fa fa-bullhorn'></i> Reported!");
+                        }
+                        else {
+                            readData(msgs);
+                        }
+                        $("#sID").val("");
+                    }
+                });
             }
 
-            //alert(b);
         }
-       
+        function discard() {
+            $("#replyPos").remove();
+            $("#sID").val("");
+        };
         $("#commt").on('click', function () {
             var myClass = $(this).attr("class");
             if (myClass == "active") {
-                
                 $("#chatDisc").animate({ scrollTop: $('#chatDisc').prop("scrollHeight") }, 1000);
             }
-            
         });
         $("#selMod").on('change', function () {
             var ID = $("#selMod").val();

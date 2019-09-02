@@ -73,7 +73,8 @@ namespace TRIZMA.Controllers
                                                                                           || c.taskOrderID == 66)).Select(c => new { ID = c.taskOrderID }).ToList();
             ViewBag.daynbr = daynbr;
             ViewBag.modules = opb.UHSinquriesDbs.Select(c => new { dctpid = c.dctpid, taskOrder = c.taskOrder }).Distinct().ToList();
-            ViewBag.msgs = opb.UHSSOC01vDbs.Where(c => c.crusid == userid || c.userid == userid || c.ispubl == true).OrderBy(c => c.crdt  ).Select(c => new { ID = c.ID
+            var list = opb.UHSSOC01vDbs.Where(c => c.crusid == userid || c.userid == userid || c.ispubl == true).Select(c => c.ID).ToList();
+            ViewBag.msgs = opb.UHSSOC01vDbs.Where(c => list.Contains(c.ID) || list.Contains(c.IDT)).OrderBy(c => c.crdt).Select(c => new { ID = c.ID
                                                             , IDT = c.IDT
                                                             , IDK = c.IDK
                                                             , distid = c.distid
@@ -90,7 +91,8 @@ namespace TRIZMA.Controllers
                                                             , islike = c.islike
                                                             , isrepo = c.isrepo
                                                             , isdlms = c.isdlms
-                                                            , msgtxt = c.msgtxt 
+                                                            , msgtxt = c.msgtxt
+                                                            , chckid = c.chckid
                                                             , crusid = c.crusid
                                                             , crusnm = c.crusnm
                                                             , viewdt = c.viewdt
@@ -183,6 +185,52 @@ namespace TRIZMA.Controllers
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
         }
+        public ActionResult messEdit(string b)
+        {
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+
+            if(CurrentLoginID == User.Identity.GetUserId().ToString())
+            {
+                string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(CS))
+                {
+                    SqlCommand cmd = new SqlCommand("procAGLMESEDIT", con);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@stra", b);
+
+                    cmd.Parameters.Add("@ID", SqlDbType.VarChar, 30);
+                    cmd.Parameters["@ID"].Direction = ParameterDirection.Output;
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    string conID = cmd.Parameters["@ID"].Value.ToString();
+                    
+                    if (conID == "1" || conID == "2" || conID == "4")
+                    {
+                        var msgs = conID;                        
+                        return Json(msgs, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        
+                        var msgs = opb.UHSSOC01vDbs.Where(c => c.ID == conID).ToList();
+                        return Json(msgs, JsonRequestBehavior.AllowGet);
+                    }
+                    
+                }
+               
+            }
+            else
+            {
+                var data = "";
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            
+        }
+
+
+
         public ActionResult SBagPr()
         {
             //string CurrentLoginID = User.Identity.GetUserId().ToString();

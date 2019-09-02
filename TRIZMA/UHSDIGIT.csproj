@@ -1537,8 +1537,13 @@
     <Content Include="main\img\contact\2.jpg" />
     <Content Include="main\img\contact\3.jpg" />
     <Content Include="main\img\contact\4.jpg" />
-    <Content Include="main\img\contact\A360.png" />
     <Content Include="main\img\contact\A360s.png" />
+    <Content Include="main\img\contact\B360s.png" />
+    <Content Include="main\img\contact\Coeps.png" />
+    <Content Include="main\img\contact\Dists.png" />
+    <Content Include="main\img\contact\Mapps.png" />
+    <Content Include="main\img\contact\Surgs.png" />
+    <Content Include="main\img\contact\Visus.png" />
     <Content Include="main\img\courses\1.jpg" />
     <Content Include="main\img\courses\2.jpg" />
     <Content Include="main\img\courses\3.jpg" />
