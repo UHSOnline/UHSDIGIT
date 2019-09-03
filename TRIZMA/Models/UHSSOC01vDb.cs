@@ -60,6 +60,6 @@ namespace TRIZMA.Models
         public string edusnm { get; set; }
         public string viewdt { get; set; }
         public string usernm { get; set; }
-        
+        public int divsid { get; set; }
     }
 }

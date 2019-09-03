@@ -42,5 +42,7 @@ namespace TRIZMA.Models
         public string eddt { get; set; }
         public int crusid { get; set; }
         public int edusid { get; set; }
+        public int divsid { get; set; }
+        
     }
 }

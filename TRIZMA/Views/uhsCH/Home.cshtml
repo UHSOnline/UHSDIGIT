@@ -649,22 +649,16 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="product-tab-list tab-pane fade" id="reviews">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
                                                 <div class="review-content-section">
                                                     <div class="chat-discussion" id="chatDisc" style="height: 480px; overflow: auto">
-
-
-
                                                         <div class="clear"></div>
                                                     </div>
                                                 </div>
                                                 <br />
                                                 <hr />
-
                                                 <div class="row">
                                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                                         <div class="row">
@@ -672,7 +666,17 @@
                                                                 <span style="font-size:12px; color:#0076A8">Module:</span>
                                                             </div>
                                                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                <select class="form-control col-lg-12" id="selMod" style="max-height:32px; border-radius:12px"></select>
+                                                                <select class="form-control col-lg-12" id="selMod" style="max-height:32px; border-radius:4px"></select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" style="padding-top:2px">
+                                                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12" style="padding-top:5px">
+                                                                <span style="font-size:12px; color:#0076A8">Division:</span>
+                                                            </div>
+                                                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                                <select class="form-control col-lg-12" id="selDiv" style="max-height:32px; border-radius:4px">
+                                                                    <option value="0">-</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="row" style="padding-top:2px">
@@ -680,7 +684,7 @@
                                                                 <span style="font-size:12px; color:#0076A8">Location:</span>
                                                             </div>
                                                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                <select class="form-control col-lg-12" id="selLoc" style="max-height:32px; border-radius:12px">
+                                                                <select class="form-control col-lg-12" id="selLoc" style="max-height:32px; border-radius:4px">
                                                                     <option value="0">-</option>
                                                                 </select>
                                                             </div>
@@ -690,28 +694,28 @@
                                                                 <span style="font-size:12px; color:#0076A8">User:</span>
                                                             </div>
                                                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                                                                <select class="form-control col-lg-12" id="selUsr" style="max-height:32px; border-radius:12px">
+                                                                <select class="form-control col-lg-12" id="selUsr" style="max-height:32px; border-radius:4px">
                                                                     <option value="0">-</option>
                                                                 </select>
                                                             </div>
                                                         </div>
-
-                                                    </div>
-                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" id="textPos">
-                                                        
-                                                        <textarea class="form-control col-lg-12" id="txtArea" rows="5" placeholder="Type message (up to 1000 char) ..." style="border-radius:12px"></textarea>
                                                         <div class="row">
-                                                            <div class="col-lg-12" style="padding-top:6px">
-                                                                <button class="btn btn-success" id="sndbtn"><i class="fa fa-send"></i><span style="padding-left:8px">Send</span></button>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top:7px">
+                                                                <div class="alert alert-warning" role="alert">
+                                                                    <strong>Note!</strong> Only admin users can send public messages.
+                                                                </div>
                                                             </div>
                                                         </div>
-
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" id="textPos">
+                                                        <textarea class="form-control col-lg-12" id="txtArea" rows="6" placeholder="Type message (up to 1000 char) ..." style="border-radius:4px"></textarea>
+                                                        <div class="row">
+                                                            <div class="col-lg-12" style="padding-top:6px">
+                                                                <button class="btn btn-default col-lg-6" id="sndbtn" style="min-height:54px"><i class="fa fa-send"></i><span style="padding-left:8px">Send</span></button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-
-
-
                                             </div>
                                         </div>
                                     </div>
@@ -926,7 +930,37 @@
         $("#sndbtn").on('click', function () {
             var sID = $("#sID").val();
             if (sID == null || sID == "") {
-                sendData();
+                var ut = @ViewBag.userTypeID;
+                if (ut == 2) {
+                    sendData(2);
+                } else {
+                    var sM = $("#selMod").val();
+                    var sD = $("#selDiv").val();
+                    var sL = $("#selLoc").val();
+                    var sU = $("#selUsr").val();
+                    var mT = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
+                    if (sM == 0) {
+                        alert("Please select module!");
+                        return;
+                    }
+                    if (sD == 0) {
+                        alert("Please select division!");
+                        return;
+                    }
+                    if (sL == 0) {
+                        alert("Please select location!");
+                        return;
+                    }
+                    if (sU == 0) {
+                        alert("Please select user!");
+                        return;
+                    } if (mT == null || mT == "") {
+                        alert("Please write message!");
+                        return;
+                    }
+                    sendData(0);
+                }
+                
             } else {
                 var tzoffset = (new Date()).getTimezoneOffset() * 60000;
                 var d = (new Date(Date.now() - tzoffset));
@@ -936,7 +970,7 @@
                 btsFun(a, sID, 3);
             }
         });
-        function sendData() {
+        function sendData(gU) {
             var tzoffset = (new Date()).getTimezoneOffset() * 60000;
             var d = (new Date(Date.now() - tzoffset));
             var b = d.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
@@ -944,16 +978,16 @@
             var a = b.slice(0, 4) + b.slice(5, 7) + b.slice(8, 10) + b.slice(11, 13) + b.slice(14, 16) + b.slice(17, 19) + b.slice(20, 23) + "T" + c + "U";
             var nul = null;
             var docmid = $("#selMod").val();
+            var divsid = $("#selDiv").val();
             var distid = $("#selLoc").val();
             var acctid = $("#selLoc").val();
             var userid = $("#selUsr").val();
-            var ispubl = false;
-            var isrepl = false;
-            var isrere = false;
-            var isread = false;
-            var islike = false;
-            var isrepo = false;
-            var isdlms = false;
+            var ispubl = [];
+            if (gU == 2 && userid == 0) {
+                ispubl = true;
+            } else {
+                ispubl = false;
+            }
             var isrddt = nul;
             var isrodt = nul;
             var msgtxt = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
@@ -971,7 +1005,7 @@
                 , userid: userid
                 , dimgid: 0
                 , docmid: docmid
-                , ispubl: false
+                , ispubl: ispubl
                 , isrepl: false
                 , isrere: false
                 , isread: false
@@ -988,6 +1022,7 @@
                 , eddt: b
                 , crusid: c
                 , edusid: c
+                , divsid: divsid
             };
             $.ajax({
                 type: "POST",
@@ -996,26 +1031,20 @@
                 url: '/uhsCH/save9010001',
                 dataType: "JSON",
                 success: function (msgs) {
-                    readData(msgs);
-                    $("#selMod").val(0).attr("selected", "selected");
-                    $("#selLoc").html("");
-                    $("#selLoc").append(
-                        $('<option></option>').val(0).html("-"));
-                    $("#selUsr").html("");
-                    $("#selUsr").append(
-                        $('<option></option>').val(0).html("-"));
-                    $("#txtArea").val("");
+                    if (msgs.ispubl == true) {
+                        return;
+                    } else {
+                        readData(msgs);
+                        discard();
+                    }
+                    
                 }
             });
-        }
-
+        };
         function readData(msgs) {
             var userid = @ViewBag.userID;
             //console.log(msgs);
             $.each(msgs, function (ID, msgs) {
-                if (msgs.isdlms == true) {
-                    return;
-                }
                 var msg = [];
                 var acctnm = [];
                 var islike = [];
@@ -1080,17 +1109,17 @@
                         }
                         var inst = "#dld_" + msgs.IDT;
 
-                        msg = "<div class='pull-" + side + "' id='dlm_" + msgs.ID + "'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:" + col + "; font-size:12px'> > reply " + dirct + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete for myself?' style='padding-left:12px'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div>";
+                        msg = "<div class='pull-" + side + "' id='dlm_" + msgs.ID + "'><div class='chat-message'><div class='profile-hdtc'></div><div class='message' style='background-color:white; border:solid; border-width:thin; border-color:antiquewhite'><span style='color:" + col + "; font-size:12px'> > reply " + dirct + "</span><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + "<a href='#' title='Delete for myself?' style='padding-left:12px' onclick='btsDel(\"" + msgs.ID + "\",2)'><i class='fa fa-times-circle-o' style='transform:scale(1.6)'></i></a></span><br><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div>";
                         $(inst).append(msg);
                     } else {
                         if (userid == msgs.crusid) {
                             if (msgs.isrepo == false) {
                                 isrepo = "";
                             }
-                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message' style='background-color:antiquewhite'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> to: </span><span> " + msgs.usernm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
+                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-right col-lg-9'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message' style='background-color:antiquewhite'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> to: </span><span> " + msgs.usernm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\",1)'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'><a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
                             $("#chatDisc").append(msg);
                         } else {
-                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-10'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> from: </span><span> " + msgs.crusnm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\")'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
+                            msg = "<div id='dld_" + msgs.ID + "'><div class='pull-left col-lg-10'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> from: </span><span> " + msgs.crusnm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " <a style='padding-left:12px' href='#' title='Remove discussion?' onclick='btsDel(\"" + msgs.ID + "\",1)'><i class='fa fa-times-circle-o' style='transform:scale(1.7)'></i></a></span><br><span style='color:dodgerblue; font-size:12px'>" + msgs.L1DS + " > " + msgs.distnm + "  " + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'>" + isread + islike + "<a class='btn btn-xs lbl-default' id='btr_" + msgs.ID + "' data-id=\"" + msgs.isrepl + "\" onclick='btsFun(\"#btr_" + msgs.ID + "\",\"" + msgs.ID + "\",3)'><i class='fa fa-reply'></i> Reply </a><span class='pull-right'>" + isrepo + "</span></div></div></div></div></div>";
                             $("#chatDisc").append(msg);
                         }
                     }
@@ -1128,6 +1157,7 @@
                 if (c == 3 && sID != null && sID != "") {
                     var msg = $("#txtArea").val().replace(/(\r\n\t|\n|\r\t)/gm, " ");
                     txt = "<|>" + msg;
+
                 }
                 var stra = c + "<|>" + userid + "<|>" + b + "<|>" + bt + txt;
                 $.ajax({
@@ -1153,14 +1183,45 @@
                             readData(msgs);
                         }
                         $("#sID").val("");
+                        discard();
                     }
                 });
             }
 
         }
+        function btsDel(a, b) {
+            $.ajax({
+                url: '/uhsCH/messDel',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: a },
+                success: function (msgs) {
+                    if (msgs == 1) {
+                        var ms = [];
+                        if (b == 1) {
+                            ms = "#dld_" + a;
+                        } else if (b == 2) {
+                            ms = "#dlm_" + a;
+                        }
+                        $(ms).remove();
+                    }
+                }
+            });
+        };
         function discard() {
             $("#replyPos").remove();
             $("#sID").val("");
+            $("#selMod").val(0).attr("selected", "selected");
+            $("#selDiv").html("");
+            $("#selDiv").append(
+                $('<option></option>').val(0).html("-"));
+            $("#selLoc").html("");
+            $("#selLoc").append(
+                $('<option></option>').val(0).html("-"));
+            $("#selUsr").html("");
+            $("#selUsr").append(
+                $('<option></option>').val(0).html("-"));
+            $("#txtArea").val("");
         };
         $("#commt").on('click', function () {
             var myClass = $(this).attr("class");
@@ -1171,10 +1232,35 @@
         $("#selMod").on('change', function () {
             var ID = $("#selMod").val();
             $.ajax({
-                url: '/uhsCH/getLoc',
+                url: '/uhsCH/getDiv',
                 type: "GET",
                 dataType: "JSON",
                 data: { ID: ID },
+                success: function (data) {
+                    $("#selDiv").html(""); // clear before appending new list
+                    $("#selLoc").html(""); // clear before appending new list
+                    $("#selUsr").html(""); // clear before appending new list
+                    $("#selDiv").append(
+                        $('<option></option>').val(0).html("-"));
+                    $.each(data, function (ID, data) {
+                        $("#selDiv").append(
+                            $('<option></option>').val(data.ID).html(data.Name));
+                    });
+                    $("#selLoc").append(
+                        $('<option></option>').val(0).html("-"));
+                    $("#selUsr").append(
+                        $('<option></option>').val(0).html("-"));
+                }
+            });
+        });
+        $("#selDiv").on('change', function () {
+            var ID = $("#selMod").val();
+            var IDc = $("#selDiv").val();
+            $.ajax({
+                url: '/uhsCH/getLoc',
+                type: "GET",
+                dataType: "JSON",
+                data: { ID: ID, IDc: IDc },
                 success: function (data) {
                     $("#selLoc").html(""); // clear before appending new list
                     $("#selUsr").html(""); // clear before appending new list

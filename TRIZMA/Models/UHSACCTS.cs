@@ -44,5 +44,6 @@ namespace TRIZMA.Models
         public string OMDEM { get; set; }
         public int wchk { get; set; }
         public int utco { get; set; }
+        public int divID { get; set; }
     }
 }
