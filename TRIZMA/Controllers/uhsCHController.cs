@@ -30,6 +30,36 @@ namespace TRIZMA.Controllers
         private DATAOPAdataModel opa = new DATAOPAdataModel();
         private DATAOPBdataModel opb = new DATAOPBdataModel();
         // GET: clientsDbs
+
+       
+        public ActionResult UserLogin(string a, int b)
+        {
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+            var stra = b + "<|>" + CurrentLoginID + "<|>" + a;
+
+            string CS = ConfigurationManager.ConnectionStrings["VIEWdataConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand("procUserLoginRec", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@stra", stra);
+
+                SqlParameter outputParameter = new SqlParameter();
+                outputParameter.ParameterName = "@ID";
+                outputParameter.SqlDbType = System.Data.SqlDbType.Int;
+                outputParameter.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(outputParameter);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                string conID = outputParameter.Value.ToString();
+                int data = Int32.Parse(conID);
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
         public ActionResult Index()
         {
             string check1 = null;
@@ -39,8 +69,9 @@ namespace TRIZMA.Controllers
                 ViewBag.ItemSelect = 989;
                 return View();
             }
-            else {
-                return RedirectToAction("District","uhsCH");
+            else
+            {
+                return RedirectToAction("District", "uhsCH");
             }
         }
         public ActionResult Home()
@@ -72,7 +103,7 @@ namespace TRIZMA.Controllers
                                                                                           || c.taskOrderID == 66)).Select(c => new { ID = c.taskOrderID }).ToList();
             ViewBag.daynbr = daynbr;
             ViewBag.modules = opb.UHSinquriesDbs.Select(c => new { dctpid = c.dctpid, taskOrder = c.taskOrder }).Distinct().ToList();
-            var list = opb.UHSSOC01vDbs.Where(c => (c.crusid == userid || c.userid == userid) && c.ispubl == false && c.isdlms == false).Select(c => c.ID).ToList();
+            var list = opb.UHSSOC01vDbs.Where(c => (c.crusid == userid || c.userid == userid || c.ispubl == true) && c.isdlms == false).Select(c => c.ID).ToList();
             ViewBag.msgs = opb.UHSSOC01vDbs.Where(c => list.Contains(c.ID) || list.Contains(c.IDT)).OrderBy(c => c.crdt).Select(c => new { ID = c.ID
                                                             , IDT = c.IDT
                                                             , IDK = c.IDK

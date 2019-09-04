@@ -27,16 +27,14 @@ namespace TRIZMA
         public virtual DbSet<toInquriesChanelViewDb> toInquriesChanelViewDbs { get; set; }
         public virtual DbSet<toInquriesForwardViewDb> toInquriesForwardViewDbs { get; set; }
         public virtual DbSet<toInquriesProductsViewDb> toInquriesProductsViewDbs { get; set; }
-
         public virtual DbSet<k2017orgStrL1ViewDb> k2017orgStrL1ViewDbs { get; set; }
         public virtual DbSet<k2017orgStrL2ViewDb> k2017orgStrL2ViewDbs { get; set; }
         public virtual DbSet<k2017orgStrL3ViewDb> k2017orgStrL3ViewDbs { get; set; }
         public virtual DbSet<k2017orgStrSubGrViewDb> k2017orgStrSubGrViewDbs { get; set; }
         public virtual DbSet<UHSzipLongLatDb> UHSzipLongLatDbs { get; set; }
         public virtual DbSet<vChartCMScount1Db> vChartCMScount1Dbs { get; set; }
-
+        public virtual DbSet<AspNetUserLoginRecDb> AspNetUserLoginRecDbs { get; set; }
         
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

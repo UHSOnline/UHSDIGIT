@@ -8,13 +8,14 @@ using TRIZMA.Models;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using PagedList;
-
-
+using Microsoft.AspNet.Identity;
 
 namespace TRIZMA.Controllers
 {
     public class HomeController : Controller
     {
+        private CRUDdataModel db = new CRUDdataModel();
+
         public ActionResult Index()
         {
             return Redirect("~/uhsCH/Index");
@@ -36,12 +37,17 @@ namespace TRIZMA.Controllers
 
         public ActionResult RedirectAfterLogin()
         {
-            return RedirectToAction("Home", "uhsCH", new { projectID = 1, taskOrderID = 1, Int1 = 1 });
+            return RedirectToAction("loginDate", "Home");
+            
         }
 
         public ActionResult RedirectAfterRegister()
         {
             return RedirectToAction("Home", "uhsCH", new { projectID = 1, taskOrderID = 1, Int1 = 1 });
+        }
+        public ActionResult loginDate()
+        {
+            return View();
         }
 
 

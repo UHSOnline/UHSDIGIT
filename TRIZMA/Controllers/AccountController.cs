@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -78,6 +80,7 @@ namespace TRIZMA.Controllers
 
    
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -393,8 +396,33 @@ namespace TRIZMA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+            var stra = "0<|>" + CurrentLoginID;
+
+            string CS = ConfigurationManager.ConnectionStrings["VIEWdataConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand("procUserLoginRec", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@stra", stra);
+
+                SqlParameter outputParameter = new SqlParameter();
+                outputParameter.ParameterName = "@ID";
+                outputParameter.SqlDbType = System.Data.SqlDbType.Int;
+                outputParameter.Direction = System.Data.ParameterDirection.Output;
+                cmd.Parameters.Add(outputParameter);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+
+                string conID = outputParameter.Value.ToString();
+                
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+                return RedirectToAction("Index", "Home");
+            }
+
+            
         }
 
         //

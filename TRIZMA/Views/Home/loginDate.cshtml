@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>loginDate</title>
+    
+</head>
+<body>
+    <div>
+       
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function (e) {
+            var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+            var dt = (new Date(Date.now() - tzoffset));
+            var bt = dt.toISOString(); // ISO "2013-12-08T17:55:38.130Z"
+            $.ajax({
+                url: '/uhsCH/UserLogin',
+                type: "GET",
+                dataType: "JSON",
+                data: { a: bt, b: 1 },
+                success: function (data) {
+                    if (data == 1) {
+                        window.location = "/uhsCH/Home?projectID=1&taskOrderID=1&Int1=1";
+                    } 
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

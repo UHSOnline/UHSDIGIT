@@ -567,7 +567,7 @@
                             <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn" style="min-height:844px">
                                 <ul id="myTabedu1" class="tab-review-design">
                                     <li class="active"><a href="#description">Activity</a></li>
-                                    <li id="commt"><a href="#reviews"> VWP Community</a></li>
+                                    <li id="commt"><a href="#reviews"> Messenger</a></li>
                                     <li><a href="#INFORMATION">Whats New?</a></li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">
@@ -723,15 +723,11 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                 <div class="review-content-section">
-                                                    <div class="row">
-                                                        <div class="col-lg-12">
-                                                            <div class="skill-title">
-                                                                <h2>In Development!</h2>
-                                                                <hr />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <div class="chat-discussion" id="whatsNew" style="height: 720px; overflow: auto">
 
+                                                
+                                                        <div class="clear"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1051,7 +1047,9 @@
                 var isread = [];
                 var isrepo = [];
                 var avatar = [];
-                if (msgs.docmid == 1010003) {
+                if (msgs.docmid == 0 && msgs.ispubl == true) {
+                    avatar = "Public.png' title='Announcement'";
+                } else if (msgs.docmid == 1010003) {
                     avatar = "Visus.png' title='VWP Standards'";
                 } else if (msgs.docmid == 1010006) {
                     avatar = "A360s.png' title='Asset360'";
@@ -1066,13 +1064,28 @@
                 } else if (msgs.docmid == 6010001) {
                     avatar = "Mapps.png' title='Inventory Mapping'";
                 }
-                if (msgs.acctnm != null) {
-                    acctnm = " > " + msgs.acctnm;
-                }
+                
                 if (msgs.ispubl == true) {
-
+                    if (msgs.acctid > 0 && msgs.acctnm != null) {
+                        acctnm = msgs.L1DS + " > " + msgs.distnm + " > " + msgs.acctnm;
+                    } else {
+                        if (msgs.distid > 0) {
+                            acctnm = msgs.L1DS + " > " + msgs.distnm;
+                        } else {
+                            if (msgs.docmid > 0) {
+                                acctnm = msgs.L1DS
+                            } else {
+                                acctnm = "Public Announcement!"
+                            }
+                        }
+                    }
+                    msg = "<div id='dlw_" + msgs.ID + "'><div class='pull-left col-lg-12'><div class='chat-message'><div class='profile-hdtc'><img class='message-avatar' src='../main/img/contact/" + avatar + " alt=''></div><div class='message'><a class='message-author'><span style='font-size:12px; color:dodgerblue'> from: </span><span> " + msgs.crusnm + " </span></a><span class='message-date' style='font-size:12px; color:gray'> " + msgs.viewdt + " </span><br><span style='color:dodgerblue; font-size:12px'>" + acctnm + "</span><span class='message-content'>" + msgs.msgtxt + "</span><div class='m-t-md mg-t-10'></div></div></div></div></div>";
+                    $("#whatsNew").append(msg);
                 }
                 else {
+                    if (msgs.acctnm != null) {
+                        acctnm = " > " + msgs.acctnm;
+                    }
                     if (msgs.isread == true) {
                         isread = "";
                     } else {
@@ -1123,9 +1136,10 @@
                             $("#chatDisc").append(msg);
                         }
                     }
+                    $("#chatDisc").animate({ scrollTop: $('#chatDisc').prop("scrollHeight") }, 1000);
                 }
             });
-            $("#chatDisc").animate({ scrollTop: $('#chatDisc').prop("scrollHeight") }, 1000);
+            
         }
         $(document).ready(function () {
             var mods = @Html.Raw(Json.Encode(@ViewBag.modules));
@@ -1137,6 +1151,19 @@
             readData(msgs);
 
         });
+        $(document).ready(function () {
+
+            $.each(mods, function (ID, mods) {
+                $("#selMod").append(
+                    $('<option></option>').val(mods.dctpid).html(mods.taskOrder));
+            });
+            var msgs = @Html.Raw(Json.Encode(@ViewBag.msgs));
+            readData(msgs);
+            //alert("test");
+            setTimeout(arguments.callee, 5000);
+        });
+        
+
         function btsFun(a, b, c) {
             //alert(a); alert(b); alert(c);
             var rd = $(a).attr("data-id");

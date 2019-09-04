@@ -43,52 +43,53 @@
     <![endif]-->
 </head>
 <!-- END HEAD -->
-<body>        
+<body>
     <div align="center">
-       
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <br />
-                <br />
-                <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header2.png" /></a>
-                <br />
-                <br />
-                <br />
-                <section>
-                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <h2 class="fh5co-uppercase-heading-sm fh5co-no-margin-bottom">Login</h2>
-                                <hr />
-                                <div class="fh5co-spacer fh5co-spacer-xxs"></div>
-                                <form method="post" action="#">
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", id = "email", @placeholder = "Email", style = "text-align: center" })
-                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                        <br />
-                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", id = "email", @placeholder = "Password", style = "text-align: center" })
-                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div>
-                                        @Html.CheckBoxFor(m => m.RememberMe)
-                                        <span style="font-size:smaller">Remember me</span>
-                                    </div>
-                                    <br />
-                                    <input type="submit" class="btn btn-primary btn-default" value="Login">
-                                </form>
-                                <br />
-                                <hr />
-                                <p style="font-size:smaller">@Html.ActionLink("Register as a new user", "Register")</p>
-                                <a href="@Url.Action("Home", "uhsCH")" style="font-size:smaller">Go to Start Page</a>
-                                 //Enable this once you have account confirmation enabled for password reset functionality
-                                <p>
-                                    @*<a href="@Url.Action("ForgotPassword", "Account")" style="font-size:smaller">Forgot Password</a>*@
-                                    @*@Html.ActionLink("Reset Password?", "ResetPassword")*@
-                                </p>
-                    }
-                </section>
-            </div>    
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <br />
+            <br />
+            <a target="_blank" href="https://www.agilitihealth.com"><img src="~/images/logo-header2.png" /></a>
+            <br />
+            <br />
+            <br />
+            <section>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <h2 class="fh5co-uppercase-heading-sm fh5co-no-margin-bottom">Login</h2>
+                    <hr />
+                    <div class="fh5co-spacer fh5co-spacer-xxs"></div>
+                    <form method="post" action="#">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", id = "email", @placeholder = "Email", style = "text-align: center" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", id = "email", @placeholder = "Password", style = "text-align: center" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            <span style="font-size:smaller">Remember me</span>
+                        </div>
+                        <br />
+                        <input type="submit" class="btn btn-primary btn-default" value="Login" onclick="userLog()">
+                    </form>
+                    <br />
+                    <hr />
+                    <p style="font-size:smaller">@Html.ActionLink("Register as a new user", "Register")</p>
+                    <a href="@Url.Action("Home", "uhsCH")" style="font-size:smaller">Go to Start Page</a>
+                    //Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @*<a href="@Url.Action("ForgotPassword", "Account")" style="font-size:smaller">Forgot Password</a>*@
+                        @*@Html.ActionLink("Reset Password?", "ResetPassword")*@
+                    </p>
+                }
+            </section>
+        </div>
     </div>
+
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
@@ -119,6 +120,8 @@
     <script src="~/js/main.js"></script>
 
     <script src="~/assets/js/main.js"></script>
+   
+    
 
 </body>
 </html>

@@ -262,6 +262,7 @@
     <Compile Include="Models\AGLINVMDL2.cs" />
     <Compile Include="Models\appEquipmentModels.cs" />
     <Compile Include="Models\appEquipmentTypes.cs" />
+    <Compile Include="Models\AspNetUserLoginRec.cs" />
     <Compile Include="Models\deserializer1.cs" />
     <Compile Include="Models\AGLINVMDL1.cs" />
     <Compile Include="Models\appEquipmentManufacturers.cs" />
@@ -1542,6 +1543,7 @@
     <Content Include="main\img\contact\Coeps.png" />
     <Content Include="main\img\contact\Dists.png" />
     <Content Include="main\img\contact\Mapps.png" />
+    <Content Include="main\img\contact\Public.png" />
     <Content Include="main\img\contact\Surgs.png" />
     <Content Include="main\img\contact\Visus.png" />
     <Content Include="main\img\courses\1.jpg" />
@@ -8025,6 +8027,7 @@
     <Content Include="backup\Views\uhsa360\getEditPar10100067b.cshtml" />
     <Content Include="Views\uhsCH\Homeb.cshtml" />
     <Content Include="Views\uhsCH\Home - Copy.cshtml" />
+    <Content Include="Views\Home\loginDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />
