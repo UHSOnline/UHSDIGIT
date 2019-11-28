@@ -126,9 +126,8 @@ namespace TRIZMA.Controllers
                                                             , crusid = c.crusid
                                                             , crusnm = c.crusnm
                                                             , viewdt = c.viewdt
-                                                            , usernm = c.usernm }).ToList();
-
-
+                                                            , usernm = c.usernm }).ToList();         
+      
             ViewBag.svctr = 0;
             return View();
         }
@@ -253,7 +252,42 @@ namespace TRIZMA.Controllers
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
         }
-        public ActionResult messEdit(string b)
+        public ActionResult newMess(int a, int b, int g)
+        {
+            string CurrentLoginID = User.Identity.GetUserId().ToString();
+            int userid = db.agentsDbs.Where(s => s.userID == CurrentLoginID).Select(s => s.ID).First();
+            string dbdt = null;
+
+            string CS = ConfigurationManager.ConnectionStrings["DATAOPAConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand("procDBdatetime", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar, 30);
+                cmd.Parameters["@ID"].Direction = ParameterDirection.Output;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                dbdt = cmd.Parameters["@ID"].Value.ToString();
+            }
+
+            var dbdate = Int32.Parse(dbdt.Substring(0, 8));
+            var dbtime = Int32.Parse(dbdt.Substring(9, 9));
+
+            List<int> leva = dbv.AspNetUserLoginRecDbs.AsEnumerable().Where(c => c.userID == CurrentLoginID).Select(c => c.dbdate).Distinct().ToList();
+            int maxa = leva.Max();
+            List<int> levb = dbv.AspNetUserLoginRecDbs.AsEnumerable().Where(c => c.userID == CurrentLoginID && c.dbdate == maxa).Select(c => c.dbtime).Distinct().ToList();
+            int maxb = levb.Max();
+
+            var list = opb.UHSSOC01vDbs.Where(c => (c.crusid == userid || c.userid == userid || c.ispubl == true) && c.isdlms == false).Select(c => c.ID).ToList();
+
+      
+            var msgs = "";
+            return Json(msgs, JsonRequestBehavior.AllowGet);
+
+        }
+            public ActionResult messEdit(string b)
         {
             string CurrentLoginID = User.Identity.GetUserId().ToString();
 

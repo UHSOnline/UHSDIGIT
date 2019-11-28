@@ -50,6 +50,10 @@ namespace TRIZMA
         public virtual DbSet<UHSWOP01vDb> UHSWOP01vDbs { get; set; }
         public virtual DbSet<UHSWOT01vDb> UHSWOT01vDbs { get; set; }
         public virtual DbSet<UHSSOC01vDb> UHSSOC01vDbs { get; set; }
+        public virtual DbSet<dimEquipmentGroupExternalDb> dimEquipmentGroupExternalDbs { get; set; }
+        public virtual DbSet<AGLEMPACT1vDb> AGLEMPACT1vDbs { get; set; }
+        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

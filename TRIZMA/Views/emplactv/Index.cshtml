@@ -1,0 +1,1057 @@
+﻿
+
+@{
+    Layout = null;
+}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agiliti: Employee Activity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/main/css/owl.theme.css">
+    <link rel="stylesheet" href="~/main/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/normalize.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/meanmenu.min.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/main.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/form/all-type-forms.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- dropzone CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/dropzone/dropzone.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/alerts.css">
+    <!-- educate icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/educate-custon-icon.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="~/main/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="~/main/css/calendar/fullcalendar.print.min.css">
+
+    <link rel="stylesheet" href="~/main/css/editor/select2.css">
+    <link rel="stylesheet" href="~/main/css/editor/datetimepicker.css">
+    <link rel="stylesheet" href="~/main/css/editor/bootstrap-editable.css">
+    <link rel="stylesheet" href="~/main/css/editor/x-editor-style.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <!-- DataTables CSS -->
+    <link href="~/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/leaflet.css" />
+    @*<link rel="stylesheet" href="~/main/css/data-table/bootstrap-table.css">
+        <link rel="stylesheet" href="~/main/css/data-table/bootstrap-editable.css">*@
+    <!-- modals CSS
+        ============================================ -->
+    <link rel="stylesheet" type="text/css" href="~/dist/style/loadme.css">
+    <link rel="stylesheet" href="~/main/css/modals.css">
+    <link href="~/css/jquery-confirm.min.css" rel="stylesheet" />
+
+    <link href="~/css/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <!-- tabs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/tabs.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/main/css/responsive.css">
+    @*<link href="~/css/datepicker.min.css" rel="stylesheet" type="text/css">*@
+
+    <script src="~/js/jquery.min.js"></script>
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/main/js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 9999; /* Sit on top */
+            /*padding-top: 10px;*/ /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%;
+        }
+
+        .modalb {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 110px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modalb-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+       
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .docidstore {
+            display: none;
+        }
+
+        
+
+        .tab {
+            overflow: hidden;
+            width: 100%;
+            text-align: center;
+        }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+                /* Change background color of buttons on hover */
+                .tab button:hover {
+                    background-color: lightcoral;
+                }
+
+                /* Create an active/current tablink class */
+                .tab button.active {
+                    background-color: lightblue;
+                }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            border-top: none;
+        }
+
+        .itcad {
+            background-color: lightblue !important;
+        }
+
+        .itcac {
+            color: #367EAD !important;
+        }
+
+        .itcae {
+            color: lightblue !important;
+        }
+
+        .itcaf {
+            color: #367EAD !important;
+        }
+
+        .itcak {
+            color: #F69240 !important;
+        }
+
+        .ithae {
+            font-size: smaller;
+            text-align: center;
+            color: #367EAD;
+            border-bottom: solid;
+            border-bottom-width: thin;
+            border-bottom-color: lightgray;
+        }
+
+        .itmapdiv {
+            background-color: white !important;
+        }
+
+       
+        footer {
+            display: none;
+        }
+
+        .responsiveb {
+            width: 100%;
+            height: auto;
+        }
+
+        .docidstore {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- COMMON IDENTIFIERS -->
+    @Html.Hidden("deldctpid")
+    @Html.Hidden("mod1010005")
+
+    @Html.Hidden("sID")
+    @Html.Hidden("scrdt")
+    @Html.Hidden("scompid")
+    @Html.Hidden("scrusid")
+    @Html.Hidden("scompld")
+    @Html.Hidden("sdateed")
+    <!-- Start Left menu area -->
+    @Html.Action("_left_sidebar_pro", "uhsCH")
+    <!-- End Left menu area -->
+
+    <div class="all-content-wrapper">
+        <div class="lckbckscr">
+
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        @Html.Action("_header_top_wraper", "uhsCH", new { tid = ViewBag.svctr })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu start -->
+                <div class="mobile-menu-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="mobile-menu">
+                                    <nav id="dropdown">
+                                        <ul class="mobile-menu-nav">
+                                            @Html.Action("_mobile_menu_nav", "uhsCH")
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <!-- Single pro tab review Start-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="income-dashone-total reso-mg-b-30">
+                                <div class="income-dashone-pro">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <h4><span class="itcac">Employee </span><span class="itcak"> Activity </span></h4>
+                                        <span class="itcac" style="font-size:13px">Training, Certificates ...</span>
+                                        <hr />
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" style="padding-left:36px; padding-top:12px">
+                                        <img src="~/main/img/profile/user_imagek.png" class="responsiveb" alt="" />
+                                        <br /><br />
+                                    </div>
+                                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+
+                                        @foreach (var item in ViewBag.userinfo)
+                                {
+                                    <table class="table-striped table-hover table-responsive col-lg-12" style="font-size:13px">
+                                        <thead></thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="itcak">Name:</span></td>
+                                                <td><span class="itcac"><b>@item.agentName</b></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Email:</span></td>
+                                                <td><span class="itcac">@item.UserName</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Phone:</span></td>
+                                                <td><span class="itcac">@item.workPhone</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Company:</span></td>
+                                                <td><span class="itcac">@item.orgStrL1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Department:</span></td>
+                                                <td><span class="itcac">@item.orgStrL2</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Job Class:</span></td>
+                                                <td><span class="itcac">@item.orgStrL3</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">Division:</span></td>
+                                                <td><span class="itcac">@item.division</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="itcak">District:</span></td>
+                                                <td><span class="itcac">@item.district</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                        }
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+                            </div>
+                            <br />
+                            <div class="sparkline8-list responsive-mg-b-30">
+                                <div class="sparkline8-hd">
+                                    <div class="main-sparkline8-hd">
+                                        <h5><span class="itcac">Map: </span><span class="itcak"> User Location </span></h5>
+                                    </div>
+                                </div>
+                                <div class="sparkline8-hd">
+                                    <div class="google-map-single responsiveb" id="mapBase">
+                                        <div id="mapid2" style="width:100%; height: 480px; position: relative; z-index:0"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+                            <div class="admintab-wrap edu-tab1 mg-t-30">
+                                <ul class="nav nav-tabs custom-menu-wrap custon-tab-menu-style1">
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#tab01"><span class="edu-icon edu-analytics tab-custon-ic"></span><i class="fa fa-gear" style="transform:scale(1.2)"></i> <span style="padding-left:6px">Bio - src cd 5</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab02"><span class="edu-icon edu-analytics-arrow tab-custon-ic"></span><i class="fa fa-gear" style="transform:scale(1.2)"></i> <span style="padding-left:6px">MES - src cd 4</span></a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="tab" href="#tab03"><span class="edu-icon edu-analytics-arrow tab-custon-ic"></span><i class="fa fa-table" style="transform:scale(1.2)"></i> <span style="padding-left:6px">Transcripts</span></a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="tab01" class="tab-pane in active animated flipInX custon-tab-style1">
+                                        <br />
+                                        <div class="datatable-dashv1-list custom-datatable-overright">
+                                            <table class="table table-responsive table-hover" id="tablea">
+                                                <thead>
+                                                    <tr style="font-size:12px">
+                                                        <th>Date:</th>
+                                                        <th>District:</th>
+                                                        <th>Account:</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+
+
+                                        </div>
+                                        <br />
+                                        <button class="btn btn-primary" onclick="openModal()"><i class="fa fa-plus"></i><span style="padding-left:8px"> Add Training</span></button>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div id="tab02" class="tab-pane animated flipInX custon-tab-style1">
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    @if (ViewBag.userTitleID == 2 || ViewBag.userTitleID == 3)
+                    {
+                                <div></div>
+}
+else
+{
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="panel panel-default">
+
+                                        <!-- /.panel-heading -->
+                                        <div class="panel-body">
+
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                    <span style="font-size:smaller; color:#0076A8">Division:</span>
+                                                </div>
+                                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                    <span style="font-size:smaller; color:#0076A8">District:</span>
+                                                </div>
+                                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                    @Html.DropDownList("District", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "district"), new { id = "drop22", @class = "form-control", @onchange = "Filldd22()" })
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12" align="right" style="padding-top:10px">
+                                                    <span style="font-size:smaller; color:#0076A8">Account:</span>
+                                                </div>
+                                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                                                    @Html.DropDownList("CSTNM", new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "CSTNM"), new { id = "drop23", @class = "form-control", @onchange = "Filldd23()" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+}
+                                                </div>
+
+                                                <!-- /.panel -->
+                                            </div>
+                                            <!-- /.col-lg-8 -->
+
+                                        </div>
+                                    </div>
+                                    <div id="tab03" class="tab-pane animated flipInX custon-tab-style1">
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                proba
+
+                                                <!-- /.panel -->
+                                            </div>
+                                            <!-- /.col-lg-8 -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="col-lg-12">
+                            <br />
+                            <div class="sparkline8-list responsive-mg-b-30">
+                                <div class="sparkline8-hd">
+                                    <div class="main-sparkline8-hd">
+                                        <h5><span class="itcac">Map: </span><span class="itcak"> User Location </span></h5>
+                                    </div>
+                                </div>
+                                <div class="sparkline8-hd">
+                                    <div class="google-map-single responsiveb" id="mapBase">
+                                        <div id="mapid3" style="width:100%; height: 640px; position: relative; z-index:0"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- income order visit user End -->
+            <br />
+
+
+
+            <div id="PrimaryModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header header-color-modal bg-color-1" style="text-align:center">
+                            <h4 class="modal-title">Step Edit</h4>
+                            <div class="modal-close-area modal-close-df">
+                                <a class="close" data-dismiss="modal" href="#" onclick="reload()"><i class="fa fa-close"></i></a>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" style="padding-top:4px">
+                                        <div class="row" style="padding-bottom:2px">
+                                            <div class="col-lg-3" style="text-align:left; padding-top:10px">
+                                                <label style="font-size:12px; color:#0076A8">Step Name:</label>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <input type="text" class="form-control" id="stepnm" placeholder="Type Name">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-bottom:2px">
+                                            <div class="col-lg-3" style="text-align:left; padding-top:10px">
+                                                <label style="font-size:12px; color:#F69240">Assigned To:</label>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <input id="assgto" class="form-control" placeholder="Type Name">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="padding-bottom:2px">
+                                            <div class="col-lg-3" style="text-align:left; padding-top:10px">
+                                                <label style="font-size:12px; color:#0076A8">Description:</label>
+                                            </div>
+                                            <div class="col-lg-9">
+                                                <textarea id="stepds" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group" align="center">
+                                            <label style="color:#6399AE; font-size:12px">Start:</label>
+                                            <br>
+                                            <input type="text" id="datest" class="form-control" style="text-align:center; color:green; font-size:18px" disabled="disabled" />
+
+                                        </div>
+                                        <div class="form-group" align="center">
+                                            <label style="color:#6399AE; font-size:12px">Estimated:</label>
+                                            <br>
+                                            <input type="text" id="dateex" class="form-control" style="text-align:center; color:blue; font-size:18px" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#6399AE">Hrs:</label>
+                                                    <input type="number" class="form-control" min="0" max="100" id="wrkhrs" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#6399AE">Min:</label>
+                                                    <input type="number" class="form-control" min="0" max="59" id="wrkmin" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#00966C">$ Dollars:</label>
+                                                    <input type="number" class="form-control" min="0" id="expsdl" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label style="color:#00966C">Cents:</label>
+                                                    <input type="number" class="form-control" min="0" max="99" id="expsct" style="font-size:18px; font-weight:bold; color:#6399AE; text-align:center" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label style="color:#6399AE">Progress:</label>
+                                                <input type="number" class="form-control" min="0" max="100" id="succes" style="font-size:24px; font-weight:bold; color:#6399AE; min-height:36px; text-align:center" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12" align="center" style="padding-top:4px">
+
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped active" role="progressbar" id="succProg"
+                                                     aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%; color:white">
+                                                    0.0%
+                                                </div>
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped active" role="progressbar" id="timeProg"
+                                                     aria-valuenow="0.0" aria-valuemin="0" aria-valuemax="100" style="width:0.0%; color:white">
+                                                    0.0%
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12" style="color:#0076A8">
+                                        <br />
+                                        <h4>Incompliance:</h4>
+                                        <hr />
+                                        <br />
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incUnit" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Unit</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incPart" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Part</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incModule" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Module</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incTool" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Tool</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMaterial" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Material</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incAccess" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Access</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incData" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Data</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incDocument" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Document</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incReport" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Report</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incSME" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">SME</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incStuff" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Stuff</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incTime" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Time</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMoney" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Money</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incSetup" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Setup</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incMisusage" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Misusage</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incVehicle" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Vehicle</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4" align="left">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="incOther" style="transform:scale(1.3)">
+                                            <label style="color:#6399AE; padding-left:4px">Other</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="color:#6399AE">Other Description:</label>
+                                            <textarea id="incOthDs" class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-lg-12">
+                                <span style="padding-right:10px"><input type="checkbox" id="priohg" style="transform:scale(2)" /></span>
+                                <span style="color:red; padding-right:3px"><i class="fa fa-flag"></i></span>
+                                <span style="padding-right:60px; color:#005F86; font-size:16px"><b>High Priority!</b></span>
+                                <span style="padding-right:10px"><input type="checkbox" id="compld" style="transform:scale(2)" /></span>
+                                <span style="padding-right:40px; color:#005F86; font-size:16px"><b>Step Completed!</b></span>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="reload()">Dismiss!</button>
+                                <button type="button" class="btn btn-success SaveStep">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="loadimage">
+                <div class="loadmeRect">
+                    <div class="loadmeRectChild loadmeRect1"></div>
+                    <div class="loadmeRectChild loadmeRect2"></div>
+                    <div class="loadmeRectChild loadmeRect3"></div>
+                    <div class="loadmeRectChild loadmeRect4"></div>
+                    <div class="loadmeRectChild loadmeRect5"></div>
+                </div>
+                @*<div class="loadme-mask"></div>*@
+            </div>
+        </div>
+        <!-- lckbckscr End -->
+    </div>
+    <!-- allpagewraper End -->
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <!-- jquery
+        ============================================ -->
+    <script src="~/main/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/main/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="~/main/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="~/main/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/main/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="~/main/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/main/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/main/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/main/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/main/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="~/main/js/metisMenu/metisMenu.min.js"></script>
+    <script src="~/main/js/metisMenu/metisMenu-active.js"></script>
+    <!-- Charts JS
+        ============================================ -->
+    @*<script src="~/main/js/charts/Chart.js"></script>*@
+    @*<script src="~/main/js/charts/bar-chart.js"></script>*@
+
+    <!-- Datatables -->
+    <script src="~/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+    <!-- data table JS
+        ============================================ -->
+    @*<script src="~/main/js/data-table/bootstrap-table.js"></script>
+        <script src="~/main/js/data-table/tableExport.js"></script>
+        <script src="~/main/js/data-table/data-table-active.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-editable.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-resizable.js"></script>
+        <script src="~/main/js/data-table/colResizable-1.5.source.js"></script>
+        <script src="~/main/js/data-table/bootstrap-table-export.js"></script>*@
+    <!--  editable JS
+        ============================================ -->
+    <script src="~/main/js/editable/jquery.mockjax.js"></script>
+    <script src="~/main/js/editable/mock-active.js"></script>
+    <script src="~/main/js/editable/select2.js"></script>
+    <script src="~/main/js/editable/moment.min.js"></script>
+    <script src="~/main/js/editable/bootstrap-datetimepicker.js"></script>
+    <script src="~/main/js/editable/bootstrap-editable.js"></script>
+    <script src="~/main/js/editable/xediable-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/peity/peity-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="~/main/js/icheck/icheck.min.js"></script>
+    <script src="~/main/js/icheck/icheck-active.js"></script>
+    <script src="~/main/js/form-validation/jquery.form.min.js"></script>
+    <script src="~/main/js/form-validation/jquery.validate.min.js"></script>
+    <script src="~/main/js/form-validation/form-active.js"></script>
+    <!-- sparkline JS
+       ============================================ -->
+    <script src="~/main/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/main/js/sparkline/sparkline-active.js"></script>
+    <!-- Chart JS
+        ============================================ -->
+    <script src="~/main/js/chart/jquery.peity.min.js"></script>
+    <script src="~/main/js/chart/peity-active.js"></script>
+    <!-- dropzone JS
+        ============================================ -->
+    <script src="~/main/js/dropzone/dropzone.js"></script>
+    <!-- confirm JS
+        ============================================ -->
+    <script src="~/js/jquery-confirm.min.js"></script>
+    @*<script src="~/dist/js/datepicker.min.js"></script>*@
+    <script src="~/js/jquery.datetimepicker.js"></script>
+
+    <!-- tab JS
+        ============================================ -->
+    <script src="~/main/js/tab.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="~/main/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/main/js/main.js"></script>
+
+
+    <!-- tawk chat JS
+        ============================================ -->
+    <!--<script src="/main/js/tawk-chat.js"></script>-->
+    <script src="~/lib/highlightjs/highlight.pack.js"></script>
+    <script src="~/lib/chart.js/Chart.js"></script>
+    
+    
+
+    <script src="~/js/leaflet.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.loadimage').hide();
+            getMap(2);
+            getMap(3);
+            $("#tablea").DataTable({
+                //"order": [[0, "desc"], [2, "asc"]]
+            });
+            
+        });
+        function openModal() {
+            $('#PrimaryModalalert').modal('toggle');
+        }
+        function probaDar() {
+            //alert("test");
+            $('#mapid2').remove();
+            $('#mapBase').append("<div id='mapid2' style='width: 100 %; height: 480px; position: relative; z-index: 0'></div>");
+            getMap();
+            //<div id="mapid2" style="width:100%; height: 764px; position: relative; z-index:0"></div>
+            //elem.fnDestroy;
+        }
+        function getMap(a) {
+            var sln = "mapid" + a;
+            var zoom = 0;
+            if (a == 2) {
+                zoom = 3
+            } else if (a == 3) {
+                zoom = 4
+            }
+            var mymap = L.map(sln).setView([39.707, -460.54], zoom);
+            var sw = new L.latLng(5.499550, -167.276413); //Southwest
+            var ne = new L.latLng(83.162102, -52.233040);  //Northeast
+            var bounds = new L.latLngBounds(sw, ne);
+            var redIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-red.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var orangeIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-orange.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var greenIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-green.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        var blueIcon = new L.Icon({
+            iconUrl: '/img/marker/marker-icon-blue.png',
+            shadowUrl: '/img/marker/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+        });
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoicnVtdW5rbyIsImEiOiJjamIzcDVsd2gycDhyMnFxa3ZuOGcwcXZqIn0.LivgKgnmM6_E734yDYqzBw', {
+            maxZoom: 18,
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+         getA360loc();
+            function getA360loc() {
+                var markeri = [];
+                var chkInt = @ViewBag.chkInt;
+                var userID = @ViewBag.userID;
+                var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+                var da = (new Date(Date.now() - tzoffset));
+                var dist = @Html.Raw(Json.Encode(@ViewBag.districts));
+                
+                $.ajax({
+                    url: '/emplactv/MapData',
+                    type: "GET",
+                    dataType: "JSON",
+                    data: { a: 1, b: userID, c: 0, d: null, e: null },
+                    success: function (data) {
+                        $.each(dist, function (ID, dist) {
+                            
+                            var cnt = 0;
+                            var aclng = dist.LNG;
+                            var aclat = dist.LAT;
+                            var popsec1 = "<span style='color:darkorange; font-size:12px'>Division:</span><span style='color:steelblue; font-size:12px'> " + dist.divisionName + "</span><br><span style='color:darkorange; font-size:12px'> District: </span><span style='color:steelblue; font-size:12px'>" + dist.district + "</span><hr />";
+                            var poptab = '';
+                            poptab += "<table class='table-hover' style='font-size:12px'><thead><tr><th>ID</th><th style='padding-left:4px'>Name</th></tr></thead><tbody>";
+                            $.each(data, function (ID, data) {
+                                if (dist.ID == data.distid) {
+                                    
+                                    poptab += "<tr><td>" + data.ID + "</td><td style='padding-left:4px'><a href='#' onclick='goEdit(" + data.ID + ")' title='View Profile'>" + data.agentName + "</a></td></tr>";
+                                    cnt = cnt + 1;
+                                }
+                            });
+                            if (cnt == 0) {
+                                return;
+                            }
+                            else {
+                                poptab += "</tbody></table>";
+                                markeri.push(L.marker([aclat, aclng], { icon: greenIcon, id: dist.ID }).bindPopup(popsec1 + poptab).openPopup());
+                            } 
+                        });
+                        var fgroup = new L.featureGroup(markeri);
+                        fgroup.addTo(mymap).bringToFront();
+                        mymap.setView([38.284385, -98.60], [zoom]);
+                    }
+                });
+            };
+           
+        
+        }
+        function enlargea(a) {
+            if (a == 1) { $("#cntAll").css({ 'font-weight': 'bold' }); $("#cnuptot").css({ 'font-weight': 'bold' }); }
+            else if (a == 2) { $("#cntGood").css({ 'font-weight': 'bold' }); $("#cnupgod").css({ 'font-weight': 'bold' }); $("#pcngod").css({ 'font-weight': 'bold' }); }
+            else if (a == 3) { $("#cntBad").css({ 'font-weight': 'bold' }); $("#cnupbad").css({ 'font-weight': 'bold' }); $("#pcnbad").css({ 'font-weight': 'bold' }); }
+        };
+        function enlargeb() {
+            $("#cntAll").css({ 'font-weight': 'normal' }); $("#cnuptot").css({ 'font-weight': 'normal' });
+            $("#cntGood").css({ 'font-weight': 'normal' }); $("#cnupgod").css({ 'font-weight': 'normal' }); $("#pcngod").css({ 'font-weight': 'normal' });
+            $("#cntBad").css({ 'font-weight': 'normal' }); $("#cnupbad").css({ 'font-weight': 'normal' }); $("#pcnbad").css({ 'font-weight': 'normal' });
+        };
+        function PopupCenterDual(url, title, w, h) {
+            // Fixes dual-screen position Most browsers Firefox
+            var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+            var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+            width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+            height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+            var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+            var top = ((height / 2) - (h / 2)) + dualScreenTop;
+            var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+            // Puts focus on the newWindow
+            if (window.focus) {
+                newWindow.focus();
+            }
+        }
+    </script>
+    <script>
+        // tooltip demo
+        $('.tooltip-demo').tooltip({
+            selector: "[data-toggle=tooltip]",
+            container: "body"
+        });
+        // popover demo
+        $("[data-toggle=popover]").popover();
+    </script>
+</body>
+
+</html>

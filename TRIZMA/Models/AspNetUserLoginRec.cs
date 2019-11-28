@@ -20,5 +20,7 @@ namespace TRIZMA.Models
         public int logDate { get; set; }
         public int logTime { get; set; }
         public string dbdt { get; set; }
+        public int dbdate { get; set; }
+        public int dbtime { get; set; }
     }
 }

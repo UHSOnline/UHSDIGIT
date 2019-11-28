@@ -515,6 +515,14 @@ namespace TRIZMA.Controllers
                 return RedirectToAction("Index", "aglinvMap", new { projectID = 15, taskOrderID = 66, Int1 = Int1 });
             }
             else
+            if (projectID == 17 && CurrentLoginID == User.Identity.GetUserId().ToString()
+                                && returnProjectIDlist.Contains(17)
+                                && returnTaskOrdersIDlist.Contains(68)
+                                && taskOrderID == 68)
+            {
+                return RedirectToAction("Index", "emplactv", new { projectID = 17, taskOrderID = 68, Int1 = Int1 });
+            }
+            else
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

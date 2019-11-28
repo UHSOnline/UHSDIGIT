@@ -208,6 +208,7 @@
     <Compile Include="Controllers\agentsController.cs" />
     <Compile Include="Controllers\callStatusController.cs" />
     <Compile Include="Controllers\aglinvMapController.cs" />
+    <Compile Include="Controllers\emplactvController.cs" />
     <Compile Include="Controllers\uhssscyccntmController.cs" />
     <Compile Include="Controllers\uhsReportingController.cs" />
     <Compile Include="Controllers\uhsworktaskController.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Controllers\clientsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Models\AGLEMPACT1vDb.cs" />
     <Compile Include="Models\AGLINVIND1.cs" />
     <Compile Include="Models\AGLINVMDLDATApg.cs" />
     <Compile Include="Models\AGLINVMDLDATA.cs" />
@@ -263,9 +265,11 @@
     <Compile Include="Models\appEquipmentModels.cs" />
     <Compile Include="Models\appEquipmentTypes.cs" />
     <Compile Include="Models\AspNetUserLoginRec.cs" />
+    <Compile Include="Models\AGLEMPACT1Db.cs" />
     <Compile Include="Models\deserializer1.cs" />
     <Compile Include="Models\AGLINVMDL1.cs" />
     <Compile Include="Models\appEquipmentManufacturers.cs" />
+    <Compile Include="Models\dimEquipmentGroupExternal.cs" />
     <Compile Include="Models\fctEquipmentModelssh.cs" />
     <Compile Include="Models\fctEquipmentTypes.cs" />
     <Compile Include="Models\fctEquipmentManufacturers.cs" />
@@ -562,6 +566,7 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\owl.transitions.css" />
     <Content Include="css\prettyPhoto.css" />
+    <Content Include="css\semi-transparent-buttons.css" />
     <Content Include="css\skitter.css" />
     <Content Include="css\startmin.css" />
     <Content Include="css\styles.css" />
@@ -1568,6 +1573,9 @@
     <Content Include="main\img\product\pro4.jpg" />
     <Content Include="main\img\product\profile-bg.jpg" />
     <Content Include="main\img\profile\1.jpg" />
+    <Content Include="main\img\profile\user_image.png" />
+    <Content Include="main\img\profile\user_imagek.png" />
+    <Content Include="main\img\profile\user_imagekb.png" />
     <Content Include="main\img\student\1.jpg" />
     <Content Include="main\img\student\2.jpg" />
     <Content Include="main\img\student\3.jpg" />
@@ -8028,6 +8036,7 @@
     <Content Include="Views\uhsCH\Homeb.cshtml" />
     <Content Include="Views\uhsCH\Home - Copy.cshtml" />
     <Content Include="Views\Home\loginDate.cshtml" />
+    <Content Include="Views\emplactv\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\images\cta2\" />

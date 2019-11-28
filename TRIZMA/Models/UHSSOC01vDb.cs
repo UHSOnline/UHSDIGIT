@@ -61,5 +61,8 @@ namespace TRIZMA.Models
         public string viewdt { get; set; }
         public string usernm { get; set; }
         public int divsid { get; set; }
+        public DateTime dbdt { get; set; }
+        public int dbdate { get; set; }
+        public int dbtime { get; set; }
     }
 }

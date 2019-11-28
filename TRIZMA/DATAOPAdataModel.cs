@@ -42,6 +42,8 @@ namespace TRIZMA
         public virtual DbSet<AGLINVMDLDATADb> AGLINVMDLDATADbs { get; set; }
         public virtual DbSet<UHSSOC01Db> UHSSOC01Dbs { get; set; }
         public virtual DbSet<UHSDOCTPDb> UHSDOCTPDbs { get; set; }
+        public virtual DbSet<AGLEMPACT1Db> AGLEMPACT1Dbs { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
